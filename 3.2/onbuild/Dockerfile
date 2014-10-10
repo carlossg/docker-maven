@@ -1,4 +1,4 @@
-FROM csanchez/maven
+FROM csanchez/maven:3.2
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
