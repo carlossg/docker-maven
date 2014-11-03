@@ -8,7 +8,4 @@ RUN curl -sSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binari
 
 ENV MAVEN_HOME /usr/share/maven
 
-COPY ./docker-entrypoint.sh /
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["mvn"]
