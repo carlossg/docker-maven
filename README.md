@@ -40,9 +40,9 @@ You can then build and run the image:
 
 For many simple projects, you may find it inconvenient to write a complete `Dockerfile`.
 In such cases, you can run a Maven project by using the Maven Docker image directly,
-passing any Maven goals to `docker run`:
+passing a Maven command to `docker run`:
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.2-jdk-7 clean install
+    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.2-jdk-7 mvn clean install
 
 
 # User Feedback
