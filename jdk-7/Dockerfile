@@ -1,4 +1,4 @@
-FROM java:openjdk-7u65-jdk
+FROM java:openjdk-7u71-jdk
 
 ENV MAVEN_VERSION 3.2.5
 

@@ -1,4 +1,4 @@
-FROM java:openjdk-6b32-jdk
+FROM java:openjdk-6b33-jdk
 
 ENV MAVEN_VERSION 3.2.5
 
