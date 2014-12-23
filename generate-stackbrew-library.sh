@@ -15,17 +15,16 @@ for version in "${versions[@]}"; do
 	commit="$(git log -1 --format='format:%H' -- "$version")"
 	
 	mavenVersion="$(grep -m1 'ENV MAVEN_VERSION ' "$version/Dockerfile" | cut -d' ' -f3)"
-	jdkVersion="$(awk -F '-|:| ' '$1 == "FROM" && $2 == "java" && $3 == "openjdk" { print $4 }' "$version/Dockerfile")"
 	
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
-		versionAliases+=( $mavenVersion-jdk-$jdkVersion $mavenVersion-$version )
+		versionAliases+=( $mavenVersion-$version )
 		if [ "$version" = "$latest" ]; then
 			versionAliases+=( $mavenVersion )
 		fi
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
-	versionAliases+=( $mavenVersion-jdk-$jdkVersion $mavenVersion-$version )
+	versionAliases+=( $mavenVersion-$version )
 	if [ "$version" = "$latest" ]; then
 		versionAliases+=( $mavenVersion latest )
 	fi
