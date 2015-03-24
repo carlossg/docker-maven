@@ -3,12 +3,10 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
-* [3.2](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3.2-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
-* [3.2-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3.2-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile)
-* [3.2-jdk-6](https://github.com/carlossg/docker-maven/blob/master/jdk-6/Dockerfile), [3-jdk-6](https://github.com/carlossg/docker-maven/blob/master/jdk-6/Dockerfile)
-* [3.2-jdk-6-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-6/onbuild/Dockerfile), [3-jdk-6-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-6/onbuild/Dockerfile)
-* [3.2-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile), [3-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
-* [3.2-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile), [3-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile)
+* [3.3](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3.3-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
+* [3.3-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3.3-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile)
+* [3.3-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile), [3-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
+* [3.3-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile), [3-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile)
 
 # What is Maven?
 
@@ -22,7 +20,7 @@ reporting and documentation from a central piece of information.
 
 ## Create a Dockerfile in your Maven project
 
-    FROM maven:3.2-jdk-7-onbuild
+    FROM maven:3.3-jdk-7-onbuild
     CMD ["do-something-with-built-packages"]
 
 Put this file in the root of your project, next to the pom.xml.
@@ -42,7 +40,7 @@ For many simple projects, you may find it inconvenient to write a complete `Dock
 In such cases, you can run a Maven project by using the Maven Docker image directly,
 passing a Maven command to `docker run`:
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.2-jdk-7 mvn clean install
+    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-7 mvn clean install
 
 
 # User Feedback
