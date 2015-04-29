@@ -3,10 +3,10 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
-* [3.3](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3.3-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile), [3-jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
-* [3.3-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3.3-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile), [3-jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile)
-* [3.3-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile), [3-jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
-* [3.3-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile), [3-jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile)
+* [jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
+* [jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile)
+* [latest, jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
+* [onbuild, jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile)
 
 # What is Maven?
 
