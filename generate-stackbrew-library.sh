@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-latest='jdk-7'
+latest='jdk-8'
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
