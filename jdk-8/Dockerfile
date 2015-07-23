@@ -8,4 +8,6 @@ RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binar
 
 ENV MAVEN_HOME /usr/share/maven
 
+VOLUME /root/.m2
+
 CMD ["mvn"]
