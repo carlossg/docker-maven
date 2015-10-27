@@ -8,6 +8,12 @@ RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/bina
 
 ENV MAVEN_HOME /usr/share/maven
 
-VOLUME /root/.m2
+RUN adduser --disabled-password maven --gecos Maven --home /maven && mkdir /maven/project
 
-CMD ["mvn"]
+USER maven
+
+VOLUME ["/maven/.m2", "/maven/project"]
+
+WORKDIR /maven/project
+
+ENTRYPOINT ["mvn"]
