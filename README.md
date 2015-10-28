@@ -26,12 +26,17 @@ reporting and documentation from a central piece of information.
 Put this file in the root of your project, next to the pom.xml.
 
 This image includes multiple ONBUILD triggers which should be all you need to bootstrap.
-The build will `COPY . /usr/src/app` and `RUN mvn install`.
+The build will `COPY . /maven/project` and `RUN mvn install`.
+
+CMD directive above should contain argumetns to second `mvn` invocation after `mnv install` is
+complete, for example:
+
+    CMD ["-Pdeployment", "-DskipTests=true", "deploy"]
 
 You can then build and run the image:
 
     docker build -t my-maven .
-    docker run -it --name my-maven-script my-maven
+    docker run --rm my-maven
 
 
 ## Run a single Maven command
@@ -40,8 +45,16 @@ For many simple projects, you may find it inconvenient to write a complete `Dock
 In such cases, you can run a Maven project by using the Maven Docker image directly,
 passing a Maven command to `docker run`:
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-7 mvn clean install
+    docker run --rm -v $HOME/.m2:/maven/.m2 -v $(pwd):/maven/project maven:3.3-jdk-7 clean install
 
+Note that entry point of the image is `mvn`, so the command you pass to `docker run` are actually
+Maven invocation arguments. In case you need to override it, you can use `--entrypoint` parameter
+of `docker run` command.
+
+The build will be executed as user `maven` with UID 1000. This is important because the mounted
+host directories will be accessed using the same local UID. If the UID of the account used to
+run Docker is different, you need to add `-u $UID` to `docker run` invocation. Otherwise Maven will
+not be able to to write files in `$HOME/.m2` and project `target` directory.
 
 # Running as non-root
 
