@@ -43,6 +43,15 @@ passing a Maven command to `docker run`:
     docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-7 mvn clean install
 
 
+# Running as non-root
+
+Maven needs the user home to download artifacts to, and if the user does not exist in the image an extra
+`user.home` Java property needs to be set.
+
+For example, to run as user `1000` mounting the host' Maven repo
+
+    docker run -v ~/.m2:/var/maven/.m2 -ti --rm -u 1000 maven mvn -Duser.home=/var/maven archetype:generate
+
 # User Feedback
 
 ## Issues
