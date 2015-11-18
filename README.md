@@ -43,6 +43,16 @@ passing a Maven command to `docker run`:
     docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-7 mvn clean install
 
 
+# Reusing the Maven local repository
+
+The local Maven repository can be reused across containers by mounting `/root/.m2` as a host or shared volume.
+
+Mounting from host
+
+    docker run -it --name my-maven-script my-maven
+
+    docker create -v /root/.m2 --name maven-repo busybox /bin/true
+
 # Running as non-root
 
 Maven needs the user home to download artifacts to, and if the user does not exist in the image an extra
