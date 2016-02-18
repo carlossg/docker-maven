@@ -7,6 +7,8 @@ docker-maven
 * [jdk-7-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-7/onbuild/Dockerfile)
 * [latest, jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [onbuild, jdk-8-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-8/onbuild/Dockerfile)
+* [jdk-9](https://github.com/carlossg/docker-maven/blob/master/jdk-9/Dockerfile)
+* [jdk-9-onbuild](https://github.com/carlossg/docker-maven/blob/master/jdk-9/onbuild/Dockerfile)
 
 # What is Maven?
 
