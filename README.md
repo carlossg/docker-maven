@@ -47,13 +47,11 @@ passing a Maven command to `docker run`:
 
 # Reusing the Maven local repository
 
-The local Maven repository can be reused across containers by mounting `/root/.m2` as a host or shared volume.
-
-Mounting from host
-
-    docker run -it --name my-maven-script my-maven
+The local Maven repository can be reused across containers by mounting `/root/.m2` as a shared volume.
 
     docker create -v /root/.m2 --name maven-repo busybox /bin/true
+    docker run -it --volumes-from maven-repo maven mvn archetype:generate # will download artifacts
+    docker run -it --volumes-from maven-repo maven mvn archetype:generate # will reuse downloaded artifacts
 
 # Running as non-root
 
