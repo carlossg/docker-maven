@@ -53,6 +53,24 @@ The local Maven repository can be reused across containers by mounting `/root/.m
     docker run -it --volumes-from maven-repo maven mvn archetype:generate # will download artifacts
     docker run -it --volumes-from maven-repo maven mvn archetype:generate # will reuse downloaded artifacts
 
+# Packaging a local repository with the image
+
+The `$MAVEN_CONFIG` dir (default to `/root/.m2`) is configured as a volume so anything copied there in a Dockerfile at build time is lost.
+For that the dir `/usr/share/maven/ref/` is created, and anything in there will be copied on container startup to `$MAVEN_CONFIG`.
+
+To create a pre-packaged repository, create a `pom.xml` with the dependencies you need and use this in your `Dockerfile`.
+`/usr/share/maven/ref/settings-docker.xml` is a settings file that changes the local repository to `/usr/share/maven/ref/repository`,
+but you can use your own settings file as long as it uses `/usr/share/maven/ref/repository` as local repo.
+
+    COPY pom.xml /tmp/pom.xml
+    RUN mvn -B -f /tmp/pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
+
+To add your custom `settings.xml` file to the image use
+
+    COPY settings.xml /usr/share/maven/ref/
+
+For an example, check the `tests` dir
+
 # Running as non-root
 
 Maven needs the user home to download artifacts to, and if the user does not exist in the image an extra
