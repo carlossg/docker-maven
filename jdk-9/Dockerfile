@@ -1,4 +1,4 @@
-FROM java:openjdk-9-jdk
+FROM java:openjdk-9-jdk-alpine
 
 ENV MAVEN_VERSION 3.3.9
 

@@ -1,4 +1,4 @@
-FROM maven:3-jdk-7
+FROM maven:3-jdk-7-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
