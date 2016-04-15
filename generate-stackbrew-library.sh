@@ -5,7 +5,7 @@ latest='jdk-8'
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
-versions=( */ )
+versions=( jdk-*/ )
 versions=( "${versions[@]%/}" )
 url='git://github.com/carlossg/docker-maven'
 
