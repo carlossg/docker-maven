@@ -35,7 +35,11 @@ generate-version() {
 	
 	echo
 	for va in "${versionAliases[@]}"; do
-		echo "${va}${branch_suffix}: ${url}@${commit} $version"
+		if [ "$branch" != 'master' ] && [ "$va" = 'latest' ]; then
+			echo "${branch}: ${url}@${commit} $version"
+		else
+			echo "${va}${branch_suffix}: ${url}@${commit} $version"
+		fi
 	done
 	
 	for variant in onbuild; do
