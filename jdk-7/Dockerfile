@@ -1,6 +1,6 @@
 FROM java:openjdk-7-jdk-alpine
 
-RUN apk --update add --no-cache curl tar bash && rm -rf /var/cache/apk/*
+RUN apk add --no-cache curl tar bash
 
 ENV MAVEN_VERSION 3.3.9
 
