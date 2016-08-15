@@ -1,4 +1,4 @@
-FROM java:openjdk-9-jdk
+FROM openjdk:9-jdk
 
 ARG MAVEN_VERSION=3.3.9
 ARG USER_HOME_DIR="/root"
