@@ -80,6 +80,24 @@ For example, to run as user `1000` mounting the host' Maven repo
 
     docker run -v ~/.m2:/var/maven/.m2 -ti --rm -u 1000 maven mvn -Duser.home=/var/maven archetype:generate
 
+# Building
+
+Build with the usual
+
+    docker build -t maven .
+
+Tests are written using [bats](https://github.com/sstephenson/bats) under the `tests` dir.
+Use the env var TAG to choose what image to run tests against.
+
+    TAG=jdk-8 bats tests
+
+or run all the tests with
+
+    for tag in jdk-7 jdk-8 jdk-9; do TAG=$tag bats tests; done
+
+Bats can be easily installed with `brew install bats` on OS X
+
+
 # User Feedback
 
 ## Issues
