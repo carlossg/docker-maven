@@ -47,11 +47,11 @@ passing a Maven command to `docker run`:
 
 # Reusing the Maven local repository
 
-The local Maven repository can be reused across containers by mounting `/root/.m2` as a shared volume.
+The local Maven repository can be reused across containers by creating a volume and mounting it in `/root/.m2`.
 
-    docker create -v /root/.m2 --name maven-repo busybox /bin/true
-    docker run -it --volumes-from maven-repo maven mvn archetype:generate # will download artifacts
-    docker run -it --volumes-from maven-repo maven mvn archetype:generate # will reuse downloaded artifacts
+    docker volume create --name maven-repo
+    docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
+    docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
 
 # Packaging a local repository with the image
 
@@ -79,6 +79,24 @@ Maven needs the user home to download artifacts to, and if the user does not exi
 For example, to run as user `1000` mounting the host' Maven repo
 
     docker run -v ~/.m2:/var/maven/.m2 -ti --rm -u 1000 maven mvn -Duser.home=/var/maven archetype:generate
+
+# Building
+
+Build with the usual
+
+    docker build -t maven .
+
+Tests are written using [bats](https://github.com/sstephenson/bats) under the `tests` dir.
+Use the env var TAG to choose what image to run tests against.
+
+    TAG=jdk-8 bats tests
+
+or run all the tests with
+
+    for tag in jdk-7 jdk-8 jdk-9; do TAG=$tag bats tests; done
+
+Bats can be easily installed with `brew install bats` on OS X
+
 
 # User Feedback
 

@@ -1,6 +1,9 @@
-FROM java:openjdk-9-jdk-alpine
+FROM openjdk:9-jdk-alpine
 
-ENV MAVEN_VERSION 3.3.9
+RUN apk add --no-cache curl tar bash
+
+ARG MAVEN_VERSION=3.3.9
+ARG USER_HOME_DIR="/root"
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
@@ -8,13 +11,12 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG /root/.m2
-ENV COPY_REFERENCE_FILE_LOG $MAVEN_CONFIG/copy_reference_file.log
+ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
 
-VOLUME /root/.m2
+VOLUME "$USER_HOME_DIR/.m2"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn"]

@@ -3,7 +3,7 @@ set -e
 
 latest='jdk-8'
 
-cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+cd "$(dirname "${BASH_SOURCE[0]}")"
 
 url='git://github.com/carlossg/docker-maven'
 
@@ -18,7 +18,7 @@ generate-version() {
 
 	commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
 	
-	mavenVersion="$(grep -m1 'ENV MAVEN_VERSION ' "$version/Dockerfile" | cut -d' ' -f3)"
+	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
 	
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
@@ -43,7 +43,7 @@ generate-version() {
 	done
 	
 	for variant in onbuild; do
-		commit="$(git log -1 --format='format:%H' "$branch" -- "$version/$variant")"
+		commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
 		echo
 		for va in "${versionAliases[@]}"; do
 			if [ "$va" = 'latest' ]; then
