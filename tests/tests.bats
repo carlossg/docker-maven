@@ -19,7 +19,7 @@ load test_helpers
 }
 
 @test "create test container" {
-    assert "$(grep 'ENV MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ENV MAVEN_VERSION //')" \
+    assert "$(grep 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')" \
       bash -c "docker run --rm $SUT_IMAGE mvn -version | grep 'Apache Maven ' | sed -e 's/Apache Maven \([0-9\.]*\) .*/\1/'"
 }
 
