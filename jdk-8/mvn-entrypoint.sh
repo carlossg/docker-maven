@@ -9,25 +9,25 @@ copy_reference_file() {
   local root="${1}"
   local f="${2%/}"
   local logfile="${3}"
-  local b="${f%.override}"
-  local rel
-  local dir
+  local rel="${f/${root}/}" # path relative to /usr/share/maven/ref/
   echo "$f" >> "$logfile"
-  rel="$(echo $f | sed -e "s#${root}##")" # path relative to /usr/share/maven/ref/
-  dir=$(dirname "${b}")
   echo " $f -> $rel" >> "$logfile"
   if [[ ! -e ${MAVEN_CONFIG}/${rel} || $f = *.override ]]
   then
     echo "copy $rel to ${MAVEN_CONFIG}" >> "$logfile"
-    mkdir -p "${MAVEN_CONFIG}/$(dirname ${rel})"
+    mkdir -p "${MAVEN_CONFIG}/$(dirname "${rel}")"
     cp -r "${f}" "${MAVEN_CONFIG}/${rel}";
   fi;
 }
 
+copy_reference_files() {
+  local log="$MAVEN_CONFIG/copy_reference_file.log"
+  touch "${log}" || (echo "Can not write to ${log}. Wrong volume permissions?" && exit 1)
+  echo "--- Copying files at $(date)" >> "$log"
+  find /usr/share/maven/ref/ -type f -exec bash -eu -c 'copy_reference_file /usr/share/maven/ref/ "$1" "$2"' _ {} "$log" \;
+}
+
 export -f copy_reference_file
-COPY_REFERENCE_FILE_LOG="$MAVEN_CONFIG/copy_reference_file.log"
-touch "${COPY_REFERENCE_FILE_LOG}" || (echo "Can not write to ${COPY_REFERENCE_FILE_LOG}. Wrong volume permissions?" && exit 1)
-echo "--- Copying files at $(date)" >> "$COPY_REFERENCE_FILE_LOG"
-find /usr/share/maven/ref/ -type f -exec bash -c "copy_reference_file /usr/share/maven/ref/ '{}' "$COPY_REFERENCE_FILE_LOG"" \;
+copy_reference_files
 
 exec "$@"
