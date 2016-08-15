@@ -6,6 +6,8 @@ SUT_TAG=${TAG:-jdk-8}
 SUT_TEST_IMAGE=bats-maven-test
 SUT_TEST_CONTAINER=bats-maven-test
 
+load 'test_helper/bats-support/load'
+load 'test_helper/bats-assert/load'
 load test_helpers
 
 @test "$SUT_TAG build image" {
