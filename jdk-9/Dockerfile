@@ -3,6 +3,11 @@ FROM openjdk:9-jdk
 ARG MAVEN_VERSION=3.3.9
 ARG USER_HOME_DIR="/root"
 
+# Maven fails with 'Can't read cryptographic policy directory: unlimited'
+# because it looks for $JAVA_HOME/conf/security/policy/unlimited but it is in
+# /etc/java-9-openjdk/security/policy/unlimited
+RUN ln -s /etc/java-9-openjdk /usr/lib/jvm/java-9-openjdk-amd64/conf
+
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
     | tar -xzC /usr/share/maven --strip-components=1 \
