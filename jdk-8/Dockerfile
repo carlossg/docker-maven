@@ -1,9 +1,9 @@
 FROM openjdk:8-jdk
 
-ARG MAVEN_VERSION=3.3.9
+ARG MAVEN_VERSION=3.5.0-alpha-1
 ARG USER_HOME_DIR="/root"
-ARG SHA1=5b4c117854921b527ab6190615f9435da730ba05
-ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
+ARG SHA1=a677b8398313325d6c266279cb8d385bbc9d435d
+ARG BASE_URL=https://repository.apache.org/content/repositories/maven-1324/org/apache/maven/apache-maven/${MAVEN_VERSION}
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-$MAVEN_VERSION-bin.tar.gz \
