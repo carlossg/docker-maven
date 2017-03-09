@@ -55,7 +55,7 @@ The local Maven repository can be reused across containers by creating a volume 
 
 Or you can just use your home .m2 cache directory that you share e.g. with your Eclipse/IDEA:
 
-   `docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/srv/mymaven/target" -w /usr/src/mymaven maven mvn clean package`   
+    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/srv/mymaven/target" -w /usr/src/mymaven maven mvn clean package  
     
 # Packaging a local repository with the image
 
