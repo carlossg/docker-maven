@@ -53,6 +53,10 @@ The local Maven repository can be reused across containers by creating a volume 
     docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
     docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
 
+Or you can just use your home .m2 cache directory that you share e.g. with your Eclipse/IDEA:
+
+    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/srv/mymaven/target" -w /usr/src/mymaven maven mvn clean package  
+    
 # Packaging a local repository with the image
 
 The `$MAVEN_CONFIG` dir (default to `/root/.m2`) is configured as a volume so anything copied there in a Dockerfile at build time is lost.
