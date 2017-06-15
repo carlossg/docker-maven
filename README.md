@@ -77,7 +77,7 @@ Use the env var TAG to choose what image to run tests against.
 
 or run all the tests with
 
-    for tag in jdk-7 jdk-8 jdk-9; do TAG=$tag bats tests; done
+    for tag in jdk-7 jdk-8 jdk-9 ibmjava-8 ibmjava-9; do TAG=$tag bats tests; done
 
 Bats can be easily installed with `brew install bats` on OS X
 
