@@ -41,19 +41,6 @@ generate-version() {
 			echo "${va}${branch_suffix}: ${url}@${commit} $version"
 		fi
 	done
-	
-	for variant in onbuild; do
-		commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
-		echo
-		for va in "${versionAliases[@]}"; do
-			if [ "$va" = 'latest' ]; then
-				va="${variant}${branch_suffix}"
-			else
-				va="$va-${variant}${branch_suffix}"
-			fi
-			echo "$va: ${url}@${commit} $version/$variant"
-		done
-	done
 }
 
 echo '# maintainer: Carlos Sanchez <carlos@apache.org> (@carlossg)'
