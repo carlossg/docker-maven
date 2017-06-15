@@ -45,12 +45,12 @@ generate-version() {
 
 echo '# maintainer: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 
-versions=( jdk-*/ )
+versions=( jdk-*/ ibmjava-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
 	for branch in master alpine; do
-		if ! ( [ "$version" == 'jdk-9' ] && [ "$branch" == 'alpine' ] ); then # no base image for jdk-9-alpine yet
+		if ! ( [[ "$version" =~ .*-9 ]] && [ "$branch" == 'alpine' ] ); then # no base image for jdk-9-alpine yet
 			generate-version "$version" "$branch"
 		fi
 	done
