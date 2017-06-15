@@ -1,4 +1,4 @@
-FROM ibmjava:9
+FROM ibmjava:9-sdk
 
 ARG MAVEN_VERSION=3.5.0
 ARG USER_HOME_DIR="/root"
