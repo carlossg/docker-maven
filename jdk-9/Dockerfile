@@ -5,6 +5,11 @@ ARG USER_HOME_DIR="/root"
 ARG SHA=beb91419245395bd69a4a6edad5ca3ec1a8b64e41457672dc687c173a495f034
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
+# Maven fails with 'Can't read cryptographic policy directory: unlimited'
+# because it looks for $JAVA_HOME/conf/security/policy/unlimited but it is in
+# /etc/java-9-openjdk/security/policy/unlimited
+RUN ln -s /etc/java-9-openjdk /usr/lib/jvm/java-9-openjdk-amd64/conf
+
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-$MAVEN_VERSION-bin.tar.gz \
   && echo "${SHA}  /tmp/apache-maven.tar.gz" | sha256sum -c - \
