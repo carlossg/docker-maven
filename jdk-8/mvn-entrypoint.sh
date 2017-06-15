@@ -34,5 +34,6 @@ copy_reference_files() {
 
 export -f copy_reference_file
 copy_reference_files
+unset MAVEN_CONFIG
 
 exec "$@"
