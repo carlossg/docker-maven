@@ -22,12 +22,18 @@ copy_reference_file() {
 
 copy_reference_files() {
   local log="$MAVEN_CONFIG/copy_reference_file.log"
-  touch "${log}" || (echo "Can not write to ${log}. Wrong volume permissions?" && exit 1)
-  echo "--- Copying files at $(date)" >> "$log"
-  find /usr/share/maven/ref/ -type f -exec bash -eu -c 'copy_reference_file /usr/share/maven/ref/ "$1" "$2"' _ {} "$log" \;
+
+  if (touch "${log}" > /dev/null 2>&1)
+  then
+      echo "--- Copying files at $(date)" >> "$log"
+      find /usr/share/maven/ref/ -type f -exec bash -eu -c 'copy_reference_file /usr/share/maven/ref/ "$1" "$2"' _ {} "$log" \;
+  else
+    echo "Can not write to ${log}. Wrong volume permissions? Carrying on ..."
+  fi
 }
 
 export -f copy_reference_file
 copy_reference_files
+unset MAVEN_CONFIG
 
 exec "$@"

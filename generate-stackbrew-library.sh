@@ -41,29 +41,16 @@ generate-version() {
 			echo "${va}${branch_suffix}: ${url}@${commit} $version"
 		fi
 	done
-	
-	for variant in onbuild; do
-		commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
-		echo
-		for va in "${versionAliases[@]}"; do
-			if [ "$va" = 'latest' ]; then
-				va="${variant}${branch_suffix}"
-			else
-				va="$va-${variant}${branch_suffix}"
-			fi
-			echo "$va: ${url}@${commit} $version/$variant"
-		done
-	done
 }
 
 echo '# maintainer: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 
-versions=( jdk-*/ )
+versions=( jdk-*/ ibmjava-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
 	for branch in master alpine; do
-		if ! ( [ "$version" == 'jdk-9' ] && [ "$branch" == 'alpine' ] ); then # no base image for jdk-9-alpine yet
+		if ! ( [[ "$version" =~ .*-9 ]] && [ "$branch" == 'alpine' ] ); then # no base image for jdk-9-alpine yet
 			generate-version "$version" "$branch"
 		fi
 	done
