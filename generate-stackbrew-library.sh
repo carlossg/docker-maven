@@ -50,7 +50,7 @@ versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
 	for branch in master alpine; do
-		if ! ( [[ "$version" =~ .*-9 ]] && [ "$branch" == 'alpine' ] ); then # no base image for jdk-9-alpine yet
+		if ! ( [[ "$version" == "jdk-9" ]] && [ "$branch" == 'alpine' ] ); then # no base image for openjdk-9-alpine yet
 			generate-version "$version" "$branch"
 		fi
 	done
