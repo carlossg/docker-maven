@@ -4,10 +4,14 @@ docker-maven
 # Supported tags and respective Dockerfile links
 
 * [jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
+* [jdk-7-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-7/Dockerfile)
 * [latest, jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
+* [alpine, jdk-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-8/Dockerfile)
 * [jdk-9](https://github.com/carlossg/docker-maven/blob/master/jdk-9/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
+* [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/ibmjava-8/Dockerfile)
 * [ibmjava-9](https://github.com/carlossg/docker-maven/blob/master/ibmjava-9/Dockerfile)
+* [ibmjava-9-alpine](https://github.com/carlossg/docker-maven/blob/alpine/ibmjava-9/Dockerfile)
 
 # What is Maven?
 
