@@ -12,6 +12,11 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
+# update list of available packages --adds 16MB
+RUN apt-get update
+# install RPM utilities (includes rpmbuild) --adds 18MB
+RUN apt-get install rpm -y
+
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
