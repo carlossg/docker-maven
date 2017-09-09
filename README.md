@@ -13,6 +13,7 @@ docker-maven
 * [ibmjava-9](https://github.com/carlossg/docker-maven/blob/master/ibmjava-9/Dockerfile)
 * [ibmjava-9-alpine](https://github.com/carlossg/docker-maven/blob/alpine/ibmjava-9/Dockerfile)
 
+
 # What is Maven?
 
 [Apache Maven](http://maven.apache.org) is a software project management and comprehension tool.
@@ -34,6 +35,7 @@ This is a base image that you can extend, so it has the bare minimum packages ne
 
     docker build --tag my_local_maven:3.5.0-jdk-8 .
 
+
 # Reusing the Maven local repository
 
 The local Maven repository can be reused across containers by creating a volume and mounting it in `/root/.m2`.
@@ -45,7 +47,8 @@ The local Maven repository can be reused across containers by creating a volume 
 Or you can just use your home .m2 cache directory that you share e.g. with your Eclipse/IDEA:
 
     docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn clean package  
-    
+
+
 # Packaging a local repository with the image
 
 The `$MAVEN_CONFIG` dir (default to `/root/.m2`) is configured as a volume so anything copied there in a Dockerfile at build time is lost.
@@ -64,6 +67,7 @@ To add your custom `settings.xml` file to the image use
 
 For an example, check the `tests` dir
 
+
 # Running as non-root
 
 Maven needs the user home to download artifacts to, and if the user does not exist in the image an extra
@@ -72,6 +76,24 @@ Maven needs the user home to download artifacts to, and if the user does not exi
 For example, to run as user `1000` mounting the host' Maven repo
 
     docker run -v ~/.m2:/var/maven/.m2 -ti --rm -u 1000 -e MAVEN_CONFIG=/var/maven/.m2 maven mvn -Duser.home=/var/maven archetype:generate
+
+
+# Image Variants
+
+The `maven` images come in many flavors, each designed for a specific use case.
+
+## `maven:<version>`
+
+This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
+
+## `maven:alpine`
+
+This image is based on the popular [Alpine Linux project](http://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
+
+This variant is highly recommended when final image size being as small as possible is desired. The main caveat to note is that it does use [musl libc](http://www.musl-libc.org) instead of [glibc and friends](http://www.etalabs.net/compare_libcs.html), so certain software might run into issues depending on the depth of their libc requirements. However, most software doesn't have an issue with this, so this variant is usually a very safe choice. See [this Hacker News comment thread](https://news.ycombinator.com/item?id=10782897) for more discussion of the issues that might arise and some pro/con comparisons of using Alpine-based images.
+
+To minimize image size, it's uncommon for additional related tools (such as `git` or `bash`) to be included in Alpine-based images. Using this image as a base, add the things you need in your own Dockerfile (see the [`alpine` image description](https://hub.docker.com/_/alpine/) for examples of how to install packages if you are unfamiliar).
+
 
 # Building
 
@@ -89,6 +111,11 @@ or run all the tests with
     for tag in jdk-7 jdk-8 jdk-9 ibmjava-8 ibmjava-9; do TAG=$tag bats tests; done
 
 Bats can be easily installed with `brew install bats` on OS X
+
+
+# License
+
+View [license information](https://www.apache.org/licenses/) for the software contained in this image.
 
 
 # User Feedback
