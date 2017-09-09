@@ -49,7 +49,7 @@ versions=( jdk-*/ ibmjava-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
-	for branch in master alpine; do
+	for branch in master slim alpine; do
 		if ! ( [[ "$version" == "jdk-9" ]] && [ "$branch" == 'alpine' ] ); then # no base image for openjdk-9-alpine yet
 			generate-version "$version" "$branch"
 		fi
