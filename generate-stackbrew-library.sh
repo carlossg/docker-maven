@@ -7,7 +7,14 @@ variants=( alpine slim )
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-url='git://github.com/carlossg/docker-maven'
+url='https://github.com/carlossg/docker-maven.git'
+
+# prints "$2$1$3$1...$N"
+join() {
+	local sep="$1"; shift
+	local out; printf -v out "${sep//%/%%}%s" "$@"
+	echo "${out#$sep}"
+}
 
 generate-version() {
 	local version=$1
@@ -49,6 +56,7 @@ generate-version() {
 	# tag 3, latest
 	if [[ "$version" == "$default_jdk-$latest" ]]; then
 		versionAliases+=( $mavenVersion latest )
+		[ "$branch" = 'master' ] || versionAliases+=( "$branch" )
 	elif [[ "$version" == *"-$latest" ]]; then
 		# tag 3-ibmjava ibmjava
 		versionAliases+=( $mavenVersion-${version//-$latest/} ${version//-$latest/} )
@@ -64,18 +72,20 @@ generate-version() {
 			fi
 		fi
 	done
-	
+
+	from="$(awk 'toupper($1) == "FROM" { print $2 }' "$version/Dockerfile")"
+	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
+
 	echo
-	for va in "${versionAliases[@]}"; do
-		if [ "$branch" != 'master' ] && [ "$va" = 'latest' ]; then
-			echo "${branch}: ${url}@${commit} $version"
-		else
-			echo "${va}${branch_suffix}: ${url}@${commit} $version"
-		fi
-	done
+	echo "Tags: $(join ', ' "${versionAliases[@]}")"
+	echo "Architectures: $arches"
+	[ "$branch" = 'master' ] || echo "GitFetch: refs/heads/$branch"
+	echo "GitCommit: $commit"
+	echo "Directory: $version"
 }
 
-echo '# maintainer: Carlos Sanchez <carlos@apache.org> (@carlossg)'
+echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
+echo "GitRepo: $url"
 
 versions=( jdk-*/ ibmjava-*/ )
 versions=( "${versions[@]%/}" )
