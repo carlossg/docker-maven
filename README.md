@@ -33,7 +33,7 @@ passing a Maven command to `docker run`:
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-    docker build --tag my_local_maven:3.5.0-jdk-8 .
+    docker build --tag my_local_maven:3.5.2-jdk-8 .
 
 
 # Reusing the Maven local repository
@@ -108,7 +108,7 @@ Use the env var TAG to choose what image to run tests against.
 
 or run all the tests with
 
-    for tag in jdk-7 jdk-8 jdk-9 ibmjava-8 ibmjava-9; do TAG=$tag bats tests; done
+    for dir in $(/bin/ls -1 -d */ | grep -v tests); do TAG=$(basename $dir) bats tests; done
 
 Bats can be easily installed with `brew install bats` on OS X
 
