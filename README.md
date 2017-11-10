@@ -51,8 +51,8 @@ Or you can just use your home .m2 cache directory that you share e.g. with your 
 
 # Packaging a local repository with the image
 
-The `$MAVEN_CONFIG` dir (default to `/root/.m2`) is configured as a volume so anything copied there in a Dockerfile at build time is lost.
-For that the dir `/usr/share/maven/ref/` is created, and anything in there will be copied on container startup to `$MAVEN_CONFIG`.
+The `$MAVEN_CONFIG` dir (default to `/root/.m2`) could be configured as a volume so anything copied there in a Dockerfile at build time is lost.
+For that reason the dir `/usr/share/maven/ref/` exists, and anything in that directory will be copied on container startup to `$MAVEN_CONFIG`.
 
 To create a pre-packaged repository, create a `pom.xml` with the dependencies you need and use this in your `Dockerfile`.
 `/usr/share/maven/ref/settings-docker.xml` is a settings file that changes the local repository to `/usr/share/maven/ref/repository`,
