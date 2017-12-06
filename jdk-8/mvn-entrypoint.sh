@@ -23,7 +23,7 @@ copy_reference_file() {
 copy_reference_files() {
   local log="$MAVEN_CONFIG/copy_reference_file.log"
 
-  if (touch "${log}" > /dev/null 2>&1)
+  if (sh -c "mkdir -p \"$MAVEN_CONFIG\" && touch \"${log}\"" > /dev/null 2>&1)
   then
       echo "--- Copying files at $(date)" >> "$log"
       find /usr/share/maven/ref/ -type f -exec bash -eu -c 'copy_reference_file /usr/share/maven/ref/ "$1" "$2"' _ {} "$log" \;
