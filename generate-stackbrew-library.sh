@@ -26,20 +26,20 @@ generate-version() {
 	fi
 
 	commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
-	
+
 	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
-	
+
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=( $mavenVersion-$version )
-		# tag 3.5, 3.5.2
+		# tag 3.5, 3.5.3
 		if [[ "$version" == *"$default_jdk-$latest" ]]; then
 			versionAliases+=( $mavenVersion )
 		elif [[ "$version" == *"-$latest" ]]; then
-			# tag 3-ibmjava, 3.5-ibmjava, 3.5.2-ibmjava
+			# tag 3-ibmjava, 3.5-ibmjava, 3.5.3-ibmjava
 			versionAliases+=( $mavenVersion-${version//-$latest/} )
 		fi
-		# tag 3.5-alpine, 3.5.2-alpine, 3.5-slim, 3.5.2-slim
+		# tag 3.5-alpine, 3.5.3-alpine, 3.5-slim, 3.5.3-slim
 		for variant in "${variants[@]}"; do
 			if [[ "$version" == "$default_jdk-$latest-$variant" ]]; then
 				versionAliases+=( $mavenVersion-$variant )

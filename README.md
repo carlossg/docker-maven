@@ -38,7 +38,7 @@ passing a Maven command to `docker run`:
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-    docker build --tag my_local_maven:3.5.2-jdk-8 .
+    docker build --tag my_local_maven:3.5.3-jdk-8 .
 
 
 # Reusing the Maven local repository
