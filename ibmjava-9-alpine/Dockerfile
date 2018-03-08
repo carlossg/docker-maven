@@ -1,6 +1,6 @@
 FROM ibmjava:9-sdk-alpine
 
-RUN apk add --no-cache curl tar bash
+RUN apk add --no-cache curl tar bash procps
 
 ARG MAVEN_VERSION=3.5.2
 ARG USER_HOME_DIR="/root"
