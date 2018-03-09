@@ -7,7 +7,7 @@ ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN apt-get update && \
     apt-get install -y \
-      curl \
+      curl procps \
   && rm -rf /var/lib/apt/lists/*
 
 # Maven fails with 'Can't read cryptographic policy directory: unlimited'
