@@ -43,6 +43,24 @@ This is a base image that you can extend, so it has the bare minimum packages ne
     docker build --tag my_local_maven:3.5.3-jdk-8 .
 
 
+# Multi-stage Builds
+
+You can build your application with Maven and package it in an image that does not include Maven using [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).
+
+```
+# build
+FROM maven:alpine
+WORKDIR /usr/src/app
+COPY pom.xml .
+RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
+COPY . .
+RUN mvn -B -e -o -T 1C verify
+
+# package without maven
+FROM openjdk:alpine
+COPY --from=0 /usr/src/app/target/*.jar ./
+```
+
 # Reusing the Maven local repository
 
 The local Maven repository can be reused across containers by creating a volume and mounting it in `/root/.m2`.
