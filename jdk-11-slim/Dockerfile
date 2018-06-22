@@ -1,8 +1,8 @@
 FROM openjdk:11-jdk-slim
 
-ARG MAVEN_VERSION=3.5.3
+ARG MAVEN_VERSION=3.5.4
 ARG USER_HOME_DIR="/root"
-ARG SHA=b52956373fab1dd4277926507ab189fb797b3bc51a2a267a193c931fffad8408
+ARG SHA=ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN apt-get update && \

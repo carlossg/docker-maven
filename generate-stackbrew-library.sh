@@ -32,14 +32,14 @@ generate-version() {
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=( $mavenVersion-$version )
-		# tag 3.5, 3.5.3
+		# tag 3.5, 3.5.4
 		if [[ "$version" == *"$default_jdk-$latest" ]]; then
 			versionAliases+=( $mavenVersion )
 		elif [[ "$version" == *"-$latest" ]]; then
-			# tag 3-ibmjava, 3.5-ibmjava, 3.5.3-ibmjava
+			# tag 3-ibmjava, 3.5-ibmjava, 3.5.4-ibmjava
 			versionAliases+=( $mavenVersion-${version//-$latest/} )
 		fi
-		# tag 3.5-alpine, 3.5.3-alpine, 3.5-slim, 3.5.3-slim
+		# tag 3.5-alpine, 3.5.4-alpine, 3.5-slim, 3.5.4-slim
 		for variant in "${variants[@]}"; do
 			if [[ "$version" == "$default_jdk-$latest-$variant" ]]; then
 				versionAliases+=( $mavenVersion-$variant )
