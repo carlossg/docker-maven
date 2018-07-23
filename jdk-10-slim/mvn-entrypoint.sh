@@ -1,39 +1,50 @@
-#! /bin/bash -eu
-
-set -o pipefail
+#! /bin/sh -eu
 
 # Copy files from /usr/share/maven/ref into ${MAVEN_CONFIG}
 # So the initial ~/.m2 is set with expected content.
 # Don't override, as this is just a reference setup
-copy_reference_file() {
-  local root="${1}"
-  local f="${2%/}"
-  local logfile="${3}"
-  local rel="${f/${root}/}" # path relative to /usr/share/maven/ref/
-  echo "$f" >> "$logfile"
-  echo " $f -> $rel" >> "$logfile"
-  if [[ ! -e ${MAVEN_CONFIG}/${rel} || $f = *.override ]]
-  then
-    echo "copy $rel to ${MAVEN_CONFIG}" >> "$logfile"
-    mkdir -p "${MAVEN_CONFIG}/$(dirname "${rel}")"
-    cp -r "${f}" "${MAVEN_CONFIG}/${rel}";
-  fi;
-}
 
 copy_reference_files() {
   local log="$MAVEN_CONFIG/copy_reference_file.log"
+  local ref="/usr/share/maven/ref"
 
-  if (sh -c "mkdir -p \"$MAVEN_CONFIG\" && touch \"${log}\"" > /dev/null 2>&1)
-  then
-      echo "--- Copying files at $(date)" >> "$log"
-      find /usr/share/maven/ref/ -type f -exec bash -eu -c 'copy_reference_file /usr/share/maven/ref/ "$1" "$2"' _ {} "$log" \;
+  if mkdir -p "${MAVEN_CONFIG}/repository" && touch "${log}" > /dev/null 2>&1 ; then
+      cd "${ref}"
+      local reflink=""
+      if cp --help 2>&1 | grep -q reflink ; then
+          reflink="--reflink=auto"
+      fi
+      if [ -n "$(find "${MAVEN_CONFIG}/repository" -maxdepth 0 -type d -empty 2>/dev/null)" ] ; then
+          # destination is empty...
+          echo "--- Copying all files to ${MAVEN_CONFIG} at $(date)" >> "${log}"
+          cp -rv ${reflink} . "${MAVEN_CONFIG}" >> "${log}"
+      else
+          # destination is non-empty, copy file-by-file
+          echo "--- Copying individual files to ${MAVEN_CONFIG} at $(date)" >> "${log}"
+          find . -type f -exec sh -eu -c '
+              log="${1}"
+              shift
+              reflink="${1}"
+              shift
+              for f in "$@" ; do
+                  if [ ! -e "${MAVEN_CONFIG}/${f}" ] || [ -e "${f}.override" ] ; then
+                      mkdir -p "${MAVEN_CONFIG}/$(dirname "${f}")"
+                      cp -rv ${reflink} "${f}" "${MAVEN_CONFIG}/${f}" >> "${log}"
+                  fi
+              done
+          ' _ "${log}" "${reflink}" {} +
+      fi
+      echo >> "${log}"
   else
     echo "Can not write to ${log}. Wrong volume permissions? Carrying on ..."
   fi
 }
 
-export -f copy_reference_file
+owd="$(pwd)"
 copy_reference_files
 unset MAVEN_CONFIG
+
+cd "${owd}"
+unset owd
 
 exec "$@"
