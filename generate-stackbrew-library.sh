@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/bin/bash -eux
 
 latest='8'
 default_jdk=jdk
