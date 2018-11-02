@@ -9,8 +9,6 @@ docker-maven
 * [latest, jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [alpine, jdk-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-8/Dockerfile)
 * [slim, jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
-* [jdk-9](https://github.com/carlossg/docker-maven/blob/master/jdk-9/Dockerfile)
-* [jdk-9-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-9-slim/Dockerfile)
 * [jdk-10](https://github.com/carlossg/docker-maven/blob/master/jdk-10/Dockerfile)
 * [jdk-10-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-10-slim/Dockerfile)
 * [jdk-11](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile)
