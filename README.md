@@ -13,6 +13,8 @@ docker-maven
 * [jdk-10-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-10-slim/Dockerfile)
 * [jdk-11](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile)
 * [jdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-11-slim/Dockerfile)
+* [jdk-12](https://github.com/carlossg/docker-maven/blob/master/jdk-12/Dockerfile)
+* [jdk-12-alpine](https://github.com/carlossg/docker-maven/blob/master/jdk-12-alpine/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/ibmjava-8/Dockerfile)
 * [ibmjava-9](https://github.com/carlossg/docker-maven/blob/master/ibmjava-9/Dockerfile)
