@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-latest='8'
+latest='11'
 default_jdk=jdk
 variants=( alpine slim )
 
