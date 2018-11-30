@@ -44,6 +44,11 @@ load test_helpers
   assert_success
 }
 
+@test "$SUT_TAG run Maven" {
+  run docker run --rm $SUT_TEST_IMAGE mvn -B -f /tmp install
+  assert_success
+}
+
 @test "$SUT_TAG generate sample project" {
   run bash -c "docker run --rm -it $SUT_TEST_IMAGE mvn -B archetype:generate -DgroupId=bats-testing -DartifactId=bats-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
   assert_success
@@ -53,4 +58,3 @@ load test_helpers
   run bash -c "docker run --rm -it -u 11337:11337 -w /tmp --tmpfs /tmp -e HOME=/tmp $SUT_TEST_IMAGE mvn -B archetype:generate -DgroupId=bats-testing -DartifactId=bats-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
   assert_success
 }
-
