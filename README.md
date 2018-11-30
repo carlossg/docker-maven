@@ -135,8 +135,14 @@ or run all the tests with
 
     for dir in $(/bin/ls -1 -d */ | grep -v tests); do TAG=$(basename $dir) bats tests; done
 
-Bats can be easily installed with `brew install bats` on OS X
+Bats can be easily installed with `brew install bats` on OS X.
 
+Note that you may first need to:
+
+```sh
+git submodule init
+git submodule update
+```
 
 # License
 
