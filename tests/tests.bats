@@ -45,7 +45,7 @@ load test_helpers
 }
 
 @test "$SUT_TAG run Maven" {
-  run docker run --rm $SUT_TEST_IMAGE mvn -B -f /tmp install
+  run docker run --rm $SUT_TEST_IMAGE mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -f /tmp install
   assert_success
 }
 
