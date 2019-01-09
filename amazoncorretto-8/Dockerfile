@@ -1,14 +1,11 @@
-FROM openjdk:10-jdk
+FROM amazoncorretto:8
 
 ARG MAVEN_VERSION=3.6.0
 ARG USER_HOME_DIR="/root"
 ARG SHA=fae9c12b570c3ba18116a4e26ea524b29f7279c17cbaadc3326ca72927368924d9131d11b9e851b8dc9162228b6fdea955446be41207a5cfc61283dd8a561d2f
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
-# Maven fails with 'Can't read cryptographic policy directory: unlimited'
-# because it looks for $JAVA_HOME/conf/security/policy/unlimited but it is in
-# /etc/java-9-openjdk/security/policy/unlimited
-RUN ln -s /etc/java-10-openjdk /usr/lib/jvm/java-10-openjdk-$(dpkg --print-architecture)/conf
+RUN yum install -y tar which
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
