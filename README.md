@@ -3,18 +3,22 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
+See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
+
 * [jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
 * [jdk-7-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-7/Dockerfile)
 * [jdk-7-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-7-slim/Dockerfile)
-* [latest, jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
-* [alpine, jdk-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-8/Dockerfile)
-* [slim, jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
+* [jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
+* [jdk-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/jdk-8/Dockerfile)
+* [jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
 * [jdk-10](https://github.com/carlossg/docker-maven/blob/master/jdk-10/Dockerfile)
 * [jdk-10-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-10-slim/Dockerfile)
 * [jdk-11](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile)
 * [jdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-11-slim/Dockerfile)
 * [jdk-12](https://github.com/carlossg/docker-maven/blob/master/jdk-12/Dockerfile)
 * [jdk-12-alpine](https://github.com/carlossg/docker-maven/blob/master/jdk-12-alpine/Dockerfile)
+* [jdk-13](https://github.com/carlossg/docker-maven/blob/master/jdk-13/Dockerfile)
+* [jdk-13-alpine](https://github.com/carlossg/docker-maven/blob/master/jdk-13-alpine/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/alpine/ibmjava-8/Dockerfile)
 * [ibmjava-9](https://github.com/carlossg/docker-maven/blob/master/ibmjava-9/Dockerfile)
@@ -129,7 +133,7 @@ Build with the usual
 Tests are written using [bats](https://github.com/sstephenson/bats) under the `tests` dir.
 Use the env var TAG to choose what image to run tests against.
 
-    TAG=jdk-8 bats tests
+    TAG=jdk-11 bats tests
 
 or run all the tests with
 
