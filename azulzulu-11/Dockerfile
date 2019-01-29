@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk:11.0.1-11.2
+FROM azul/zulu-openjdk:11
 
 ARG MAVEN_VERSION=3.6.0
 ARG USER_HOME_DIR="/root"
