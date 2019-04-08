@@ -12,7 +12,7 @@ load test_helpers
 
 @test "$SUT_TAG build image" {
   cd $BATS_TEST_DIRNAME/../$SUT_TAG
-  docker build -t $SUT_IMAGE .
+  docker build --pull -t $SUT_IMAGE .
 }
 
 @test "$SUT_TAG build test image" {
