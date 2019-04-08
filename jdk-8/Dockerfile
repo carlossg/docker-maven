@@ -1,10 +1,5 @@
 FROM openjdk:8-jdk
 
-# Work around https://issues.apache.org/jira/browse/SUREFIRE-1588 without requiring a Surefire update by getting JDK 8u191 from unstable:
-RUN echo 'deb http://deb.debian.org/debian sid main' > /etc/apt/sources.list && \
-    apt update && \
-    apt upgrade -y openjdk-8-jdk
-
 ARG MAVEN_VERSION=3.6.0
 ARG USER_HOME_DIR="/root"
 ARG SHA=fae9c12b570c3ba18116a4e26ea524b29f7279c17cbaadc3326ca72927368924d9131d11b9e851b8dc9162228b6fdea955446be41207a5cfc61283dd8a561d2f
