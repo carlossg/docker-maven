@@ -1,9 +1,10 @@
-#!/bin/bash
-set -e
+#!/usr/local/bin/bash -eux
 
-latest='8'
+latest='11'
 default_jdk=jdk
+declare -A jdk_latest=( ["jdk"]="11" ["ibmjava"]="8" )
 variants=( alpine slim )
+declare -A variants_latest=( ["alpine"]="8" ["slim"]="11" )
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -35,16 +36,16 @@ generate-version() {
 		# tag 3.5, 3.5.4
 		if [[ "$version" == *"$default_jdk-$latest" ]]; then
 			versionAliases+=( $mavenVersion )
-		elif [[ "$version" == *"-$latest" ]]; then
+		elif [[ "$version" == *"ibmjava-${jdk_latest[ibmjava]}" ]]; then
 			# tag 3-ibmjava, 3.5-ibmjava, 3.5.4-ibmjava
-			versionAliases+=( $mavenVersion-${version//-$latest/} )
+			versionAliases+=( $mavenVersion-${version//-${jdk_latest[ibmjava]}/} )
 		fi
 		# tag 3.5-alpine, 3.5.4-alpine, 3.5-slim, 3.5.4-slim
 		for variant in "${variants[@]}"; do
-			if [[ "$version" == "$default_jdk-$latest-$variant" ]]; then
+			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}-$variant" ]]; then
 				versionAliases+=( $mavenVersion-$variant )
-			elif [[ "$version" == *"-$latest-$variant" ]]; then
-				versionAliases+=( $mavenVersion-${version//-$latest/} )
+			elif [[ "$version" == *"-${variants_latest[$variant]}-$variant" ]]; then
+				versionAliases+=( $mavenVersion-${version//-${variants_latest[$variant]}/} )
 			fi
 		done
 		mavenVersion="${mavenVersion%[.-]*}"
@@ -64,11 +65,11 @@ generate-version() {
 
 	# tag alpine, slim
 	for variant in "${variants[@]}"; do
-		if [[ "$version" == *"$latest-$variant" ]]; then
-			if [[ "$version" == "$default_jdk-$latest"* ]]; then
-				versionAliases+=( ${version//$default_jdk-$latest-/} )
+		if [[ "$version" == *"${variants_latest[$variant]}-$variant" ]]; then
+			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}"* ]]; then
+				versionAliases+=( ${version//$default_jdk-${variants_latest[$variant]}-/} )
 			else
-				versionAliases+=( ${version//-$latest/} )
+				versionAliases+=( ${version//-${variants_latest[$variant]}/} )
 			fi
 		fi
 	done
@@ -87,7 +88,7 @@ generate-version() {
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 echo "GitRepo: $url"
 
-versions=( jdk-*/ ibmjava-*/ )
+versions=( jdk-*/ ibmjava-*/ amazoncorretto-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
