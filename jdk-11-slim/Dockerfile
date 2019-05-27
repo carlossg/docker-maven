@@ -10,11 +10,6 @@ RUN apt-get update && \
       curl procps \
   && rm -rf /var/lib/apt/lists/*
 
-# Maven fails with 'Can't read cryptographic policy directory: unlimited'
-# because it looks for $JAVA_HOME/conf/security/policy/unlimited but it is in
-# /etc/java-9-openjdk/security/policy/unlimited
-RUN ln -s /etc/java-11-openjdk /usr/lib/jvm/java-11-openjdk-$(dpkg --print-architecture)/conf
-
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && echo "${SHA}  /tmp/apache-maven.tar.gz" | sha512sum -c - \
