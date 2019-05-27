@@ -5,9 +5,6 @@ docker-maven
 
 See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 
-* [jdk-7](https://github.com/carlossg/docker-maven/blob/master/jdk-7/Dockerfile)
-* [jdk-7-alpine](https://github.com/carlossg/docker-maven/blob/master/jdk-7-alpine/Dockerfile)
-* [jdk-7-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-7-slim/Dockerfile)
 * [jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [jdk-8-alpine](https://github.com/carlossg/docker-maven/blob/master/jdk-8-alpine/Dockerfile)
 * [jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
