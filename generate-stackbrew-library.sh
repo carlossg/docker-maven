@@ -3,8 +3,8 @@
 latest='11'
 default_jdk=jdk
 declare -A jdk_latest=( ["jdk"]="11" ["ibmjava"]="8" )
-variants=( alpine slim )
-declare -A variants_latest=( ["alpine"]="8" ["slim"]="11" )
+variants=( slim )
+declare -A variants_latest=( ["slim"]="11" )
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -40,7 +40,7 @@ generate-version() {
 			# tag 3-ibmjava, 3.5-ibmjava, 3.5.4-ibmjava
 			versionAliases+=( $mavenVersion-${version//-${jdk_latest[ibmjava]}/} )
 		fi
-		# tag 3.5-alpine, 3.5.4-alpine, 3.5-slim, 3.5.4-slim
+		# 3.5-slim, 3.5.4-slim
 		for variant in "${variants[@]}"; do
 			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}-$variant" ]]; then
 				versionAliases+=( $mavenVersion-$variant )
@@ -63,7 +63,7 @@ generate-version() {
 		versionAliases+=( $mavenVersion-${version//-$latest/} ${version//-$latest/} )
 	fi
 
-	# tag alpine, slim
+	# tag slim
 	for variant in "${variants[@]}"; do
 		if [[ "$version" == *"${variants_latest[$variant]}-$variant" ]]; then
 			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}"* ]]; then
