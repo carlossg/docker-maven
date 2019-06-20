@@ -76,6 +76,7 @@ generate-version() {
 
 	from="$(awk 'toupper($1) == "FROM" { print $2 }' "$version/Dockerfile")"
 	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
+	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
@@ -83,6 +84,7 @@ generate-version() {
 	[ "$branch" = 'master' ] || echo "GitFetch: refs/heads/$branch"
 	echo "GitCommit: $commit"
 	echo "Directory: $version"
+	[ -z "$constraints" ] || echo "Constraints: $constraints"
 }
 
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
