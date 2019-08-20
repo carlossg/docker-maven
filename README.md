@@ -17,8 +17,9 @@ See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/
-* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/
+* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
+* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/)
+* [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11-alpine/)
 
 # What is Maven?
 
