@@ -149,7 +149,9 @@ Use the env var TAG to choose what image to run tests against.
     TAG=jdk-11 bats tests
 
 ### Windows
-    $env:TAG="jdk-11" ; Invoke-Pester -Path tests
+```powershell
+$env:TAG="jdk-11" ; Invoke-Pester -Path tests
+```
 
 or run all the tests with
 
@@ -157,7 +159,9 @@ or run all the tests with
     for dir in $(/bin/ls -1 -d */ | grep -v tests); do TAG=$(basename $dir) bats tests; done
 
 ### Windows
-    Get-ChildItem -Directory -Exclude tests,ibm*,*slim | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
+```powershell
+Get-ChildItem -Directory -Exclude tests,ibm*,*slim | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
+```
 
 Bats can be easily installed with `brew install bats` on OS X.
 
