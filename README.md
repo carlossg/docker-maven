@@ -46,7 +46,9 @@ passing a Maven command to `docker run`:
 
 ### Windows
 
-    docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
+```powershell
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
+```
 
 ## Building local Docker image (optional)
 
