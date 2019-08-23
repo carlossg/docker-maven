@@ -24,7 +24,7 @@ See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 * [amazoncorretto-8-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile.windows)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile)
 * [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile.windows)
-* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/)
+* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
 * [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile.windows)
 
 # What is Maven?
