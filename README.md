@@ -160,7 +160,7 @@ or run all the tests with
 
 ### Windows
 ```powershell
-Get-ChildItem -Directory -Exclude tests,ibm*,*slim | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
+Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name.Replace('Dockerfile.windows-', '') ; Invoke-Pester -Path tests ; Pop-Location }
 ```
 
 Bats can be easily installed with `brew install bats` on OS X.

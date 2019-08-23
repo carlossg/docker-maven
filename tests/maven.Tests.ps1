@@ -11,11 +11,11 @@ Import-Module -Force -DisableNameChecking $PSScriptRoot/test_helpers.psm1
 
 Describe "$SUT_TAG build image" {
   BeforeEach {
-    Push-Location -StackName 'maven' -Path "$PSScriptRoot/../$SUT_TAG"
+    Push-Location -StackName 'maven' -Path "$PSScriptRoot/../windows"
   }
 
   It 'builds image' {
-    $exitCode, $stdout, $stderr = Build-Docker --pull -t $SUT_IMAGE
+    $exitCode, $stdout, $stderr = Build-Docker -ImageType $SUT_TAG --pull -t $SUT_IMAGE
     $lastExitCode | Should -Be 0
   }
 
@@ -25,16 +25,23 @@ Describe "$SUT_TAG build image" {
 }
 
 Describe "$SUT_TAG build test image" {
+  BeforeEach {
+    Push-Location -StackName 'maven' -Path "$PSScriptRoot"
+  }
+
   It 'builds image' {
-    Push-Location -StackName 'maven' -Path $PSScriptRoot
     $exitCode, $stdout, $stderr = Build-Docker -t $SUT_TEST_IMAGE
     $exitCode | Should -Be 0
+  }
+
+  AfterEach {
+    Pop-Location -StackName 'maven'
   }
 }
 
 Describe "$SUT_TAG create test container" {
   It 'creates test container' {
-    $version = $(Get-Content -Path "$PSScriptRoot/../$SUT_TAG/Dockerfile.windows" | Select-String -Pattern 'ARG MAVEN_VERSION.*' | ForEach-Object { $_ -replace 'ARG MAVEN_VERSION=','' })
+    $version = $(Get-Content -Path "$PSScriptRoot/../windows/Dockerfile.windows-$SUT_TAG" | Select-String -Pattern 'ARG MAVEN_VERSION.*' | ForEach-Object { $_ -replace 'ARG MAVEN_VERSION=','' })
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_IMAGE mvn -version"
     $exitCode | Should -Be 0
     $stdout | Should -Match "Apache Maven $version"

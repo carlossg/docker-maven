@@ -4,17 +4,16 @@ FROM mcr.microsoft.com/windows/servercore:$WINDOWS_DOCKER_TAG
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG zip=amazon-corretto-11.0.4.11.1-windows-x64.zip
-ARG uri=https://d3pxv6yz143wms.cloudfront.net/11.0.4.11.1/
-ARG hash=707c839c3f56645454b8c8d31f255161
+ARG zip=amazon-corretto-8.222.10.3-windows-x64-jdk.zip
+ARG uri=https://d3pxv6yz143wms.cloudfront.net/8.222.10.1/
+ARG hash=9879a7f69c0bd7d8c1bbb916df7b5f82
 
 RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm MD5).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/jdk11.0.4_10
-
+ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_222
 
 ARG MAVEN_VERSION=3.6.1
 ARG USER_HOME_DIR="C:/Users/ContainerAdministrator"
@@ -26,19 +25,13 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
   Expand-Archive -Path ${env:TEMP}/apache-maven.zip -Destination C:/ProgramData ; `
   Move-Item C:/ProgramData/apache-maven-${env:MAVEN_VERSION} C:/ProgramData/Maven ; `
   New-Item -ItemType Directory -Path C:/ProgramData/Maven/Reference | Out-Null ; `
-  Remove-Item ${env:TEMP}/apache-maven.zip 
+  Remove-Item ${env:TEMP}/apache-maven.zip
 
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-# Workaround https://github.com/corretto/corretto-8-docker/pull/32
-#ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
-
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
-RUN $content = Get-Content "C:/ProgramData/Maven/Reference/settings-docker.xml" ; `
-    $content | ForEach-Object { $_ -replace '/usr/share/maven/ref/repository','C:\ProgramData\Maven\Reference\repository' } | `
-    Set-Content -Path "C:/ProgramData/Maven/Reference/settings-docker.xml"
 
 RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
 
