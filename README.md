@@ -134,6 +134,12 @@ git submodule init
 git submodule update
 ```
 
+## Publishing to Docker Hub
+
+In order to publish the images a PR needs to be opened against [docker-library/official-images](https://github.com/docker-library/official-images)
+
+For that we use `publish.sh` that runs `generate-stackbrew-library.sh`
+
 # License
 
 View [license information](https://www.apache.org/licenses/) for the software contained in this image.
