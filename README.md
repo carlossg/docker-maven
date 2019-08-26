@@ -172,7 +172,15 @@ git submodule init
 git submodule update
 ```
 
+
 Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required. You may need to follow [this tutorial](https://blog.damianflynn.com/Windows10-Pester/) on upgrading Pester to 4.x.
+
+
+## Publishing to Docker Hub
+
+In order to publish the images a PR needs to be opened against [docker-library/official-images](https://github.com/docker-library/official-images)
+
+For that we use `publish.sh` that runs `generate-stackbrew-library.sh`
 
 # License
 
