@@ -46,3 +46,4 @@ Pop-Location -StackName 'maven-entrypoint'
 Remove-Item Env:\MAVEN_CONFIG
 
 Invoke-Expression "$args"
+exit $lastExitCode
