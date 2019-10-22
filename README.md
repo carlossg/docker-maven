@@ -17,8 +17,8 @@ See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/
-* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/
+* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
+* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/)
 
 # What is Maven?
 
@@ -51,7 +51,7 @@ You can build your application with Maven and package it in an image that does n
 FROM maven
 WORKDIR /usr/src/app
 COPY pom.xml .
-RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
+RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.1.1:go-offline
 COPY . .
 RUN mvn -B -e -o -T 1C verify
 
