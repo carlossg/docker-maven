@@ -4,52 +4,55 @@ function Test-CommandExists($command) {
     $ErrorActionPreference = 'stop'
     $res = $false
     try {
-        if(Get-Command $command) { 
-            $res = $true 
+        if(Get-Command $command) {
+            $res = $true
         }
     } catch {
-        $res = $false 
+        $res = $false
     } finally {
         $ErrorActionPreference=$oldPreference
     }
     return $res
 }
-  
+
 # check dependencies
 if(-Not (Test-CommandExists docker)) {
     Write-Error "docker is not available"
 }
 
 function Run-Program($Cmd, $Params) {
-    $psi = New-Object System.Diagnostics.ProcessStartInfo 
-    $psi.CreateNoWindow = $true 
-    $psi.UseShellExecute = $false 
-    $psi.RedirectStandardOutput = $true 
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.CreateNoWindow = $true
+    $psi.UseShellExecute = $false
+    $psi.RedirectStandardOutput = $true
     $psi.RedirectStandardError = $true
     $psi.WorkingDirectory = (Get-Location)
     $psi.FileName = $Cmd
     $psi.Arguments = $Params
-    $proc = New-Object System.Diagnostics.Process 
-    $proc.StartInfo = $psi 
+    $proc = New-Object System.Diagnostics.Process
+    $proc.StartInfo = $psi
     [void]$proc.Start()
-    $stdout = $proc.StandardOutput.ReadToEnd() 
+    $stdout = $proc.StandardOutput.ReadToEnd()
     $stderr = $proc.StandardError.ReadToEnd()
-    $proc.WaitForExit() 
+    $proc.WaitForExit()
     if($proc.ExitCode -ne 0) {
         Write-Host "`n`nstdout:`n$stdout`n`nstderr:`n$stderr`n`n"
     }
-    
+
     return $proc.ExitCode, $stdout, $stderr
 }
 
-function Build-Docker {
-    return (Run-Program 'docker.exe' "build -f Dockerfile.windows $args .")
+function Build-Docker($ImageType) {
+    if(![String]::IsNullOrWhitespace($ImageType) -and !$ImageType.StartsWith('-')) {
+        $ImageType = "-$ImageType"
+    }
+    return (Run-Program 'docker.exe' "build -f Dockerfile.windows$ImageType $args .")
 }
 
 function Retry-Command {
     [CmdletBinding()]
     param (
-        [parameter(Mandatory, ValueFromPipeline)] 
+        [parameter(Mandatory, ValueFromPipeline)]
         [ValidateNotNullOrEmpty()]
         [scriptblock] $ScriptBlock,
         [int] $RetryCount = 3,
@@ -57,16 +60,16 @@ function Retry-Command {
         [string] $SuccessMessage = "Command executed successfuly!",
         [string] $FailureMessage = "Failed to execute the command"
         )
-        
+
     process {
         $Attempt = 1
         $Flag = $true
-        
+
         do {
             try {
                 $PreviousPreference = $ErrorActionPreference
                 $ErrorActionPreference = 'Stop'
-                Invoke-Command -NoNewScope -ScriptBlock $ScriptBlock -OutVariable Result 4>&1              
+                Invoke-Command -NoNewScope -ScriptBlock $ScriptBlock -OutVariable Result 4>&1
                 $ErrorActionPreference = $PreviousPreference
 
                 # flow control will execute the next line only if the command in the scriptblock executed without any errors

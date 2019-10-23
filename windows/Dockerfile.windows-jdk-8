@@ -1,6 +1,6 @@
 # escape=`
 ARG WINDOWS_DOCKER_TAG=1809
-FROM openjdk:12-jdk-windowsservercore-$WINDOWS_DOCKER_TAG
+FROM openjdk:8-jdk-windowsservercore-$WINDOWS_DOCKER_TAG
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -19,14 +19,8 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-# Workaround https://github.com/corretto/corretto-8-docker/pull/32
-#ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
-
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
-RUN $content = Get-Content "C:/ProgramData/Maven/Reference/settings-docker.xml" ; `
-    $content | ForEach-Object { $_ -replace '/usr/share/maven/ref/repository','C:\ProgramData\Maven\Reference\repository' } | `
-    Set-Content -Path "C:/ProgramData/Maven/Reference/settings-docker.xml"
 
 RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
 
