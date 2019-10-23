@@ -35,9 +35,6 @@ ENV JAVA_HOME=C:/ProgramData/zulu11.33.15-ca-jdk11.0.4-win_x64
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
-RUN $content = Get-Content "C:/ProgramData/Maven/Reference/settings-docker.xml" ; `
-    $content | ForEach-Object { $_ -replace '/usr/share/maven/ref/repository','C:\ProgramData\Maven\Reference\repository' } | `
-    Set-Content -Path "C:/ProgramData/Maven/Reference/settings-docker.xml"
 
 RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
 
