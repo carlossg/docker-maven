@@ -5,11 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-2019, windows-2016]
-
+    runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
     - name: Build Images
@@ -23,10 +19,6 @@ jobs:
           $windowsDockerTag = ('ltsc{0}' -f '${{ matrix.os }}'.Replace('windows-', ''))
 
           if($dockerfile.Name.Contains('nanoserver')) {
-            # No nanoserver for 2016
-            if('${{ matrix.os }}' -eq 'windows-2016') {
-              continue
-            }
             $windowsType = 'windows-nanoserver'
             $windowsDockerTag = '1809'
           }
