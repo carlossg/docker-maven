@@ -74,7 +74,7 @@ Describe "$SUT_TAG run Maven" {
 
 Describe "$SUT_TAG generate sample project" {
   It 'generates sample project' {
-    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm -it $SUT_TEST_IMAGE mvn -B archetype:generate -DgroupId=pester-testing -DartifactId=pester-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_TEST_IMAGE mvn -B archetype:generate -DgroupId=pester-testing -DartifactId=pester-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
     $exitCode | Should -Be 0
   }
 }
