@@ -21,7 +21,7 @@ jobs:
 
           if($dockerfile.Name.Contains('nanoserver')) {
             $windowsType = 'windows-nanoserver'
-            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID))
+            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID)
           }
 
           # run tests
