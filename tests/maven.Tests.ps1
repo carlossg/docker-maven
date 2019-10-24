@@ -50,7 +50,7 @@ Describe "$SUT_TAG create test container" {
 
 Describe "$SUT_TAG settings.xml is setup" {
   It 'sets up settings.xml' {
-    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_TEST_IMAGE Get-Content C:/Users/ContainerAdministrator/.m2/settings.xml"
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_TEST_IMAGE Get-Content C:/Users/ContainerUser/.m2/settings.xml"
     $exitCode | Should -Be 0
     "$PSScriptRoot/settings.xml" | Should -FileContentMatchMultiline $stdout
   }
@@ -59,7 +59,7 @@ Describe "$SUT_TAG settings.xml is setup" {
 
 Describe "$SUT_TAG repository is created" {
   It 'created repository' {
-    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_TEST_IMAGE if(Test-Path C:/Users/ContainerAdministrator/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar) { exit 0 } else {exit 1 }"
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm $SUT_TEST_IMAGE if(Test-Path C:/Users/ContainerUser/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar) { exit 0 } else {exit 1 }"
     $exitCode | Should -Be 0
   }
 }

@@ -1,8 +1,23 @@
 # escape=`
 ARG WINDOWS_DOCKER_TAG=1809
-FROM openjdk:12-jdk-windowsservercore-$WINDOWS_DOCKER_TAG
+ARG JAVA_VERSION=11.0.5
+# we use the latest stable if nothing is passed
+ARG POWERSHELL_VERSION=
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+FROM openjdk:${JAVA_VERSION}-windowsservercore-${WINDOWS_DOCKER_TAG} as openjdk
+
+FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-$WINDOWS_DOCKER_TAG 
+
+SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+USER ContainerAdministrator
+
+ENV JAVA_HOME=C:\openjdk-11
+
+COPY --from=openjdk $JAVA_HOME $JAVA_HOME
+
+ENV ProgramFiles="C:\Program Files"
+ENV WindowsPATH="C:\Windows\system32;C:\Windows"
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.6.2
@@ -22,10 +37,9 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
 
-RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
-
 USER ContainerUser
-ENV JAVA_HOME=${JAVA_HOME}
 
-ENTRYPOINT ["powershell.exe", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
+ENV PATH="${WindowsPATH};${ProgramFiles}\PowerShell;${JAVA_HOME}\bin;${MAVEN_HOME}\bin"
+
+ENTRYPOINT ["pwsh", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
 CMD ["mvn"]

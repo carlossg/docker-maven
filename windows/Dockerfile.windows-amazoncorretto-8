@@ -4,9 +4,9 @@ FROM mcr.microsoft.com/windows/servercore:$WINDOWS_DOCKER_TAG
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG zip=amazon-corretto-8.222.10.3-windows-x64-jdk.zip
-ARG uri=https://d3pxv6yz143wms.cloudfront.net/8.222.10.1/
-ARG hash=9879a7f69c0bd7d8c1bbb916df7b5f82
+ARG zip=amazon-corretto-8.232.09.1-windows-x64-jdk.zip
+ARG uri=https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/
+ARG hash=b0d375cbcfcda6d04e87888c6c6763d3
 
 RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm MD5).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
@@ -15,9 +15,9 @@ RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip
 
 ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_222
 
-ARG MAVEN_VERSION=3.6.1
-ARG USER_HOME_DIR="C:/Users/ContainerAdministrator"
-ARG SHA=51169366d7269ed316bad013d9cbfebe3a4ef1fda393ac4982d6dbc9af2d5cc359ee12838b8041cb998f236486e988b9c05372f4fdb29a96c1139f63c991e90e
+ARG USER_HOME_DIR="C:/Users/ContainerUser"
+ARG MAVEN_VERSION=3.6.2
+ARG SHA=4bb0e0bb1fb74f1b990ba9a6493cc6345873d9188fc7613df16ab0d5bd2017de5a3917af4502792f0bad1fcc95785dcc6660f7add53548e0ec4bfb30ce4b1da7
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
@@ -34,6 +34,9 @@ COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
 
 RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
+
+USER ContainerUser
+ENV JAVA_HOME=${JAVA_HOME}
 
 ENTRYPOINT ["powershell.exe", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
 CMD ["mvn"]

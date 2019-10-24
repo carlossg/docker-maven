@@ -96,7 +96,7 @@ Or you can just use your home .m2 cache directory that you share e.g. with your 
 
 # Packaging a local repository with the image
 
-The `$MAVEN_CONFIG` dir (default to `/root/.m2` or `C:\Users\ContainerAdministrator\.m2`) could be configured as a volume so anything copied there in a Dockerfile 
+The `$MAVEN_CONFIG` dir (default to `/root/.m2` or `C:\Users\ContainerUser\.m2`) could be configured as a volume so anything copied there in a Dockerfile 
 at build time is lost. For that reason the dir `/usr/share/maven/ref/` (or `C:\ProgramData\Maven\Reference`) exists, and anything in that directory will be copied 
 on container startup to `$MAVEN_CONFIG`.
 
@@ -171,7 +171,6 @@ Note that you may first need to:
 git submodule init
 git submodule update
 ```
-
 
 Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required. You may need to follow [this tutorial](https://blog.damianflynn.com/Windows10-Pester/) on upgrading Pester to 4.x.
 

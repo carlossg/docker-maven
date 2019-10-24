@@ -4,9 +4,9 @@ FROM openjdk:11-jdk-windowsservercore-$WINDOWS_DOCKER_TAG
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG MAVEN_VERSION=3.6.1
-ARG USER_HOME_DIR="C:/Users/ContainerAdministrator"
-ARG SHA=51169366d7269ed316bad013d9cbfebe3a4ef1fda393ac4982d6dbc9af2d5cc359ee12838b8041cb998f236486e988b9c05372f4fdb29a96c1139f63c991e90e
+ARG USER_HOME_DIR="C:/Users/ContainerUser"
+ARG MAVEN_VERSION=3.6.2
+ARG SHA=4bb0e0bb1fb74f1b990ba9a6493cc6345873d9188fc7613df16ab0d5bd2017de5a3917af4502792f0bad1fcc95785dcc6660f7add53548e0ec4bfb30ce4b1da7
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
@@ -14,18 +14,18 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
   Expand-Archive -Path ${env:TEMP}/apache-maven.zip -Destination C:/ProgramData ; `
   Move-Item C:/ProgramData/apache-maven-${env:MAVEN_VERSION} C:/ProgramData/Maven ; `
   New-Item -ItemType Directory -Path C:/ProgramData/Maven/Reference | Out-Null ; `
-  Remove-Item ${env:TEMP}/apache-maven.zip 
+  Remove-Item ${env:TEMP}/apache-maven.zip
 
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-
-# Workaround https://github.com/corretto/corretto-8-docker/pull/32
-#ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
 
 RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
+
+USER ContainerUser
+ENV JAVA_HOME=${JAVA_HOME}
 
 ENTRYPOINT ["powershell.exe", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
 CMD ["mvn"]
