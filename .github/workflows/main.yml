@@ -34,6 +34,7 @@ jobs:
           Pop-Location
 
           $tags | ForEach-Object {
+            Push-Location windows
             $tag = ('maven:{0}-{1}-{2}-{3}' -f $_,$dockerfile.Name.Replace('Dockerfile.windows-', ''),$windowsType,$windowsDockerTag)
             docker build -f $dockerfile --tag $tag --build-arg WINDOWS_DOCKER_TAG=${windowsDockerTag} .
 
@@ -42,6 +43,7 @@ jobs:
             #  '${{ secrets.DOCKER_PASSWORD }}' | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
             #  & docker push $tag
             }
+            Pop-Location
           }
           Pop-Location
         }
