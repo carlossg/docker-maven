@@ -38,7 +38,6 @@ function Run-Program($Cmd, $Params) {
     if($proc.ExitCode -ne 0) {
         Write-Host "`n`nstdout:`n$stdout`n`nstderr:`n$stderr`n`n"
     }
-
     return $proc.ExitCode, $stdout, $stderr
 }
 

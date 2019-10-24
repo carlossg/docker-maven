@@ -16,7 +16,7 @@ Describe "$SUT_TAG build image" {
 
   It 'builds image' {
     $exitCode, $stdout, $stderr = Build-Docker -ImageType $SUT_TAG --pull -t $SUT_IMAGE
-    $lastExitCode | Should -Be 0
+    $exitCode | Should -Be 0
   }
 
   AfterEach {
