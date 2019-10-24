@@ -10,6 +10,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build Images
       run: |
+        Find-Module -Name Pester | Install-Module
         $tags = @('3.6.2', '3.6', '3')
         Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object {
           Push-Location
