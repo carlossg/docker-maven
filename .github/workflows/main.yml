@@ -18,7 +18,7 @@ jobs:
 
           $windowsType = 'windowsservercore'
           $windowsDockerTag = 'ltsc2019'
-          $windowsReleaseId = $(Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID)
+          $windowsReleaseId = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID
 
           if($dockerfile.Name.Contains('nanoserver')) {
             $windowsType = 'windowsnanoserver'
