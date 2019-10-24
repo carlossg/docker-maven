@@ -18,14 +18,15 @@ jobs:
 
           $windowsType = 'windowsservercore'
           $windowsDockerTag = 'ltsc2019'
+          $windowsReleaseId = $(Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID)
 
           if($dockerfile.Name.Contains('nanoserver')) {
             $windowsType = 'windowsnanoserver'
-            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID)
+            $windowsDockerTag = $('{0}' -f $windowsReleaseId)
           }
 
           if($dockerfile.Name.Contains('jdk-')) {
-            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID)
+            $windowsDockerTag = $('{0}' -f $windowsReleaseId)
           }
 
           # run tests
@@ -43,9 +44,11 @@ jobs:
             docker build -f $dockerfile --tag $tag --build-arg WINDOWS_DOCKER_TAG=${windowsDockerTag} .
 
             if('${{ github.event_name }}' -eq 'push') {
+              # docker login with cause a warning which will cause this to fail unless we SilentlyContinue
               $ErrorActionPreference = 'SilentlyContinue'
-              '${{ secrets.DOCKER_PASSWORD }}' | & docker login --username slideomix --password-stdin
+              '${{ secrets.DOCKER_PASSWORD }}' | & docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
               $ErrorActionPreference = 'Stop'
+              Write-Host "Pushing $tag"
               & docker push $tag
             }
             Pop-Location
