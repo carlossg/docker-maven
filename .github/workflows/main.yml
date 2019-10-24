@@ -43,7 +43,9 @@ jobs:
             docker build -f $dockerfile --tag $tag --build-arg WINDOWS_DOCKER_TAG=${windowsDockerTag} .
 
             if('${{ github.event_name }}' -eq 'push') {
-              '${{ secrets.DOCKER_PASSWORD }}' | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+              $ErrorActionPreference = 'SilentlyContinue'
+              '${{ secrets.DOCKER_PASSWORD }}' | & docker login --username slideomix --password-stdin
+              $ErrorActionPreference = 'Stop'
               & docker push $tag
             }
             Pop-Location
