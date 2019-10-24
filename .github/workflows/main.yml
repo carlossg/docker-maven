@@ -39,13 +39,12 @@ jobs:
 
           $tags | ForEach-Object {
             Push-Location windows
-            $tag = ('maven:{0}-{1}-{2}-{3}' -f $_,$dockerfile.Name.Replace('Dockerfile.windows-', ''),$windowsType,$windowsDockerTag)
+            $tag = ('slideomix/maven:{0}-{1}-{2}-{3}' -f $_,$dockerfile.Name.Replace('Dockerfile.windows-', ''),$windowsType,$windowsDockerTag)
             docker build -f $dockerfile --tag $tag --build-arg WINDOWS_DOCKER_TAG=${windowsDockerTag} .
 
             if('${{ github.event_name }}' -eq 'push') {
-              Write-Host 'YOU ARE IN A PUSH OPERATION'
-            #  '${{ secrets.DOCKER_PASSWORD }}' | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-            #  & docker push $tag
+              '${{ secrets.DOCKER_PASSWORD }}' | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+              & docker push $tag
             }
             Pop-Location
           }
