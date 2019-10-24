@@ -22,11 +22,11 @@ jobs:
 
           if($dockerfile.Name.Contains('nanoserver')) {
             $windowsType = 'windowsnanoserver'
-            $windowsDockerTag = $('{0}' -f $windowsReleaseId)
+            $windowsDockerTag = $windowsReleaseId
           }
 
           if($dockerfile.Name.Contains('jdk-')) {
-            $windowsDockerTag = $('{0}' -f $windowsReleaseId)
+            $windowsDockerTag = $windowsReleaseId
           }
 
           # run tests
