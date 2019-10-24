@@ -16,11 +16,15 @@ jobs:
           Push-Location
           $dockerfile = $_
 
-          $windowsType = 'windows-servercore'
+          $windowsType = 'windowsservercore'
           $windowsDockerTag = 'ltsc2019'
 
           if($dockerfile.Name.Contains('nanoserver')) {
-            $windowsType = 'windows-nanoserver'
+            $windowsType = 'windowsnanoserver'
+            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID))
+          }
+
+          if($dockerfile.Name.Contains('jdk-')) {
             $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID))
           }
 
