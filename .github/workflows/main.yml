@@ -17,11 +17,11 @@ jobs:
           $dockerfile = $_
 
           $windowsType = 'windows-servercore'
-          $windowsDockerTag = ('ltsc{0}' -f '${{ matrix.os }}'.Replace('windows-', ''))
+          $windowsDockerTag = 'ltsc2019'
 
           if($dockerfile.Name.Contains('nanoserver')) {
             $windowsType = 'windows-nanoserver'
-            $windowsDockerTag = '1809'
+            $windowsDockerTag = $('{0}' -f (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID))
           }
 
           # run tests

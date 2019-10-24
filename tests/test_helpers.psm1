@@ -46,7 +46,12 @@ function Build-Docker($ImageType) {
     if(![String]::IsNullOrWhitespace($ImageType) -and !$ImageType.StartsWith('-')) {
         $ImageType = "-$ImageType"
     }
-    return (Run-Program 'docker.exe' "build -f Dockerfile.windows$ImageType $args .")
+
+    $windowsDockerTag=''
+    if(![String]::IsNullOrWhiteSpace(($env:WINDOWS_DOCKER_TAG)) {
+        $windowsDockerTag = "--build-arg WINDOWS_DOCKER_TAG=$env:WINDOWS_DOCKER_TAG"
+    }
+    return (Run-Program 'docker.exe' "build -f Dockerfile.windows$ImageType $windowsDockerTag $args .")
 }
 
 function Retry-Command {
