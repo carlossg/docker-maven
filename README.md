@@ -8,16 +8,21 @@ See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 * [jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [jdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/jdk-8-openj9/Dockerfile)
 * [jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
+* [jdk-8-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile.windows)
 * [jdk-11](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile)
 * [jdk-11-openj9](https://github.com/carlossg/docker-maven/blob/master/jdk-11-openj9/Dockerfile)
 * [jdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-11-slim/Dockerfile)
+* [jdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile.windows)
 * [jdk-13](https://github.com/carlossg/docker-maven/blob/master/jdk-13/Dockerfile)
+* [jdk-13-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-13/Dockerfile.windows)
 * [jdk-14](https://github.com/carlossg/docker-maven/blob/master/jdk-14/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile)
+* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
+* [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile.windows)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
+* [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile.windows)
 
 # What is Maven?
 
@@ -32,13 +37,27 @@ reporting and documentation from a central piece of information.
 You can run a Maven project by using the Maven Docker image directly,
 passing a Maven command to `docker run`:
 
+### Linux
+
     docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn clean install
+
+### Windows
+
+```powershell
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
+```
 
 ## Building local Docker image (optional)
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
+### Linux
+
     docker build --tag my_local_maven:3.6.0-jdk-8 .
+
+### Windows
+
+    docker build -f Dockerfile.windows --tag my_local_maven:3-jdk-9-windows --build-arg WINDOWS_DOCKER_TAG=1803 .
 
 
 # Multi-stage Builds
@@ -74,12 +93,15 @@ Or you can just use your home .m2 cache directory that you share e.g. with your 
 
 # Packaging a local repository with the image
 
-The `$MAVEN_CONFIG` dir (default to `/root/.m2`) could be configured as a volume so anything copied there in a Dockerfile at build time is lost.
-For that reason the dir `/usr/share/maven/ref/` exists, and anything in that directory will be copied on container startup to `$MAVEN_CONFIG`.
+The `$MAVEN_CONFIG` dir (default to `/root/.m2` or `C:\Users\ContainerUser\.m2`) could be configured as a volume so anything copied there in a Dockerfile 
+at build time is lost. For that reason the dir `/usr/share/maven/ref/` (or `C:\ProgramData\Maven\Reference`) exists, and anything in that directory will be copied 
+on container startup to `$MAVEN_CONFIG`.
 
 To create a pre-packaged repository, create a `pom.xml` with the dependencies you need and use this in your `Dockerfile`.
-`/usr/share/maven/ref/settings-docker.xml` is a settings file that changes the local repository to `/usr/share/maven/ref/repository`,
-but you can use your own settings file as long as it uses `/usr/share/maven/ref/repository` as local repo.
+`/usr/share/maven/ref/settings-docker.xml` (`C:\ProgramData\Maven\Reference\settings-docker.xml`) is a settings file that 
+changes the local repository to `/usr/share/maven/ref/repository` (`C:\Programdata\Maven\Reference\repository`),
+but you can use your own settings file as long as it uses `/usr/share/maven/ref/repository` (`C:\ProgramData\Maven\Reference\repository`) 
+as local repo.
 
     COPY pom.xml /tmp/pom.xml
     RUN mvn -B -f /tmp/pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
@@ -91,7 +113,7 @@ To add your custom `settings.xml` file to the image use
 For an example, check the `tests` dir
 
 
-# Running as non-root
+# Running as non-root (not supported on Windows)
 
 Maven needs the user home to download artifacts to, and if the user does not exist in the image an extra
 `user.home` Java property needs to be set.
@@ -115,14 +137,28 @@ Build with the usual
 
     docker build -t maven .
 
-Tests are written using [bats](https://github.com/sstephenson/bats) under the `tests` dir.
+Tests are written using [bats](https://github.com/sstephenson/bats) for Linux images and [pester](https://github.com/pester/Pester) for Windows images 
+(requires Pester 4.x) under the `tests` dir.
+
 Use the env var TAG to choose what image to run tests against.
 
+### Linux
     TAG=jdk-11 bats tests
+
+### Windows
+```powershell
+$env:TAG="jdk-11" ; Invoke-Pester -Path tests
+```
 
 or run all the tests with
 
+### Linux
     for dir in $(/bin/ls -1 -d */ | grep -v tests); do TAG=$(basename $dir) bats tests; done
+
+### Windows
+```powershell
+Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name.Replace('Dockerfile.windows-', '') ; Invoke-Pester -Path tests ; Pop-Location }
+```
 
 Bats can be easily installed with `brew install bats` on OS X.
 
@@ -132,6 +168,9 @@ Note that you may first need to:
 git submodule init
 git submodule update
 ```
+
+Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required. You may need to follow [this tutorial](https://blog.damianflynn.com/Windows10-Pester/) on upgrading Pester to 4.x.
+
 
 ## Publishing to Docker Hub
 

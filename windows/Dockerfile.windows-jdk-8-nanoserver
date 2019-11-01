@@ -1,0 +1,45 @@
+# escape=`
+ARG WINDOWS_DOCKER_TAG=1809
+ARG JAVA_VERSION=8u232
+# we use the latest stable if nothing is passed
+ARG POWERSHELL_VERSION=
+
+FROM openjdk:${JAVA_VERSION}-windowsservercore-${WINDOWS_DOCKER_TAG} as openjdk
+
+FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-$WINDOWS_DOCKER_TAG 
+
+SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+USER ContainerAdministrator
+
+ENV JAVA_HOME=C:\openjdk-8
+
+COPY --from=openjdk $JAVA_HOME $JAVA_HOME
+
+ENV ProgramFiles="C:\Program Files"
+ENV WindowsPATH="C:\Windows\system32;C:\Windows"
+
+ARG USER_HOME_DIR="C:/Users/ContainerUser"
+ARG MAVEN_VERSION=3.6.2
+ARG SHA=4bb0e0bb1fb74f1b990ba9a6493cc6345873d9188fc7613df16ab0d5bd2017de5a3917af4502792f0bad1fcc95785dcc6660f7add53548e0ec4bfb30ce4b1da7
+ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
+
+RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
+  if((Get-FileHash -Algorithm SHA512 -Path ${env:TEMP}/apache-maven.zip).Hash.ToLower() -ne ${env:SHA}) { exit 1 } ; `
+  Expand-Archive -Path ${env:TEMP}/apache-maven.zip -Destination C:/ProgramData ; `
+  Move-Item C:/ProgramData/apache-maven-${env:MAVEN_VERSION} C:/ProgramData/Maven ; `
+  New-Item -ItemType Directory -Path C:/ProgramData/Maven/Reference | Out-Null ; `
+  Remove-Item ${env:TEMP}/apache-maven.zip
+
+ENV MAVEN_HOME C:/ProgramData/Maven
+ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+
+COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
+COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
+
+USER ContainerUser
+
+ENV PATH="${WindowsPATH};${ProgramFiles}\PowerShell;${JAVA_HOME}\bin;${MAVEN_HOME}\bin"
+
+ENTRYPOINT ["pwsh", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
+CMD ["mvn"]
