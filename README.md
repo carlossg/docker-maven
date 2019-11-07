@@ -39,12 +39,12 @@ passing a Maven command to `docker run`:
 
 ### Linux
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn clean install
+    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn verify
 
 ### Windows
 
 ```powershell
-docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-8-windows mvn clean install
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-8-windows mvn verify
 ```
 
 ## Building local Docker image (optional)
@@ -88,7 +88,7 @@ The local Maven repository can be reused across containers by creating a volume 
 
 Or you can just use your home .m2 cache directory that you share e.g. with your Eclipse/IDEA:
 
-    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn clean package  
+    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn package  
 
 
 # Packaging a local repository with the image
