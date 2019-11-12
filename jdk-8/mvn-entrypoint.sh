@@ -14,10 +14,16 @@ copy_reference_files() {
       if cp --help 2>&1 | grep -q reflink ; then
           reflink="--reflink=auto"
       fi
-      if [ -n "$(find "${MAVEN_CONFIG}/repository" -maxdepth 0 -type d -empty 2>/dev/null)" ] ; then
+      if [ ! -d "${MAVEN_CONFIG}/repository" -o 1 = "$(find "${MAVEN_CONFIG}/repository" -maxdepth 1 -type d 2>/dev/null | wc -l)" ] ; then
           # destination is empty...
           echo "--- Copying all files to ${MAVEN_CONFIG} at $(date)" >> "${log}"
-          cp -rv ${reflink} . "${MAVEN_CONFIG}" >> "${log}"
+
+          local verbose="" # -v is not supported in alpine / busybox
+          if cp --help 2>&1 | grep -q "\-v" ; then
+              verbose="-v"
+          fi
+
+          cp -r ${verbose} ${reflink} . "${MAVEN_CONFIG}" >> "${log}"
       else
           # destination is non-empty, copy file-by-file
           echo "--- Copying individual files to ${MAVEN_CONFIG} at $(date)" >> "${log}"
