@@ -153,7 +153,7 @@ $env:TAG="jdk-11" ; Invoke-Pester -Path tests
 or run all the tests with
 
 ### Linux
-    for dir in $(/bin/ls -1 -d */ | grep -v tests); do TAG=$(basename $dir) bats tests; done
+    for dir in $(/bin/ls -1 -d */ | grep -v 'tests\|windows'); do TAG=$(basename $dir) bats tests; done
 
 ### Windows
 ```powershell
