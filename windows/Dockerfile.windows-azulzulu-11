@@ -4,20 +4,20 @@ FROM mcr.microsoft.com/windows/servercore:$WINDOWS_DOCKER_TAG
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG zip=/zulu11.35.13-ca-jdk11.0.5-win_x64.zip
+ARG zip=/zulu11.37.17-ca-jdk11.0.6-win_x64.zip
 ARG uri=https://cdn.azul.com/zulu/bin/
-ARG hash=ac2d5f8a1e60b2dcb35323c8039ab117b539514f5610fe3602da65f74bad16b8
+ARG hash=a9695617b8374bfa171f166951214965b1d1d08f43218db9a2a780b71c665c18
 
 RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/zulu11.35.13-ca-jdk11.0.5-win_x64
+ENV JAVA_HOME=C:/ProgramData/zulu11.37.17-ca-jdk11.0.6-win_x64
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.6.3
-ARG SHA=4bb0e0bb1fb74f1b990ba9a6493cc6345873d9188fc7613df16ab0d5bd2017de5a3917af4502792f0bad1fcc95785dcc6660f7add53548e0ec4bfb30ce4b1da7
+ARG SHA=1c095ed556eda06c6d82fdf52200bc4f3437a1bab42387e801d6f4c56e833fb82b16e8bf0aab95c9708de7bfb55ec27f653a7cf0f491acebc541af234eded94d
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
@@ -30,7 +30,7 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-ENV JAVA_HOME=C:/ProgramData/zulu11.35.13-ca-jdk11.0.5-win_x64
+ENV JAVA_HOME=C:/ProgramData/zulu11.37.17-ca-jdk11.0.6-win_x64
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml

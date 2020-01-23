@@ -21,7 +21,7 @@ jobs:
           $windowsReleaseId = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID
 
           if($dockerfile.Name.Contains('nanoserver')) {
-            $windowsType = 'windowsnanoserver'
+            $windowsType = ''
             $windowsDockerTag = $windowsReleaseId
           }
 

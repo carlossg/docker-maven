@@ -3,7 +3,9 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
-See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
+## Linux Based Images
+
+See [Docker Hub](https://hub.docker.com/_/maven) for an updated list of tags
 
 * [jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [jdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/jdk-8-openj9/Dockerfile)
@@ -23,6 +25,23 @@ See [Docker Hub](https://hub.docker.com/_/maven) for updated list of tags
 * [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile.windows)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
 * [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile.windows)
+
+## Windows Based Images
+
+See [Docker Hub](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
+
+* [jdk-8-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-8-openj9)
+* [jdk-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-8)
+* [jdk-8-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-8-nanoserver)
+* [jdk-11-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-11-openj9)
+* [jdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-11)
+* [jdk-11-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-11-nanoserver)
+* [jdk-13-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-13)
+* [jdk-14-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-14)
+* [amazoncorretto-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-8)
+* [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-11)
+* [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-azulzulu-11)
+
 
 # What is Maven?
 
@@ -45,6 +64,12 @@ passing a Maven command to `docker run`:
 
 ```powershell
 docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-8-windows mvn verify
+```
+
+### Windows
+
+```powershell
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
 ```
 
 ## Building local Docker image (optional)
@@ -154,6 +179,11 @@ or run all the tests with
 
 ### Linux
     for dir in $(/bin/ls -1 -d */ | grep -v 'tests\|windows'); do TAG=$(basename $dir) bats tests; done
+
+### Windows
+```powershell
+Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name.Replace('Dockerfile.windows-', '') ; Invoke-Pester -Path tests ; Pop-Location }
+```
 
 ### Windows
 ```powershell
