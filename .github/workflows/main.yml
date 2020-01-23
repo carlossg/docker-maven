@@ -16,7 +16,7 @@ jobs:
           Push-Location
           $dockerfile = $_
 
-          $windowsType = 'windowsservercore'
+          $windowsType = '-windowsservercore'
           $windowsDockerTag = 'ltsc2019'
           $windowsReleaseId = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name ReleaseID | Select-Object ReleaseID).ReleaseID
 
@@ -40,7 +40,7 @@ jobs:
 
           $tags | ForEach-Object {
             Push-Location windows
-            $tag = ('${{ secrets.DOCKER_USERNAME }}/maven:{0}-{1}-{2}-{3}' -f $_,$dockerfile.Name.Replace('Dockerfile.windows-', ''),$windowsType,$windowsDockerTag)
+            $tag = ('csanchez/maven:{0}-{1}{2}-{3}' -f $_,$dockerfile.Name.Replace('Dockerfile.windows-', ''),$windowsType,$windowsDockerTag)
             docker build -f $dockerfile --tag $tag --build-arg WINDOWS_DOCKER_TAG=${windowsDockerTag} .
 
             if('${{ github.event_name }}' -eq 'push') {
