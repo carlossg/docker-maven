@@ -25,6 +25,8 @@ See [Docker Hub](https://hub.docker.com/_/maven) for an updated list of tags
 * [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile.windows)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
 * [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile.windows)
+* [adoptopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11/Dockerfile)
+* [adoptopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8/Dockerfile)
 
 ## Windows Based Images
 
