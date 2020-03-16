@@ -14,7 +14,7 @@ RUN mkdir -p /usr/share/maven/; \
 
 COPY settings-docker.xml /usr/share/maven/ref/
 
-FROM adoptopenjdk/openjdk11:x86_64-alpine-jdk-11.0.5_10-slim
+FROM adoptopenjdk/openjdk8:x86_64-alpine-jdk8u232-b09-slim
 
 # Chose one of the smallest installed packages from this list https://pkgs.alpinelinux.org/packages?page=1&branch=edge&name=ttf-%2A for fonts
 # Installing git as a lot of maven plugins require scm
