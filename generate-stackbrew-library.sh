@@ -90,7 +90,7 @@ generate-version() {
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 echo "GitRepo: $url"
 
-versions=( jdk-*/ ibmjava-*/ amazoncorretto-*/ )
+versions=( jdk-*/ openjdk-*/ ibmjava-*/ amazoncorretto-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do

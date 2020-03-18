@@ -16,6 +16,7 @@ See [Docker Hub](https://hub.docker.com/_/maven) for an updated list of tags
 * [jdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-11-slim/Dockerfile)
 * [jdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile.windows)
 * [jdk-14](https://github.com/carlossg/docker-maven/blob/master/jdk-14/Dockerfile)
+* [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
