@@ -25,7 +25,7 @@ build-version() {
     docker build -t "$DOCKER_REPOSITORY:$version" .
     if [ -n "$DOCKER_PUSH" ]; then
         echo "Pushing $version"
-        docker push "$version"
+        docker push "$DOCKER_REPOSITORY:$version"
     fi
     for versionAlias in "${versionAliases[@]}"; do
         echo "Tagging $DOCKER_REPOSITORY:$versionAlias"
