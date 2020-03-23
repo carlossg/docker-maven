@@ -39,7 +39,7 @@ build-version() {
 
 if [ -n "$DOCKER_PUSH" ]; then
     echo "Docker login"
-    echo "${docker_password:?}" | docker login docker.pkg.github.com -u "${docker_username:?}" --password-stdin
+    echo "${docker_password:?}" | docker login -u "${docker_username:?}" --password-stdin
 fi
 
 versions=( jdk-*/ openjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
