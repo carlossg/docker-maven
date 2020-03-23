@@ -3,33 +3,31 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
+All images are published under [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) and the ones extending Docker official images also under [`maven`](https://hub.docker.com/_/maven).
+
 ## Linux Based Images
 
-See [Docker Hub](https://hub.docker.com/_/maven) for an updated list of tags
+See Docker Hub [`maven`](https://hub.docker.com/_/maven) and [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
 * [jdk-8](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile)
 * [jdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/jdk-8-openj9/Dockerfile)
 * [jdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-8-slim/Dockerfile)
-* [jdk-8-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-8/Dockerfile.windows)
 * [jdk-11](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile)
 * [jdk-11-openj9](https://github.com/carlossg/docker-maven/blob/master/jdk-11-openj9/Dockerfile)
 * [jdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/jdk-11-slim/Dockerfile)
-* [jdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/jdk-11/Dockerfile.windows)
 * [jdk-14](https://github.com/carlossg/docker-maven/blob/master/jdk-14/Dockerfile)
 * [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
-* [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/Dockerfile.windows)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
-* [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile.windows)
 * [adoptopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11/Dockerfile)
 * [adoptopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8/Dockerfile)
 
 ## Windows Based Images
 
-See [Docker Hub](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
+See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
 * [jdk-8-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-8-openj9)
 * [jdk-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-jdk-8)

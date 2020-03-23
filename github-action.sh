@@ -42,7 +42,7 @@ if [ -n "$DOCKER_PUSH" ]; then
     echo "${docker_password:?}" | docker login -u "${docker_username:?}" --password-stdin
 fi
 
-versions=( jdk-*/ openjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
+versions=( jdk-*/ openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
 versions=( "${versions[@]%/}" )
 
 for version in "${versions[@]}"; do
