@@ -14,6 +14,7 @@ See Docker Hub [`maven`](https://hub.docker.com/_/maven) and [`csanchez/maven`](
 * [openjdk-11](https://github.com/carlossg/docker-maven/blob/master/openjdk-11/Dockerfile)
 * [openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-slim/Dockerfile)
 * [openjdk-14](https://github.com/carlossg/docker-maven/blob/master/openjdk-14/Dockerfile)
+* [openjdk-14-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-14-slim/Dockerfile)
 * [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
 * [adoptopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8/Dockerfile)
 * [adoptopenjdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8-openj9/Dockerfile)
