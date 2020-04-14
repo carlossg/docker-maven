@@ -1,7 +1,8 @@
 #!/bin/bash -eu
 
-docker_username="${1:-}"
-docker_password="${2:-}"
+dir="${1:-}"
+docker_username="${2:-}"
+docker_password="${3:-}"
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -11,8 +12,9 @@ DOCKER_REPOSITORY="${DOCKER_REPOSITORY:-csanchez/maven}"
 DOCKER_PUSH=${DOCKER_PUSH:-}
 
 # only push from master
-branch="${GITHUB_REF##*/}"
-echo "Running on branch ${branch}"
+ref="${GITHUB_REF:-}"
+branch="${ref##*/}"
+echo "Running on branch ${branch} (${ref})"
 if [ "${branch}" != "master" ]; then
     DOCKER_PUSH=""
 fi
@@ -21,7 +23,7 @@ build-version() {
 	local version=$1
 	local versionAliases=("${@:2}")
     pushd "$version"
-    echo "Building $DOCKER_REPOSITORY:$version"
+    echo "Building docker image: $DOCKER_REPOSITORY:$version"
     docker build -t "$DOCKER_REPOSITORY:$version" .
     if [ -n "$DOCKER_PUSH" ]; then
         echo "Pushing $DOCKER_REPOSITORY:$version"
@@ -43,11 +45,17 @@ if [ -n "$DOCKER_PUSH" ]; then
     echo "${docker_password:?}" | docker login -u "${docker_username:?}" --password-stdin
 fi
 
-versions=( jdk-*/ openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
-versions=( "${versions[@]%/}" )
+if [ -z "${dir}" ]; then
+    versions=( jdk-*/ openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
+    versions=( "${versions[@]%/}" )
+else
+    versions=( "${dir}" )
+fi
 
 for version in "${versions[@]}"; do
     echo "Building $version"
 	mapfile -t versionAliases < <(version-aliases "$version" master)
 	build-version "$version" "${versionAliases[@]}"
+    echo "Testing $version"
+    TAG=$version bats tests
 done
