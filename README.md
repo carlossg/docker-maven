@@ -19,6 +19,8 @@ See Docker Hub [`maven`](https://hub.docker.com/_/maven) and [`csanchez/maven`](
 * [adoptopenjdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8-openj9/Dockerfile)
 * [adoptopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11/Dockerfile)
 * [adoptopenjdk-11-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11-openj9/Dockerfile)
+* [adoptopenjdk-14](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-14/Dockerfile)
+* [adoptopenjdk-14-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-14-openj9/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
