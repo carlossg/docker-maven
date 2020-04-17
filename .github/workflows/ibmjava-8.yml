@@ -1,0 +1,29 @@
+name: Docker Maven Image CI ibmjava-8
+
+on:
+  push:
+    paths:
+    - 'ibmjava-8/**'
+    - 'tests/**'
+    - '!tests/*.ps*'
+  pull_request:
+    paths:
+    - 'ibmjava-8/**'
+    - 'tests/**'
+    - '!tests/*.ps*'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup BATS
+      uses: mig4/setup-bats@v1.0.1
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Update submodules
+      run: git submodule update --init
+    - name: Build image
+      run: ./github-action.sh ibmjava-8 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
