@@ -1,4 +1,6 @@
-#!/usr/local/bin/bash -eu
+#!/usr/bin/env bash
+
+set -eu
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -36,11 +38,10 @@ generate-version() {
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 echo "GitRepo: $url"
 
-versions=( jdk-*/ openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ )
-versions=( "${versions[@]%/}" )
-
-for version in "${versions[@]}"; do
-	branch=master
-	mapfile -t versionAliases < <(version-aliases "$version" "$branch")
-	generate-version "$version" "$branch" "${versionAliases[@]}"
+for version in "${all_dirs[@]}"; do
+	if [[ "$version" != azulzulu* ]]; then
+		branch=master
+		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
+		generate-version "$version" "$branch" "${versionAliases[@]}"
+	fi
 done

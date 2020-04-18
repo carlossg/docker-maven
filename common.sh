@@ -1,4 +1,6 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+
+set -eu
 
 latest='14'
 default_jdk=jdk
@@ -6,6 +8,10 @@ parent_images=( openjdk ibmjava amazoncorretto)
 declare -A jdk_latest=( ["jdk"]="14" ["openjdk"]="14" ["ibmjava"]="8" ["amazoncorretto"]="11")
 variants=( alpine slim )
 declare -A variants_latest=( ["alpine"]="8" ["slim"]="11" )
+
+# All the directories that have images
+all_dirs=( jdk-* openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* )
+
 
 version-aliases() {
 	local version=$1
