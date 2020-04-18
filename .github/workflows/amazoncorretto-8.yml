@@ -4,11 +4,13 @@ on:
   push:
     paths:
     - 'amazoncorretto-8/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'amazoncorretto-8/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

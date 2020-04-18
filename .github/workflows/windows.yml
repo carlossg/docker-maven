@@ -5,12 +5,14 @@ on:
     paths:
     - 'windows/**'
     - 'tests/**'
+    - github-action.ps1
     - '!tests/*.bats'
     - '!tests/*.bash'
   pull_request:
     paths:
     - 'windows/**'
     - 'tests/**'
+    - github-action.ps1
     - '!tests/*.bash'
 
 env:

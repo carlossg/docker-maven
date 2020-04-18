@@ -4,11 +4,13 @@ on:
   push:
     paths:
     - 'adoptopenjdk-14-openj9/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'adoptopenjdk-14-openj9/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

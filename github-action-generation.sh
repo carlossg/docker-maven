@@ -1,11 +1,14 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
+
+set -eu
 
 # Generate one github action for each docker image
 
-versions=( openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
-versions=( "${versions[@]%/}" )
+. common.sh
 
-for version in "${versions[@]}"; do
-    echo "Generating action for $version"
-	sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
+for version in "${all_dirs[@]}"; do
+    if [[ "$version" != jdk* ]]; then
+        echo "Generating action for $version"
+        sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
+    fi
 done

@@ -4,11 +4,13 @@ on:
   push:
     paths:
     - 'DIRECTORY/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'DIRECTORY/**'
+    - github-action.sh
     - 'tests/**'
     - '!tests/*.ps*'
 
