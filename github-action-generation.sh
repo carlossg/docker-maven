@@ -20,4 +20,4 @@ for f in *; do
 done
 gsed -i "s/Docker Maven Image CI DIRECTORY/Docker Maven Image CI other/" .github/workflows/other.yml
 gsed -i "s/github-action.sh DIRECTORY/github-action.sh/" .github/workflows/other.yml
-gsed -i "/DIRECTORY\/\*\*/,+3 d" .github/workflows/other.yml
+gsed -i "/DIRECTORY\/\*\*/,+4 d" .github/workflows/other.yml

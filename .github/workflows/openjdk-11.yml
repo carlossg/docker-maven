@@ -5,12 +5,14 @@ on:
     paths:
     - 'openjdk-11/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'openjdk-11/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

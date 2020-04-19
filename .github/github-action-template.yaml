@@ -5,12 +5,14 @@ on:
     paths:
     - 'DIRECTORY/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'DIRECTORY/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

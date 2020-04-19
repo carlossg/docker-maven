@@ -5,12 +5,14 @@ on:
     paths:
     - 'adoptopenjdk-8-openj9/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'adoptopenjdk-8-openj9/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

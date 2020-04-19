@@ -5,12 +5,14 @@ on:
     paths:
     - 'amazoncorretto-11/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'amazoncorretto-11/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
 

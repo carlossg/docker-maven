@@ -40,6 +40,7 @@ on:
     - '!publish.sh/**'
     - '!tests/**'
     - '!windows/**'
+    - '!tests/*.ps*'
   pull_request:
     paths:
     - '!LICENSE/**'
@@ -79,6 +80,7 @@ on:
     - '!publish.sh/**'
     - '!tests/**'
     - '!windows/**'
+    - '!tests/*.ps*'
 
 env:
   DOCKER_PUSH: "true"

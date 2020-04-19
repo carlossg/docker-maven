@@ -5,12 +5,14 @@ on:
     paths:
     - 'ibmjava-8/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
   pull_request:
     paths:
     - 'ibmjava-8/**'
     - github-action.sh
+    - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
 
