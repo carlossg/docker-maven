@@ -1,0 +1,29 @@
+name: Docker Maven Image CI Windows
+
+on:
+  push:
+    paths:
+    - 'windows/**'
+    - 'tests/**'
+    - github-action.ps1
+    - '!tests/*.bats'
+    - '!tests/*.bash'
+  pull_request:
+    paths:
+    - 'windows/**'
+    - 'tests/**'
+    - github-action.ps1
+    - '!tests/*.bash'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Build Images
+      run: .\github-action.ps1 ${{ github.event_name }} ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      shell: pwsh

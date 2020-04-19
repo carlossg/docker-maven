@@ -1,0 +1,95 @@
+name: Docker Maven Image CI other
+
+on:
+  push:
+    paths:
+    - '!LICENSE/**'
+    - '!README-short.txt/**'
+    - '!README.md/**'
+    - '!adoptopenjdk-11/**'
+    - '!adoptopenjdk-11-openj9/**'
+    - '!adoptopenjdk-14/**'
+    - '!adoptopenjdk-14-openj9/**'
+    - '!adoptopenjdk-8/**'
+    - '!adoptopenjdk-8-openj9/**'
+    - '!amazoncorretto-11/**'
+    - '!amazoncorretto-8/**'
+    - '!azulzulu-11/**'
+    - '!common.sh/**'
+    - '!generate-stackbrew-library.sh/**'
+    - '!github-action-generation.sh/**'
+    - '!github-action.ps1/**'
+    - '!github-action.sh/**'
+    - '!ibmjava-8/**'
+    - '!ibmjava-8-alpine/**'
+    - '!jdk-11/**'
+    - '!jdk-11-openj9/**'
+    - '!jdk-11-slim/**'
+    - '!jdk-14/**'
+    - '!jdk-8/**'
+    - '!jdk-8-openj9/**'
+    - '!jdk-8-slim/**'
+    - '!logo.png/**'
+    - '!openjdk-11/**'
+    - '!openjdk-11-slim/**'
+    - '!openjdk-14/**'
+    - '!openjdk-15/**'
+    - '!openjdk-8/**'
+    - '!openjdk-8-slim/**'
+    - '!publish.sh/**'
+    - '!tests/**'
+    - '!windows/**'
+  pull_request:
+    paths:
+    - '!LICENSE/**'
+    - '!README-short.txt/**'
+    - '!README.md/**'
+    - '!adoptopenjdk-11/**'
+    - '!adoptopenjdk-11-openj9/**'
+    - '!adoptopenjdk-14/**'
+    - '!adoptopenjdk-14-openj9/**'
+    - '!adoptopenjdk-8/**'
+    - '!adoptopenjdk-8-openj9/**'
+    - '!amazoncorretto-11/**'
+    - '!amazoncorretto-8/**'
+    - '!azulzulu-11/**'
+    - '!common.sh/**'
+    - '!generate-stackbrew-library.sh/**'
+    - '!github-action-generation.sh/**'
+    - '!github-action.ps1/**'
+    - '!github-action.sh/**'
+    - '!ibmjava-8/**'
+    - '!ibmjava-8-alpine/**'
+    - '!jdk-11/**'
+    - '!jdk-11-openj9/**'
+    - '!jdk-11-slim/**'
+    - '!jdk-14/**'
+    - '!jdk-8/**'
+    - '!jdk-8-openj9/**'
+    - '!jdk-8-slim/**'
+    - '!logo.png/**'
+    - '!openjdk-11/**'
+    - '!openjdk-11-slim/**'
+    - '!openjdk-14/**'
+    - '!openjdk-15/**'
+    - '!openjdk-8/**'
+    - '!openjdk-8-slim/**'
+    - '!publish.sh/**'
+    - '!tests/**'
+    - '!windows/**'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup BATS
+      uses: mig4/setup-bats@v1.0.1
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Update submodules
+      run: git submodule update --init
+    - name: Build image
+      run: ./github-action.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}

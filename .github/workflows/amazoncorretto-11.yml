@@ -1,0 +1,31 @@
+name: Docker Maven Image CI amazoncorretto-11
+
+on:
+  push:
+    paths:
+    - 'amazoncorretto-11/**'
+    - github-action.sh
+    - 'tests/**'
+    - '!tests/*.ps*'
+  pull_request:
+    paths:
+    - 'amazoncorretto-11/**'
+    - github-action.sh
+    - 'tests/**'
+    - '!tests/*.ps*'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup BATS
+      uses: mig4/setup-bats@v1.0.1
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Update submodules
+      run: git submodule update --init
+    - name: Build image
+      run: ./github-action.sh amazoncorretto-11 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
