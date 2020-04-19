@@ -4,8 +4,8 @@ set -eu
 
 latest='14'
 default_jdk=openjdk
-parent_images=( openjdk ibmjava amazoncorretto)
-declare -A jdk_latest=( ["jdk"]="14" ["openjdk"]="14" ["ibmjava"]="8" ["amazoncorretto"]="11")
+parent_images=( openjdk adoptopenjdk ibmjava amazoncorretto)
+declare -A jdk_latest=( ["jdk"]="14" ["openjdk"]="14" ["adoptopenjdk"]="14" ["ibmjava"]="8" ["amazoncorretto"]="11")
 variants=( alpine slim )
 declare -A variants_latest=( ["alpine"]="8" ["slim"]="14" )
 
