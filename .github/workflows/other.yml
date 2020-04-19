@@ -15,6 +15,9 @@ on:
     - '!amazoncorretto-11/**'
     - '!amazoncorretto-8/**'
     - '!azulzulu-11/**'
+    - '!azulzulu-11-alpine/**'
+    - '!azulzulu-14/**'
+    - '!azulzulu-14-alpine/**'
     - '!common.sh/**'
     - '!generate-stackbrew-library.sh/**'
     - '!github-action-generation.sh/**'
@@ -40,7 +43,6 @@ on:
     - '!publish.sh/**'
     - '!tests/**'
     - '!windows/**'
-    - '!tests/*.ps*'
   pull_request:
     paths:
     - '!LICENSE/**'
@@ -55,6 +57,9 @@ on:
     - '!amazoncorretto-11/**'
     - '!amazoncorretto-8/**'
     - '!azulzulu-11/**'
+    - '!azulzulu-11-alpine/**'
+    - '!azulzulu-14/**'
+    - '!azulzulu-14-alpine/**'
     - '!common.sh/**'
     - '!generate-stackbrew-library.sh/**'
     - '!github-action-generation.sh/**'
@@ -80,7 +85,6 @@ on:
     - '!publish.sh/**'
     - '!tests/**'
     - '!windows/**'
-    - '!tests/*.ps*'
 
 env:
   DOCKER_PUSH: "true"
