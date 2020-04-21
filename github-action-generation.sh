@@ -7,10 +7,8 @@ set -eu
 . common.sh
 
 for version in "${all_dirs[@]}"; do
-    if [[ "$version" != jdk* ]]; then
-        echo "Generating action for $version"
-        sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
-    fi
+    echo "Generating action for $version"
+    sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
 done
 
 # Create a workflow for everything else that may be added in a PR

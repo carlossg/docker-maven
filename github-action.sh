@@ -48,8 +48,7 @@ if [ -n "$DOCKER_PUSH" ]; then
 fi
 
 if [ -z "${dir}" ]; then
-    versions=( jdk-*/ openjdk-*/ adoptopenjdk-*/ ibmjava-*/ amazoncorretto-*/ azulzulu-*/ )
-    versions=( "${versions[@]%/}" )
+    versions=( "${all_dirs[@]}" )
 else
     versions=( "${dir}" )
 fi

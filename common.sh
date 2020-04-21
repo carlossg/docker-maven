@@ -10,7 +10,7 @@ variants=( alpine slim )
 declare -A variants_latest=( ["alpine"]="8" ["slim"]="14" )
 
 # All the directories that have images
-all_dirs=( jdk-* openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* )
+all_dirs=( openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* )
 
 version-aliases() {
 	local version=$1
