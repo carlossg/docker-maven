@@ -22,7 +22,7 @@ version-aliases() {
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=( "$mavenVersion-$version" )
 		# tag 3.5, 3.5.4
-		if [[ "$version" == *"$default_jdk-$latest" ]]; then
+		if [[ "$version" == "$default_jdk-$latest" ]]; then
 			versionAliases+=( "$mavenVersion" )
 		fi
 		for parent_image in "${parent_images[@]}"; do
