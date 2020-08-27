@@ -1,4 +1,4 @@
-FROM openjdk:15-jdk
+FROM openjdk:15-jdk-oraclelinux8
 
 ARG MAVEN_VERSION=3.6.3
 ARG USER_HOME_DIR="/root"
