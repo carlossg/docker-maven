@@ -10,7 +10,11 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 . common.sh
 
-DOCKER_REPOSITORY="${DOCKER_REPOSITORY:-csanchez/maven}"
+if [ -n "${DOCKER_REPOSITORY:-}" ]; then
+    DOCKER_REPOSITORIES=("${DOCKER_REPOSITORY}")
+else
+    DOCKER_REPOSITORIES=(csanchez/maven ghcr.io/carlossg/maven)
+fi
 DOCKER_PUSH=${DOCKER_PUSH:-}
 
 # only push from master
@@ -25,19 +29,25 @@ build-version() {
 	local version=$1
 	local versionAliases=("${@:2}")
     pushd "$version"
-    echo "Building docker image: $DOCKER_REPOSITORY:$version"
-    docker build -t "$DOCKER_REPOSITORY:$version" .
+    echo "Building docker image: maven:$version"
+    docker build -t "maven:$version" .
+
     if [ -n "$DOCKER_PUSH" ]; then
-        echo "Pushing $DOCKER_REPOSITORY:$version"
-        docker push "$DOCKER_REPOSITORY:$version"
+        for repository in "${DOCKER_REPOSITORIES[@]}"; do
+            echo "Pushing $repository:$version"
+            docker tag "maven:$version" "$repository:$version"
+            docker push "$repository:$version"
+        done
     fi
     for versionAlias in "${versionAliases[@]}"; do
-        echo "Tagging $DOCKER_REPOSITORY:$versionAlias"
-        docker tag "$DOCKER_REPOSITORY:$version" "$DOCKER_REPOSITORY:$versionAlias"
-        if [ -n "$DOCKER_PUSH" ]; then
-            echo "Pushing $DOCKER_REPOSITORY:$versionAlias"
-            docker push "$DOCKER_REPOSITORY:$versionAlias"
-        fi
+        for repository in "${DOCKER_REPOSITORIES[@]}"; do
+            echo "Tagging $repository:$versionAlias"
+            docker tag "maven:$version" "$repository:$versionAlias"
+            if [ -n "$DOCKER_PUSH" ]; then
+                echo "Pushing $repository:$versionAlias"
+                docker push "$repository:$versionAlias"
+            fi
+        done
     done
     popd
 }
@@ -45,6 +55,10 @@ build-version() {
 if [ -n "$DOCKER_PUSH" ]; then
     echo "Docker login"
     echo "${docker_password:?}" | docker login -u "${docker_username:?}" --password-stdin
+    if [ -n "${CR_PAT:-}" ]; then
+        echo "GitHub Container Registry login"
+        echo "${CR_PAT}" | docker login ghcr.io -u carlossg --password-stdin
+    fi
 fi
 
 if [ -z "${dir}" ]; then
