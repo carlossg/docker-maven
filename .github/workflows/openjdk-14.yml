@@ -31,3 +31,5 @@ jobs:
       run: git submodule update --init
     - name: Build image
       run: ./github-action.sh openjdk-14 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
