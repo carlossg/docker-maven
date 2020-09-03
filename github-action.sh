@@ -74,3 +74,4 @@ for version in "${versions[@]}"; do
     echo "Testing $version"
     TAG=$version bats tests
 done
+
