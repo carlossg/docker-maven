@@ -3,11 +3,15 @@ docker-maven
 
 # Supported tags and respective Dockerfile links
 
-All images are published under [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) and the ones extending Docker official images also under [`maven`](https://hub.docker.com/_/maven).
+Images are published under:
+
+* [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven)
+* [`maven`](https://hub.docker.com/_/maven) (linux and extending Docker official images only)
+* [`ghcr.io/carlossg/maven`](https://github.com/users/carlossg/packages/container/maven) (linux only)
 
 ## Linux Based Images
 
-See Docker Hub [`maven`](https://hub.docker.com/_/maven) and [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
+See Docker Hub or GitHub Container Registry for an updated list of tags
 
 * [openjdk-8](https://github.com/carlossg/docker-maven/blob/master/openjdk-8/Dockerfile)
 * [openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-slim/Dockerfile)
@@ -16,6 +20,7 @@ See Docker Hub [`maven`](https://hub.docker.com/_/maven) and [`csanchez/maven`](
 * [openjdk-14](https://github.com/carlossg/docker-maven/blob/master/openjdk-14/Dockerfile)
 * [openjdk-14-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-14-slim/Dockerfile)
 * [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
+* [openjdk-16](https://github.com/carlossg/docker-maven/blob/master/openjdk-16/Dockerfile)
 * [adoptopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8/Dockerfile)
 * [adoptopenjdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8-openj9/Dockerfile)
 * [adoptopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11/Dockerfile)
