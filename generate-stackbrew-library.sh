@@ -50,7 +50,7 @@ generate-version adoptopenjdk-8-openj9 master 3.6.3-jdk-8-openj9 3.6-jdk-8-openj
 generate-version openjdk-8-slim master 3.6.3-jdk-8-slim 3.6-jdk-8-slim 3-jdk-8-slim
 
 for version in "${all_dirs[@]}"; do
-	if [[ "$version" != azulzulu* ]]; then
+	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]]; then
 		branch=master
 		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
 		generate-version "$version" "$branch" "${versionAliases[@]}"

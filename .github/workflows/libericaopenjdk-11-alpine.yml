@@ -1,0 +1,35 @@
+name: Docker Maven Image CI libericaopenjdk-11-alpine
+
+on:
+  push:
+    paths:
+    - 'libericaopenjdk-11-alpine/**'
+    - github-action.sh
+    - common.sh
+    - 'tests/**'
+    - '!tests/*.ps*'
+  pull_request:
+    paths:
+    - 'libericaopenjdk-11-alpine/**'
+    - github-action.sh
+    - common.sh
+    - 'tests/**'
+    - '!tests/*.ps*'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup BATS
+      uses: mig4/setup-bats@v1.0.1
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Update submodules
+      run: git submodule update --init
+    - name: Build image
+      run: ./github-action.sh libericaopenjdk-11-alpine ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
