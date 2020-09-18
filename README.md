@@ -32,6 +32,10 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile) - only under `csanchez/maven`
+* [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/liberica/libericaopenjdk-11/Dockerfile)
+* [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/master/liberica/libericaopenjdk-11-alpine/Dockerfile)
+* [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/liberica/libericaopenjdk-8/Dockerfile)
+* [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/master/liberica/libericaopenjdk-8-alpine/Dockerfile)
 
 ## Windows Based Images
 
