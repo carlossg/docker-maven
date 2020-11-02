@@ -2,3 +2,4 @@
 /tests/.project
 /tests/.settings/
 /tests/target/
+*.tmp

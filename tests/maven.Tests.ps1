@@ -1,11 +1,9 @@
 $SUT_IMAGE="pester-maven"
-$SUT_CONTAINER="pester-maven"
 $SUT_TAG="jdk-8"
 if(![System.String]::IsNullOrWhiteSpace($env:TAG)) {
   $SUT_TAG=$env:TAG
 }
 $SUT_TEST_IMAGE="pester-maven-test"
-$SUT_TEST_CONTAINER="pester-maven-test"
 
 Import-Module -Force -DisableNameChecking $PSScriptRoot/test_helpers.psm1
 
