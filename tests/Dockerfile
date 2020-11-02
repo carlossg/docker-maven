@@ -1,4 +1,4 @@
-FROM bats-maven
+FROM TO_BE_REPLACED
 
 COPY settings.xml /usr/share/maven/ref/
 COPY pom.xml /tmp/pom.xml
