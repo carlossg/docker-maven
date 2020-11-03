@@ -59,3 +59,17 @@ load test_helpers
   run bash -c "docker run --rm -u 11337:11337 -w /tmp --tmpfs /tmp -e HOME=/tmp $SUT_TEST_IMAGE:$SUT_TAG mvn -B archetype:generate -DgroupId=bats-testing -DartifactId=bats-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
   assert_success
 }
+
+@test "$SUT_TAG git is installed" {
+  if ! ( \
+       [[ "$SUT_TAG" == *"-openj9" ]] \
+    || [[ "$SUT_TAG" == *"-alpine" ]] \
+    || [[ "$SUT_TAG" == *"-slim" ]] \
+    || [[ "$SUT_TAG" == "amazoncorretto-"* ]] \
+    || [[ "$SUT_TAG" == "azulzulu-"* ]] \
+    || [[ "$SUT_TAG" == "ibmjava-"* ]] \
+    || [[ "$SUT_TAG" == "libericaopenjdk-"* ]] \
+  ); then
+    docker run --rm $SUT_IMAGE:$SUT_TAG git --version
+  fi
+}
