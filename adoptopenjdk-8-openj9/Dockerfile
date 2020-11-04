@@ -1,4 +1,4 @@
-FROM adoptopenjdk:8-jdk-openj9-bionic
+FROM adoptopenjdk:8-jdk-openj9
 
 ARG MAVEN_VERSION=3.6.3
 ARG USER_HOME_DIR="/root"
