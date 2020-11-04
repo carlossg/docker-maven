@@ -43,8 +43,6 @@ generate-version openjdk-11 master 3.6.3-jdk-11 3.6-jdk-11 3-jdk-11
 generate-version adoptopenjdk-11-openj9 master 3.6.3-jdk-11-openj9 3.6-jdk-11-openj9 3-jdk-11-openj9
 generate-version openjdk-11-slim master 3.6.3-jdk-11-slim 3.6-jdk-11-slim 3-jdk-11-slim
 
-generate-version openjdk-14 master 3.6.3-jdk-14 3.6-jdk-14 3-jdk-14
-
 generate-version openjdk-8 master 3.6.3-jdk-8 3.6-jdk-8 3-jdk-8
 generate-version adoptopenjdk-8-openj9 master 3.6.3-jdk-8-openj9 3.6-jdk-8-openj9 3-jdk-8-openj9
 generate-version openjdk-8-slim master 3.6.3-jdk-8-slim 3.6-jdk-8-slim 3-jdk-8-slim
