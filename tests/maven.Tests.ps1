@@ -13,6 +13,7 @@ Describe "$SUT_TAG build image" {
   }
 
   It 'builds image' {
+    Write-Verbose "Build-Docker -ImageType $SUT_TAG --pull -t $SUT_IMAGE"
     $exitCode, $stdout, $stderr = Build-Docker -ImageType $SUT_TAG --pull -t $SUT_IMAGE
     $exitCode | Should -Be 0
   }
