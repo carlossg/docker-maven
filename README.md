@@ -17,8 +17,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-slim/Dockerfile)
 * [openjdk-11](https://github.com/carlossg/docker-maven/blob/master/openjdk-11/Dockerfile)
 * [openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-slim/Dockerfile)
-* [openjdk-14](https://github.com/carlossg/docker-maven/blob/master/openjdk-14/Dockerfile)
-* [openjdk-14-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-14-slim/Dockerfile)
 * [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
 * [openjdk-15-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-15-slim/Dockerfile)
 * [openjdk-16](https://github.com/carlossg/docker-maven/blob/master/openjdk-16/Dockerfile)
@@ -35,10 +33,14 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
+* [amazoncorretto-15](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-15/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
+* [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11-alpine/Dockerfile)
+* [azulzulu-14](https://github.com/carlossg/docker-maven/blob/master/azulzulu-14/Dockerfile)
+* [azulzulu-14-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-14-alpine/Dockerfile)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8/Dockerfile)
