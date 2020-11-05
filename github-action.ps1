@@ -1,4 +1,4 @@
-Install-Module -Name Pester -Force -RequiredVersion 4.9.0
+Install-Module -Name Pester -Force -RequiredVersion 5.0.4
 Write-Host "Starting"
 $event_name = $args[0]
 $username = $args[1]
@@ -28,7 +28,7 @@ Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Ob
     Push-Location
     $env:TAG=$dockerfile.Name.Replace('Dockerfile.windows-', '')
     $env:WINDOWS_DOCKER_TAG=$windowsDockerTag
-    Invoke-Pester -Path tests
+    Invoke-Pester -Path tests -CI
     Remove-Item env:\TAG
     Remove-Item env:\WINDOWS_DOCKER_TAG
     Pop-Location
