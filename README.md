@@ -50,16 +50,16 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
-* [openjdk-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-8)
-* [openjdk-8-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-8-nanoserver)
-* [openjdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-11)
-* [openjdk-11-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-11-nanoserver)
-* [adoptopenjdk-8-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-adoptopenjdk-8-openj9)
-* [adoptopenjdk-11-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-adoptopenjdk-11-openj9)
-* [amazoncorretto-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-8)
-* [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-11)
-* [amazoncorretto-15-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-15)
-* [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-azulzulu-11)
+* [openjdk-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-windowsservercore/Dockerfile)
+* [openjdk-8-nanoserver](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-nanoserver/Dockerfile)
+* [openjdk-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-windowsservercore/Dockerfile)
+* [openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-nanoserver/Dockerfile)
+* [adoptopenjdk-8-openj9-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8-openj9-windowsservercore/Dockerfile)
+* [adoptopenjdk-11-openj9-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11-openj9-windowsservercore/Dockerfile)
+* [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8-windowsservercore/Dockerfile)
+* [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11-windowsservercore/Dockerfile)
+* [amazoncorretto-15-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-15-windowsservercore/Dockerfile)
+* [azulzulu-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11-windowsservercore/Dockerfile)
 
 
 # What is Maven?
@@ -95,13 +95,7 @@ docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Sr
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-### Linux
-
     docker build --tag my_local_maven:3.6.0-jdk-8 .
-
-### Windows
-
-    docker build -f Dockerfile.windows --tag my_local_maven:3-jdk-9-windows --build-arg WINDOWS_DOCKER_TAG=1803 .
 
 
 # Multi-stage Builds
@@ -201,12 +195,7 @@ or run all the tests with
 
 ### Windows
 ```powershell
-Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name.Replace('Dockerfile.windows-', '') ; Invoke-Pester -Path tests ; Pop-Location }
-```
-
-### Windows
-```powershell
-Get-ChildItem -Path windows\* -File -Include "Dockerfile.windows-*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name.Replace('Dockerfile.windows-', '') ; Invoke-Pester -Path tests ; Pop-Location }
+Get-ChildItem -File -Include "*windows*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
 ```
 
 Bats can be easily installed with `brew install bats` on OS X.

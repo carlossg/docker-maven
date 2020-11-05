@@ -1,8 +1,18 @@
 # escape=`
-ARG WINDOWS_DOCKER_TAG=1809
-FROM adoptopenjdk:8-openj9-windowsservercore-$WINDOWS_DOCKER_TAG
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+ARG zip=amazon-corretto-15-x64-windows-jdk.zip
+ARG uri=https://corretto.aws/downloads/latest
+ARG hash=fa51ddc8e388c7a34d2e1daf0bc9886aa3f93cb4f17ac9e95b685b2e30d5027b
+
+RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
+    if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
+    Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
+    Remove-Item C:/${env:zip}
+
+ENV JAVA_HOME=C:/ProgramData/jdk15.0.1_9
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.6.3

@@ -1,19 +1,18 @@
 # escape=`
-ARG WINDOWS_DOCKER_TAG=ltsc2019
-FROM mcr.microsoft.com/windows/servercore:$WINDOWS_DOCKER_TAG
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG zip=/zulu11.37.17-ca-jdk11.0.6-win_x64.zip
-ARG uri=https://cdn.azul.com/zulu/bin/
-ARG hash=a9695617b8374bfa171f166951214965b1d1d08f43218db9a2a780b71c665c18
+ARG zip=amazon-corretto-11-x64-windows-jdk.zip
+ARG uri=https://corretto.aws/downloads/latest
+ARG hash=b04c70de023bcb57b008b51858003081041394e27eaf29f4bd641dd3b1f270f7
 
-RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
+RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/zulu11.37.17-ca-jdk11.0.6-win_x64
+ENV JAVA_HOME=C:/ProgramData/jdk11.0.9_12
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.6.3
@@ -29,8 +28,6 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-
-ENV JAVA_HOME=C:/ProgramData/zulu11.37.17-ca-jdk11.0.6-win_x64
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml

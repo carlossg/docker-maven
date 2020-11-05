@@ -1,19 +1,18 @@
 # escape=`
-ARG WINDOWS_DOCKER_TAG=ltsc2019
-FROM mcr.microsoft.com/windows/servercore:$WINDOWS_DOCKER_TAG
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ARG zip=amazon-corretto-8-x64-windows-jdk.zip
-ARG uri=https://corretto.aws/downloads/latest/
-ARG hash=4e33650b437008622771c8947f145bc5
+ARG uri=https://corretto.aws/downloads/latest
+ARG hash=db681329493ba2687bd2e403f8105134bb4242767a1dbae214f89827c9584ff9
 
-RUN Invoke-WebRequest -Uri $('{0}{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
-    if((Get-FileHash C:/$env:zip -Algorithm MD5).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
+RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
+    if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_242
+ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_275
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.6.3

@@ -1,6 +1,5 @@
 # escape=`
-ARG WINDOWS_DOCKER_TAG=1809
-FROM openjdk:8-jdk-windowsservercore-$WINDOWS_DOCKER_TAG
+FROM adoptopenjdk:8-openj9-windowsservercore-1809
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 

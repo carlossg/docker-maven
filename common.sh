@@ -12,6 +12,11 @@ declare -A variants_latest=( ["alpine"]="8" ["slim"]="14" )
 # All the directories that have images
 all_dirs=( openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* libericaopenjdk-*)
 
+# use gnu sed in darwin
+if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
+	PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+fi
+
 version-aliases() {
 	local version=$1
 	local branch=$2
