@@ -54,11 +54,11 @@ See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for a
 * [openjdk-8-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-8-nanoserver)
 * [openjdk-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-11)
 * [openjdk-11-windows-nanoserver](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-11-nanoserver)
-* [openjdk-14-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-openjdk-14)
 * [adoptopenjdk-8-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-adoptopenjdk-8-openj9)
 * [adoptopenjdk-11-openj9-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-adoptopenjdk-11-openj9)
 * [amazoncorretto-8-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-8)
 * [amazoncorretto-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-11)
+* [amazoncorretto-15-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-amazoncorretto-15)
 * [azulzulu-11-windows](https://github.com/carlossg/docker-maven/blob/master/windows/Dockerfile.windows-azulzulu-11)
 
 
