@@ -2,12 +2,15 @@ name: Docker Maven Image CI azulzulu-14-alpine
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'azulzulu-14-alpine/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'azulzulu-14-alpine/**'

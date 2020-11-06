@@ -2,12 +2,15 @@ name: Docker Maven Image CI adoptopenjdk-8-openj9
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'adoptopenjdk-8-openj9/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'adoptopenjdk-8-openj9/**'

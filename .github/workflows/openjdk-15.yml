@@ -2,12 +2,15 @@ name: Docker Maven Image CI openjdk-15
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'openjdk-15/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'openjdk-15/**'

@@ -2,12 +2,15 @@ name: Docker Maven Image CI libericaopenjdk-11
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'libericaopenjdk-11/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'libericaopenjdk-11/**'

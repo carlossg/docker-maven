@@ -2,12 +2,15 @@ name: Docker Maven Image CI adoptopenjdk-14
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'adoptopenjdk-14/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'adoptopenjdk-14/**'

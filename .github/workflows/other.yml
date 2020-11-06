@@ -2,6 +2,8 @@ name: Docker Maven Image CI other
 
 on:
   push:
+    branches:
+    - master
     paths:
     - '!LICENSE/**'
     - '!README-short.txt/**'
@@ -23,7 +25,6 @@ on:
     - '!azulzulu-14-alpine/**'
     - '!common.sh/**'
     - '!generate-stackbrew-library.sh/**'
-    - '!git.txt/**'
     - '!github-action-generation.sh/**'
     - '!github-action.ps1/**'
     - '!github-action.sh/**'
@@ -45,6 +46,7 @@ on:
     - '!publish.sh/**'
     - '!tests/**'
     - '!windows/**'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - '!LICENSE/**'
@@ -67,7 +69,6 @@ on:
     - '!azulzulu-14-alpine/**'
     - '!common.sh/**'
     - '!generate-stackbrew-library.sh/**'
-    - '!git.txt/**'
     - '!github-action-generation.sh/**'
     - '!github-action.ps1/**'
     - '!github-action.sh/**'

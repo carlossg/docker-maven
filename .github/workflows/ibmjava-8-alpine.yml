@@ -2,12 +2,15 @@ name: Docker Maven Image CI ibmjava-8-alpine
 
 on:
   push:
+    branches:
+    - master
     paths:
     - 'ibmjava-8-alpine/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
     - '!tests/*.ps*'
+    - '!tests/*.windows'
   pull_request:
     paths:
     - 'ibmjava-8-alpine/**'
