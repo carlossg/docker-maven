@@ -8,7 +8,11 @@ set -eu
 
 for version in "${all_dirs[@]}"; do
     echo "Generating action for $version"
-    sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
+    if [[ "$version" == *"windows"* ]] || [[ "$version" == *"nanoserver"* ]]; then
+        sed -e "s/DIRECTORY/$version/" .github/github-action-windows-template.yaml > ".github/workflows/$version.yml"
+    else
+        sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
+    fi
 done
 
 # Create a workflow for everything else that may be added in a PR

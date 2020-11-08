@@ -1,0 +1,33 @@
+name: azulzulu-11-windowsservercore
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'azulzulu-11-windowsservercore/**'
+    - 'tests/**'
+    - github-action.ps1
+    - '!tests/*.bats'
+    - '!tests/*.bash'
+    - '!tests/Dockerfile'
+  pull_request:
+    paths:
+    - 'azulzulu-11-windowsservercore/**'
+    - 'tests/**'
+    - github-action.ps1
+    - '!tests/*.bash'
+    - '!tests/Dockerfile'
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Build Images
+      run: .\github-action.ps1 azulzulu-11-windowsservercore ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      shell: pwsh

@@ -1,21 +1,23 @@
-name: Docker Maven Image CI Windows
+name: amazoncorretto-15-windowsservercore
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'windows/**'
+    - 'amazoncorretto-15-windowsservercore/**'
     - 'tests/**'
     - github-action.ps1
     - '!tests/*.bats'
     - '!tests/*.bash'
+    - '!tests/Dockerfile'
   pull_request:
     paths:
-    - 'windows/**'
+    - 'amazoncorretto-15-windowsservercore/**'
     - 'tests/**'
     - github-action.ps1
     - '!tests/*.bash'
+    - '!tests/Dockerfile'
 
 env:
   DOCKER_PUSH: "true"
@@ -27,5 +29,5 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Build Images
-      run: .\github-action.ps1 ${{ github.event_name }} ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      run: .\github-action.ps1 amazoncorretto-15-windowsservercore ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
       shell: pwsh

@@ -1,18 +1,17 @@
 # escape=`
-ARG WINDOWS_DOCKER_TAG=1809
-ARG JAVA_VERSION=11.0.6
+ARG JAVA_VERSION=8u242
 # we use the latest stable if nothing is passed
 ARG POWERSHELL_VERSION=
 
-FROM openjdk:${JAVA_VERSION}-windowsservercore-${WINDOWS_DOCKER_TAG} as openjdk
+FROM openjdk:${JAVA_VERSION}-windowsservercore-1809 as openjdk
 
-FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-$WINDOWS_DOCKER_TAG 
+FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-1809 
 
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 USER ContainerAdministrator
 
-ENV JAVA_HOME=C:\openjdk-11
+ENV JAVA_HOME=C:\openjdk-8
 
 COPY --from=openjdk $JAVA_HOME $JAVA_HOME
 

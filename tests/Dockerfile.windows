@@ -1,4 +1,4 @@
-FROM pester-maven
+FROM TO_BE_REPLACED
 
 COPY settings.xml C:/ProgramData/Maven/Reference/
 COPY pom.xml C:/Temp/pom.xml
