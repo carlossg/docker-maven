@@ -1,11 +1,11 @@
-name: adoptopenjdk-8-openj9
+name: openjdk-17
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'adoptopenjdk-8-openj9/**'
+    - 'openjdk-17/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
@@ -13,7 +13,7 @@ on:
     - '!tests/*.windows'
   pull_request:
     paths:
-    - 'adoptopenjdk-8-openj9/**'
+    - 'openjdk-17/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
@@ -34,6 +34,6 @@ jobs:
     - name: Update submodules
       run: git submodule update --init
     - name: Build image
-      run: ./github-action.sh adoptopenjdk-8-openj9 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      run: ./github-action.sh openjdk-17 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
       env:
         CR_PAT: ${{ secrets.CR_PAT }}

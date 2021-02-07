@@ -49,6 +49,8 @@ on:
     - '!openjdk-15-slim/**'
     - '!openjdk-16/**'
     - '!openjdk-16-slim/**'
+    - '!openjdk-17/**'
+    - '!openjdk-17-slim/**'
     - '!openjdk-8/**'
     - '!openjdk-8-nanoserver/**'
     - '!openjdk-8-slim/**'
@@ -102,6 +104,8 @@ on:
     - '!openjdk-15-slim/**'
     - '!openjdk-16/**'
     - '!openjdk-16-slim/**'
+    - '!openjdk-17/**'
+    - '!openjdk-17-slim/**'
     - '!openjdk-8/**'
     - '!openjdk-8-nanoserver/**'
     - '!openjdk-8-slim/**'
@@ -118,7 +122,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup BATS
-      uses: mig4/setup-bats@v1.0.1
+      uses: mig4/setup-bats@v1.2.0
     - name: Check out code
       uses: actions/checkout@v2
     - name: Update submodules

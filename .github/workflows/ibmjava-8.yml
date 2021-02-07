@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup BATS
-      uses: mig4/setup-bats@v1.0.1
+      uses: mig4/setup-bats@v1.2.0
     - name: Check out code
       uses: actions/checkout@v2
     - name: Update submodules
