@@ -21,6 +21,8 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-15-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-15-slim/Dockerfile)
 * [openjdk-16](https://github.com/carlossg/docker-maven/blob/master/openjdk-16/Dockerfile)
 * [openjdk-16-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-16-slim/Dockerfile)
+* [openjdk-17](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
+* [openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)
 * [adoptopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8/Dockerfile)
 * [adoptopenjdk-8-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-8-openj9/Dockerfile)
 * [adoptopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-11/Dockerfile)
