@@ -2,10 +2,10 @@
 
 set -eu
 
-latest='15'
+latest='16'
 default_jdk=openjdk
 parent_images=( openjdk adoptopenjdk ibmjava amazoncorretto libericaopenjdk)
-declare -A jdk_latest=( ["jdk"]="15" ["openjdk"]="15" ["adoptopenjdk"]="15" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
+declare -A jdk_latest=( ["jdk"]="16" ["openjdk"]="16" ["adoptopenjdk"]="15" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
 variants=( alpine slim )
 declare -A variants_latest=( ["alpine"]="8" ["slim"]="14" )
 

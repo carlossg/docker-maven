@@ -183,11 +183,11 @@ Tests are written using [bats](https://github.com/sstephenson/bats) for Linux im
 Use the env var TAG to choose what image to run tests against.
 
 ### Linux
-    TAG=jdk-11 bats tests
+    TAG=openjdk-16 bats tests
 
 ### Windows
 ```powershell
-$env:TAG="jdk-11" ; Invoke-Pester -Path tests
+$env:TAG="openjdk-11" ; Invoke-Pester -Path tests
 ```
 
 or run all the tests with
