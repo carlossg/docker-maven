@@ -5,6 +5,8 @@ set -o pipefail
 
 . common.sh
 
+OFFICIAL_IMAGES_DIR=../../docker/official-images
+
 for dir in "${all_dirs[@]}"; do
   if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
     [[ "$dir" != openjdk-11-windowsservercore ]] && \
@@ -30,6 +32,11 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
   sed -i -e "s#JAVA_HOME=C.*#JAVA_HOME=C:/ProgramData/${java_home}#" "$file"
 done
 
-./generate-stackbrew-library.sh > ../../docker/official-images/library/maven
+./generate-stackbrew-library.sh > "${OFFICIAL_IMAGES_DIR}/library/maven"
+
+echo "Running naughty"
+pushd "${OFFICIAL_IMAGES_DIR}" > /dev/null
+./naughty-from.sh maven
+popd > /dev/null
 
 echo Done, you can submit a PR now to https://github.com/docker-library/official-images
