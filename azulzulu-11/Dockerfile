@@ -1,8 +1,8 @@
 FROM azul/zulu-openjdk:11
 
-ARG MAVEN_VERSION=3.6.3
+ARG MAVEN_VERSION=3.8.1
 ARG USER_HOME_DIR="/root"
-ARG SHA=c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0
+ARG SHA=0ec48eb515d93f8515d4abe465570dfded6fa13a3ceb9aab8031428442d9912ec20f066b2afbf56964ffe1ceb56f80321b50db73cf77a0e2445ad0211fb8e38d
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN apt-get -qq update \
