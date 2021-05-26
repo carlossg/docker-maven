@@ -10,7 +10,7 @@ variants=(alpine slim)
 declare -A variants_latest=(["alpine"]="8" ["slim"]="14")
 
 # All the directories that have images
-all_dirs=(openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* libericaopenjdk-*)
+all_dirs=(openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-*)
 
 # use gnu sed in darwin
 if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
