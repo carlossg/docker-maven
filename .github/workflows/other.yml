@@ -5,6 +5,7 @@ on:
     branches:
     - master
     paths:
+    - '!Dockerfile/**'
     - '!LICENSE/**'
     - '!README-short.txt/**'
     - '!README.md/**'
@@ -57,10 +58,12 @@ on:
     - '!openjdk-8-slim/**'
     - '!openjdk-8-windowsservercore/**'
     - '!publish.sh/**'
+    - '!settings.xml/**'
     - '!tests/**'
     - '!tests/*.windows'
   pull_request:
     paths:
+    - '!Dockerfile/**'
     - '!LICENSE/**'
     - '!README-short.txt/**'
     - '!README.md/**'
@@ -113,6 +116,7 @@ on:
     - '!openjdk-8-slim/**'
     - '!openjdk-8-windowsservercore/**'
     - '!publish.sh/**'
+    - '!settings.xml/**'
     - '!tests/**'
     - '!tests/*.windows'
 
