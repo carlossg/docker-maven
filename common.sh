@@ -4,13 +4,13 @@ set -eu
 
 latest='16'
 default_jdk=openjdk
-parent_images=( openjdk adoptopenjdk ibmjava amazoncorretto libericaopenjdk)
-declare -A jdk_latest=( ["jdk"]="16" ["openjdk"]="16" ["adoptopenjdk"]="15" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
-variants=( alpine slim )
-declare -A variants_latest=( ["alpine"]="8" ["slim"]="14" )
+parent_images=(openjdk adoptopenjdk ibmjava amazoncorretto libericaopenjdk)
+declare -A jdk_latest=(["jdk"]="16" ["openjdk"]="16" ["adoptopenjdk"]="15" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
+variants=(alpine slim)
+declare -A variants_latest=(["alpine"]="8" ["slim"]="14")
 
 # All the directories that have images
-all_dirs=( openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* libericaopenjdk-*)
+all_dirs=(openjdk-* adoptopenjdk-* ibmjava-* amazoncorretto-* azulzulu-* libericaopenjdk-*)
 
 # use gnu sed in darwin
 if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
@@ -25,44 +25,44 @@ version-aliases() {
 
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
-		versionAliases+=( "$mavenVersion-$version" )
+		versionAliases+=("$mavenVersion-$version")
 		# tag 3.5, 3.5.4
 		if [[ "$version" == "$default_jdk-$latest" ]]; then
-			versionAliases+=( "$mavenVersion" )
+			versionAliases+=("$mavenVersion")
 		fi
 		for parent_image in "${parent_images[@]}"; do
 			local parent_image_latest="${jdk_latest[$parent_image]}"
 			if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
 				# tag 3-ibmjava, 3.5-ibmjava, 3.5.4-ibmjava
-				versionAliases+=( "$mavenVersion-${version//-${parent_image_latest}/}" )
+				versionAliases+=("$mavenVersion-${version//-${parent_image_latest}/}")
 			fi
 		done
 
 		# tag 3.5-alpine, 3.5.4-alpine, 3.5-slim, 3.5.4-slim
 		for variant in "${variants[@]}"; do
 			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}-$variant" ]]; then
-				versionAliases+=( "$mavenVersion-$variant" )
+				versionAliases+=("$mavenVersion-$variant")
 			elif [[ "$version" == *"-${variants_latest[$variant]}-$variant" ]]; then
-				versionAliases+=( "$mavenVersion-${version//-${variants_latest[$variant]}/}" )
+				versionAliases+=("$mavenVersion-${version//-${variants_latest[$variant]}/}")
 			fi
 		done
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
 
 	# tag full version
-	versionAliases+=( "$mavenVersion-$version" )
+	versionAliases+=("$mavenVersion-$version")
 
 	# tag 3, latest
 	if [[ "$version" == "$default_jdk-$latest" ]]; then
-		versionAliases+=( "$mavenVersion" latest )
-		[ "$branch" = 'master' ] || versionAliases+=( "$branch" )
+		versionAliases+=("$mavenVersion" latest)
+		[ "$branch" = 'master' ] || versionAliases+=("$branch")
 	fi
 
 	for parent_image in "${parent_images[@]}"; do
 		local parent_image_latest="${jdk_latest[$parent_image]}"
 		if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
 			# tag 3-ibmjava ibmjava 3-amazoncorretto amazoncorretto
-			versionAliases+=( "$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}" )
+			versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
 		fi
 	done
 
@@ -70,9 +70,9 @@ version-aliases() {
 	for variant in "${variants[@]}"; do
 		if [[ "$version" == *"${variants_latest[$variant]}-$variant" ]]; then
 			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}"* ]]; then
-				versionAliases+=( "${version//$default_jdk-${variants_latest[$variant]}-/}" )
+				versionAliases+=("${version//$default_jdk-${variants_latest[$variant]}-/}")
 			else
-				versionAliases+=( "${version//-${variants_latest[$variant]}/}" )
+				versionAliases+=("${version//-${variants_latest[$variant]}/}")
 			fi
 		fi
 	done
