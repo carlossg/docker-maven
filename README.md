@@ -47,6 +47,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8/Dockerfile)
 * [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8-alpine/Dockerfile)
+* [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-11-ubuntu/Dockerfile)
+* [microsoft-openjdk-16-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-16-ubuntu/Dockerfile)
 
 ## Windows Based Images
 
