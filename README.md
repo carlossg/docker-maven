@@ -160,7 +160,7 @@ Maven needs the user home to download artifacts to, and if the user does not exi
 
 For example, to run as the current user (instead of root), mounting the host Maven repo (at `~/.m2`)
 
-    docker run -v ~/.m2:/var/maven/.m2 -ti --rm -u $(id -u) -e MAVEN_CONFIG=/var/maven/.m2 maven mvn -Duser.home=/var/maven archetype:generate
+    docker run -v ~/.m2:/var/maven/.m2 -it --rm -u $(id -u) -e MAVEN_CONFIG=/var/maven/.m2 maven mvn -Duser.home=/var/maven archetype:generate
 
 
 # Image Variants
