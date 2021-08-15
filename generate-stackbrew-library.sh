@@ -44,13 +44,13 @@ echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 echo "GitRepo: $url"
 
 # for backwards compatibility
-generate-version openjdk-11 master 3.8.1-jdk-11 3.8-jdk-11 3-jdk-11
-generate-version adoptopenjdk-11-openj9 master 3.8.1-jdk-11-openj9 3.8-jdk-11-openj9 3-jdk-11-openj9
-generate-version openjdk-11-slim master 3.8.1-jdk-11-slim 3.8-jdk-11-slim 3-jdk-11-slim
+generate-version openjdk-11 master 3.8.2-jdk-11 3.8-jdk-11 3-jdk-11
+generate-version adoptopenjdk-11-openj9 master 3.8.2-jdk-11-openj9 3.8-jdk-11-openj9 3-jdk-11-openj9
+generate-version openjdk-11-slim master 3.8.2-jdk-11-slim 3.8-jdk-11-slim 3-jdk-11-slim
 
-generate-version openjdk-8 master 3.8.1-jdk-8 3.8-jdk-8 3-jdk-8
-generate-version adoptopenjdk-8-openj9 master 3.8.1-jdk-8-openj9 3.8-jdk-8-openj9 3-jdk-8-openj9
-generate-version openjdk-8-slim master 3.8.1-jdk-8-slim 3.8-jdk-8-slim 3-jdk-8-slim
+generate-version openjdk-8 master 3.8.2-jdk-8 3.8-jdk-8 3-jdk-8
+generate-version adoptopenjdk-8-openj9 master 3.8.2-jdk-8-openj9 3.8-jdk-8-openj9 3-jdk-8-openj9
+generate-version openjdk-8-slim master 3.8.2-jdk-8-slim 3.8-jdk-8-slim 3-jdk-8-slim
 
 for version in "${all_dirs[@]}"; do
 	# ignore images that can't be official
