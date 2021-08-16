@@ -19,6 +19,9 @@ for dir in "${all_dirs[@]}"; do
   fi
 done
 
+# Generate GihHub action workflows
+./github-action-generation.sh
+
 # Download windows jdks, update hash and JAVA_HOME
 find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; do
   uri=$(grep "ARG uri=" "$file" | sed -e 's/ARG uri=//')

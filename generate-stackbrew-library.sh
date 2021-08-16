@@ -19,8 +19,13 @@ generate-version() {
 	local version=$1
 	local branch=$2
 	local versionAliases=("${@:3}")
+	local commit
 
 	commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
+	if [ -z "$commit" ]; then
+		echo "No commit found for version $version in branch $branch"
+		return 1
+	fi
 
 	from="$(awk 'toupper($1) == "FROM" { print $2 }' "$version/Dockerfile")"
 	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
