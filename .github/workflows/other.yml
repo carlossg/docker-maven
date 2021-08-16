@@ -5,7 +5,6 @@ on:
     branches:
     - master
     paths:
-    - '!Dockerfile/**'
     - '!LICENSE/**'
     - '!README-short.txt/**'
     - '!README.md/**'
@@ -21,8 +20,6 @@ on:
     - '!adoptopenjdk-8-openj9-windowsservercore/**'
     - '!amazoncorretto-11/**'
     - '!amazoncorretto-11-windowsservercore/**'
-    - '!amazoncorretto-15/**'
-    - '!amazoncorretto-15-windowsservercore/**'
     - '!amazoncorretto-16/**'
     - '!amazoncorretto-8/**'
     - '!amazoncorretto-8-windowsservercore/**'
@@ -49,8 +46,6 @@ on:
     - '!openjdk-11-nanoserver/**'
     - '!openjdk-11-slim/**'
     - '!openjdk-11-windowsservercore/**'
-    - '!openjdk-15/**'
-    - '!openjdk-15-slim/**'
     - '!openjdk-16/**'
     - '!openjdk-16-slim/**'
     - '!openjdk-17/**'
@@ -60,12 +55,10 @@ on:
     - '!openjdk-8-slim/**'
     - '!openjdk-8-windowsservercore/**'
     - '!publish.sh/**'
-    - '!settings.xml/**'
     - '!tests/**'
     - '!tests/*.windows'
   pull_request:
     paths:
-    - '!Dockerfile/**'
     - '!LICENSE/**'
     - '!README-short.txt/**'
     - '!README.md/**'
@@ -81,8 +74,6 @@ on:
     - '!adoptopenjdk-8-openj9-windowsservercore/**'
     - '!amazoncorretto-11/**'
     - '!amazoncorretto-11-windowsservercore/**'
-    - '!amazoncorretto-15/**'
-    - '!amazoncorretto-15-windowsservercore/**'
     - '!amazoncorretto-16/**'
     - '!amazoncorretto-8/**'
     - '!amazoncorretto-8-windowsservercore/**'
@@ -109,8 +100,6 @@ on:
     - '!openjdk-11-nanoserver/**'
     - '!openjdk-11-slim/**'
     - '!openjdk-11-windowsservercore/**'
-    - '!openjdk-15/**'
-    - '!openjdk-15-slim/**'
     - '!openjdk-16/**'
     - '!openjdk-16-slim/**'
     - '!openjdk-17/**'
@@ -120,7 +109,6 @@ on:
     - '!openjdk-8-slim/**'
     - '!openjdk-8-windowsservercore/**'
     - '!publish.sh/**'
-    - '!settings.xml/**'
     - '!tests/**'
     - '!tests/*.windows'
 

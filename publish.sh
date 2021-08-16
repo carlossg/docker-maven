@@ -13,9 +13,9 @@ for dir in "${all_dirs[@]}"; do
       /bin/cp openjdk-11-windowsservercore/mvn-entrypoint.ps1 "$dir/mvn-entrypoint.ps1" && \
       /bin/cp openjdk-11-windowsservercore/settings-docker.xml "$dir/settings-docker.xml"
   else
-    [[ "$dir" != openjdk-15 ]] && \
-      /bin/cp openjdk-15/mvn-entrypoint.sh "$dir/mvn-entrypoint.sh" && \
-      /bin/cp openjdk-15/settings-docker.xml "$dir/settings-docker.xml"
+    [[ "$dir" != openjdk-16 ]] && \
+      /bin/cp openjdk-16/mvn-entrypoint.sh "$dir/mvn-entrypoint.sh" && \
+      /bin/cp openjdk-16/settings-docker.xml "$dir/settings-docker.xml"
   fi
 done
 
