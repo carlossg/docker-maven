@@ -10,8 +10,10 @@ url='https://github.com/carlossg/docker-maven.git'
 
 # prints "$2$1$3$1...$N"
 join() {
-	local sep="$1"; shift
-	local out; printf -v out "${sep//%/%%}%s" "$@"
+	local sep="$1"
+	shift
+	local out
+	printf -v out "${sep//%/%%}%s" "$@"
 	echo "${out#$sep}"
 }
 
@@ -23,7 +25,7 @@ generate-version() {
 
 	commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
 	if [ -z "$commit" ]; then
-		echo "No commit found for version $version in branch $branch"
+		echo >&2 "No commit found for version $version in branch $branch"
 		return 1
 	fi
 
