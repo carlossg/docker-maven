@@ -17,8 +17,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-slim/Dockerfile)
 * [openjdk-11](https://github.com/carlossg/docker-maven/blob/master/openjdk-11/Dockerfile)
 * [openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-slim/Dockerfile)
-* [openjdk-15](https://github.com/carlossg/docker-maven/blob/master/openjdk-15/Dockerfile)
-* [openjdk-15-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-15-slim/Dockerfile)
 * [openjdk-16](https://github.com/carlossg/docker-maven/blob/master/openjdk-16/Dockerfile)
 * [openjdk-16-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-16-slim/Dockerfile)
 * [openjdk-17](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
@@ -31,11 +29,13 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [adoptopenjdk-14-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-14-openj9/Dockerfile)
 * [adoptopenjdk-15](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-15/Dockerfile)
 * [adoptopenjdk-15-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-15-openj9/Dockerfile)
+* [adoptopenjdk-16](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-16/Dockerfile)
+* [adoptopenjdk-16-openj9](https://github.com/carlossg/docker-maven/blob/master/adoptopenjdk-16-openj9/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
-* [amazoncorretto-15](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-15/)
+* [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-16/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
