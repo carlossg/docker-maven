@@ -5,7 +5,7 @@ set -eu
 latest='16'
 default_jdk=openjdk
 parent_images=(openjdk adoptopenjdk eclipse-temurin ibmjava amazoncorretto libericaopenjdk)
-declare -A jdk_latest=(["jdk"]="16" ["openjdk"]="16" ["adoptopenjdk"]="15" ["eclipse-temurin"]="16" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
+declare -A jdk_latest=(["jdk"]="16" ["openjdk"]="16" ["adoptopenjdk"]="15" ["eclipse-temurin"]="17" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
 variants=(alpine slim)
 declare -A variants_latest=(["alpine"]="8" ["slim"]="14")
 
