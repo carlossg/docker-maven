@@ -34,7 +34,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-8/Dockerfile)
 * [eclipse-temurin-11](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-11/Dockerfile)
 * [eclipse-temurin-16](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-16/Dockerfile)
-* [eclipse-temurin-16](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-17/Dockerfile)
+* [eclipse-temurin-17](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-17/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
 * [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
