@@ -2,7 +2,7 @@
 
 set -eu
 
-latest='16'
+latest='17'
 default_jdk=openjdk
 parent_images=(openjdk adoptopenjdk eclipse-temurin ibmjava amazoncorretto libericaopenjdk)
 declare -A jdk_latest=(["jdk"]="17" ["openjdk"]="17" ["adoptopenjdk"]="15" ["eclipse-temurin"]="17" ["ibmjava"]="8" ["amazoncorretto"]="11" ["libericaopenjdk"]="11")
