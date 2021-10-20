@@ -17,8 +17,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-slim/Dockerfile)
 * [openjdk-11](https://github.com/carlossg/docker-maven/blob/master/openjdk-11/Dockerfile)
 * [openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-slim/Dockerfile)
-* [openjdk-16](https://github.com/carlossg/docker-maven/blob/master/openjdk-16/Dockerfile)
-* [openjdk-16-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-16-slim/Dockerfile)
 * [openjdk-17](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
 * [openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-8/Dockerfile)
@@ -178,7 +176,7 @@ Tests are written using [bats](https://github.com/sstephenson/bats) for Linux im
 Use the env var TAG to choose what image to run tests against.
 
 ### Linux
-    TAG=openjdk-16 bats tests
+    TAG=openjdk-17 bats tests
 
 ### Windows
 ```powershell
