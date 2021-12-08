@@ -34,8 +34,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11/Dockerfile)
 * [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-11-alpine/Dockerfile)
-* [azulzulu-14](https://github.com/carlossg/docker-maven/blob/master/azulzulu-14/Dockerfile)
-* [azulzulu-14-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-14-alpine/Dockerfile)
+* [azulzulu-17](https://github.com/carlossg/docker-maven/blob/master/azulzulu-17/Dockerfile)
+* [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-17-alpine/Dockerfile)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8/Dockerfile)

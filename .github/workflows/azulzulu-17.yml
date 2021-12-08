@@ -1,11 +1,11 @@
-name: azulzulu-14
+name: azulzulu-17
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'azulzulu-14/**'
+    - 'azulzulu-17/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
@@ -13,7 +13,7 @@ on:
     - '!tests/*.windows'
   pull_request:
     paths:
-    - 'azulzulu-14/**'
+    - 'azulzulu-17/**'
     - github-action.sh
     - common.sh
     - 'tests/**'
@@ -34,6 +34,6 @@ jobs:
     - name: Update submodules
       run: git submodule update --init
     - name: Build image
-      run: ./github-action.sh azulzulu-14 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      run: ./github-action.sh azulzulu-17 ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
       env:
         CR_PAT: ${{ secrets.CR_PAT }}
