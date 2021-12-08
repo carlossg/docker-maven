@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-jdk-8}
+SUT_TAG=${TAG:-openjdk-8}
 SUT_TEST_IMAGE=bats-maven-test
 
 load 'test_helper/bats-support/load'

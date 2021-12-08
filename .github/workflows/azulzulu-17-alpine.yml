@@ -2,38 +2,136 @@ name: azulzulu-17-alpine
 
 on:
   push:
-    branches:
-    - master
     paths:
-    - 'azulzulu-17-alpine/**'
-    - github-action.sh
-    - common.sh
-    - 'tests/**'
-    - '!tests/*.ps*'
-    - '!tests/*.windows'
+      - "azulzulu-17-alpine/**"
+      - common.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
   pull_request:
     paths:
-    - 'azulzulu-17-alpine/**'
-    - github-action.sh
-    - common.sh
-    - 'tests/**'
-    - '!tests/*.ps*'
-    - '!tests/*.windows'
+      - "azulzulu-17-alpine/**"
+      - common.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
 
 env:
-  DOCKER_PUSH: "true"
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  REGISTRY2: docker.io
+  # github.repository as <account>/<repo>
+  DOCKER_USERNAME: csanchez
+  IMAGE_NAME: carlossg/maven # ${{ github.repository }}
+  IMAGE_NAME2: csanchez/maven
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
+
     steps:
-    - name: Setup BATS
-      uses: mig4/setup-bats@v1.2.0
-    - name: Check out code
-      uses: actions/checkout@v2
-    - name: Update submodules
-      run: git submodule update --init
-    - name: Build image
-      run: ./github-action.sh azulzulu-17-alpine ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
-      env:
-        CR_PAT: ${{ secrets.CR_PAT }}
+      - name: Setup BATS
+        uses: mig4/setup-bats@v1.2.0
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Update submodules
+        run: git submodule update --init
+
+      # Signing based on https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml
+
+      # Install the cosign tool except on PR
+      # https://github.com/sigstore/cosign-installer
+      - name: Install cosign
+        if: github.event_name != 'pull_request'
+        uses: sigstore/cosign-installer@1e95c1de343b5b0c23352d6417ee3e48d5bcd422
+
+      # Workaround: https://github.com/docker/build-push-action/issues/461
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+
+      - name: Test
+        run: bats tests
+        env:
+          TAG: azulzulu-17-alpine
+
+      # Login against a Docker registry except on PR
+      # https://github.com/docker/login-action
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
+      - name: Log into registry ${{ env.REGISTRY2 }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        with:
+          registry: ${{ env.REGISTRY2 }}
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Extract metadata (tags, labels) for Docker
+      # https://github.com/docker/metadata-action
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.IMAGE_NAME2 }}
+
+      # get all the docker tags for this image when building master
+      - name: Retrieve tags
+        if: github.ref == 'refs/heads/master'
+        run: |
+          TAGS="$(./tags-for-dir.sh ${GITHUB_WORKFLOW})"
+          TAGS="${TAGS//'%'/'%25'}"
+          TAGS="${TAGS//$'\n'/'%0A'}"
+          TAGS="${TAGS//$'\r'/'%0D'}"
+          echo "::set-output name=tags::$TAGS"
+        id: retrieve-tags
+
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: azulzulu-17-alpine
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ${{ steps.meta.outputs.tags }}
+            ${{ steps.retrieve-tags.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # Sign the resulting Docker image digest except on PRs and private repos
+      # The keyless signing process records signatures on the Rekor public
+      # transparency log, so signing is disabled for private repos by default
+      # to avoid leaking private data.  If you wish to sign things anyways,
+      # then this check can be removed and --force can be added to the cosign
+      # command below.
+      # https://github.com/sigstore/cosign
+      - name: Sign the published Docker image GHCR
+        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        # This step uses the identity token to provision an ephemeral certificate
+        # against the sigstore community Fulcio instance, and records it to the
+        # sigstore community Rekor transparency log.
+        run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
+      - name: Sign the published Docker image DockerHub
+        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        # This step uses the identity token to provision an ephemeral certificate
+        # against the sigstore community Fulcio instance, and records it to the
+        # sigstore community Rekor transparency log.
+        run: cosign sign ${{ env.REGISTRY2 }}/${{ env.IMAGE_NAME2 }}@${{ steps.build-and-push.outputs.digest }}
