@@ -12,6 +12,10 @@ DOCKER_REPOSITORIES=(
 )
 
 version="${1:?}"
+if [ ! -d "${version}" ]; then
+    echo "Directory ${version} does not exist" >&2
+    exit 1
+fi
 mapfile -t versionAliases < <(version-aliases "$version" master)
 for versionAlias in "${versionAliases[@]}"; do
     for repository in "${DOCKER_REPOSITORIES[@]}"; do
