@@ -18,7 +18,7 @@ done
 # Create a workflow for everything else that may be added in a PR
 cp .github/github-action-template.yaml .github/workflows/other.yml
 for f in *; do
-    gsed -i "/DIRECTORY\/\*\*/i \    - '!${f}\/\*\*'" .github/workflows/other.yml
+    gsed -i "/DIRECTORY\/\*\*/i \      - '!${f}\/\*\*'" .github/workflows/other.yml
 done
 gsed -i "s/Docker Maven Image CI DIRECTORY/Docker Maven Image CI other/" .github/workflows/other.yml
 gsed -i "/DIRECTORY\/\*\*/,+4 d" .github/workflows/other.yml
