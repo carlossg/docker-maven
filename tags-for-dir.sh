@@ -15,6 +15,6 @@ version="${1:?}"
 mapfile -t versionAliases < <(version-aliases "$version" master)
 for versionAlias in "${versionAliases[@]}"; do
     for repository in "${DOCKER_REPOSITORIES[@]}"; do
-        echo "$repository:test-$versionAlias"
+        echo "$repository:$versionAlias"
     done
 done
