@@ -50,6 +50,7 @@ on:
     - '!publish.sh/**'
     - '!tags-for-dir.sh/**'
     - '!tests/**'
+      - "!tests/*.windows"
   pull_request:
     paths:
     - '!LICENSE/**'
@@ -99,6 +100,7 @@ on:
     - '!publish.sh/**'
     - '!tags-for-dir.sh/**'
     - '!tests/**'
+      - "!tests/*.windows"
 
 env:
   # Use docker.io for Docker Hub if empty

@@ -5,6 +5,7 @@ on:
     paths:
       - "microsoft-openjdk-16-ubuntu/**"
       - common.sh
+      - tags-for-dir.sh
       - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
@@ -12,6 +13,7 @@ on:
     paths:
       - "microsoft-openjdk-16-ubuntu/**"
       - common.sh
+      - tags-for-dir.sh
       - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
