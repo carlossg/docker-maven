@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "openjdk-11-slim/**"
+      - .github/workflows/openjdk-11-slim.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -12,6 +13,7 @@ on:
   pull_request:
     paths:
       - "openjdk-11-slim/**"
+      - .github/workflows/openjdk-11-slim.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -65,14 +67,14 @@ jobs:
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
-      - name: Log into registry 1
+      - name: Log into registry GHCR
         if: github.event_name != 'pull_request'
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
-      - name: Log into registry 2
+      - name: Log into registry DockerHub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
@@ -88,7 +90,6 @@ jobs:
         with:
           tags: |
             type=schedule,suffix=-openjdk-11-slim
-            type=ref,event=branch,suffix=-openjdk-11-slim
             type=ref,event=tag,suffix=-openjdk-11-slim
             type=ref,event=pr,prefix=pr-,suffix=-openjdk-11-slim
           images: |
@@ -113,7 +114,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: openjdk-11-slim
-          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
             ${{ steps.retrieve-tags.outputs.tags }}
@@ -127,7 +128,7 @@ jobs:
       # command below.
       # https://github.com/sigstore/cosign
       - name: Sign the published Docker image GHCR
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && !github.event.repository.private }}
         env:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
@@ -135,7 +136,7 @@ jobs:
         # sigstore community Rekor transparency log.
         run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
       - name: Sign the published Docker image DockerHub
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' && !github.event.repository.private }}
         env:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
