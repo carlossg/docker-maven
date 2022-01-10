@@ -1,10 +1,10 @@
-name: ibm-semeru-11
+name: ibm-semeru-17-focal
 
 on:
   push:
     paths:
-      - "ibm-semeru-11/**"
-      - .github/workflows/ibm-semeru-11.yml
+      - "ibm-semeru-17-focal/**"
+      - .github/workflows/ibm-semeru-17-focal.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -12,8 +12,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "ibm-semeru-11/**"
-      - .github/workflows/ibm-semeru-11.yml
+      - "ibm-semeru-17-focal/**"
+      - .github/workflows/ibm-semeru-17-focal.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -63,7 +63,7 @@ jobs:
       - name: Test
         run: bats tests
         env:
-          TAG: ibm-semeru-11
+          TAG: ibm-semeru-17-focal
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -89,9 +89,9 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           tags: |
-            type=schedule,suffix=-ibm-semeru-11
-            type=ref,event=tag,suffix=-ibm-semeru-11
-            type=ref,event=pr,prefix=pr-,suffix=-ibm-semeru-11
+            type=schedule,suffix=-ibm-semeru-17-focal
+            type=ref,event=tag,suffix=-ibm-semeru-17-focal
+            type=ref,event=pr,prefix=pr-,suffix=-ibm-semeru-17-focal
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.IMAGE_NAME2 }}
@@ -113,7 +113,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: ibm-semeru-11
+          context: ibm-semeru-17-focal
           push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
