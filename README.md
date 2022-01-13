@@ -170,6 +170,19 @@ The `maven` images come in many flavors, each designed for a specific use case.
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
+# Image Verification
+
+Images under `csanchez/maven` and `ghcr.io/carlossg/maven` are signed with [sigstore/cosign](https://github.com/sigstore/cosign)
+using GitHub OIDC
+
+Verification can be done with `cosign verify`
+
+Example:
+
+```
+COSIGN_EXPERIMENTAL=true cosign verify csanchez/maven:3-openjdk-17
+```
+
 # Building
 
 Build with the usual
