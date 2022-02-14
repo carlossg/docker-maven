@@ -34,6 +34,8 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
 * [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-16/)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-17/)
+* [sapmachine-11](https://github.com/carlossg/docker-maven/blob/master/sapmachine-11/)
+* [sapmachine-17](https://github.com/carlossg/docker-maven/blob/master/sapmachine-17/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
