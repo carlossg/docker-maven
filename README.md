@@ -7,7 +7,7 @@ Images are published under:
 
 * [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven)
 * [`maven`](https://hub.docker.com/_/maven) (linux and extending Docker official images only)
-* [`ghcr.io/carlossg/maven`](https://github.com/users/carlossg/packages/container/maven) (linux only)
+* [`ghcr.io/carlossg/maven`](https://github.com/carlossg/docker-maven/pkgs/container/maven) (linux only)
 
 ## Linux Based Images
 
