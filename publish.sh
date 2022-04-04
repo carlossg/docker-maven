@@ -27,11 +27,19 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 	uri=$(grep "ARG uri=" "$file" | sed -e 's/ARG uri=//')
 	zip=$(grep "ARG zip=" "$file" | sed -e 's/ARG zip=//')
 	hash=$(grep "ARG hash=" "$file" | sed -e 's/ARG hash=//')
-	[[ -f "/tmp/$zip" ]] || curl -sSLf -o "/tmp/$zip" "$uri/$zip"
+	if ! [ -f "/tmp/$zip" ]; then
+		echo "Downloading: $uri/$zip"
+		curl -sSLf -o "/tmp/$zip" "$uri/$zip"
+	fi
 	IFS=" " read -r -a new_hash <<<"$(sha256sum "/tmp/$zip")"
 	echo "$file $uri/$zip $hash ${new_hash[0]}"
 	sed -i -e "s/ARG hash=.*/ARG hash=${new_hash[0]}/" "$file"
-	java_home="$( (unzip -t "/tmp/$zip" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"
+	echo "Extracting JAVA_HOME from $zip"
+	if ! java_home="$( (unzip -t "/tmp/$zip" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
+		echo >&2 "Failed to extract JAVA_HOME"
+		exit 1
+	fi
+	echo "Found JAVA_HOME for $zip: $java_home"
 	sed -i -e "s#JAVA_HOME=C.*#JAVA_HOME=C:/ProgramData/${java_home}#" "$file"
 done
 
