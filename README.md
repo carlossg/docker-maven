@@ -230,6 +230,14 @@ git submodule update
 Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required. You may need to follow [this tutorial](https://blog.damianflynn.com/Windows10-Pester/) on upgrading Pester to 4.x.
 
 
+## Adding New Images
+
+* Copy an existing dir to the new name and update `Dockerfile` as needed.
+* Update `README.md` to include the new image.
+* Run `github-action-generation.sh` to generate new GitHub Actions for the new image
+* When adding a new JDK then it also needs to be added to the beginning of `common.sh`
+* When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
+
 ## Publishing to Docker Hub
 
 In order to publish the images a PR needs to be opened against [docker-library/official-images](https://github.com/docker-library/official-images)

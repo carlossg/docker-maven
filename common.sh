@@ -2,15 +2,31 @@
 
 set -eu
 
+# Default values for 'latest' tag
 latest='17'
 default_jdk=openjdk
+
+# All the JDKs and their 'latest' tags
 parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine)
-declare -A jdk_latest=(["jdk"]="17" ["openjdk"]="17" ["eclipse-temurin"]="17" ["ibmjava"]="8" ["ibm-semeru"]="" ["amazoncorretto"]="11" ["libericaopenjdk"]="11" ["sapmachine"]="17")
+declare -A jdk_latest=(
+	["jdk"]="17"
+	["openjdk"]="17"
+	["eclipse-temurin"]="17"
+	["ibmjava"]="8"
+	["ibm-semeru"]=""
+	["amazoncorretto"]="11"
+	["libericaopenjdk"]="11"
+	["sapmachine"]="17"
+)
+
+# Variants of the JDKs and their 'latest' tag
 variants=(alpine slim)
 declare -A variants_latest=(["alpine"]="8" ["slim"]="14")
 
 # All the directories that have images
 all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-*)
+
+######################################################################################################################################
 
 # use gnu sed in darwin
 if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
