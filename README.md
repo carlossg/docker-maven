@@ -17,8 +17,8 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-8-slim/Dockerfile)
 * [openjdk-11](https://github.com/carlossg/docker-maven/blob/master/openjdk-11/Dockerfile)
 * [openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-11-slim/Dockerfile)
-* [openjdk-17](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
-* [openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)
+* ~~[openjdk-17](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)~~ [see docker-library/openjdk/pull/495](https://github.com/docker-library/openjdk/pull/495)
+* ~~[openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)~~ [see docker-library/openjdk/pull/495](https://github.com/docker-library/openjdk/pull/495)
 * [openjdk-18](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
 * [openjdk-18-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-8/Dockerfile)
@@ -187,7 +187,7 @@ Verification can be done with `cosign verify`
 Example:
 
 ```
-COSIGN_EXPERIMENTAL=true cosign verify csanchez/maven:3-openjdk-17
+COSIGN_EXPERIMENTAL=true cosign verify csanchez/maven:3-eclipse-temurin-17
 ```
 
 # Building
@@ -202,7 +202,7 @@ Tests are written using [bats](https://github.com/sstephenson/bats) for Linux im
 Use the env var TAG to choose what image to run tests against.
 
 ### Linux
-    TAG=openjdk-17 bats tests
+    TAG=eclipse-temurin-17 bats tests
 
 ### Windows
 ```powershell

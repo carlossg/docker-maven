@@ -4,13 +4,13 @@ set -eu
 
 # Default values for 'latest' tag
 latest='17'
-default_jdk=openjdk
+default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
 parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine)
 declare -A jdk_latest=(
 	["jdk"]="17"
-	["openjdk"]="17"
+	["openjdk"]=""
 	["eclipse-temurin"]="17"
 	["ibmjava"]="8"
 	["ibm-semeru"]=""
