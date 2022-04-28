@@ -20,8 +20,13 @@ declare -A jdk_latest=(
 )
 
 # Variants of the JDKs and their 'latest' tag
-variants=(alpine slim)
-declare -A variants_latest=(["alpine"]="8" ["slim"]="14")
+# do not tag them as it is confusing and requires a lot of maintenance
+declare -A extra_tags=(
+	# ["eclipse-temurin-17-alpine"]="eclipse-temurin-alpine"
+	# ["ibmjava-8-alpine"]="ibmjava-alpine"
+	# ["libericaopenjdk-11-alpine"]="libericaopenjdk-alpine"
+	# ["openjdk-18-slim"]="openjdk-slim"
+)
 
 # All the directories that have images
 all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-*)
@@ -54,14 +59,11 @@ version-aliases() {
 			fi
 		done
 
-		# tag 3.5-alpine, 3.5.4-alpine, 3.5-slim, 3.5.4-slim
-		for variant in "${variants[@]}"; do
-			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}-$variant" ]]; then
-				versionAliases+=("$mavenVersion-$variant")
-			elif [[ "$version" == *"-${variants_latest[$variant]}-$variant" ]]; then
-				versionAliases+=("$mavenVersion-${version//-${variants_latest[$variant]}/}")
-			fi
-		done
+		# tag eclipse-temurin-8-alpine -> 3.8.5-eclipse-temurin-alpine
+		if [ -n "${extra_tags[$version]:-}" ]; then
+			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
+		fi
+
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
 
@@ -82,15 +84,10 @@ version-aliases() {
 		fi
 	done
 
-	# tag alpine, slim
-	for variant in "${variants[@]}"; do
-		if [[ "$version" == *"${variants_latest[$variant]}-$variant" ]]; then
-			if [[ "$version" == "$default_jdk-${variants_latest[$variant]}"* ]]; then
-				versionAliases+=("${version//$default_jdk-${variants_latest[$variant]}-/}")
-			else
-				versionAliases+=("${version//-${variants_latest[$variant]}/}")
-			fi
-		fi
-	done
+	# extra tags for variants
+	if [ -n "${extra_tags[$version]:-}" ]; then
+		versionAliases+=("${extra_tags[$version]}")
+	fi
+
 	printf "%s\n" "${versionAliases[@]}"
 }
