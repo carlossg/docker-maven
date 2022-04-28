@@ -22,6 +22,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [openjdk-18](https://github.com/carlossg/docker-maven/blob/master/openjdk-17/Dockerfile)
 * [openjdk-18-slim](https://github.com/carlossg/docker-maven/blob/master/openjdk-17-slim/Dockerfile)
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-8/Dockerfile)
+* [eclipse-temurin-8-alpine](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-8-alpine/Dockerfile)
 * [eclipse-temurin-11](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-11/Dockerfile)
 * [eclipse-temurin-11-alpine](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-11-alpine/Dockerfile)
 * [eclipse-temurin-16](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-16/Dockerfile)
