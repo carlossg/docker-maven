@@ -3,3 +3,4 @@
 /tests/.settings/
 /tests/target/
 *.tmp
+.idea

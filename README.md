@@ -50,6 +50,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/master/azulzulu-17-alpine/Dockerfile)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-11-alpine/Dockerfile)
+* [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-17/Dockerfile)
+* [libericaopenjdk-17-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-17-alpine/Dockerfile)
 * [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8/Dockerfile)
 * [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/master/libericaopenjdk-8-alpine/Dockerfile)
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-11-ubuntu/Dockerfile)

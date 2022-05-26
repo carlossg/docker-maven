@@ -1,120 +1,22 @@
-name: DIRECTORY
+name: libericaopenjdk-17-alpine
 
 on:
   push:
     paths:
-      - '!LICENSE/**'
-      - '!README-short.txt/**'
-      - '!README.md/**'
-      - '!amazoncorretto-11/**'
-      - '!amazoncorretto-11-windowsservercore/**'
-      - '!amazoncorretto-17/**'
-      - '!amazoncorretto-8/**'
-      - '!amazoncorretto-8-windowsservercore/**'
-      - '!azulzulu-11/**'
-      - '!azulzulu-11-alpine/**'
-      - '!azulzulu-11-windowsservercore/**'
-      - '!azulzulu-17/**'
-      - '!azulzulu-17-alpine/**'
-      - '!common.sh/**'
-      - '!eclipse-temurin-11/**'
-      - '!eclipse-temurin-11-alpine/**'
-      - '!eclipse-temurin-17/**'
-      - '!eclipse-temurin-17-alpine/**'
-      - '!eclipse-temurin-18/**'
-      - '!eclipse-temurin-18-alpine/**'
-      - '!eclipse-temurin-8/**'
-      - '!eclipse-temurin-8-alpine/**'
-      - '!generate-stackbrew-library.sh/**'
-      - '!github-action-generation.sh/**'
-      - '!github-action.ps1/**'
-      - '!ibm-semeru-11-focal/**'
-      - '!ibm-semeru-17-focal/**'
-      - '!ibmjava-8/**'
-      - '!ibmjava-8-alpine/**'
-      - '!libericaopenjdk-11/**'
-      - '!libericaopenjdk-11-alpine/**'
-      - '!libericaopenjdk-17/**'
-      - '!libericaopenjdk-17-alpine/**'
-      - '!libericaopenjdk-8/**'
-      - '!libericaopenjdk-8-alpine/**'
-      - '!logo.png/**'
-      - '!microsoft-openjdk-11-ubuntu/**'
-      - '!microsoft-openjdk-16-ubuntu/**'
-      - '!microsoft-openjdk-17-ubuntu/**'
-      - '!openjdk-11/**'
-      - '!openjdk-11-nanoserver/**'
-      - '!openjdk-11-slim/**'
-      - '!openjdk-11-windowsservercore/**'
-      - '!openjdk-18/**'
-      - '!openjdk-18-slim/**'
-      - '!openjdk-8/**'
-      - '!openjdk-8-nanoserver/**'
-      - '!openjdk-8-slim/**'
-      - '!openjdk-8-windowsservercore/**'
-      - '!publish.sh/**'
-      - '!sapmachine-11/**'
-      - '!sapmachine-17/**'
-      - '!tags-for-dir.sh/**'
-      - '!tests/**'
+      - "libericaopenjdk-17-alpine/**"
+      - .github/workflows/libericaopenjdk-17-alpine.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
   pull_request:
     paths:
-      - '!LICENSE/**'
-      - '!README-short.txt/**'
-      - '!README.md/**'
-      - '!amazoncorretto-11/**'
-      - '!amazoncorretto-11-windowsservercore/**'
-      - '!amazoncorretto-17/**'
-      - '!amazoncorretto-8/**'
-      - '!amazoncorretto-8-windowsservercore/**'
-      - '!azulzulu-11/**'
-      - '!azulzulu-11-alpine/**'
-      - '!azulzulu-11-windowsservercore/**'
-      - '!azulzulu-17/**'
-      - '!azulzulu-17-alpine/**'
-      - '!common.sh/**'
-      - '!eclipse-temurin-11/**'
-      - '!eclipse-temurin-11-alpine/**'
-      - '!eclipse-temurin-17/**'
-      - '!eclipse-temurin-17-alpine/**'
-      - '!eclipse-temurin-18/**'
-      - '!eclipse-temurin-18-alpine/**'
-      - '!eclipse-temurin-8/**'
-      - '!eclipse-temurin-8-alpine/**'
-      - '!generate-stackbrew-library.sh/**'
-      - '!github-action-generation.sh/**'
-      - '!github-action.ps1/**'
-      - '!ibm-semeru-11-focal/**'
-      - '!ibm-semeru-17-focal/**'
-      - '!ibmjava-8/**'
-      - '!ibmjava-8-alpine/**'
-      - '!libericaopenjdk-11/**'
-      - '!libericaopenjdk-11-alpine/**'
-      - '!libericaopenjdk-17/**'
-      - '!libericaopenjdk-17-alpine/**'
-      - '!libericaopenjdk-8/**'
-      - '!libericaopenjdk-8-alpine/**'
-      - '!logo.png/**'
-      - '!microsoft-openjdk-11-ubuntu/**'
-      - '!microsoft-openjdk-16-ubuntu/**'
-      - '!microsoft-openjdk-17-ubuntu/**'
-      - '!openjdk-11/**'
-      - '!openjdk-11-nanoserver/**'
-      - '!openjdk-11-slim/**'
-      - '!openjdk-11-windowsservercore/**'
-      - '!openjdk-18/**'
-      - '!openjdk-18-slim/**'
-      - '!openjdk-8/**'
-      - '!openjdk-8-nanoserver/**'
-      - '!openjdk-8-slim/**'
-      - '!openjdk-8-windowsservercore/**'
-      - '!publish.sh/**'
-      - '!sapmachine-11/**'
-      - '!sapmachine-17/**'
-      - '!tags-for-dir.sh/**'
-      - '!tests/**'
+      - "libericaopenjdk-17-alpine/**"
+      - .github/workflows/libericaopenjdk-17-alpine.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
 
@@ -162,7 +64,7 @@ jobs:
       - name: Test
         run: bats tests
         env:
-          TAG: DIRECTORY
+          TAG: libericaopenjdk-17-alpine
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -188,9 +90,9 @@ jobs:
         uses: docker/metadata-action@v3.6.0
         with:
           tags: |
-            type=schedule,suffix=-DIRECTORY
-            type=ref,event=tag,suffix=-DIRECTORY
-            type=ref,event=pr,prefix=pr-,suffix=-DIRECTORY
+            type=schedule,suffix=-libericaopenjdk-17-alpine
+            type=ref,event=tag,suffix=-libericaopenjdk-17-alpine
+            type=ref,event=pr,prefix=pr-,suffix=-libericaopenjdk-17-alpine
           images: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.IMAGE_NAME2 }}
@@ -212,7 +114,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v2
         with:
-          context: DIRECTORY
+          context: libericaopenjdk-17-alpine
           push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/master' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
