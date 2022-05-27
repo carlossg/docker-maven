@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      directory:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Build Images
+      run: .\github-action.ps1 ${{ inputs.directory }} ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      shell: pwsh

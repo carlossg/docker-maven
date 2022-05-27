@@ -2,32 +2,27 @@ name: openjdk-8-nanoserver
 
 on:
   push:
-    branches:
-    - master
     paths:
-    - 'openjdk-8-nanoserver/**'
-    - 'tests/**'
-    - github-action.ps1
-    - '!tests/*.bats'
-    - '!tests/*.bash'
-    - '!tests/Dockerfile'
+      - "openjdk-8-nanoserver/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bats"
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
   pull_request:
     paths:
-    - 'openjdk-8-nanoserver/**'
-    - 'tests/**'
-    - github-action.ps1
-    - '!tests/*.bash'
-    - '!tests/Dockerfile'
+      - "openjdk-8-nanoserver/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
 
 env:
   DOCKER_PUSH: "true"
 
 jobs:
   build:
-    runs-on: windows-2019
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-    - name: Build Images
-      run: .\github-action.ps1 openjdk-8-nanoserver ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
-      shell: pwsh
+    uses: ./.github/workflows/_template_windows.yml
+    with:
+      directory: openjdk-8-nanoserver
+    secrets: inherit
