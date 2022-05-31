@@ -1,10 +1,10 @@
-name: libericaopenjdk-17
+name: eclipse-temurin-11-focal
 
 on:
   push:
     paths:
-      - "libericaopenjdk-17/**"
-      - .github/workflows/libericaopenjdk-17.yml
+      - "eclipse-temurin-11-focal/**"
+      - .github/workflows/eclipse-temurin-11-focal.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -12,8 +12,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "libericaopenjdk-17/**"
-      - .github/workflows/libericaopenjdk-17.yml
+      - "eclipse-temurin-11-focal/**"
+      - .github/workflows/eclipse-temurin-11-focal.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -24,5 +24,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: libericaopenjdk-17
+      directory: eclipse-temurin-11-focal
     secrets: inherit
