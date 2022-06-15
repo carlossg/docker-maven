@@ -4,7 +4,7 @@ FROM openjdk:8-jdk-windowsservercore-1809
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
-ARG MAVEN_VERSION=3.8.5
+ARG MAVEN_VERSION=3.8.6
 ARG SHA=f9f838b4adaf23db0204a6cafa52bf1125bd2d649fd676843fd05e82866b596ec19c4f3de60d5e3ff17f10a63d96c141311ff9bc2bfa816eade7a5cbff2bd925
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
