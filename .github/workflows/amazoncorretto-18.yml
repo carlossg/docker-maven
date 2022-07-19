@@ -1,0 +1,28 @@
+name: amazoncorretto-18
+
+on:
+  push:
+    paths:
+      - "amazoncorretto-18/**"
+      - .github/workflows/amazoncorretto-18.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "amazoncorretto-18/**"
+      - .github/workflows/amazoncorretto-18.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: amazoncorretto-18
+    secrets: inherit
