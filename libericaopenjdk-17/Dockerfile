@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjdk-centos:17
+FROM bellsoft/liberica-openjdk-debian:17
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
