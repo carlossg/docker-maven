@@ -1,0 +1,28 @@
+name: libericaopenjdk-17-debian
+
+on:
+  push:
+    paths:
+      - "libericaopenjdk-17-debian/**"
+      - .github/workflows/libericaopenjdk-17-debian.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "libericaopenjdk-17-debian/**"
+      - .github/workflows/libericaopenjdk-17-debian.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: libericaopenjdk-17-debian
+    secrets: inherit
