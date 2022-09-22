@@ -226,7 +226,7 @@ or run all the tests with
 Get-ChildItem -File -Include "*windows*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
 ```
 
-Bats can be easily installed with `brew install bats` on OS X.
+Bats can be easily installed with `brew install bats-core` on OS X.
 
 Note that you may first need to:
 
