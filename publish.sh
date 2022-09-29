@@ -9,13 +9,17 @@ OFFICIAL_IMAGES_DIR=../../docker/official-images
 
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
-		[[ "$dir" != openjdk-11-windowsservercore ]] &&
-			/bin/cp openjdk-11-windowsservercore/mvn-entrypoint.ps1 "$dir/mvn-entrypoint.ps1" &&
-			/bin/cp openjdk-11-windowsservercore/settings-docker.xml "$dir/settings-docker.xml"
+		from=openjdk-11-windowsservercore
+		if [[ "$dir" != "$from" ]]; then
+			cp $from/mvn-entrypoint.ps1 "$dir/"
+			cp $from/settings-docker.xml "$dir/"
+		fi
 	else
-		[[ "$dir" != openjdk-11 ]] &&
-			/bin/cp openjdk-11/mvn-entrypoint.sh "$dir/mvn-entrypoint.sh" &&
-			/bin/cp openjdk-11/settings-docker.xml "$dir/settings-docker.xml"
+		from=eclipse-temurin-11
+		if [[ "$dir" != "$from" ]]; then
+			cp $from/mvn-entrypoint.sh "$dir/"
+			cp $from/settings-docker.xml "$dir/"
+		fi
 	fi
 done
 
