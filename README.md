@@ -43,6 +43,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-16/)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-17/)
 * [amazoncorretto-18](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-18/)
+* [amazoncorretto-19](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-19/)
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/master/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/master/sapmachine-17/)
 
@@ -225,7 +226,7 @@ or run all the tests with
 Get-ChildItem -File -Include "*windows*" | ForEach-Object { Push-Location ; $env:TAG=$_.Name ; Invoke-Pester -Path tests ; Pop-Location }
 ```
 
-Bats can be easily installed with `brew install bats` on OS X.
+Bats can be easily installed with `brew install bats-core` on OS X.
 
 Note that you may first need to:
 
