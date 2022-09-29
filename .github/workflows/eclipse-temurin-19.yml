@@ -1,0 +1,28 @@
+name: eclipse-temurin-19
+
+on:
+  push:
+    paths:
+      - "eclipse-temurin-19/**"
+      - .github/workflows/eclipse-temurin-19.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "eclipse-temurin-19/**"
+      - .github/workflows/eclipse-temurin-19.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: eclipse-temurin-19
+    secrets: inherit
