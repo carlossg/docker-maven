@@ -162,7 +162,7 @@ as local repo.
 
 To add your custom `settings.xml` file to the image use
 
-    COPY settings.xml /usr/share/maven/ref/
+    COPY settings.xml /root/.m2/
 
 For an example, check the `tests` dir
 
