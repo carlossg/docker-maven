@@ -2,6 +2,8 @@ name: openjdk-18
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "openjdk-18/**"
       - .github/workflows/openjdk-18.yml

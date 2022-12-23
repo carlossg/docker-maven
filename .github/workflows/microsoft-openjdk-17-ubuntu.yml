@@ -2,6 +2,8 @@ name: microsoft-openjdk-17-ubuntu
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "microsoft-openjdk-17-ubuntu/**"
       - .github/workflows/microsoft-openjdk-17-ubuntu.yml

@@ -2,6 +2,8 @@ name: sapmachine-17
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "sapmachine-17/**"
       - .github/workflows/sapmachine-17.yml

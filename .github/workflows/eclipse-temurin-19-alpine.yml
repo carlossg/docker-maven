@@ -2,6 +2,8 @@ name: eclipse-temurin-19-alpine
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "eclipse-temurin-19-alpine/**"
       - .github/workflows/eclipse-temurin-19-alpine.yml

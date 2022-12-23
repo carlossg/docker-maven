@@ -2,6 +2,8 @@ name: openjdk-18-slim
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "openjdk-18-slim/**"
       - .github/workflows/openjdk-18-slim.yml

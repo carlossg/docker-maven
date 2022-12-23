@@ -2,6 +2,8 @@ name: azulzulu-11
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "azulzulu-11/**"
       - .github/workflows/azulzulu-11.yml

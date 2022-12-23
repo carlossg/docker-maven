@@ -2,6 +2,8 @@ name: microsoft-openjdk-11-ubuntu
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "microsoft-openjdk-11-ubuntu/**"
       - .github/workflows/microsoft-openjdk-11-ubuntu.yml

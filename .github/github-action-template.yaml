@@ -2,6 +2,8 @@ name: DIRECTORY
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "DIRECTORY/**"
       - .github/workflows/DIRECTORY.yml

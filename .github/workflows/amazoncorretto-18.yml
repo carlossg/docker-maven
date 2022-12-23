@@ -2,6 +2,8 @@ name: amazoncorretto-18
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "amazoncorretto-18/**"
       - .github/workflows/amazoncorretto-18.yml

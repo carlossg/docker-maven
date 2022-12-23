@@ -2,6 +2,8 @@ name: ibmjava-8
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "ibmjava-8/**"
       - .github/workflows/ibmjava-8.yml

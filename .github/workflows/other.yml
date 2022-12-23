@@ -2,6 +2,8 @@ name: DIRECTORY
 
 on:
   push:
+    branches:
+    - master
     paths:
       - '!LICENSE/**'
       - '!README-short.txt/**'
@@ -19,6 +21,7 @@ on:
       - '!azulzulu-17/**'
       - '!azulzulu-17-alpine/**'
       - '!common.sh/**'
+      - '!coverage/**'
       - '!eclipse-temurin-11/**'
       - '!eclipse-temurin-11-alpine/**'
       - '!eclipse-temurin-11-focal/**'
@@ -81,6 +84,7 @@ on:
       - '!azulzulu-17/**'
       - '!azulzulu-17-alpine/**'
       - '!common.sh/**'
+      - '!coverage/**'
       - '!eclipse-temurin-11/**'
       - '!eclipse-temurin-11-alpine/**'
       - '!eclipse-temurin-11-focal/**'

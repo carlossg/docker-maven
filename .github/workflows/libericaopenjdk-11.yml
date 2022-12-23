@@ -2,6 +2,8 @@ name: libericaopenjdk-11
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "libericaopenjdk-11/**"
       - .github/workflows/libericaopenjdk-11.yml

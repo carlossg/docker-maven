@@ -2,6 +2,8 @@ name: ibm-semeru-11-focal
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "ibm-semeru-11-focal/**"
       - .github/workflows/ibm-semeru-11-focal.yml

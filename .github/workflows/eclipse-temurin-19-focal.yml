@@ -2,6 +2,8 @@ name: eclipse-temurin-19-focal
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "eclipse-temurin-19-focal/**"
       - .github/workflows/eclipse-temurin-19-focal.yml

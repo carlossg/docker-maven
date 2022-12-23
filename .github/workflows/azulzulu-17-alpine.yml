@@ -2,6 +2,8 @@ name: azulzulu-17-alpine
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "azulzulu-17-alpine/**"
       - .github/workflows/azulzulu-17-alpine.yml

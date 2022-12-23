@@ -2,6 +2,8 @@ name: libericaopenjdk-8
 
 on:
   push:
+    branches:
+    - master
     paths:
       - "libericaopenjdk-8/**"
       - .github/workflows/libericaopenjdk-8.yml
