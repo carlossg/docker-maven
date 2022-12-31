@@ -4,3 +4,4 @@
 /tests/target/
 *.tmp
 .idea
+tests/example.iml
