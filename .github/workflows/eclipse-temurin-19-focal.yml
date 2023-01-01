@@ -7,6 +7,7 @@ on:
     paths:
       - "eclipse-temurin-19-focal/**"
       - .github/workflows/eclipse-temurin-19-focal.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -16,6 +17,7 @@ on:
     paths:
       - "eclipse-temurin-19-focal/**"
       - .github/workflows/eclipse-temurin-19-focal.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"

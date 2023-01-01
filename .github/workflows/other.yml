@@ -63,6 +63,7 @@ on:
       - '!sapmachine-17/**'
       - '!tags-for-dir.sh/**'
       - '!tests/**'
+      - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
   pull_request:
@@ -125,6 +126,7 @@ on:
       - '!sapmachine-17/**'
       - '!tags-for-dir.sh/**'
       - '!tests/**'
+      - "tests/**"
       - "!tests/*.ps*"
       - "!tests/*.windows"
 

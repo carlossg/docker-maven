@@ -9,6 +9,7 @@ on:
       - "!tests/*.bats"
       - "!tests/*.bash"
       - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
   pull_request:
     paths:
       - "openjdk-11-windowsservercore/**"
@@ -16,6 +17,7 @@ on:
       - github-action.ps1
       - "!tests/*.bash"
       - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
 
 env:
   DOCKER_PUSH: "true"

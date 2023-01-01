@@ -7,6 +7,7 @@ on:
     paths:
       - "sapmachine-17/**"
       - .github/workflows/sapmachine-17.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -16,6 +17,7 @@ on:
     paths:
       - "sapmachine-17/**"
       - .github/workflows/sapmachine-17.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"

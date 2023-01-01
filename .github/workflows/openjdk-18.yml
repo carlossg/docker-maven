@@ -7,6 +7,7 @@ on:
     paths:
       - "openjdk-18/**"
       - .github/workflows/openjdk-18.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
@@ -16,6 +17,7 @@ on:
     paths:
       - "openjdk-18/**"
       - .github/workflows/openjdk-18.yml
+      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "tests/**"
