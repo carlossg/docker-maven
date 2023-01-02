@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Setup BATS
-        uses: mig4/setup-bats@v1.2.0
+        uses: mig4/setup-bats@v1.2.1
       - name: Check out code
         uses: actions/checkout@v3
       - name: Update submodules
