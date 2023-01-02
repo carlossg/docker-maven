@@ -82,14 +82,10 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.IMAGE_NAME2 }}
 
-      # get all the docker tags for this image when building master
+      # get all the docker tags for this image
       - name: Retrieve tags
-        if: github.ref == 'refs/heads/master'
         run: |
           TAGS="$(./tags-for-dir.sh ${GITHUB_WORKFLOW})"
-          TAGS="${TAGS//'%'/'%25'}"
-          TAGS="${TAGS//$'\n'/'%0A'}"
-          TAGS="${TAGS//$'\r'/'%0D'}"
           echo "tags=$TAGS" >> $GITHUB_OUTPUT
         id: retrieve-tags
 
