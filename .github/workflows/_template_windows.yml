@@ -12,5 +12,5 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
     - name: Build Images
-      run: .\github-action.ps1 ${{ inputs.directory }} ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      run: .\github-action.ps1 ${{ inputs.directory }} ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_TOKEN }}
       shell: pwsh
