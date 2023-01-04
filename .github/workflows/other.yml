@@ -1,4 +1,4 @@
-name: DIRECTORY
+name: Other
 
 on:
   push:
@@ -20,7 +20,6 @@ on:
       - '!azulzulu-17/**'
       - '!azulzulu-17-alpine/**'
       - '!common.sh/**'
-      - '!coverage/**'
       - '!eclipse-temurin-11/**'
       - '!eclipse-temurin-11-alpine/**'
       - '!eclipse-temurin-11-focal/**'
@@ -63,7 +62,11 @@ on:
       - '!sapmachine-17/**'
       - '!tags-for-dir.sh/**'
       - '!tests/**'
-      - "tests/**"
+      - "Other/**"
+      - .github/workflows/Other.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
       - "!tests/*.ps*"
       - "!tests/*.windows"
   pull_request:
@@ -83,7 +86,6 @@ on:
       - '!azulzulu-17/**'
       - '!azulzulu-17-alpine/**'
       - '!common.sh/**'
-      - '!coverage/**'
       - '!eclipse-temurin-11/**'
       - '!eclipse-temurin-11-alpine/**'
       - '!eclipse-temurin-11-focal/**'
@@ -126,7 +128,11 @@ on:
       - '!sapmachine-17/**'
       - '!tags-for-dir.sh/**'
       - '!tests/**'
-      - "tests/**"
+      - "Other/**"
+      - .github/workflows/Other.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
       - "!tests/*.ps*"
       - "!tests/*.windows"
 
@@ -134,5 +140,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: DIRECTORY
+      directory: Other
     secrets: inherit
