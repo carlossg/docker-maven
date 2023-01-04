@@ -124,3 +124,17 @@ load test_helpers
 		assert_failure
 	fi
 }
+
+@test "$SUT_TAG gpg is installed" {
+	run docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
+	if (
+		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
+			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
+			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
+			[[ "$SUT_TAG" == openjdk-?? ]]
+	); then
+		assert_success
+	else
+		assert_failure
+	fi
+}

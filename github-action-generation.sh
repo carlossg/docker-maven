@@ -22,5 +22,6 @@ LC_COLLATE=C
 for f in *; do
     sed -i "/DIRECTORY\/\*\*/i \      - '!${f}\/\*\*'" .github/workflows/other.yml
 done
-sed -i "s/Docker Maven Image CI DIRECTORY/Docker Maven Image CI other/" .github/workflows/other.yml
+sed -i "s/DIRECTORY/Other/" .github/workflows/other.yml
 sed -i "/DIRECTORY\/\*\*/,+4 d" .github/workflows/other.yml
+sed -i '/- "tests\/\*\*"/d' .github/workflows/other.yml
