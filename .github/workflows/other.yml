@@ -64,7 +64,6 @@ on:
       - '!tests/**'
       - "Other/**"
       - .github/workflows/Other.yml
-      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "!tests/*.ps*"
@@ -130,7 +129,6 @@ on:
       - '!tests/**'
       - "Other/**"
       - .github/workflows/Other.yml
-      - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
       - "!tests/*.ps*"

@@ -9,9 +9,9 @@ set -eu
 for version in "${all_dirs[@]}"; do
     echo "Generating action for $version"
     if [[ "$version" == *"windows"* ]] || [[ "$version" == *"nanoserver"* ]]; then
-        sed -e "s/DIRECTORY/$version/" .github/github-action-windows-template.yaml > ".github/workflows/$version.yml"
+        sed -e "s/DIRECTORY/$version/" .github/github-action-windows-template.yaml >".github/workflows/$version.yml"
     else
-        sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml > ".github/workflows/$version.yml"
+        sed -e "s/DIRECTORY/$version/" .github/github-action-template.yaml >".github/workflows/$version.yml"
     fi
 done
 
@@ -22,6 +22,9 @@ LC_COLLATE=C
 for f in *; do
     sed -i "/DIRECTORY\/\*\*/i \      - '!${f}\/\*\*'" .github/workflows/other.yml
 done
-sed -i "s/DIRECTORY/Other/" .github/workflows/other.yml
-sed -i "/DIRECTORY\/\*\*/,+4 d" .github/workflows/other.yml
-sed -i '/- "tests\/\*\*"/d' .github/workflows/other.yml
+sed -i \
+    -e "s/DIRECTORY/Other/" \
+    -e "/DIRECTORY\/\*\*/,+4 d" \
+    -e '/- "tests\/\*\*"/d' \
+    -e '/- .github\/workflows\/_template.yml/d' \
+    .github/workflows/other.yml
