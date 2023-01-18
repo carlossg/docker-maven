@@ -1,0 +1,32 @@
+name: openjdk-19
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+      - "openjdk-19/**"
+      - .github/workflows/openjdk-19.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "openjdk-19/**"
+      - .github/workflows/openjdk-19.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: openjdk-19
+    secrets: inherit
