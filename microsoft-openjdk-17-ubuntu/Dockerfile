@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
-ARG MAVEN_VERSION=3.8.7
+ARG MAVEN_VERSION=3.9.0
 ARG USER_HOME_DIR="/root"
-ARG SHA=21c2be0a180a326353e8f6d12289f74bc7cd53080305f05358936f3a1b6dd4d91203f4cc799e81761cf5c53c5bbe9dcc13bdb27ec8f57ecf21b2f9ceec3c8d27
+ARG SHA=1ea149f4e48bc7b34d554aef86f948eca7df4e7874e30caf449f3708e4f8487c71a5e5c072a05f17c60406176ebeeaf56b5f895090c7346f8238e2da06cf6ecd
 ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME /usr/share/maven
