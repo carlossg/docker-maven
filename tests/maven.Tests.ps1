@@ -73,6 +73,15 @@ Describe "$SUT_TAG run Maven" {
   }
 }
 
+Describe "$SUT_TAG run Surefire" {
+  It 'runs maven' {
+    # -Dplugin='org.apache.maven.plugins:maven-surefire-plugin' works in windowsservercore but not in nanoserver
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} mvn -B -ntp -f C:/Temp -Dplugin=surefire help:describe"
+    $exitCode | Should -Be 0
+    $stdout | Should -Match "Version: 2.12.4"
+  }
+}
+
 Describe "$SUT_TAG generate sample project" {
   It 'generates sample project' {
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} mvn -B archetype:generate -DgroupId=pester-testing -DartifactId=pester-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
