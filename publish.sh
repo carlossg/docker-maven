@@ -17,6 +17,7 @@ for dir in "${all_dirs[@]}"; do
 	else
 		from=eclipse-temurin-11
 		if [[ "$dir" != "$from" ]]; then
+			cp $from/KEYS "$dir/"
 			cp $from/mvn-entrypoint.sh "$dir/"
 			cp $from/settings-docker.xml "$dir/"
 		fi
