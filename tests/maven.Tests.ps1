@@ -78,7 +78,7 @@ Describe "$SUT_TAG run Surefire" {
     # -Dplugin='org.apache.maven.plugins:maven-surefire-plugin' works in windowsservercore but not in nanoserver
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} mvn -B -ntp -f C:/Temp -Dplugin=surefire help:describe"
     $exitCode | Should -Be 0
-    $stdout | Should -Match "Version: 2.12.4"
+    $stdout | Should -Match "Version: 2.19.1"
   }
 }
 
