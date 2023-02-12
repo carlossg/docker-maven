@@ -53,7 +53,7 @@ Describe "$SUT_TAG settings.xml is setup" {
   It 'sets up settings.xml' {
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} Get-Content C:/Users/ContainerUser/.m2/settings.xml"
     $exitCode | Should -Be 0
-    "$PSScriptRoot/settings.xml" | Should -FileContentMatchMultiline $stdout
+    "$PSScriptRoot/settings.xml" | Should -FileContentMatchMultiline $stdout.Trim()
   }
 }
 
@@ -74,11 +74,11 @@ Describe "$SUT_TAG run Maven" {
 }
 
 Describe "$SUT_TAG run Surefire" {
-  It 'runs maven' {
+  It 'runs surefire' {
     # -Dplugin='org.apache.maven.plugins:maven-surefire-plugin' works in windowsservercore but not in nanoserver
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} mvn -B -ntp -f C:/Temp -Dplugin=surefire help:describe"
     $exitCode | Should -Be 0
-    $stdout | Should -Match "Version: 2.19.1"
+    $stdout | Should -Match "Version: 3.2.3"
   }
 }
 
