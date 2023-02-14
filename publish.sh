@@ -7,6 +7,12 @@ set -o pipefail
 
 OFFICIAL_IMAGES_DIR=../../docker/official-images
 
+from_linux=eclipse-temurin-11
+
+# download KEYS file if changed
+echo "Downloading KEYS file if newer"
+curl -sSLf -o $from_linux/KEYS -z $from_linux/KEYS https://svn.apache.org/repos/asf/maven/project/KEYS
+
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
 		from=openjdk-11-windowsservercore
@@ -15,7 +21,7 @@ for dir in "${all_dirs[@]}"; do
 			cp $from/settings-docker.xml "$dir/"
 		fi
 	else
-		from=eclipse-temurin-11
+		from=$from_linux
 		if [[ "$dir" != "$from" ]]; then
 			cp $from/KEYS "$dir/"
 			cp $from/mvn-entrypoint.sh "$dir/"
