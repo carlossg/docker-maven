@@ -3,8 +3,7 @@
 set -eu
 
 # Default values for 'latest' tag
-latestMavenVersion='3.9.6'
-latest='21'
+latest='20'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
@@ -13,9 +12,8 @@ declare -A jdk_latest=(
 	["jdk"]="17"
 	["openjdk"]=""
 	["eclipse-temurin"]=$latest
-	["ibmjava"]="8"
 	["ibm-semeru"]=""
-	["amazoncorretto"]="11"
+	["amazoncorretto"]="17"
 	["libericaopenjdk"]="17"
 	["sapmachine"]="21"
 	["graalvm-community"]="21"
@@ -70,7 +68,7 @@ version-aliases() {
 			fi
 		done
 
-		# tag eclipse-temurin-8-alpine -> 3.9.6-eclipse-temurin-alpine
+		# tag eclipse-temurin-8-alpine -> 4.0.0-alpha-13-eclipse-temurin-alpine
 		if [ -n "${extra_tags[$version]:-}" ]; then
 			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
 		fi

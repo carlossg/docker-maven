@@ -13,20 +13,6 @@ Images are published under:
 
 See Docker Hub or GitHub Container Registry for an updated list of tags
 
-* ~~[openjdk-8](https://github.com/carlossg/docker-maven/blob/main/openjdk-8/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11](https://github.com/carlossg/docker-maven/blob/main/openjdk-11/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-17](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-18](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-18-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8/Dockerfile)
-* [eclipse-temurin-8-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-alpine/Dockerfile)
-* [eclipse-temurin-8-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-focal/Dockerfile)
-* [eclipse-temurin-11](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11/Dockerfile)
-* [eclipse-temurin-11-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-alpine/Dockerfile)
-* [eclipse-temurin-11-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-focal/Dockerfile)
 * [eclipse-temurin-16](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-16/Dockerfile)
 * [eclipse-temurin-16-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-16-alpine/Dockerfile)
 * [eclipse-temurin-17](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17/Dockerfile)
@@ -38,44 +24,26 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-22](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22/Dockerfile)
 * [eclipse-temurin-22-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22-alpine/Dockerfile)
 * [eclipse-temurin-22-jammy](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22-jammy/Dockerfile)
-* [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-focal/Dockerfile)
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-focal/Dockerfile)
 * [ibm-semeru-21-jammy](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-jammy/Dockerfile)
-* [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
-* [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
-* [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
-* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11/)
-* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
-* [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17/)
 * [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
 * [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
 * [amazoncorretto-21](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21/)
 * [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/)
 * [amazoncorretto-21-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-debian/Dockerfile)
-* [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
-* [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
-* [azulzulu-8-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8-alpine/Dockerfile)
-* [azulzulu-11](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11/Dockerfile)
-* [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-alpine/Dockerfile)
 * [azulzulu-17](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17/Dockerfile)
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-alpine/Dockerfile)
 * [azulzulu-21](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21/Dockerfile)
 * [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
 * [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
 * [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
-* [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11/Dockerfile)
-* [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17/Dockerfile)
 * [libericaopenjdk-17-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-alpine/Dockerfile)
-* [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8/Dockerfile)
-* [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-alpine/Dockerfile)
-* [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
 * [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
@@ -85,18 +53,7 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
-* ~~[openjdk-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-8-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-windowsservercore/Dockerfile)
-* [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-windowsservercore/Dockerfile)
 * [amazoncorretto-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-windowsservercore/Dockerfile)
-* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
-* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
-* [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
-* [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/Dockerfile)
-* [azulzulu-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-windowsservercore/Dockerfile)
 * [azulzulu-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-windowsservercore/Dockerfile)
 
 
@@ -115,25 +72,25 @@ passing a Maven command to `docker run`:
 
 ### Linux
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn verify
+    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-17 mvn verify
 
 ### Windows
 
 ```powershell
-docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-8-windows mvn verify
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-17-windows mvn verify
 ```
 
 ### Windows
 
 ```powershell
-docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-17-windows mvn clean install
 ```
 
 ## Building local Docker image (optional)
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-    docker build --tag my_local_maven:3.9.6-jdk-8 .
+    docker build --tag my_local_maven:4.0.0-alpha-13-jdk-8 .
 
 
 # Multi-stage Builds
@@ -214,32 +171,16 @@ Some come from the parent images and some are installed in this image for backwa
 
 |                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
 |-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
-| amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-al2023       |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-debian       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-17-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-17-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-21             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-21-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-21-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| azulzulu-8                    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-8-alpine             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-21                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-21-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8             | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-focal       | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-17            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
@@ -251,20 +192,11 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-22-jammy      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | graalvm-community-17          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | graalvm-community-21          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-21-jammy           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibmjava-8                     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8             |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8-debian      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-11            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-11-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | libericaopenjdk-17            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
 | libericaopenjdk-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | libericaopenjdk-17-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-17-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-21-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | oracle-graalvm-17             |     | ✔️    | ✔️   | ✔️    |       | ✔️    |        | ✔️   |     |

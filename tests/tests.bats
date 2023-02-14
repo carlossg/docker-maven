@@ -8,7 +8,7 @@ load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
-base_image=eclipse-temurin-11
+base_image=eclipse-temurin-17
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ]; then
@@ -54,7 +54,7 @@ base_image=eclipse-temurin-11
 }
 
 @test "$SUT_TAG repository is created" {
-	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar
+	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/org/junit/junit-bom/5.7.2/junit-bom-5.7.2.pom
 	assert_success
 }
 
