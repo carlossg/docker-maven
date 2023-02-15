@@ -11,7 +11,6 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 # Workaround https://github.com/corretto/corretto-8-docker/pull/32
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
 
-COPY KEYS /tmp/
 RUN set -x \
   && yum install -y tar which gzip \
   && yum clean all \
@@ -20,7 +19,12 @@ RUN set -x \
   && echo "${SHA}  apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha512sum -c - \
   && curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc \
   && export GNUPGHOME="$(mktemp -d)" \
-  && gpg --batch --import --quiet --allow-non-selfsigned-uid /tmp/KEYS \
+  && for key in \
+    6A814B1F869C2BBEAB7CB7271A2A1C94BDE89688 \
+    29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
+  ; do \
+    gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
+  done \
   && gpg --batch --verify apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref \
   && tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
