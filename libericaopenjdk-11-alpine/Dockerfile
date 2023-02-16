@@ -20,6 +20,7 @@ RUN set -x \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done \
+  && gpg --batch --verify apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref \
   && tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
   # GNUPGHOME may fail to delete even with -rf
