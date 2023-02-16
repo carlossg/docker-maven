@@ -25,6 +25,7 @@ RUN set -x \
   && mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref \
   && tar -xzf apache-maven-${MAVEN_VERSION}-bin.tar.gz -C ${MAVEN_HOME} --strip-components=1 \
   # GNUPGHOME may fail to delete even with -rf
+  && gpgconf --kill all \
   && (rm -rf "$GNUPGHOME" apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc apache-maven-${MAVEN_VERSION}-bin.tar.gz || true) \
   && ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn \
   # smoke test
