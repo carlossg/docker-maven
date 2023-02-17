@@ -10,7 +10,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 RUN set -x \
   && apt-get update \
-  && apt-get install -y ca-certificates curl git gnupg dirmngr --no-install-recommends \
+  && apt-get install -y ca-certificates curl git openssh-client gnupg dirmngr --no-install-recommends \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && echo "${SHA} *apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha512sum -c - \
