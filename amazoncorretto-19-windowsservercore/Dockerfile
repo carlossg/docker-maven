@@ -1,7 +1,16 @@
 # escape=`
-FROM openjdk:11-jdk-windowsservercore-1809
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+ARG zip=amazon-corretto-19-x64-windows-jdk.zip
+ARG uri=https://corretto.aws/downloads/latest
+ARG hash=57745d92bb3e078a7217721ddd4202a601e9ae34d8a18f51ae8c46828621b470
+
+RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
+    if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
+    Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
+    Remove-Item C:/${env:zip}
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.9.0
@@ -17,6 +26,8 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+
+ENV JAVA_HOME=C:/ProgramData/jdk19.0.2_7
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml

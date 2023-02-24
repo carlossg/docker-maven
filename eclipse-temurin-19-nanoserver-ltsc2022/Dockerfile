@@ -1,9 +1,9 @@
 # escape=`
-ARG JAVA_VERSION=8u342-jdk
+ARG JAVA_VERSION=19.0.2_7-jdk
 # we use the latest stable if nothing is passed
 ARG POWERSHELL_VERSION=
 
-FROM openjdk:${JAVA_VERSION}-windowsservercore-1809 as openjdk
+FROM eclipse-temurin:${JAVA_VERSION}-windowsservercore-ltsc2022 as openjdk
 
 FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-1809
 
@@ -11,7 +11,7 @@ SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference
 
 USER ContainerAdministrator
 
-ENV JAVA_HOME=C:/openjdk-8
+ENV JAVA_HOME=C:/openjdk-19
 
 COPY --from=openjdk $JAVA_HOME $JAVA_HOME
 

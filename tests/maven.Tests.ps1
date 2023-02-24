@@ -30,8 +30,8 @@ Describe "$SUT_TAG build test image" {
   }
 
   It 'builds image' {
-    ((Get-Content -path Dockerfile.windows -Raw) -replace 'FROM TO_BE_REPLACED',"FROM ${SUT_IMAGE}:${SUT_TAG}") | Set-Content -Path Dockerfile.windows
-    $exitCode, $stdout, $stderr = Build-Docker -f Dockerfile.windows -t ${SUT_TEST_IMAGE}:${SUT_TAG}
+    ((Get-Content -path Dockerfile.windows -Raw) -replace 'FROM TO_BE_REPLACED',"FROM ${SUT_IMAGE}:${SUT_TAG}") | Set-Content -Path Dockerfile.windows.test
+    $exitCode, $stdout, $stderr = Build-Docker -f Dockerfile.windows.test -t ${SUT_TEST_IMAGE}:${SUT_TAG}
     $exitCode | Should -Be 0
   }
 
@@ -51,8 +51,9 @@ Describe "$SUT_TAG create test container" {
 
 Describe "$SUT_TAG settings.xml is setup" {
   It 'sets up settings.xml' {
-    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} Get-Content C:/Users/ContainerUser/.m2/settings.xml"
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} Get-Content -Raw C:/Users/ContainerUser/.m2/settings.xml"
     $exitCode | Should -Be 0
+    $stdout = $stdout.Trim()
     "$PSScriptRoot/settings.xml" | Should -FileContentMatchMultiline $stdout
   }
 }

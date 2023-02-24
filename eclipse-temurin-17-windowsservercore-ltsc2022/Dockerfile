@@ -1,5 +1,5 @@
 # escape=`
-FROM openjdk:11-jdk-windowsservercore-1809
+FROM eclipse-temurin:17-jdk-windowsservercore-ltsc2022
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 

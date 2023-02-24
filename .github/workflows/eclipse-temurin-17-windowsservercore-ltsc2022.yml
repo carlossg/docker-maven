@@ -1,9 +1,9 @@
-name: amazoncorretto-8-windowsservercore
+name: eclipse-temurin-17-windowsservercore-ltsc2022
 
 on:
   push:
     paths:
-      - "amazoncorretto-8-windowsservercore/**"
+      - "eclipse-temurin-17-windowsservercore-ltsc2022/**"
       - "tests/**"
       - github-action.ps1
       - "!tests/*.bats"
@@ -12,7 +12,7 @@ on:
       - .github/workflows/_template_windows.yml
   pull_request:
     paths:
-      - "amazoncorretto-8-windowsservercore/**"
+      - "eclipse-temurin-17-windowsservercore-ltsc2022/**"
       - "tests/**"
       - github-action.ps1
       - "!tests/*.bash"
@@ -26,5 +26,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template_windows.yml
     with:
-      directory: amazoncorretto-8-windowsservercore
+      directory: eclipse-temurin-17-windowsservercore-ltsc2022
     secrets: inherit

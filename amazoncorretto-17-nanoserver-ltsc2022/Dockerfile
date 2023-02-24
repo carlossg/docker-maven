@@ -1,7 +1,24 @@
 # escape=`
-FROM openjdk:11-jdk-windowsservercore-1809
+# we use the latest stable if nothing is passed
+ARG POWERSHELL_VERSION=
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-ltsc2022
+
+SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+ARG zip=amazon-corretto-17-x64-windows-jdk.zip
+ARG uri=https://corretto.aws/downloads/latest
+ARG hash=27dfa7189763bf5bee6250baef22bb6f6032deebe0edd11f79495781cc7955fe
+
+USER ContainerAdministrator
+
+ENV ProgramFiles="C:\Program Files"
+ENV WindowsPATH="C:\Windows\system32;C:\Windows"
+
+RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
+    if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
+    Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
+    Remove-Item C:/${env:zip}
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.9.0
@@ -18,6 +35,10 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
+ENV JAVA_HOME=C:/ProgramData/jdk17.0.6_10
+
+ENV PATH="${WindowsPATH};${ProgramFiles}\PowerShell;${JAVA_HOME}\bin;${MAVEN_HOME}\bin"
+
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
 
@@ -26,5 +47,5 @@ RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
 USER ContainerUser
 ENV JAVA_HOME=${JAVA_HOME}
 
-ENTRYPOINT ["powershell.exe", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
+ENTRYPOINT ["pwsh", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
 CMD ["mvn"]

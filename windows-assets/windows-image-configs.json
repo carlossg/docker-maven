@@ -1,0 +1,179 @@
+[
+    {
+      "tag": "amazoncorretto-8-windowsservercore",
+      "template": "URI",
+      "params": {
+        "zip": "amazon-corretto-8-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "59919c4fd28e6c353db5b11959b1daa9b203e9b9f74837ad266bb639c807639a",
+        "JAVA_HOME_DIR": "jdk1.8.0_362",
+        "REV": "ltsc2019"
+      }
+    },
+	{
+      "tag": "amazoncorretto-11-windowsservercore",
+      "template": "URI",
+      "params": {
+        "zip": "amazon-corretto-11-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "e6ccca8fbb0b34daa5a5163b496d1a9f5d163189a6686846e2fb62281cd1cd85",
+        "JAVA_HOME_DIR": "jdk11.0.18_10",
+        "REV": "ltsc2019"
+      }
+    },
+    {
+      "tag": "amazoncorretto-11-nanoserver-ltsc2022",
+      "template": "URI_NANO",
+      "params": {
+        "zip": "amazon-corretto-11-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "e6ccca8fbb0b34daa5a5163b496d1a9f5d163189a6686846e2fb62281cd1cd85",
+        "JAVA_HOME_DIR": "jdk11.0.18_10",
+        "REV": "ltsc2022"
+      }
+    },
+    {
+      "tag": "amazoncorretto-17-windowsservercore",
+      "template": "URI",
+      "params": {
+        "zip": "amazon-corretto-17-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "27dfa7189763bf5bee6250baef22bb6f6032deebe0edd11f79495781cc7955fe",
+        "JAVA_HOME_DIR": "jdk17.0.6_10",
+        "REV": "ltsc2019"
+      }
+    },
+    {
+      "tag": "amazoncorretto-17-nanoserver-ltsc2022",
+      "template": "URI_NANO",
+      "params": {
+        "zip": "amazon-corretto-17-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "27dfa7189763bf5bee6250baef22bb6f6032deebe0edd11f79495781cc7955fe",
+        "JAVA_HOME_DIR": "jdk17.0.6_10",
+        "REV": "ltsc2022"
+      }
+    },
+    {
+      "tag": "amazoncorretto-19-windowsservercore",
+      "template": "URI",
+      "params": {
+        "zip": "amazon-corretto-19-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "57745d92bb3e078a7217721ddd4202a601e9ae34d8a18f51ae8c46828621b470",
+        "JAVA_HOME_DIR": "jdk19.0.2_7",
+        "REV": "ltsc2019"
+      }
+    },
+    {
+      "tag": "amazoncorretto-19-nanoserver-ltsc2022",
+      "template": "URI_NANO",
+      "params": {
+        "zip": "amazon-corretto-19-x64-windows-jdk.zip",
+        "uri": "https://corretto.aws/downloads/latest",
+        "hash": "57745d92bb3e078a7217721ddd4202a601e9ae34d8a18f51ae8c46828621b470",
+        "JAVA_HOME_DIR": "jdk19.0.2_7",
+        "REV": "ltsc2022"
+      }
+    },
+
+    {
+      "tag": "azulzulu-11-windowsservercore",
+      "template": "URI",
+      "params": {
+        "zip": "zulu11.37.17-ca-jdk11.0.6-win_x64.zip",
+        "uri": "https://cdn.azul.com/zulu/bin",
+        "hash": "a9695617b8374bfa171f166951214965b1d1d08f43218db9a2a780b71c665c18",
+        "JAVA_HOME_DIR": "zulu11.37.17-ca-jdk11.0.6-win_x64",
+        "REV": "ltsc2019"
+      }
+    },
+
+    {
+      "tag": "openjdk-8-nanoserver",
+      "template": "FROM_NANO",
+      "params": {
+        "JAVA_VERSION": "8u342-jdk",
+        "FROM_REPO": "openjdk",
+        "JAVA_HOME": "C:/openjdk-8",
+        "REV": "1809"
+      }
+    },
+    {
+      "tag": "openjdk-8-windowsservercore",
+      "template": "FROM_CORE",
+      "params": {
+        "FROM": "openjdk:8-jdk-windowsservercore-1809"
+      }
+    },
+
+    {
+      "tag": "openjdk-11-nanoserver",
+      "template": "FROM_NANO",
+      "params": {
+        "JAVA_VERSION": "11.0.6-jdk",
+        "FROM_REPO": "openjdk",
+        "JAVA_HOME": "C:/openjdk-11",
+        "REV": "1809"
+      }
+    },
+    {
+      "tag": "openjdk-11-windowsservercore",
+      "template": "FROM_CORE",
+      "params": {
+        "FROM": "openjdk:11-jdk-windowsservercore-1809"
+      }
+    },
+
+    {
+      "tag": "eclipse-temurin-11-windowsservercore-ltsc2022",
+      "template": "FROM_CORE",
+      "params": {
+        "FROM": "eclipse-temurin:11-jdk-windowsservercore-ltsc2022"
+      }
+    },
+    {
+      "tag": "eclipse-temurin-11-nanoserver-ltsc2022",
+      "template": "FROM_NANO",
+      "params": {
+        "JAVA_VERSION": "11.0.18_10-jdk",
+        "FROM_REPO": "eclipse-temurin",
+        "JAVA_HOME": "C:/openjdk-11",
+        "REV": "ltsc2022"
+      }
+    },
+    {
+      "tag": "eclipse-temurin-17-windowsservercore-ltsc2022",
+      "template": "FROM_CORE",
+      "params": {
+        "FROM": "eclipse-temurin:17-jdk-windowsservercore-ltsc2022"
+      }
+    },
+    {
+      "tag": "eclipse-temurin-17-nanoserver-ltsc2022",
+      "template": "FROM_NANO",
+      "params": {
+        "JAVA_VERSION": "17.0.6_10-jdk",
+        "FROM_REPO": "eclipse-temurin",
+        "JAVA_HOME": "C:/openjdk-17",
+        "REV": "ltsc2022"
+      }
+    },
+    {
+      "tag": "eclipse-temurin-19-windowsservercore-ltsc2022",
+      "template": "FROM_CORE",
+      "params": {
+        "FROM": "eclipse-temurin:19-jdk-windowsservercore-ltsc2022"
+      }
+    },
+    {
+      "tag": "eclipse-temurin-19-nanoserver-ltsc2022",
+      "template": "FROM_NANO",
+      "params": {
+        "JAVA_VERSION": "19.0.2_7-jdk",
+        "FROM_REPO": "eclipse-temurin",
+        "JAVA_HOME": "C:/openjdk-19",
+        "REV": "ltsc2022"
+      }
+    }
+]
