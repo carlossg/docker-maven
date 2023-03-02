@@ -29,7 +29,7 @@ generate-version() {
 		return 1
 	fi
 
-	from="$(awk 'toupper($1) == "FROM" { print $2 }' "$version/Dockerfile")"
+	from="$(grep FROM eclipse-temurin-8/Dockerfile | tail -n 1 | awk 'toupper($1) == "FROM" { print $2 }')"
 	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
@@ -43,6 +43,7 @@ generate-version() {
 }
 
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
+echo 'Builder: buildkit'
 echo "GitRepo: $url"
 
 for version in "${all_dirs[@]}"; do

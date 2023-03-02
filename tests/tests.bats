@@ -22,14 +22,14 @@ load test_helpers
 }
 
 @test "$SUT_TAG create test container" {
-	version="$(grep 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
+	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
 	run docker run --rm $SUT_IMAGE:$SUT_TAG mvn -version
 	assert_success
 	assert_line -p "Apache Maven $version "
 }
 
 @test "$SUT_TAG create test container (-u 11337:11337)" {
-	version="$(grep 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
+	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
 	run docker run --rm -u 11337:11337 $SUT_IMAGE:$SUT_TAG mvn -version
 	assert_success
 	assert_line -p "Apache Maven $version "
@@ -131,7 +131,8 @@ load test_helpers
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]]
+			[[ "$SUT_TAG" == openjdk-?? ]] ||
+			[[ "$SUT_TAG" == sapmachine-?? ]]
 	); then
 		assert_success
 	else

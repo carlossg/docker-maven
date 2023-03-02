@@ -1,7 +1,3 @@
-FROM amazoncorretto:19
-
-RUN yum install -y tar which gzip # TODO remove
-
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
 

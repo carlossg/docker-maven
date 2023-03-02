@@ -9,6 +9,8 @@ OFFICIAL_IMAGES_DIR=../../docker/official-images
 
 from_linux=eclipse-temurin-11
 
+pattern="# common for all images"
+
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
 		from=openjdk-11-windowsservercore
@@ -21,6 +23,10 @@ for dir in "${all_dirs[@]}"; do
 		if [[ "$dir" != "$from" ]]; then
 			cp $from/mvn-entrypoint.sh "$dir/"
 			cp $from/settings-docker.xml "$dir/"
+			# remove everything after the 'common for all images' line
+			sed "/^${pattern}$/q" "$dir/Dockerfile" | sponge "$dir/Dockerfile"
+			# copy from the master Dockerfile template the common lines
+			tail +2 Dockerfile-template >>"$dir/Dockerfile"
 		fi
 	fi
 done
@@ -49,6 +55,7 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 	sed -i -e "s#JAVA_HOME=C.*#JAVA_HOME=C:/ProgramData/${java_home}#" "$file"
 done
 
+echo "Generating stackbrew"
 ./generate-stackbrew-library.sh >"${OFFICIAL_IMAGES_DIR}/library/maven"
 
 echo "Running naughty"
