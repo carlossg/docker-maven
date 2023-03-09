@@ -116,8 +116,7 @@ jobs:
         env:
           REGISTRY1: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
           REGISTRY2: ${{ env.REGISTRY2 }}/${{ env.IMAGE_NAME2 }}@${{ steps.build-and-push.outputs.digest }}
-          COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance, and records it to the
         # sigstore community Rekor transparency log.
-        run: cosign sign --force ${REGISTRY1} ${REGISTRY2}
+        run: cosign sign --yes ${REGISTRY1} ${REGISTRY2}
