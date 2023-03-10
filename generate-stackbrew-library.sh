@@ -29,7 +29,7 @@ generate-version() {
 		return 1
 	fi
 
-	from="$(grep FROM eclipse-temurin-8/Dockerfile | tail -n 1 | awk 'toupper($1) == "FROM" { print $2 }')"
+	from="$(grep FROM "$version/Dockerfile" | tail -n 1 | awk 'toupper($1) == "FROM" { print $2 }')"
 	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
