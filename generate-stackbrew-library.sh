@@ -35,7 +35,7 @@ generate-version() {
 
 	# remove i386 from the list of architectures as only imbjava supports it and we are copying
 	# the maven commands from eclipse-temurin
-	# arches="${arches//i386, /}"
+	arches="${arches//i386, /}"
 
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
