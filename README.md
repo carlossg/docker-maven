@@ -38,7 +38,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/master/ibm-semeru-11-focal/Dockerfile)
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/master/ibm-semeru-17-focal/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
-* [ibmjava-8-alpine](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8-alpine/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11/)
 * [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-16/)

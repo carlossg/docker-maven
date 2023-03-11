@@ -23,7 +23,6 @@ declare -A jdk_latest=(
 # do not tag them as it is confusing and requires a lot of maintenance
 declare -A extra_tags=(
 	# ["eclipse-temurin-17-alpine"]="eclipse-temurin-alpine"
-	# ["ibmjava-8-alpine"]="ibmjava-alpine"
 	# ["libericaopenjdk-11-alpine"]="libericaopenjdk-alpine"
 	# ["openjdk-18-slim"]="openjdk-slim"
 )
