@@ -60,7 +60,11 @@ echo "Generating stackbrew"
 
 echo "Running naughty"
 pushd "${OFFICIAL_IMAGES_DIR}" >/dev/null
-./naughty-from.sh maven
+naughty_output=$(./naughty-from.sh maven)
+if [ -n "${naughty_output}" ]; then
+	printf "Naughty errors:\n%s\n" "${naughty_output}" >&2
+	exit 1
+fi
 popd >/dev/null
 
 echo Done, you can submit a PR now to https://github.com/docker-library/official-images

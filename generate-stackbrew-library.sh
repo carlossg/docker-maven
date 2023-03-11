@@ -33,6 +33,10 @@ generate-version() {
 	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
+	# remove i386 from the list of architectures as only imbjava supports it and we are copying
+	# the maven commands from eclipse-temurin
+	# arches="${arches//i386, /}"
+
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
 	echo "Architectures: $arches"
