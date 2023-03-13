@@ -1,0 +1,32 @@
+name: eclipse-temurin-19-jammy
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+      - "eclipse-temurin-19-jammy/**"
+      - .github/workflows/eclipse-temurin-19-jammy.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "eclipse-temurin-19-jammy/**"
+      - .github/workflows/eclipse-temurin-19-jammy.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: eclipse-temurin-19-jammy
+    secrets: inherit

@@ -35,6 +35,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-19](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-19/Dockerfile)
 * [eclipse-temurin-19-alpine](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-19-alpine/Dockerfile)
 * [eclipse-temurin-19-focal](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-19-focal/Dockerfile)
+* [eclipse-temurin-19-jammy](https://github.com/carlossg/docker-maven/blob/master/eclipse-temurin-19-jammy/Dockerfile)
 * [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/master/ibm-semeru-11-focal/Dockerfile)
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/master/ibm-semeru-17-focal/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/master/ibmjava-8/Dockerfile)
