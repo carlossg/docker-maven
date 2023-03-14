@@ -61,6 +61,10 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-16-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-16-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/master/microsoft-openjdk-17-ubuntu/Dockerfile)
+* [amazoncorretto-8-debian-slim](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-8-debian-slim/Dockerfile)
+* [amazoncorretto-11-debian-slim](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-11-debian-slim/Dockerfile)
+* [amazoncorretto-17-debian-slim](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-17-debian-slim/Dockerfile)
+* [amazoncorretto-19-debian-slim](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-19-debian-slim/Dockerfile)
 
 ## Windows Based Images
 
