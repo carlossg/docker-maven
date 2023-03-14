@@ -211,6 +211,7 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-19          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
 | eclipse-temurin-19-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-19-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-19-jammy    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-11-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-17-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibmjava-8                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
