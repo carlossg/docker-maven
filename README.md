@@ -183,6 +183,52 @@ The `maven` images come in many flavors, each designed for a specific use case.
 
 This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
 
+# Installed Packages
+
+The following packages are currently installed in each variant.
+Some come from the parent images and some are installed in this image for backwards compatibility.
+
+|                             | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
+|-----------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
+| amazoncorretto-8            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-11           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-17           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-19           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| azulzulu-11                 |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-11-alpine          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-17                 |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-17-alpine          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8-alpine    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8-focal     | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-19          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
+| eclipse-temurin-19-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-19-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibm-semeru-11-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibm-semeru-17-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibmjava-8                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-8           |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-8-alpine    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-8-debian    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| libericaopenjdk-11          |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-11-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-11-debian   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| libericaopenjdk-17          |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-17-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-17-debian   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| microsoft-openjdk-11-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| microsoft-openjdk-16-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| microsoft-openjdk-17-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| sapmachine-11               | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| sapmachine-17               | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+
+
 # Image Verification
 
 Images under `csanchez/maven` and `ghcr.io/carlossg/maven` are signed with [sigstore/cosign](https://github.com/sigstore/cosign)
@@ -239,8 +285,8 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 
 ## Adding New Images
 
-* Copy an existing dir to the new name and update `Dockerfile` as needed.
-* Update `README.md` to include the new image.
+* Copy an existing dir (other than `eclipse-temurin-11`) to the new name and update `Dockerfile` as needed.
+* Update `README.md` to include the new image and table with packages installed in that image.
 * Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`

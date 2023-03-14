@@ -60,14 +60,13 @@ load test_helpers
 	assert_success
 }
 
-# Backwards compatibility tests
+# Packages installed tests
+# Changes here need to be documented in the table in the README
 
 @test "$SUT_TAG git is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG git --version
 	if ! (
-		[[ "$SUT_TAG" == *"-openj9" ]] ||
-			[[ "$SUT_TAG" == *"-alpine" ]] ||
-			[[ "$SUT_TAG" == *"-slim" ]] ||
+		[[ "$SUT_TAG" == *"-alpine" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == "azulzulu-"* ]] ||
 			[[ "$SUT_TAG" == "ibmjava-"* ]] ||
