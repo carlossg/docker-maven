@@ -21,8 +21,6 @@ for dir in "${all_dirs[@]}"; do
 	else
 		from=$from_linux
 		if [[ "$dir" != "$from" ]]; then
-			cp $from/mvn-entrypoint.sh "$dir/"
-			cp $from/settings-docker.xml "$dir/"
 			# remove everything after the 'common for all images' line
 			sed "/^${pattern}$/q" "$dir/Dockerfile" | sponge "$dir/Dockerfile"
 			# copy from the master Dockerfile template the common lines
