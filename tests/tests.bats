@@ -80,7 +80,11 @@ load test_helpers
 
 @test "$SUT_TAG curl is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
-	assert_success
+	if [[ "$SUT_TAG" == amazoncorretto-*-debian-slim ]] ; then
+		assert_failure
+	else
+		assert_success
+	fi
 }
 
 @test "$SUT_TAG tar is installed" {
@@ -127,7 +131,8 @@ load test_helpers
 @test "$SUT_TAG gpg is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
 	if (
-		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
+		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
