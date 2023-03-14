@@ -140,19 +140,19 @@ The local Maven repository can be reused across containers by creating a volume 
 
 Or you can just use your home .m2 cache directory that you share e.g. with your Eclipse/IDEA:
 
-    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn package  
+    docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn package
 
 
 # Packaging a local repository with the image
 
-The `$MAVEN_CONFIG` dir (default to `/root/.m2` or `C:\Users\ContainerUser\.m2`) could be configured as a volume so anything copied there in a Dockerfile 
-at build time is lost. For that reason the dir `/usr/share/maven/ref/` (or `C:\ProgramData\Maven\Reference`) exists, and anything in that directory will be copied 
+The `$MAVEN_CONFIG` dir (default to `/root/.m2` or `C:\Users\ContainerUser\.m2`) could be configured as a volume so anything copied there in a Dockerfile
+at build time is lost. For that reason the dir `/usr/share/maven/ref/` (or `C:\ProgramData\Maven\Reference`) exists, and anything in that directory will be copied
 on container startup to `$MAVEN_CONFIG`.
 
 To create a pre-packaged repository, create a `pom.xml` with the dependencies you need and use this in your `Dockerfile`.
-`/usr/share/maven/ref/settings-docker.xml` (`C:\ProgramData\Maven\Reference\settings-docker.xml`) is a settings file that 
+`/usr/share/maven/ref/settings-docker.xml` (`C:\ProgramData\Maven\Reference\settings-docker.xml`) is a settings file that
 changes the local repository to `/usr/share/maven/ref/repository` (`C:\Programdata\Maven\Reference\repository`),
-but you can use your own settings file as long as it uses `/usr/share/maven/ref/repository` (`C:\ProgramData\Maven\Reference\repository`) 
+but you can use your own settings file as long as it uses `/usr/share/maven/ref/repository` (`C:\ProgramData\Maven\Reference\repository`)
 as local repo.
 
     COPY pom.xml /tmp/pom.xml
@@ -188,45 +188,49 @@ This is the defacto image. If you are unsure about what your needs are, you prob
 The following packages are currently installed in each variant.
 Some come from the parent images and some are installed in this image for backwards compatibility.
 
-|                             | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
-|-----------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
-| amazoncorretto-8            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-17           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-19           |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| azulzulu-11                 |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-11-alpine          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-17                 |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-17-alpine          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-alpine    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-focal     | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-19          | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
-| eclipse-temurin-19-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-19-focal    | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibm-semeru-11-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibm-semeru-17-focal         | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibmjava-8                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8           |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-8-alpine    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8-debian    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-11          |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-11-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-11-debian   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-17          |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-17-alpine   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-17-debian   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| microsoft-openjdk-11-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| microsoft-openjdk-16-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| microsoft-openjdk-17-ubuntu | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| sapmachine-11               | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| sapmachine-17               | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+|                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
+|-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
+| amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-8-debian-slim  |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-11-debian-slim |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-17-debian-slim |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-19             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-19-debian-slim |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-17-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8             | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-8-focal       | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-11-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-19            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
+| eclipse-temurin-19-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-19-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibmjava-8                     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-8             |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-8-debian      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| libericaopenjdk-11            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-11-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| libericaopenjdk-17            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
+| libericaopenjdk-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| libericaopenjdk-17-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| microsoft-openjdk-16-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| microsoft-openjdk-17-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| sapmachine-11                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| sapmachine-17                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 
 
 # Image Verification
@@ -248,7 +252,7 @@ Build with the usual
 
     docker build -t maven .
 
-Tests are written using [bats](https://github.com/sstephenson/bats) for Linux images and [pester](https://github.com/pester/Pester) for Windows images 
+Tests are written using [bats](https://github.com/sstephenson/bats) for Linux images and [pester](https://github.com/pester/Pester) for Windows images
 (requires Pester 4.x) under the `tests` dir.
 
 Use the env var TAG to choose what image to run tests against.
