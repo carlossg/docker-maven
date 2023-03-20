@@ -8,6 +8,16 @@ load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
+base_image=eclipse-temurin-11
+
+@test "$SUT_TAG build base $base_image image" {
+	if [ "$SUT_TAG" != "$base_image" ]; then
+		cd $BATS_TEST_DIRNAME/../$base_image
+		base_tag=$(grep -m 1 -o 'maven:[a-z0-9\.-]*' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile)
+		docker build --pull -t $base_tag .
+	fi
+}
+
 @test "$SUT_TAG build image" {
 	cd $BATS_TEST_DIRNAME/../$SUT_TAG
 	docker build --pull -t $SUT_IMAGE:$SUT_TAG .
