@@ -1,0 +1,32 @@
+name: eclipse-temurin-20-alpine
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+      - "eclipse-temurin-20-alpine/**"
+      - .github/workflows/eclipse-temurin-20-alpine.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "eclipse-temurin-20-alpine/**"
+      - .github/workflows/eclipse-temurin-20-alpine.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: eclipse-temurin-20-alpine
+    secrets: inherit
