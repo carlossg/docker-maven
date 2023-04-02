@@ -91,6 +91,16 @@ jobs:
           echo "tags=$TAGS" >> $GITHUB_OUTPUT
         id: retrieve-tags
 
+      # Build the base Docker image (eclipse-tempurin-11)
+      - name: Build base eclipse-tempurin-11 Docker image
+        id: build-base
+        uses: docker/build-push-action@v4
+        with:
+          context: eclipse-temurin-11
+          push: false
+          tags: maven:3.9.0-eclipse-temurin-11
+          labels: ${{ steps.meta.outputs.labels }}
+
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
