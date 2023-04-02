@@ -45,6 +45,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-16/)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-17/)
 * [amazoncorretto-19](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-19/)
+* [amazoncorretto-20](https://github.com/carlossg/docker-maven/blob/master/amazoncorretto-20/)
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/master/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/master/sapmachine-17/)
 
@@ -204,6 +205,8 @@ Some come from the parent images and some are installed in this image for backwa
 | amazoncorretto-17-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-19             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-19-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-20             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-20-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
