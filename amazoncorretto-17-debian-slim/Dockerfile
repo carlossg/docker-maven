@@ -1,9 +1,13 @@
 FROM debian:stable-slim
 
-# install corretto
+# install corretto after verifying that the key is the one we expect.
 RUN apt-get update \
   && apt-get install -y curl gnupg \
-  && curl https://apt.corretto.aws/corretto.key | gpg --dearmor | dd of=/usr/share/keyrings/corretto.gpg \
+  && export GNUPGHOME="$(mktemp -d)" \
+  && curl -fL https://apt.corretto.aws/corretto.key | gpg --batch --import \
+  && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \
+  && rm -r "$GNUPGHOME" \
+  && unset GNUPGHOME \
   && echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" > /etc/apt/sources.list.d/corretto.list \
   && apt-get update \
   && apt-get remove --purge --autoremove -y curl gnupg \
