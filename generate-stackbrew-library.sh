@@ -62,7 +62,8 @@ for version in "${all_dirs[@]}"; do
 	if grep -q "FROM .*windows" "$version/Dockerfile"; then
 		continue
 	fi
-	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]]; then
+	# also ignore corretto debian-slim for now
+	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]] && [[ "$version" != amazoncorretto-*-debian-slim ]]; then
 		branch=master
 		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
 		generate-version "$version" "$branch" "${versionAliases[@]}"
