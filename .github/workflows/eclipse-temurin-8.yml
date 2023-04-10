@@ -3,7 +3,7 @@ name: eclipse-temurin-8
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "eclipse-temurin-8/**"
       - .github/workflows/eclipse-temurin-8.yml

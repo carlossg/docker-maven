@@ -3,7 +3,7 @@ name: amazoncorretto-8
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "amazoncorretto-8/**"
       - .github/workflows/amazoncorretto-8.yml

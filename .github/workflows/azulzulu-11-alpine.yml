@@ -3,7 +3,7 @@ name: azulzulu-11-alpine
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "azulzulu-11-alpine/**"
       - .github/workflows/azulzulu-11-alpine.yml

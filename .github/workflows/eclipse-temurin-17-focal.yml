@@ -3,7 +3,7 @@ name: eclipse-temurin-17-focal
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "eclipse-temurin-17-focal/**"
       - .github/workflows/eclipse-temurin-17-focal.yml

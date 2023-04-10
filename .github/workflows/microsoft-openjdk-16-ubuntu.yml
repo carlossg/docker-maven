@@ -3,7 +3,7 @@ name: microsoft-openjdk-16-ubuntu
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "microsoft-openjdk-16-ubuntu/**"
       - .github/workflows/microsoft-openjdk-16-ubuntu.yml

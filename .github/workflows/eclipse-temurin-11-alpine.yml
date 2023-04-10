@@ -3,7 +3,7 @@ name: eclipse-temurin-11-alpine
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "eclipse-temurin-11-alpine/**"
       - .github/workflows/eclipse-temurin-11-alpine.yml

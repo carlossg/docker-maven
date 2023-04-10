@@ -3,7 +3,7 @@ name: eclipse-temurin-20
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "eclipse-temurin-20/**"
       - .github/workflows/eclipse-temurin-20.yml

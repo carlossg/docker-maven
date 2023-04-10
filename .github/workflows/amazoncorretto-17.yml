@@ -3,7 +3,7 @@ name: amazoncorretto-17
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "amazoncorretto-17/**"
       - .github/workflows/amazoncorretto-17.yml

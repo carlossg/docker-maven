@@ -3,7 +3,7 @@ name: libericaopenjdk-17
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "libericaopenjdk-17/**"
       - .github/workflows/libericaopenjdk-17.yml

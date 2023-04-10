@@ -23,7 +23,7 @@ for dir in "${all_dirs[@]}"; do
 		if [[ "$dir" != "$from" ]]; then
 			# remove everything after the 'common for all images' line
 			sed "/^${pattern}$/q" "$dir/Dockerfile" | sponge "$dir/Dockerfile"
-			# copy from the master Dockerfile template the common lines
+			# copy from the main Dockerfile template the common lines
 			tail +2 Dockerfile-template >>"$dir/Dockerfile"
 		fi
 	fi

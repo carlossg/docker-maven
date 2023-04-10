@@ -3,7 +3,7 @@ name: libericaopenjdk-17-debian
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "libericaopenjdk-17-debian/**"
       - .github/workflows/libericaopenjdk-17-debian.yml

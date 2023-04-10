@@ -3,7 +3,7 @@ name: libericaopenjdk-17-alpine
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "libericaopenjdk-17-alpine/**"
       - .github/workflows/libericaopenjdk-17-alpine.yml

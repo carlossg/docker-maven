@@ -3,7 +3,7 @@ name: libericaopenjdk-8-debian
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "libericaopenjdk-8-debian/**"
       - .github/workflows/libericaopenjdk-8-debian.yml

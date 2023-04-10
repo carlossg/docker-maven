@@ -3,7 +3,7 @@ name: sapmachine-11
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "sapmachine-11/**"
       - .github/workflows/sapmachine-11.yml

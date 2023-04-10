@@ -16,7 +16,7 @@ if [ ! -d "${version}" ]; then
     echo "Directory ${version} does not exist" >&2
     exit 1
 fi
-mapfile -t versionAliases < <(version-aliases "$version" master)
+mapfile -t versionAliases < <(version-aliases "$version" main)
 for versionAlias in "${versionAliases[@]}"; do
     for repository in "${DOCKER_REPOSITORIES[@]}"; do
         echo -n "$repository:$versionAlias,"

@@ -3,7 +3,7 @@ name: amazoncorretto-17-debian-slim
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "amazoncorretto-17-debian-slim/**"
       - .github/workflows/amazoncorretto-17-debian-slim.yml

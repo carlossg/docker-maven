@@ -43,7 +43,7 @@ generate-version() {
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
 	echo "Architectures: $arches"
-	[ "$branch" = 'master' ] || echo "GitFetch: refs/heads/$branch"
+	[ "$branch" = 'main' ] || echo "GitFetch: refs/heads/$branch"
 	echo "GitCommit: $commit"
 	echo "Directory: $version"
 	[ -z "$constraints" ] || echo "Constraints: $constraints"
@@ -64,7 +64,7 @@ for version in "${all_dirs[@]}"; do
 	fi
 	# also ignore corretto debian-slim for now
 	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]] && [[ "$version" != amazoncorretto-*-debian-slim ]]; then
-		branch=master
+		branch=main
 		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
 		generate-version "$version" "$branch" "${versionAliases[@]}"
 	fi

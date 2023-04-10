@@ -72,7 +72,7 @@ version-aliases() {
 	# tag 3, latest
 	if [[ "$version" == "$default_jdk-$latest" ]]; then
 		versionAliases+=("$mavenVersion" latest)
-		[ "$branch" = 'master' ] || versionAliases+=("$branch")
+		[ "$branch" = 'main' ] || versionAliases+=("$branch")
 	fi
 
 	for parent_image in "${parent_images[@]}"; do

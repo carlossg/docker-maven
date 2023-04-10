@@ -3,7 +3,7 @@ name: ibm-semeru-17-focal
 on:
   push:
     branches:
-    - master
+    - main
     paths:
       - "ibm-semeru-17-focal/**"
       - .github/workflows/ibm-semeru-17-focal.yml

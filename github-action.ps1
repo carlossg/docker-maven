@@ -5,11 +5,11 @@ $username = $args[1]
 $password = $args[2]
 $tags = @('3.9.1', '3.9', '3')
 
-# only push from master
+# only push from main
 $ref=$env:GITHUB_REF
 $branch=$ref.substring($ref.LastIndexOf("/") +1)
 echo "Running on branch ${branch} (${ref})"
-if($branch -ne 'master') {
+if($branch -ne 'main') {
     $env:DOCKER_PUSH=""
 }
 
