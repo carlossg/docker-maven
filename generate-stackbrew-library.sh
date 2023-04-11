@@ -40,6 +40,13 @@ generate-version() {
 	arches="${arches//arm32v5, /}"
 	arches="${arches//mips64le, /}"
 
+	# Amazon Corretto apt does not support arm32v7, ppc64le, s390x
+	if [[ "${version}" == amazoncorretto-*-debian ]]; then
+		arches="${arches//arm32v7, /}"
+		arches="${arches//ppc64le, /}"
+		arches="${arches//s390x, /}"
+	fi
+
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
 	echo "Architectures: $arches"
@@ -63,8 +70,7 @@ for version in "${all_dirs[@]}"; do
 	if grep -q "FROM .*windows" "$version/Dockerfile"; then
 		continue
 	fi
-	# also ignore corretto debian-slim for now
-	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]] && [[ "$version" != amazoncorretto-*-debian-slim ]]; then
+	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]]; then
 		branch=main
 		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
 		generate-version "$version" "$branch" "${versionAliases[@]}"

@@ -80,7 +80,7 @@ load test_helpers
 
 @test "$SUT_TAG curl is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
-	if [[ "$SUT_TAG" == amazoncorretto-*-debian-slim ]]; then
+	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]]; then
 		assert_failure
 	else
 		assert_success
