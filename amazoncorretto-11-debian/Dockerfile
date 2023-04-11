@@ -1,3 +1,5 @@
+ARG EXTRA_TAG_SUFFIXES=bullseye
+
 FROM debian:bullseye-slim
 
 # install corretto after verifying that the key is the one we expect.
