@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:bullseye-slim
 
 # install corretto after verifying that the key is the one we expect.
 RUN apt-get update \
