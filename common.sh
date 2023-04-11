@@ -43,6 +43,14 @@ version-aliases() {
 
 	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
 
+	extraSuffixes=()
+	extraSuffixesString="$(grep -m1 'ARG EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
+	if [ -n "${extraSuffixesString}" ]; then
+		for suffix in ${extraSuffixesString//,/ }; do
+			extraSuffixes+=("${suffix}")
+		done
+	fi
+
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=("$mavenVersion-$version")
@@ -63,11 +71,18 @@ version-aliases() {
 			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
 		fi
 
+		for extraSuffix in "${extraSuffixes[@]}"; do
+			versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
+		done
+
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
 
 	# tag full version
 	versionAliases+=("$mavenVersion-$version")
+	for extraSuffix in "${extraSuffixes[@]}"; do
+		versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
+	done
 
 	# tag 3, latest
 	if [[ "$version" == "$default_jdk-$latest" ]]; then
