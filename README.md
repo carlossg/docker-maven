@@ -64,10 +64,11 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-16-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-16-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
-* [amazoncorretto-8-debian-slim](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian-slim/Dockerfile)
-* [amazoncorretto-11-debian-slim](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian-slim/Dockerfile)
-* [amazoncorretto-17-debian-slim](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian-slim/Dockerfile)
-* [amazoncorretto-19-debian-slim](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-19-debian-slim/Dockerfile)
+* [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
+* [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
+* [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
+* [amazoncorretto-19-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-19-debian/Dockerfile)
+* [amazoncorretto-20-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20-debian/Dockerfile)
 
 ## Windows Based Images
 
@@ -198,15 +199,15 @@ Some come from the parent images and some are installed in this image for backwa
 |                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
 |-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
 | amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-debian-slim  |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-8-debian       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-11-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-17-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-17-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-19             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-19-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-19-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-20             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-20-debian-slim |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| amazoncorretto-20-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |

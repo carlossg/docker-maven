@@ -1,12 +1,12 @@
-name: amazoncorretto-19-debian-slim
+name: amazoncorretto-19-debian
 
 on:
   push:
     branches:
     - main
     paths:
-      - "amazoncorretto-19-debian-slim/**"
-      - .github/workflows/amazoncorretto-19-debian-slim.yml
+      - "amazoncorretto-19-debian/**"
+      - .github/workflows/amazoncorretto-19-debian.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "amazoncorretto-19-debian-slim/**"
-      - .github/workflows/amazoncorretto-19-debian-slim.yml
+      - "amazoncorretto-19-debian/**"
+      - .github/workflows/amazoncorretto-19-debian.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: amazoncorretto-19-debian-slim
+      directory: amazoncorretto-19-debian
     secrets: inherit

@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:bullseye-slim
 
 # install corretto after verifying that the key is the one we expect.
 RUN apt-get update \
@@ -11,7 +11,7 @@ RUN apt-get update \
   && echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" > /etc/apt/sources.list.d/corretto.list \
   && apt-get update \
   && apt-get remove --purge --autoremove -y curl gnupg \
-  && apt-get install -y java-17-amazon-corretto-jdk \
+  && apt-get install -y java-19-amazon-corretto-jdk \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images
