@@ -1,5 +1,5 @@
-ARG EXTRA_TAG_SUFFIXES=bullseye
-
+# Update EXTRA_TAG_SUFFIXES to new release when changing to next stable debian release
+# EXTRA_TAG_SUFFIXES=bullseye
 FROM debian:bullseye-slim
 
 # install corretto after verifying that the key is the one we expect.

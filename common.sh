@@ -44,7 +44,7 @@ version-aliases() {
 	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
 
 	extraSuffixes=()
-	extraSuffixesString="$(grep -m1 'ARG EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
+	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
 	if [ -n "${extraSuffixesString}" ]; then
 		for suffix in ${extraSuffixesString//,/ }; do
 			extraSuffixes+=("${suffix}")
