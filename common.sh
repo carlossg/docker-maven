@@ -3,7 +3,7 @@
 set -eu
 
 # Default values for 'latest' tag
-latest='17'
+latest='20'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
@@ -11,7 +11,7 @@ parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto liberic
 declare -A jdk_latest=(
 	["jdk"]="17"
 	["openjdk"]=""
-	["eclipse-temurin"]="20"
+	["eclipse-temurin"]=$latest
 	["ibmjava"]="8"
 	["ibm-semeru"]=""
 	["amazoncorretto"]="11"

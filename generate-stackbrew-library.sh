@@ -52,6 +52,7 @@ generate-version() {
 echo 'Maintainers: Carlos Sanchez <carlos@apache.org> (@carlossg)'
 echo 'Builder: buildkit'
 echo "GitRepo: $url"
+echo 'GitFetch: refs/heads/main'
 
 for version in "${all_dirs[@]}"; do
 	# ignore images that can't be official
