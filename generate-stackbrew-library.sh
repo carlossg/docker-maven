@@ -17,6 +17,13 @@ join() {
 	echo "${out#$sep}"
 }
 
+function join_by {
+	local d=${1-} f=${2-}
+	if shift 2; then
+		printf %s "$f" "${@/#/$d}"
+	fi
+}
+
 generate-version() {
 	local version=$1
 	local branch=$2
@@ -30,26 +37,27 @@ generate-version() {
 	fi
 
 	from="$(grep FROM "$version/Dockerfile" | tail -n 1 | awk 'toupper($1) == "FROM" { print $2 }')"
-	arches="$(bashbrew cat --format '{{- join ", " .TagEntry.Architectures -}}' "$from")"
+	arches=()
+	IFS=" " read -r -a arches <<<"$(bashbrew cat --format '{{- join " " .TagEntry.Architectures -}}' "$from")"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
 	# remove i386 from the list of architectures as only imbjava supports it and we are copying
 	# the maven commands from eclipse-temurin
-	arches="${arches//i386, /}"
+	arches=("${arches[@]/i386/}")
 	# remove arm32v5, mips64le as it is not supported by eclipse-temurin and getting it from debian-slim
-	arches="${arches//arm32v5, /}"
-	arches="${arches//mips64le, /}"
+	arches=("${arches[@]/arm32v5/}")
+	arches=("${arches[@]/mips64le/}")
 
 	# Amazon Corretto apt does not support arm32v7, ppc64le, s390x
 	if [[ "${version}" == amazoncorretto-*-debian ]]; then
-		arches="${arches//arm32v7, /}"
-		arches="${arches//ppc64le, /}"
-		arches="${arches//s390x/}"
+		arches=("${arches[@]/arm32v7/}")
+		arches=("${arches[@]/ppc64le/}")
+		arches=("${arches[@]/s390x/}")
 	fi
 
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
-	echo "Architectures: $arches"
+	echo "Architectures: $(join_by ", " "${arches[@]}")"
 	[ "$branch" = 'main' ] || echo "GitFetch: refs/heads/$branch"
 	echo "GitCommit: $commit"
 	echo "Directory: $version"
