@@ -44,7 +44,7 @@ generate-version() {
 	if [[ "${version}" == amazoncorretto-*-debian ]]; then
 		arches="${arches//arm32v7, /}"
 		arches="${arches//ppc64le, /}"
-		arches="${arches//s390x, /}"
+		arches="${arches//s390x/}"
 	fi
 
 	echo
