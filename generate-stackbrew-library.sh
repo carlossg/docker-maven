@@ -41,23 +41,33 @@ generate-version() {
 	IFS=" " read -r -a arches <<<"$(bashbrew cat --format '{{- join " " .TagEntry.Architectures -}}' "$from")"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
-	# remove i386 from the list of architectures as only imbjava supports it and we are copying
-	# the maven commands from eclipse-temurin
-	arches=("${arches[@]/i386/}")
-	# remove arm32v5, mips64le as it is not supported by eclipse-temurin and getting it from debian-slim
-	arches=("${arches[@]/arm32v5/}")
-	arches=("${arches[@]/mips64le/}")
+	filteredArches=()
+	for arch in "${arches[@]}"; do
+		# remove i386 from the list of architectures as only imbjava supports it and we are copying
+		# the maven commands from eclipse-temurin
+		if [[ "${arch}" == "i386" ]]; then
+			continue
+		fi
 
-	# Amazon Corretto apt does not support arm32v7, ppc64le, s390x
-	if [[ "${version}" == amazoncorretto-*-debian ]]; then
-		arches=("${arches[@]/arm32v7/}")
-		arches=("${arches[@]/ppc64le/}")
-		arches=("${arches[@]/s390x/}")
-	fi
+		# remove arm32v5, mips64le as it is not supported by eclipse-temurin and getting it from debian-slim
+		if [[ "${arch}" == "arm32v5" ]] || [[ "${arch}" == "mips64le" ]]; then
+			continue
+		fi
+
+		# Amazon Corretto apt does not support arm32v7, ppc64le, s390x
+		if [[ "${version}" == amazoncorretto-*-debian ]]; then
+			if [[ "${arch}" == "arm32v7" ]] || [[ "${arch}" == "ppc64le" ]] || [[ "${arch}" == "s390x" ]]; then
+				continue
+			fi
+		fi
+
+		# made it past all the filtering, so add the arch to the final list of arches
+		filteredArches+=("${arch}")
+	done
 
 	echo
 	echo "Tags: $(join ', ' "${versionAliases[@]}")"
-	echo "Architectures: $(join_by ", " "${arches[@]}")"
+	echo "Architectures: $(join_by ", " "${filteredArches[@]}")"
 	[ "$branch" = 'main' ] || echo "GitFetch: refs/heads/$branch"
 	echo "GitCommit: $commit"
 	echo "Directory: $version"
