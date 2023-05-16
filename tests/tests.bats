@@ -20,7 +20,10 @@ base_image=eclipse-temurin-11
 
 @test "$SUT_TAG build image" {
 	cd $BATS_TEST_DIRNAME/../$SUT_TAG
-	docker build --pull -t $SUT_IMAGE:$SUT_TAG .
+	if [ "$SUT_TAG" == "$base_image" ]; then
+		arg=--pull
+	fi
+	docker build ${arg:-} -t $SUT_IMAGE:$SUT_TAG .
 }
 
 @test "$SUT_TAG build test image" {
