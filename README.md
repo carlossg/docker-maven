@@ -42,6 +42,10 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-16/)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17/)
 * [amazoncorretto-20](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20/)
+* [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
+* [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
+* [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
+* [amazoncorretto-20-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20-debian/Dockerfile)
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 
@@ -60,10 +64,6 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-16-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-16-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
-* [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
-* [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
-* [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
-* [amazoncorretto-20-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20-debian/Dockerfile)
 
 ## Windows Based Images
 
