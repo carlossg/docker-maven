@@ -85,18 +85,19 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == "ibmjava-"* ]] ||
 			[[ "$SUT_TAG" == "libericaopenjdk-"* ]]
 	); then
-		assert_success
+		[ $status -eq 0 ]
 	else
-		assert_failure
+		[ $status -ne 0 ]
 	fi
 }
 
 @test "$SUT_TAG curl is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
 	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]]; then
-		assert_failure
+		[ $status -ne 0 ]
 	else
-		assert_success
+		[ $status -eq 0 ]
+
 	fi
 }
 
@@ -117,9 +118,9 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]]
 	); then
-		assert_success
+		[ $status -eq 0 ]
 	else
-		assert_failure
+		[ $status -ne 0 ]
 	fi
 }
 
@@ -135,9 +136,10 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]]
 	); then
-		assert_success
+		[ $status -eq 0 ]
+
 	else
-		assert_failure
+		[ $status -ne 0 ]
 	fi
 }
 
@@ -151,19 +153,13 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == sapmachine-?? ]]
 	); then
-		assert_success
+		[ $status -eq 0 ]
 	else
-		assert_failure
+		[ $status -ne 0 ]
 	fi
 }
 
 @test "$SUT_TAG ssh is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG ssh -V
-	if (
-		[[ "$SUT_TAG" == "eclipse-temurin-2?" ]]
-	); then
-		assert_success
-	else
-		assert_failure
-	fi
+	assert_failure
 }
