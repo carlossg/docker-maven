@@ -160,8 +160,7 @@ base_image=eclipse-temurin-11
 @test "$SUT_TAG ssh is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG ssh -V
 	if (
-		[[ "$SUT_TAG" == "eclipse-temurin-19" ]] ||
-			[[ "$SUT_TAG" == "eclipse-temurin-2?" ]]
+		[[ "$SUT_TAG" == "eclipse-temurin-2?" ]]
 	); then
 		assert_success
 	else

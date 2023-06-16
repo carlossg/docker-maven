@@ -32,9 +32,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-17](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17/Dockerfile)
 * [eclipse-temurin-17-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
 * [eclipse-temurin-17-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-focal/Dockerfile)
-* [eclipse-temurin-19](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17/Dockerfile)
-* [eclipse-temurin-19-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
-* [eclipse-temurin-19-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-focal/Dockerfile)
 * [eclipse-temurin-20](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-20/Dockerfile)
 * [eclipse-temurin-20-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-20-alpine/Dockerfile)
 * [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-focal/Dockerfile)
@@ -217,9 +214,6 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-19            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
-| eclipse-temurin-19-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-19-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-20            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     | ✔️   |
 | eclipse-temurin-20-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
