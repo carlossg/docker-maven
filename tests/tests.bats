@@ -54,7 +54,7 @@ base_image=eclipse-temurin-11
 }
 
 @test "$SUT_TAG repository is created" {
-	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar
 	assert_success
 }
 
