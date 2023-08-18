@@ -150,8 +150,7 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
-			[[ "$SUT_TAG" == sapmachine-?? ]]
+			[[ "$SUT_TAG" == openjdk-?? ]]
 	); then
 		[ $status -eq 0 ]
 	else
