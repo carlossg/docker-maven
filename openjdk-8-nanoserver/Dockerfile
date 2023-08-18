@@ -19,8 +19,8 @@ ENV ProgramFiles="C:\Program Files"
 ENV WindowsPATH="C:\Windows\system32;C:\Windows"
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
-ARG MAVEN_VERSION=3.9.3
-ARG SHA=fba80f4bb0429052d558959b1bfbc99984f8cb8ff59a53baae0a0874b71a2601e2805c5e557b7b59d81716a0b4b35d1b2eeccb566c40b23cc575331a4984ef6c
+ARG MAVEN_VERSION=3.9.4
+ARG SHA=755e7b757ea011621d704b9d2bee8fc344b77c13117077caa71abea560f20926a2bc8c96f990ed298f2dfc14bdba376566ee11c66c547f2594579f9cb3c50e1c
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
