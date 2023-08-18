@@ -5,14 +5,14 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 ARG zip=amazon-corretto-11-x64-windows-jdk.zip
 ARG uri=https://corretto.aws/downloads/latest
-ARG hash=b4d344df81d594d12c712e2d8c5265a77be49607af0734159b3b875a945bba93
+ARG hash=c682fca3e864ce15da4b7783d2cdf2dd31b88052b37fba0e56d50808c29283c0
 
 RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/jdk11.0.19_7
+ENV JAVA_HOME=C:/ProgramData/jdk11.0.20_8
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.9.4
