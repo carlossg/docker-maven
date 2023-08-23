@@ -11,6 +11,11 @@ from_linux=eclipse-temurin-11
 
 pattern="# common for all images"
 
+# we need gnu-sed on macos
+if [ -d /opt/homebrew/opt/gnu-sed/libexec/gnubin ]; then
+	PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+fi
+
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
 		from=openjdk-11-windowsservercore
