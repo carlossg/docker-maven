@@ -38,13 +38,16 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-focal/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11/)
-* [amazoncorretto-16](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-16/)
-* [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17/)
-* [amazoncorretto-20](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20/)
+* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
 * [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
+* [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11/)
+* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
 * [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
+* [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17/)
+* [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
 * [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
+* [amazoncorretto-20](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20/)
+* [amazoncorretto-20-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20-al2023/Dockerfile)
 * [amazoncorretto-20-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-20-debian/Dockerfile)
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
@@ -194,12 +197,16 @@ Some come from the parent images and some are installed in this image for backwa
 |                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
 |-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
 | amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-8-al2023       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-8-debian       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-11-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-11-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-17-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-17-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-20             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-20-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-20-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
