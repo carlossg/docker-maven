@@ -197,16 +197,16 @@ Some come from the parent images and some are installed in this image for backwa
 |                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
 |-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
 | amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-al2023       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-8-al2023       |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-8-debian       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-11-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-11-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-17-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-17-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-17-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | amazoncorretto-20             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-20-al2023      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| amazoncorretto-20-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-20-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
