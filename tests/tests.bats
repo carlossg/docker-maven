@@ -148,6 +148,7 @@ base_image=eclipse-temurin-11
 	if (
 		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]]
