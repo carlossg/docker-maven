@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-2019
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Build Images
       run: .\github-action.ps1 ${{ inputs.directory }} ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_TOKEN }}
       shell: pwsh
