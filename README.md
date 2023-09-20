@@ -59,6 +59,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-alpine/Dockerfile)
 * [azulzulu-17](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17/Dockerfile)
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-alpine/Dockerfile)
+* [azulzulu-21](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21/Dockerfile)
+* [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17/Dockerfile)
@@ -214,6 +216,8 @@ Some come from the parent images and some are installed in this image for backwa
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-21                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-21-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-8             | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-8-focal       | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
