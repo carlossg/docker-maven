@@ -1,7 +1,7 @@
 FROM bellsoft/liberica-openjdk-debian:8
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
+  && apt-get install -y openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images

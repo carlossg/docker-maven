@@ -1,6 +1,7 @@
 FROM amazoncorretto:8
 
 RUN yum install -y tar which gzip # TODO remove
+RUN yum install -y openssh-clients
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven

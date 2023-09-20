@@ -1,6 +1,6 @@
 FROM bellsoft/liberica-openjdk-alpine:11
 
-RUN apk add --no-cache bash procps curl tar
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
