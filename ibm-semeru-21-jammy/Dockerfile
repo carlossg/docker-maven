@@ -1,7 +1,7 @@
 FROM ibm-semeru-runtimes:open-21-jdk-jammy
 
 RUN apt-get update \
-  && apt-get install -y git --no-install-recommends \
+  && apt-get install -y git openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images

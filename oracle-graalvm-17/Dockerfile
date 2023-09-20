@@ -1,6 +1,6 @@
 FROM container-registry.oracle.com/graalvm/native-image:17
 
-RUN microdnf --refresh -y install findutils
+RUN microdnf --refresh -y install findutils openssh-clients
 
 # common for all images
 LABEL org.opencontainers.image.title "Apache Maven"
