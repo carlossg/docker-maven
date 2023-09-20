@@ -1,7 +1,7 @@
 FROM eclipse-temurin:8-jdk
 
 RUN apt-get update \
-  && apt-get install -y ca-certificates curl git --no-install-recommends \
+  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images

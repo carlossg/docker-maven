@@ -1,7 +1,7 @@
 FROM ibmjava:8-sdk
 
 RUN apt-get update \
-  && apt-get install -y ca-certificates curl --no-install-recommends \
+  && apt-get install -y ca-certificates curl openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images

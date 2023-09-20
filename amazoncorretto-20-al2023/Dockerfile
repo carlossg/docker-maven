@@ -1,6 +1,7 @@
 FROM amazoncorretto:20-al2023-generic
 
 RUN yum install -y tar which gzip findutils # TODO remove
+RUN yum install -y openssh-clients
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven

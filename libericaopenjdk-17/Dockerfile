@@ -1,5 +1,7 @@
 FROM bellsoft/liberica-openjdk-centos:17
 
+RUN yum install -y openssh-clients
+
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
 

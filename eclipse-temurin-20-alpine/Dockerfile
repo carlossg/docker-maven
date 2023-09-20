@@ -1,6 +1,6 @@
 FROM eclipse-temurin:20-jdk-alpine
 
-RUN apk add --no-cache bash procps curl tar
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
