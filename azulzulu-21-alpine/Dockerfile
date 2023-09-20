@@ -1,6 +1,6 @@
 FROM azul/zulu-openjdk-alpine:21
 
-RUN apk add --no-cache bash procps curl tar
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # common for all images
 LABEL org.opencontainers.image.title "Apache Maven"
