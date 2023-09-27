@@ -1,0 +1,32 @@
+name: amazoncorretto-21-al2023
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "amazoncorretto-21-al2023/**"
+      - .github/workflows/amazoncorretto-21-al2023.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "amazoncorretto-21-al2023/**"
+      - .github/workflows/amazoncorretto-21-al2023.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: amazoncorretto-21-al2023
+    secrets: inherit
