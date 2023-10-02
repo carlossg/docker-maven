@@ -3,7 +3,7 @@
 set -eu
 
 # Default values for 'latest' tag
-latest='20'
+latest=''
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
@@ -66,7 +66,7 @@ version-aliases() {
 			fi
 		done
 
-		# tag eclipse-temurin-8-alpine -> 3.9.4-eclipse-temurin-alpine
+		# tag eclipse-temurin-8-alpine -> 4.0.0-alpha-7-eclipse-temurin-alpine
 		if [ -n "${extra_tags[$version]:-}" ]; then
 			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
 		fi
