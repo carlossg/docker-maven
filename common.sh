@@ -16,7 +16,7 @@ declare -A jdk_latest=(
 	["ibm-semeru"]=""
 	["amazoncorretto"]="11"
 	["libericaopenjdk"]="17"
-	["sapmachine"]="17"
+	["sapmachine"]="21"
 )
 
 # Variants of the JDKs and their 'latest' tag
