@@ -3,7 +3,7 @@
 set -eu
 
 # Default values for 'latest' tag
-latest='20'
+latest='21'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
