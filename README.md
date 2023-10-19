@@ -317,6 +317,12 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
 
+## Updating Maven version
+
+* Search and replace all references to the previous version by the new version.
+* Update environment variable SHA in `eclipse-temurin-11/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary tar.gz archive.
+* Update environment variable SHA in `*-{nanoserver,windowsservercore}/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary zip archive.
+
 ## Publishing to Docker Hub
 
 In order to publish the images a PR needs to be opened against [docker-library/official-images](https://github.com/docker-library/official-images)
