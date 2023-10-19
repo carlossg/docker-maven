@@ -66,7 +66,7 @@ version-aliases() {
 			fi
 		done
 
-		# tag eclipse-temurin-8-alpine -> 3.9.4-eclipse-temurin-alpine
+		# tag eclipse-temurin-8-alpine -> 3.9.5-eclipse-temurin-alpine
 		if [ -n "${extra_tags[$version]:-}" ]; then
 			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
 		fi
