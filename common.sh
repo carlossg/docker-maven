@@ -3,6 +3,7 @@
 set -eu
 
 # Default values for 'latest' tag
+latestMavenVersion='3.9.6'
 latest='21'
 default_jdk=eclipse-temurin
 
@@ -41,7 +42,8 @@ version-aliases() {
 	local version=$1
 	local branch=$2
 
-	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
+	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
+	mavenVersion="${dockerfileMavenVersion}"
 
 	extraSuffixes=()
 	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
@@ -79,24 +81,29 @@ version-aliases() {
 	done
 
 	# tag full version
-	versionAliases+=("$mavenVersion-$version")
+	if [ "$dockerfileMavenVersion" = "$latestMavenVersion" ]; then
+		versionAliases+=("$mavenVersion-$version") # 3-amazoncorretto-11
+	fi
 	for extraSuffix in "${extraSuffixes[@]}"; do
 		versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
 	done
 
-	# tag 3, latest
-	if [[ "$version" == "$default_jdk-$latest" ]]; then
-		versionAliases+=("$mavenVersion" latest)
-		[ "$branch" = 'main' ] || versionAliases+=("$branch")
-	fi
-
-	for parent_image in "${parent_images[@]}"; do
-		local parent_image_latest="${jdk_latest[$parent_image]}"
-		if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
-			# tag 3-ibmjava ibmjava 3-amazoncorretto amazoncorretto
-			versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
+	# do not tag 3, latest, 3-amazoncorretto, amazoncorretto,... if we are not building the latest version
+	if [ "$dockerfileMavenVersion" = "$latestMavenVersion" ]; then
+		# tag 3, latest
+		if [[ "$version" == "$default_jdk-$latest" ]]; then
+			versionAliases+=("$mavenVersion" latest)
+			[ "$branch" = 'main' ] || versionAliases+=("$branch")
 		fi
-	done
+
+		for parent_image in "${parent_images[@]}"; do
+			local parent_image_latest="${jdk_latest[$parent_image]}"
+			if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
+				# tag 3-ibmjava ibmjava 3-amazoncorretto amazoncorretto
+				versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
+			fi
+		done
+	fi
 
 	# extra tags for variants
 	if [ -n "${extra_tags[$version]:-}" ]; then
