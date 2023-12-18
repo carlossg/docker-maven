@@ -80,16 +80,14 @@ version-aliases() {
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
 
-	# tag full version
-	if [ "$dockerfileMavenVersion" = "$latestMavenVersion" ]; then
-		versionAliases+=("$mavenVersion-$version") # 3-amazoncorretto-11
-	fi
-	for extraSuffix in "${extraSuffixes[@]}"; do
-		versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
-	done
-
 	# do not tag 3, latest, 3-amazoncorretto, amazoncorretto,... if we are not building the latest version
 	if [ "$dockerfileMavenVersion" = "$latestMavenVersion" ]; then
+		# tag full version
+		versionAliases+=("$mavenVersion-$version") # 3-amazoncorretto-11
+		for extraSuffix in "${extraSuffixes[@]}"; do
+			versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
+		done
+
 		# tag 3, latest
 		if [[ "$version" == "$default_jdk-$latest" ]]; then
 			versionAliases+=("$mavenVersion" latest)
