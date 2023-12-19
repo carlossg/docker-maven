@@ -26,10 +26,10 @@ jobs:
       id-token: write
 
     steps:
-      - name: Setup BATS
-        uses: mig4/setup-bats@v1.2.0
       - name: Check out code
         uses: actions/checkout@v4
+      - name: Setup BATS
+        uses: bats-core/bats-action@1.5.4
       - name: Update submodules
         run: git submodule update --init
 
