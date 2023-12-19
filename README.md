@@ -13,14 +13,14 @@ Images are published under:
 
 See Docker Hub or GitHub Container Registry for an updated list of tags
 
-* ~~[openjdk-8](https://github.com/carlossg/docker-maven/blob/main/openjdk-8/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-slim/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-11](https://github.com/carlossg/docker-maven/blob/main/openjdk-11/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-slim/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-17](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-18](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-18-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
+* ~~[openjdk-8](https://github.com/carlossg/docker-maven/blob/main/openjdk-8/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-8-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-11](https://github.com/carlossg/docker-maven/blob/main/openjdk-11/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-11-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-17](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-17-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-18](https://github.com/carlossg/docker-maven/blob/main/openjdk-17/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-18-slim](https://github.com/carlossg/docker-maven/blob/main/openjdk-17-slim/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8/Dockerfile)
 * [eclipse-temurin-8-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-alpine/Dockerfile)
 * [eclipse-temurin-8-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-focal/Dockerfile)
@@ -75,10 +75,10 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
-* ~~[openjdk-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-8-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
-* ~~[openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/infosiftr/docker-library-docs/blob/main/openjdk/deprecated.md)
+* ~~[openjdk-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-8-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
+* ~~[openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
 * [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-windowsservercore/Dockerfile)
 * [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-windowsservercore/Dockerfile)
 * [amazoncorretto-15-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-15-windowsservercore/Dockerfile)
