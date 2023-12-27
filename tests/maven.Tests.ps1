@@ -68,6 +68,8 @@ Describe "$SUT_TAG repository is created" {
 
 Describe "$SUT_TAG run Maven" {
   It 'runs maven' {
+    Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} dir C:/Users/ContainerAdministrator/AppData/Local"
+    Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} dir C:/Users/ContainerAdministrator/AppData/Local/Temp"
     $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} mvn -B -ntp -f C:/Temp install"
     $exitCode | Should -Be 0
   }
