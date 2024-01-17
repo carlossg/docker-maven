@@ -37,6 +37,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-21-jammy](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-jammy/Dockerfile)
 * [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-focal/Dockerfile)
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-focal/Dockerfile)
+* [ibm-semeru-21-jammy](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-jammy/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
@@ -231,6 +232,7 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-21-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| ibm-semeru-21-jammy           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibmjava-8                     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | libericaopenjdk-8             |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
 | libericaopenjdk-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
