@@ -8,7 +8,7 @@ latest='21'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
-parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine azulzulu)
+parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine)
 declare -A jdk_latest=(
 	["jdk"]="17"
 	["openjdk"]=""
@@ -18,7 +18,6 @@ declare -A jdk_latest=(
 	["amazoncorretto"]="11"
 	["libericaopenjdk"]="17"
 	["sapmachine"]="21"
-	["azulzulu"]="21"
 )
 
 # Variants of the JDKs and their 'latest' tag
