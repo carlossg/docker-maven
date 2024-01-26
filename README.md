@@ -56,7 +56,8 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
-
+* [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
+* [azulzulu-8-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8-alpine/Dockerfile)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11/Dockerfile)
 * [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-alpine/Dockerfile)
 * [azulzulu-17](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17/Dockerfile)
@@ -213,6 +214,8 @@ Some come from the parent images and some are installed in this image for backwa
 | amazoncorretto-21             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-21-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | amazoncorretto-21-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
+| azulzulu-8                    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| azulzulu-8-alpine             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
