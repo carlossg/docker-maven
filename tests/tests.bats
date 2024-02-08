@@ -83,7 +83,8 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == "azulzulu-"* ]] ||
 			[[ "$SUT_TAG" == "ibmjava-"* ]] ||
-			[[ "$SUT_TAG" == "libericaopenjdk-"* ]]
+			[[ "$SUT_TAG" == "libericaopenjdk-"* ]] ||
+			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
 		[ $status -eq 0 ]
 	else
@@ -116,7 +117,8 @@ base_image=eclipse-temurin-11
 	if ! (
 		[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]]
+			[[ "$SUT_TAG" == openjdk-?? ]] ||
+			[[ "$SUT_TAG" == *"oracle"* ]]
 	); then
 		[ $status -eq 0 ]
 	else
@@ -134,7 +136,9 @@ base_image=eclipse-temurin-11
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]]
+			[[ "$SUT_TAG" == openjdk-?? ]] ||
+			[[ "$SUT_TAG" == *"graalvm"* ]]
+
 	); then
 		[ $status -eq 0 ]
 
@@ -151,7 +155,8 @@ base_image=eclipse-temurin-11
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]]
+			[[ "$SUT_TAG" == openjdk-?? ]] ||
+			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
 		[ $status -eq 0 ]
 	else

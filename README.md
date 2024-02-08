@@ -64,6 +64,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-alpine/Dockerfile)
 * [azulzulu-21](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21/Dockerfile)
 * [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
+* [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
+* [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17/Dockerfile)
@@ -73,6 +75,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
+* [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
+* [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 
 ## Windows Based Images
 
@@ -233,6 +237,8 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| graalvm-community-17          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| graalvm-community-21          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-21-jammy           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
@@ -249,6 +255,8 @@ Some come from the parent images and some are installed in this image for backwa
 | microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-17-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-21-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
+| oracle-graalvm-17             |     | ✔️    | ✔️   | ✔️    |       | ✔️    |        | ✔️   |     |
+| oracle-graalvm-21             |     | ✔️    | ✔️   | ✔️    |       | ✔️    |        | ✔️   |     |
 | sapmachine-11                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-17                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-21                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
@@ -313,8 +321,8 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 
 * Copy an existing dir (other than `eclipse-temurin-11`) to the new name and update `Dockerfile` as needed.
 * Update `README.md` to include the new image and table with packages installed in that image.
-* Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
+* Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
 
 ## Updating Maven version

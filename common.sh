@@ -8,7 +8,7 @@ latest='21'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
-parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine)
+parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
 declare -A jdk_latest=(
 	["jdk"]="17"
 	["openjdk"]=""
@@ -18,6 +18,8 @@ declare -A jdk_latest=(
 	["amazoncorretto"]="11"
 	["libericaopenjdk"]="17"
 	["sapmachine"]="21"
+	["graalvm-community"]="21"
+	["oracle-graalvm"]="21"
 )
 
 # Variants of the JDKs and their 'latest' tag
@@ -29,7 +31,7 @@ declare -A extra_tags=(
 )
 
 # All the directories that have images
-all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-*)
+all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-* graalvm-community-* oracle-graalvm-*)
 
 ######################################################################################################################################
 
