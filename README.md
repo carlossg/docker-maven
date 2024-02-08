@@ -54,10 +54,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
-* [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
-* [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
-* [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
-* [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
@@ -68,6 +64,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-alpine/Dockerfile)
 * [azulzulu-21](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21/Dockerfile)
 * [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
+* [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
+* [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
 * [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
 * [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17/Dockerfile)
@@ -77,6 +75,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
+* [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
+* [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 
 ## Windows Based Images
 
