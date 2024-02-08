@@ -200,58 +200,62 @@ This is the defacto image. If you are unsure about what your needs are, you prob
 The following packages are currently installed in each variant.
 Some come from the parent images and some are installed in this image for backwards compatibility.
 
-|                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
-|-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
-| amazoncorretto-8              |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-al2023       |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-8-debian       |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| amazoncorretto-11             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-11-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| amazoncorretto-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-17-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-17-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| amazoncorretto-21             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-21-al2023      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| amazoncorretto-21-debian      |     |      | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| azulzulu-8                    |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-8-alpine             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-11                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-11-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-17                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-17-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-21                   |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| azulzulu-21-alpine            |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8             | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-8-focal       | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-11-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-21            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| eclipse-temurin-21-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibm-semeru-21-jammy           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| ibmjava-8                     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8             |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8-debian      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-11            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-11-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-17            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
-| libericaopenjdk-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-17-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| microsoft-openjdk-17-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| microsoft-openjdk-21-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| sapmachine-11                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| sapmachine-17                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| sapmachine-21                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+|                             | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
+|-----------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
+| amazoncorretto-8            |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-8-al2023     |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-8-debian     |     |      | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| amazoncorretto-11           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-11-al2023    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-11-debian    |     |      | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| amazoncorretto-17           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-17-al2023    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-17-debian    |     |      | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| amazoncorretto-21           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-21-al2023    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        | ✔️  |     |
+| amazoncorretto-21-debian    |     |      | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| azulzulu-8                  |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-8-alpine           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-11                 |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-11-alpine          |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-17                 |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-17-alpine          |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-21                 |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| azulzulu-21-alpine          |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-8           | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-8-alpine    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-8-focal     | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-11          | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-11-alpine   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-11-focal    | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-17          | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-17-alpine   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-17-focal    | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-21          | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| eclipse-temurin-21-alpine   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| graalvm-community-17        |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ️      | ✔️  |     |
+| graalvm-community-21        |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ️      | ✔️  |     |
+| ibm-semeru-11-focal         | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| ibm-semeru-17-focal         | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| ibm-semeru-21-jammy         | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| ibmjava-8                   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| libericaopenjdk-8           |     | ✔️   | ✔️  | ✔️   |       | ✔️   | ✔️     | ✔️  |     |
+| libericaopenjdk-8-alpine    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| libericaopenjdk-8-debian    |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| libericaopenjdk-11          |     | ✔️   | ✔️  | ✔️   |       | ✔️   | ✔️     | ✔️  |     |
+| libericaopenjdk-11-alpine   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| libericaopenjdk-11-debian   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| libericaopenjdk-17          |     | ✔️   | ✔️  | ✔️   |       | ✔️   | ✔️     | ✔️  |     |
+| libericaopenjdk-17-alpine   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| libericaopenjdk-17-debian   |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   |        |     |     |
+| microsoft-openjdk-11-ubuntu | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     | ✔️  |     |
+| microsoft-openjdk-17-ubuntu | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     | ✔️  |     |
+| microsoft-openjdk-21-ubuntu | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     | ✔️  |     |
+| sapmachine-11               | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| sapmachine-17               | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| sapmachine-21               | ✔️  | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ✔️     |     |     |
+| oracle-graalvm-17           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ️      | ✔️  |     |
+| oracle-graalvm-21           |     | ✔️   | ✔️  | ✔️   | ✔️    | ✔️   | ️      | ✔️  |     |
 
 
 
@@ -313,8 +317,8 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 
 * Copy an existing dir (other than `eclipse-temurin-11`) to the new name and update `Dockerfile` as needed.
 * Update `README.md` to include the new image and table with packages installed in that image.
-* Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
+* Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
 
 ## Updating Maven version
