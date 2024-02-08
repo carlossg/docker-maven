@@ -1,6 +1,6 @@
 FROM container-registry.oracle.com/graalvm/native-image:17
 
-RUN microdnf --refresh -y install findutils which
+RUN microdnf --refresh -y install findutils
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven

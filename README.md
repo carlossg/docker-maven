@@ -54,6 +54,10 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
+* [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
+* [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
+* [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
+* [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
@@ -251,8 +255,8 @@ Some come from the parent images and some are installed in this image for backwa
 | microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-17-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
 | microsoft-openjdk-21-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
-| oracle-graalvm-17             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
-| oracle-graalvm-21             |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
+| oracle-graalvm-17             |     | ✔️    | ✔️   | ✔️    |       | ✔️    |        | ✔️   |     |
+| oracle-graalvm-21             |     | ✔️    | ✔️   | ✔️    |       | ✔️    |        | ✔️   |     |
 | sapmachine-11                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-17                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-21                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
