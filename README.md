@@ -35,6 +35,9 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-21](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21/Dockerfile)
 * [eclipse-temurin-21-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-alpine/Dockerfile)
 * [eclipse-temurin-21-jammy](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-jammy/Dockerfile)
+* [eclipse-temurin-22](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22/Dockerfile)
+* [eclipse-temurin-22-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22-alpine/Dockerfile)
+* [eclipse-temurin-22-jammy](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-22-jammy/Dockerfile)
 * [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-focal/Dockerfile)
 * [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-focal/Dockerfile)
 * [ibm-semeru-21-jammy](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-jammy/Dockerfile)
@@ -237,6 +240,8 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-22            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-22-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | graalvm-community-17          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | graalvm-community-21          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
