@@ -2,8 +2,6 @@
 # EXTRA_TAG_SUFFIXES=bookworm
 FROM debian:bookworm-slim
 
-ARG JAVA_FAKE_HOME=/usr/lib/jvm/java-fake-home
-
 # install corretto after verifying that the key is the one we expect.
 RUN apt-get update \
   && apt-get install -y curl gnupg \
@@ -16,12 +14,10 @@ RUN apt-get update \
   && apt-get update \
   && apt-get remove --purge --autoremove -y curl gnupg \
   && apt-get install -y java-1.8.0-amazon-corretto-jdk \
-  && rm -rf /var/lib/apt/lists/* \
-  && java_home_path=$(readlink -f /usr/bin/java | sed 's:/bin/java$::') \
-  && ln -s "${java_home_path}" "${JAVA_FAKE_HOME}"
+  && rm -rf /var/lib/apt/lists/*
 
-# set JAVA_HOME manually to symlink created above since nothing else will set it
-ENV JAVA_HOME "${JAVA_FAKE_HOME}"
+# set JAVA_HOME manually since nothing else will set it
+ENV JAVA_HOME "/usr/lib/jvm/java-1.8.0-amazon-corretto/jre"
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
