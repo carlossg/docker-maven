@@ -8,13 +8,15 @@ RUN apt-get update \
   && export GNUPGHOME="$(mktemp -d)" \
   && curl -fL https://apt.corretto.aws/corretto.key | gpg --batch --import \
   && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \
-  && rm -r "$GNUPGHOME" \
   && unset GNUPGHOME \
   && echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" > /etc/apt/sources.list.d/corretto.list \
   && apt-get update \
   && apt-get remove --purge --autoremove -y curl gnupg \
   && apt-get install -y java-1.8.0-amazon-corretto-jdk \
   && rm -rf /var/lib/apt/lists/*
+
+# set JAVA_HOME manually since nothing else will set it
+ENV JAVA_HOME "/usr/lib/jvm/java-1.8.0-amazon-corretto/jre"
 
 # common for all images
 ENV MAVEN_HOME /usr/share/maven
