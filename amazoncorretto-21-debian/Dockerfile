@@ -8,7 +8,6 @@ RUN apt-get update \
   && export GNUPGHOME="$(mktemp -d)" \
   && curl -fL https://apt.corretto.aws/corretto.key | gpg --batch --import \
   && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \
-  && rm -r "$GNUPGHOME" \
   && unset GNUPGHOME \
   && echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" > /etc/apt/sources.list.d/corretto.list \
   && apt-get update \
