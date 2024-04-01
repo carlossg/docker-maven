@@ -240,8 +240,10 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17-focal      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-21-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-22-jammy      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-22            | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | eclipse-temurin-22-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| eclipse-temurin-22-jammy      | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | graalvm-community-17          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | graalvm-community-21          |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        | ✔️   |     |
 | ibm-semeru-11-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
