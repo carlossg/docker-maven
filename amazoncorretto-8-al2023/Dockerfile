@@ -3,6 +3,11 @@ FROM amazoncorretto:8-al2023
 RUN yum install -y tar which gzip findutils # TODO remove
 
 # common for all images
+LABEL org.opencontainers.image.title "Apache Maven"
+LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+
 ENV MAVEN_HOME /usr/share/maven
 
 COPY --from=maven:3.9.6-eclipse-temurin-11 ${MAVEN_HOME} ${MAVEN_HOME}
