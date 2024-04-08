@@ -29,9 +29,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Setup BATS
-        uses: bats-core/bats-action@1.5.6
-        with:
-          bats-version: 1.10.0
+        uses: bats-core/bats-action@c9f3b9ab55d4711876053a7917f3311ee30366bf
       - name: Update submodules
         run: git submodule update --init
 
