@@ -91,8 +91,13 @@ See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for a
 * ~~[openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
 * [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-windowsservercore/Dockerfile)
 * [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-windowsservercore/Dockerfile)
-* [amazoncorretto-15-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-15-windowsservercore/Dockerfile)
+* [amazoncorretto-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-windowsservercore/Dockerfile)
+* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
+* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
+* [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
+* [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/Dockerfile)
 * [azulzulu-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-windowsservercore/Dockerfile)
+* [azulzulu-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-windowsservercore/Dockerfile)
 
 
 # What is Maven?

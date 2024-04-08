@@ -1,0 +1,30 @@
+name: azulzulu-17-windowsservercore
+
+on:
+  push:
+    paths:
+      - "azulzulu-17-windowsservercore/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bats"
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
+  pull_request:
+    paths:
+      - "azulzulu-17-windowsservercore/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template_windows.yml
+    with:
+      directory: azulzulu-17-windowsservercore
+    secrets: inherit
