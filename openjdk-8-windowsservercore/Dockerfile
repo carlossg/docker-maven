@@ -1,6 +1,11 @@
 # escape=`
 FROM openjdk:8-jdk-windowsservercore-1809
 
+LABEL org.opencontainers.image.title "Apache Maven"
+LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"

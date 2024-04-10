@@ -7,6 +7,11 @@ FROM openjdk:${JAVA_VERSION}-windowsservercore-1809 as openjdk
 
 FROM mcr.microsoft.com/powershell:${POWERSHELL_VERSION}nanoserver-1809 
 
+LABEL org.opencontainers.image.title "Apache Maven"
+LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 USER ContainerAdministrator

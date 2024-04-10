@@ -8,9 +8,9 @@ LABEL org.opencontainers.image.description "Apache Maven is a software project m
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG zip=zulu11.37.17-ca-jdk11.0.6-win_x64.zip
+ARG zip=zulu17.48.15-ca-jdk17.0.10-win_x64.zip
 ARG uri=https://cdn.azul.com/zulu/bin
-ARG hash=a9695617b8374bfa171f166951214965b1d1d08f43218db9a2a780b71c665c18
+ARG hash=169bcb1c519a1cf18e3589bcbaea036eb8114311425660e6c919376227855be3
 
 RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
@@ -32,7 +32,7 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
 ENV MAVEN_HOME C:/ProgramData/Maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-ENV JAVA_HOME=C:/ProgramData/zulu11.37.17-ca-jdk11.0.6-win_x64
+ENV JAVA_HOME=C:/ProgramData/zulu17.48.15-ca-jdk17.0.10-win_x64
 
 COPY mvn-entrypoint.ps1 C:/ProgramData/Maven/mvn-entrypoint.ps1
 COPY settings-docker.xml C:/ProgramData/Maven/Reference/settings-docker.xml
