@@ -18,7 +18,7 @@ COPY --from=ghcr.io/carlossg/maven:4.0.0-beta-3-eclipse-temurin-17 /usr/share/ma
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=3.9.6
+ARG MAVEN_VERSION=4.0.0-beta-3
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
