@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-openjdk-8}
+SUT_TAG=${TAG:-eclipse-temurin-17}
 SUT_TEST_IMAGE=bats-maven-test
 
 load 'test_helper/bats-support/load'
@@ -82,7 +82,6 @@ base_image=eclipse-temurin-17
 		[[ "$SUT_TAG" == *"-alpine" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == "azulzulu-"* ]] ||
-			[[ "$SUT_TAG" == "ibmjava-"* ]] ||
 			[[ "$SUT_TAG" == "libericaopenjdk-"* ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
@@ -117,7 +116,6 @@ base_image=eclipse-temurin-17
 	if ! (
 		[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"oracle"* ]]
 	); then
 		[ $status -eq 0 ]
@@ -136,7 +134,6 @@ base_image=eclipse-temurin-17
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 
 	); then
@@ -155,7 +152,6 @@ base_image=eclipse-temurin-17
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
 		[ $status -eq 0 ]

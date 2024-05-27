@@ -107,7 +107,7 @@ COPY . .
 RUN mvn -B -e -o -T 1C verify
 
 # package without maven
-FROM openjdk
+FROM eclipse-temurin:17-jdk
 COPY --from=0 /usr/src/app/target/*.jar ./
 ```
 

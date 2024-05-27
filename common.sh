@@ -3,14 +3,14 @@
 set -eu
 
 # Default values for 'latest' tag
+latestMavenVersion='3.9.7'
 latest=''
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
-parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
+parent_images=(eclipse-temurin ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
 declare -A jdk_latest=(
 	["jdk"]="17"
-	["openjdk"]=""
 	["eclipse-temurin"]=$latest
 	["ibm-semeru"]=""
 	["amazoncorretto"]="17"
@@ -29,7 +29,7 @@ declare -A extra_tags=(
 )
 
 # All the directories that have images
-all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-* graalvm-community-* oracle-graalvm-*)
+all_dirs=(eclipse-temurin-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-* graalvm-community-* oracle-graalvm-*)
 
 ######################################################################################################################################
 

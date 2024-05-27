@@ -1,6 +1,6 @@
 BeforeAll {
   $SUT_IMAGE="maven"
-  $SUT_TAG="openjdk-8-windowsservercore"
+  $SUT_TAG="amazoncorretto-17-windowsservercore"
   if(![System.String]::IsNullOrWhiteSpace($env:TAG)) {
     $SUT_TAG=$env:TAG
   }
