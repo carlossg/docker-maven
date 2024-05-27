@@ -99,7 +99,7 @@ jobs:
         if: github.event_name != 'pull_request' # TODO
         with:
           context: ${{ inputs.directory }}
-          push: ${{ github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/maven-4') }}
+          push: ${{ (github.event_name != 'pull_request' && github.ref == 'refs/heads/main') || github.ref == 'refs/heads/maven-4' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
             ${{ steps.retrieve-tags.outputs.tags }}
