@@ -57,6 +57,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
+* [sapmachine-22](https://github.com/carlossg/docker-maven/blob/main/sapmachine-22/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
@@ -272,6 +273,7 @@ Some come from the parent images and some are installed in this image for backwa
 | sapmachine-11                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-17                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | sapmachine-21                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
+| sapmachine-22                 | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 
 
 
