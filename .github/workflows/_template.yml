@@ -96,7 +96,7 @@ jobs:
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v5
-        if: github.event_name != 'pull_request' # TODO
+        # if: github.event_name != 'pull_request' # TODO
         with:
           context: ${{ inputs.directory }}
           push: ${{ (github.event_name != 'pull_request' && github.ref == 'refs/heads/main') || github.ref == 'refs/pull/333/merge' }}
