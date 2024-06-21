@@ -3,7 +3,7 @@ Write-Host "Starting"
 $dir = $args[0]
 $username = $args[1]
 $password = $args[2]
-$tags = @('3.9.7', '3.9', '3')
+$tags = @('3.9.8', '3.9', '3')
 
 # only push from main
 $ref=$env:GITHUB_REF
