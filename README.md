@@ -296,8 +296,7 @@ Build with the usual
 
     docker build -t maven .
 
-Tests are written using [bats](https://github.com/sstephenson/bats) for Linux images and [pester](https://github.com/pester/Pester) for Windows images
-(requires Pester 4.x) under the `tests` dir.
+Tests are written using [bats](https://github.com/sstephenson/bats) for Linux images and [pester](https://github.com/pester/Pester) for Windows images under the `tests` dir.
 
 Use the env var TAG to choose what image to run tests against.
 
@@ -328,7 +327,7 @@ git submodule init
 git submodule update
 ```
 
-Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required. You may need to follow [this tutorial](https://blog.damianflynn.com/Windows10-Pester/) on upgrading Pester to 4.x.
+Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but is an older version than required.
 
 
 ## Adding New Images
