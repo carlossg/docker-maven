@@ -3,7 +3,7 @@ Write-Host "Starting"
 $dir = $args[0]
 $username = $args[1]
 $password = $args[2]
-$tags = @('3.9.8', '3.9', '3')
+$tags = @('4.0.0-beta-3', '4.0', '4')
 
 # only push from main
 $ref=$env:GITHUB_REF
@@ -21,7 +21,7 @@ Write-Host "Image: $dir"
 if(($dir.Contains('amazoncorretto')) -or ($dir.Contains('azulzulu'))) {
     $windowsDockerTag = 'ltsc2019'
 }
-if(($dir.Contains('eclipse-temurin')) -or ($dir.Contains('openjdk'))) {
+if($dir.Contains('eclipse-temurin')) {
     $windowsDockerTag = '1809'
 }
 
