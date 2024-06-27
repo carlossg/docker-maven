@@ -1,4 +1,4 @@
-Install-Module -Name Pester -Force -RequiredVersion 5.0.4
+Install-Module -Name Pester -Force -RequiredVersion 5.6.0
 Write-Host "Starting"
 $dir = $args[0]
 $username = $args[1]

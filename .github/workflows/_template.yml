@@ -29,7 +29,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Setup BATS
-        uses: bats-core/bats-action@c9f3b9ab55d4711876053a7917f3311ee30366bf
+        uses: bats-core/bats-action@73f0f7d34ec09278ce76030c105fc6a8ddb1d726
       - name: Update submodules
         run: git submodule update --init
 
@@ -95,7 +95,7 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         # if: github.event_name != 'pull_request' # TODO
         with:
           context: ${{ inputs.directory }}
