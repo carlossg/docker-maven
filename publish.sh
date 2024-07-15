@@ -12,8 +12,8 @@ from_linux=eclipse-temurin-11
 pattern="# common for all images"
 
 # we need gnu-sed on macos
-if [ -d /opt/homebrew/opt/gnu-sed/libexec/gnubin ]; then
-	PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+if prefix="$(brew --prefix gnu-sed 2>&1)" && [ -d "${prefix}/libexec/gnubin" ]; then
+	PATH="${prefix}/libexec/gnubin:$PATH"
 fi
 
 for dir in "${all_dirs[@]}"; do

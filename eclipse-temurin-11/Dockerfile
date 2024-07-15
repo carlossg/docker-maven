@@ -1,8 +1,8 @@
 FROM eclipse-temurin:11-jdk as builder
 
-ARG MAVEN_VERSION=3.9.4
+ARG MAVEN_VERSION=3.9.8
 ARG USER_HOME_DIR="/root"
-ARG SHA=deaa39e16b2cf20f8cd7d232a1306344f04020e1f0fb28d35492606f647a60fe729cc40d3cba33e093a17aed41bd161fe1240556d0f1b80e773abd408686217e
+ARG SHA=7d171def9b85846bf757a2cec94b7529371068a0670df14682447224e57983528e97a6d1b850327e4ca02b139abaab7fcb93c4315119e6f0ffb3f0cbc0d0b9a2
 ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME /usr/share/maven
@@ -18,6 +18,7 @@ RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}
   for key in \
   6A814B1F869C2BBEAB7CB7271A2A1C94BDE89688 \
   29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
+  88BE34F94BDB2B5357044E2E3A387D43964143E3 \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done; \
@@ -35,6 +36,11 @@ RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
+LABEL org.opencontainers.image.title "Apache Maven"
+LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+
 ENV MAVEN_HOME /usr/share/maven
 
 COPY --from=builder ${MAVEN_HOME} ${MAVEN_HOME}
@@ -43,7 +49,7 @@ COPY settings-docker.xml /usr/share/maven/ref/
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=3.9.4
+ARG MAVEN_VERSION=3.9.8
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 

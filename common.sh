@@ -3,11 +3,12 @@
 set -eu
 
 # Default values for 'latest' tag
-latest='20'
+latestMavenVersion='3.9.8'
+latest='21'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
-parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine)
+parent_images=(openjdk eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
 declare -A jdk_latest=(
 	["jdk"]="17"
 	["openjdk"]=""
@@ -16,7 +17,9 @@ declare -A jdk_latest=(
 	["ibm-semeru"]=""
 	["amazoncorretto"]="11"
 	["libericaopenjdk"]="17"
-	["sapmachine"]="17"
+	["sapmachine"]="21"
+	["graalvm-community"]="21"
+	["oracle-graalvm"]="21"
 )
 
 # Variants of the JDKs and their 'latest' tag
@@ -28,7 +31,7 @@ declare -A extra_tags=(
 )
 
 # All the directories that have images
-all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-*)
+all_dirs=(openjdk-* eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-* graalvm-community-* oracle-graalvm-*)
 
 ######################################################################################################################################
 
@@ -41,7 +44,8 @@ version-aliases() {
 	local version=$1
 	local branch=$2
 
-	mavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
+	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
+	mavenVersion="${dockerfileMavenVersion}"
 
 	extraSuffixes=()
 	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
@@ -66,7 +70,7 @@ version-aliases() {
 			fi
 		done
 
-		# tag eclipse-temurin-8-alpine -> 3.9.4-eclipse-temurin-alpine
+		# tag eclipse-temurin-8-alpine -> 3.9.8-eclipse-temurin-alpine
 		if [ -n "${extra_tags[$version]:-}" ]; then
 			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
 		fi
@@ -78,25 +82,28 @@ version-aliases() {
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
 
-	# tag full version
-	versionAliases+=("$mavenVersion-$version")
-	for extraSuffix in "${extraSuffixes[@]}"; do
-		versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
-	done
+	# do not tag 3, latest, 3-amazoncorretto, amazoncorretto,... if we are not building the latest version
+	if [ "$dockerfileMavenVersion" = "$latestMavenVersion" ]; then
+		# tag full version
+		versionAliases+=("$mavenVersion-$version") # 3-amazoncorretto-11
+		for extraSuffix in "${extraSuffixes[@]}"; do
+			versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
+		done
 
-	# tag 3, latest
-	if [[ "$version" == "$default_jdk-$latest" ]]; then
-		versionAliases+=("$mavenVersion" latest)
-		[ "$branch" = 'main' ] || versionAliases+=("$branch")
-	fi
-
-	for parent_image in "${parent_images[@]}"; do
-		local parent_image_latest="${jdk_latest[$parent_image]}"
-		if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
-			# tag 3-ibmjava ibmjava 3-amazoncorretto amazoncorretto
-			versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
+		# tag 3, latest
+		if [[ "$version" == "$default_jdk-$latest" ]]; then
+			versionAliases+=("$mavenVersion" latest)
+			[ "$branch" = 'main' ] || versionAliases+=("$branch")
 		fi
-	done
+
+		for parent_image in "${parent_images[@]}"; do
+			local parent_image_latest="${jdk_latest[$parent_image]}"
+			if [[ "$version" == "$parent_image-${parent_image_latest}" ]]; then
+				# tag 3-ibmjava ibmjava 3-amazoncorretto amazoncorretto
+				versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
+			fi
+		done
+	fi
 
 	# extra tags for variants
 	if [ -n "${extra_tags[$version]:-}" ]; then
