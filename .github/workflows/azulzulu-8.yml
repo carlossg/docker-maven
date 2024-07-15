@@ -1,0 +1,32 @@
+name: azulzulu-8
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "azulzulu-8/**"
+      - .github/workflows/azulzulu-8.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "azulzulu-8/**"
+      - .github/workflows/azulzulu-8.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: azulzulu-8
+    secrets: inherit

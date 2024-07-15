@@ -80,17 +80,15 @@ echo "GitRepo: $url"
 echo 'GitFetch: refs/heads/main'
 
 for version in "${all_dirs[@]}"; do
-	# ignore images that can't be official
-	if grep -q "FROM mcr.microsoft.com" "$version/Dockerfile"; then
-		continue
-	fi
-	# ignore all windows images
-	if grep -q "FROM .*windows" "$version/Dockerfile"; then
-		continue
-	fi
-	if [[ "$version" != azulzulu* ]] && [[ "$version" != liberica* ]]; then
-		branch=main
-		mapfile -t versionAliases < <(version-aliases "$version" "$branch")
-		generate-version "$version" "$branch" "${versionAliases[@]}"
-	fi
+	# ignore images that can't be official and windows
+	ignore_from=(".*windows" "container-registry.oracle.com" "ghcr.io" "mcr.microsoft.com" "azul/" "bellsoft/")
+	for ignore in "${ignore_from[@]}"; do
+		if grep -q "FROM $ignore" "$version/Dockerfile"; then
+			continue 2
+		fi
+	done
+
+	branch=main
+	mapfile -t versionAliases < <(version-aliases "$version" "$branch")
+	generate-version "$version" "$branch" "${versionAliases[@]}"
 done

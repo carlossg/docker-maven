@@ -26,10 +26,10 @@ jobs:
       id-token: write
 
     steps:
-      - name: Setup BATS
-        uses: mig4/setup-bats@v1.2.0
       - name: Check out code
         uses: actions/checkout@v4
+      - name: Setup BATS
+        uses: bats-core/bats-action@73f0f7d34ec09278ce76030c105fc6a8ddb1d726
       - name: Update submodules
         run: git submodule update --init
 
@@ -39,12 +39,12 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@v3.1.2
+        uses: sigstore/cosign-installer@v3.5.0
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.0.0
+        uses: docker/setup-qemu-action@v3.1.0
       - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@v3.0.0
+        uses: docker/setup-buildx-action@v3.4.0
 
       - name: Test
         run: bats tests
@@ -74,7 +74,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v5.0.0
+        uses: docker/metadata-action@v5.5.1
         with:
           tags: |
             type=schedule,suffix=-${{ inputs.directory }}
@@ -95,7 +95,7 @@ jobs:
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         if: github.event_name != 'pull_request' # TODO
         with:
           context: ${{ inputs.directory }}
