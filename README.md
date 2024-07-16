@@ -70,12 +70,12 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
 * [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
 * [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
-* [libericaopenjdk-11](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11/Dockerfile)
-* [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
-* [libericaopenjdk-17](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17/Dockerfile)
-* [libericaopenjdk-17-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-alpine/Dockerfile)
-* [libericaopenjdk-8](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8/Dockerfile)
 * [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-alpine/Dockerfile)
+* [libericaopenjdk-8-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-debian/Dockerfile)
+* [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
+* [libericaopenjdk-11-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-debian/Dockerfile)
+* [libericaopenjdk-17-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-alpine/Dockerfile)
+* [libericaopenjdk-17-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-debian/Dockerfile)
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
@@ -256,13 +256,10 @@ Some come from the parent images and some are installed in this image for backwa
 | ibm-semeru-17-focal           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibm-semeru-21-jammy           | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | ibmjava-8                     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
-| libericaopenjdk-8             |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
 | libericaopenjdk-8-alpine      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | libericaopenjdk-8-debian      |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-11            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
 | libericaopenjdk-11-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | libericaopenjdk-11-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
-| libericaopenjdk-17            |     | ✔️    | ✔️   | ✔️    |       | ✔️    | ✔️      | ✔️   |     |
 | libericaopenjdk-17-alpine     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      |     |     |
 | libericaopenjdk-17-debian     |     | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    |        |     |     |
 | microsoft-openjdk-11-ubuntu   | ✔️   | ✔️    | ✔️   | ✔️    | ✔️     | ✔️    | ✔️      | ✔️   |     |
