@@ -3,8 +3,9 @@
 FROM debian:bookworm-slim
 
 # install corretto after verifying that the key is the one we expect.
+# and keep openssh client
 RUN apt-get update \
-  && apt-get install -y curl gnupg \
+  && apt-get install -y curl gnupg openssh-client \
   && export GNUPGHOME="$(mktemp -d)" \
   && curl -fL https://apt.corretto.aws/corretto.key | gpg --batch --import \
   && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \

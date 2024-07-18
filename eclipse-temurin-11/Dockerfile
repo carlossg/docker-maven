@@ -33,7 +33,7 @@ RUN mvn --version
 FROM eclipse-temurin:11-jdk
 
 RUN apt-get update \
-  && apt-get install -y ca-certificates curl git --no-install-recommends \
+  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
 LABEL org.opencontainers.image.title "Apache Maven"
