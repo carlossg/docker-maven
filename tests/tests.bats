@@ -162,5 +162,5 @@ base_image=eclipse-temurin-11
 
 @test "$SUT_TAG ssh is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG ssh -V
-	assert_failure
+	assert_success
 }

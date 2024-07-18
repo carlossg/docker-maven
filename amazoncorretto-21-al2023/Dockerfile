@@ -1,6 +1,7 @@
 FROM amazoncorretto:21-al2023
 
 RUN yum install -y tar which gzip findutils # TODO remove
+RUN yum install -y openssh-clients
 
 # common for all images
 LABEL org.opencontainers.image.title "Apache Maven"
