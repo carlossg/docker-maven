@@ -5,8 +5,8 @@ ARG USER_HOME_DIR="/root"
 ARG SHA=7d171def9b85846bf757a2cec94b7529371068a0670df14682447224e57983528e97a6d1b850327e4ca02b139abaab7fcb93c4315119e6f0ffb3f0cbc0d0b9a2
 ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+ENV MAVEN_HOME=/usr/share/maven
+ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git gnupg dirmngr --no-install-recommends \
@@ -36,12 +36,12 @@ RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
-LABEL org.opencontainers.image.title "Apache Maven"
-LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
-LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
-LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+LABEL org.opencontainers.image.title="Apache Maven"
+LABEL org.opencontainers.image.source=https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url=https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description="Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
 
-ENV MAVEN_HOME /usr/share/maven
+ENV MAVEN_HOME=/usr/share/maven
 
 COPY --from=builder ${MAVEN_HOME} ${MAVEN_HOME}
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
@@ -51,7 +51,7 @@ RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
 ARG MAVEN_VERSION=3.9.8
 ARG USER_HOME_DIR="/root"
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn"]
