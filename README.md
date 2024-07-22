@@ -358,7 +358,7 @@ View [license information](https://www.apache.org/licenses/) for the software co
 If you have any problems with or questions about this image, please contact us
 through a [GitHub issue](https://github.com/carlossg/docker-maven/issues).
 
-You can also reach many of the official image maintainers via the `#docker-library` IRC channel on Freenode.
+You can also reach many of the official image maintainers via the `#docker-library` IRC channel on [Libera.Chat (web)](https://web.libera.chat/#docker-library) or in your favorite IRC client.
 
 ## Contributing
 
