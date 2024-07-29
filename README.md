@@ -62,12 +62,16 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
 * [azulzulu-8-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8-alpine/Dockerfile)
+* [azulzulu-8-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8-debian/Dockerfile)
 * [azulzulu-11](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11/Dockerfile)
 * [azulzulu-11-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-alpine/Dockerfile)
+* [azulzulu-11-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-debian/Dockerfile)
 * [azulzulu-17](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17/Dockerfile)
 * [azulzulu-17-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-alpine/Dockerfile)
+* [azulzulu-17-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-debian/Dockerfile)
 * [azulzulu-21](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21/Dockerfile)
 * [azulzulu-21-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-alpine/Dockerfile)
+* [azulzulu-21-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-21-debian/Dockerfile)
 * [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
 * [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
 * [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-alpine/Dockerfile)
@@ -229,12 +233,16 @@ Some come from the parent images and some are installed in this image for backwa
 | amazoncorretto-21-debian      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | azulzulu-8                    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-8-alpine             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-8-debian             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-11                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-11-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-11-debian            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-17                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-17-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-17-debian            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-21                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-21-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-21-debian            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-8             | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-8-alpine      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-8-focal       | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
