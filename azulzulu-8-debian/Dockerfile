@@ -1,7 +1,7 @@
 FROM azul/zulu-openjdk-debian:8
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends openssh-client procps curl \
+  && apt-get install -y --no-install-recommends openssh-client \
   && rm -rf /var/lib/apt/lists/*
 
 # common for all images

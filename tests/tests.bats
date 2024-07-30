@@ -94,7 +94,8 @@ base_image=eclipse-temurin-11
 
 @test "$SUT_TAG curl is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
-	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]]; then
+	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]] ||
+		[[ "$SUT_TAG" == azulzulu-*-debian ]]; then
 		[ $status -ne 0 ]
 	else
 		[ $status -eq 0 ]
@@ -135,7 +136,8 @@ base_image=eclipse-temurin-11
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
-			[[ "$SUT_TAG" == *"graalvm"* ]]
+			[[ "$SUT_TAG" == *"graalvm"* ]] ||
+			[[ "$SUT_TAG" == azulzulu-*-debian ]]
 
 	); then
 		[ $status -eq 0 ]
