@@ -42,9 +42,9 @@ jobs:
         uses: sigstore/cosign-installer@v3.5.0
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.0.0
+        uses: docker/setup-qemu-action@v3.2.0
       - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@v3.3.0
+        uses: docker/setup-buildx-action@v3.5.0
 
       - name: Test
         run: bats tests

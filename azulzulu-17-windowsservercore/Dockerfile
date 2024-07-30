@@ -1,10 +1,10 @@
 # escape=`
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-LABEL org.opencontainers.image.title "Apache Maven"
-LABEL org.opencontainers.image.source https://github.com/carlossg/docker-maven
-LABEL org.opencontainers.image.url https://github.com/carlossg/docker-maven
-LABEL org.opencontainers.image.description "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
+LABEL org.opencontainers.image.title="Apache Maven"
+LABEL org.opencontainers.image.source=https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.url=https://github.com/carlossg/docker-maven
+LABEL org.opencontainers.image.description="Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information."
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -29,8 +29,8 @@ RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin
   New-Item -ItemType Directory -Path C:/ProgramData/Maven/Reference | Out-Null ; `
   Remove-Item ${env:TEMP}/apache-maven.zip
 
-ENV MAVEN_HOME C:/ProgramData/Maven
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
+ENV MAVEN_HOME=C:/ProgramData/Maven
+ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
 ENV JAVA_HOME=C:/ProgramData/zulu17.48.15-ca-jdk17.0.10-win_x64
 

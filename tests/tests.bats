@@ -114,8 +114,7 @@ base_image=eclipse-temurin-17
 @test "$SUT_TAG which is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 	if ! (
-		[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
-			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
+		[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"oracle"* ]]
 	); then
 		[ $status -eq 0 ]
@@ -150,8 +149,7 @@ base_image=eclipse-temurin-17
 		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
-			[[ "$SUT_TAG" == libericaopenjdk-? ]] ||
-			[[ "$SUT_TAG" == libericaopenjdk-?? ]] ||
+			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
 		[ $status -eq 0 ]
@@ -162,5 +160,5 @@ base_image=eclipse-temurin-17
 
 @test "$SUT_TAG ssh is installed" {
 	run docker run --rm $SUT_IMAGE:$SUT_TAG ssh -V
-	assert_failure
+	assert_success
 }
