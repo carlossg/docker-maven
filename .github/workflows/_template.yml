@@ -54,7 +54,7 @@ jobs:
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry GHCR
-        if: github.event_name != 'pull_request'
+        # if: github.event_name != 'pull_request' TODO
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
@@ -63,7 +63,7 @@ jobs:
           # https://github.com/users/carlossg/packages/container/maven/settings
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Log into registry DockerHub
-        if: github.event_name != 'pull_request'
+        # if: github.event_name != 'pull_request' TODO
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY2 }}
@@ -96,10 +96,10 @@ jobs:
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
-        if: github.event_name != 'pull_request' # TODO
+        # if: github.event_name != 'pull_request' # TODO
         with:
           context: ${{ inputs.directory }}
-          push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+          push: ${{ (github.event_name != 'pull_request' && github.ref == 'refs/heads/main') || github.ref == 'refs/pull/333/merge' }}
           tags: |
             ${{ steps.meta.outputs.tags }}
             ${{ steps.retrieve-tags.outputs.tags }}
@@ -113,7 +113,7 @@ jobs:
       # command below.
       # https://github.com/sigstore/cosign
       - name: Sign the published Docker images
-        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && !github.event.repository.private }}
+        if: ${{ github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/pull/333/merge') && !github.event.repository.private }}
         env:
           REGISTRY1: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
           REGISTRY2: ${{ env.REGISTRY2 }}/${{ env.IMAGE_NAME2 }}@${{ steps.build-and-push.outputs.digest }}

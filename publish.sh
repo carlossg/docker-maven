@@ -7,7 +7,7 @@ set -o pipefail
 
 OFFICIAL_IMAGES_DIR=../../docker/official-images
 
-from_linux=eclipse-temurin-11
+from_linux=eclipse-temurin-17
 
 pattern="# common for all images"
 
@@ -18,7 +18,7 @@ fi
 
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
-		from=openjdk-11-windowsservercore
+		from=amazoncorretto-17-windowsservercore
 		if [[ "$dir" != "$from" ]]; then
 			cp $from/mvn-entrypoint.ps1 "$dir/"
 			cp $from/settings-docker.xml "$dir/"

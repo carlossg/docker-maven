@@ -1,14 +1,14 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-openjdk-8}
+SUT_TAG=${TAG:-eclipse-temurin-17}
 SUT_TEST_IMAGE=bats-maven-test
 
 load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
-base_image=eclipse-temurin-11
+base_image=eclipse-temurin-17
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ]; then
@@ -54,7 +54,7 @@ base_image=eclipse-temurin-11
 }
 
 @test "$SUT_TAG repository is created" {
-	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar
+	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG test -f /root/.m2/repository/org/junit/junit-bom/5.7.2/junit-bom-5.7.2.pom
 	assert_success
 }
 
@@ -82,7 +82,6 @@ base_image=eclipse-temurin-11
 		[[ "$SUT_TAG" == *"-alpine" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == "azulzulu-"* ]] ||
-			[[ "$SUT_TAG" == "ibmjava-"* ]] ||
 			[[ "$SUT_TAG" == "libericaopenjdk-"* ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
@@ -134,7 +133,6 @@ base_image=eclipse-temurin-11
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 
 	); then
