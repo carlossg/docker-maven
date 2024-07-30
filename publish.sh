@@ -25,11 +25,15 @@ for dir in "${all_dirs[@]}"; do
 		fi
 	else
 		from=$from_linux
-		if [[ "$dir" != "$from" ]]; then
+		if [[ "$dir" != "$from"* ]]; then
 			# remove everything after the 'common for all images' line
 			sed "/^${pattern}$/q" "$dir/Dockerfile" | sponge "$dir/Dockerfile"
 			# copy from the main Dockerfile template the common lines
-			tail +2 Dockerfile-template >>"$dir/Dockerfile"
+			if [[ "$dir" == *"maven-4"* ]]; then
+				tail +2 Dockerfile-template-maven-4 >>"$dir/Dockerfile"
+			else
+				tail +2 Dockerfile-template >>"$dir/Dockerfile"
+			fi
 		fi
 	fi
 done

@@ -1,0 +1,30 @@
+name: amazoncorretto-17-windowsservercore-maven-4
+
+on:
+  push:
+    paths:
+      - "amazoncorretto-17-windowsservercore-maven-4/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bats"
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
+  pull_request:
+    paths:
+      - "amazoncorretto-17-windowsservercore-maven-4/**"
+      - "tests/**"
+      - github-action.ps1
+      - "!tests/*.bash"
+      - "!tests/Dockerfile"
+      - .github/workflows/_template_windows.yml
+
+env:
+  DOCKER_PUSH: "true"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template_windows.yml
+    with:
+      directory: amazoncorretto-17-windowsservercore-maven-4
+    secrets: inherit
