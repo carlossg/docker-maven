@@ -88,6 +88,11 @@ for version in "${all_dirs[@]}"; do
 		fi
 	done
 
+	# ignore maven-4 beta images
+	if [[ "$version" == *-maven-4 ]]; then
+		continue
+	fi
+
 	branch=main
 	mapfile -t versionAliases < <(version-aliases "$version" "$branch")
 	generate-version "$version" "$branch" "${versionAliases[@]}"

@@ -14,8 +14,13 @@ base_image=eclipse-temurin-17
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ]; then
-		cd $BATS_TEST_DIRNAME/../$base_image
+		base_dir=$base_image
+		if [[ "$SUT_TAG" == *"maven-4" ]]; then
+			base_dir="${base_dir}-maven-4"
+		fi
+		cd $BATS_TEST_DIRNAME/../$base_dir
 		base_tag=$(grep -m 1 -o 'maven:[a-z0-9\.-]*' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile)
+		echo $base_tag
 		docker build --pull -t $base_tag .
 	fi
 }
@@ -107,7 +112,8 @@ base_image=eclipse-temurin-17
 @test "$SUT_TAG tar is installed" {
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-23" ]] ||
-			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]]
+			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-*-maven-4 ]]
 	); then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG tar --version
 		assert_success
@@ -126,7 +132,8 @@ base_image=eclipse-temurin-17
 		[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"oracle"* ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-23" ]] ||
-			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]]
+			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-*-maven-4 ]]
 	); then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 		[ $status -eq 0 ]
@@ -162,6 +169,8 @@ base_image=eclipse-temurin-17
 		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
