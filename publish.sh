@@ -7,7 +7,7 @@ set -o pipefail
 
 OFFICIAL_IMAGES_DIR=../../docker/official-images
 
-from_linux=eclipse-temurin-11
+from_linux=eclipse-temurin-17
 
 pattern="# common for all images"
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-openjdk-8}
+SUT_TAG=${TAG:-eclipse-temurin-17}
 SUT_TEST_IMAGE=bats-maven-test
 
 load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
-base_image=eclipse-temurin-11
+base_image=eclipse-temurin-17
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ]; then
