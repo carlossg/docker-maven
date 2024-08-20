@@ -1,6 +1,6 @@
 BeforeAll {
   $SUT_IMAGE="maven"
-  $SUT_TAG="openjdk-8-windowsservercore"
+  $SUT_TAG="amazoncorretto-17-windowsservercore"
   if(![System.String]::IsNullOrWhiteSpace($env:TAG)) {
     $SUT_TAG=$env:TAG
   }
@@ -60,7 +60,7 @@ Describe "$SUT_TAG settings.xml is setup" {
 
 Describe "$SUT_TAG repository is created" {
   It 'created repository' {
-    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} if(Test-Path C:/Users/ContainerUser/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar) { exit 0 } else {exit 1 }"
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_TEST_IMAGE}:${SUT_TAG} if(Test-Path C:/Users/ContainerUser/.m2/repository/org/junit/junit-bom/5.7.2/junit-bom-5.7.2.pom) { exit 0 } else {exit 1 }"
     $exitCode | Should -Be 0
   }
 }

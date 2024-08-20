@@ -118,18 +118,18 @@ passing a Maven command to `docker run`:
 
 ### Linux
 
-    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn verify
+    docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-17 mvn verify
 
 ### Windows
 
 ```powershell
-docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-8-windows mvn verify
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src csanchez/maven:3.3-jdk-17-windows mvn verify
 ```
 
 ### Windows
 
 ```powershell
-docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-8-windows mvn clean install
+docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Src maven:3.3-jdk-17-windows mvn clean install
 ```
 
 ## Building local Docker image (optional)
@@ -153,7 +153,7 @@ COPY . .
 RUN mvn -B -e -o -T 1C verify
 
 # package without maven
-FROM openjdk
+FROM eclipse-temurin:17-jdk
 COPY --from=0 /usr/src/app/target/*.jar ./
 ```
 
@@ -343,7 +343,7 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 ## Updating Maven version
 
 * Search and replace all references to the previous version by the new version.
-* Update environment variable SHA in `eclipse-temurin-11/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary tar.gz archive.
+* Update environment variable SHA in `eclipse-temurin-17/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary tar.gz archive.
 * Update environment variable SHA in `*-{nanoserver,windowsservercore}/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary zip archive.
 
 ## Publishing to Docker Hub
