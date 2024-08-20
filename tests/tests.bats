@@ -4,6 +4,8 @@ SUT_IMAGE=maven
 SUT_TAG=${TAG:-eclipse-temurin-17}
 SUT_TEST_IMAGE=bats-maven-test
 
+bats_require_minimum_version 1.5.0
+
 load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
@@ -77,7 +79,6 @@ base_image=eclipse-temurin-17
 # Changes here need to be documented in the table in the README
 
 @test "$SUT_TAG git is installed" {
-	run docker run --rm $SUT_IMAGE:$SUT_TAG git --version
 	if ! (
 		[[ "$SUT_TAG" == *"-alpine" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
@@ -86,20 +87,20 @@ base_image=eclipse-temurin-17
 			[[ "$SUT_TAG" == "libericaopenjdk-"* ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
+		run docker run --rm $SUT_IMAGE:$SUT_TAG git --version
 		[ $status -eq 0 ]
 	else
-		[ $status -ne 0 ]
+		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG git --version
 	fi
 }
 
 @test "$SUT_TAG curl is installed" {
-	run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
 	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]] ||
 		[[ "$SUT_TAG" == azulzulu-*-debian ]]; then
-		[ $status -ne 0 ]
+		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
 	else
+		run docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
 		[ $status -eq 0 ]
-
 	fi
 }
 
@@ -114,14 +115,14 @@ base_image=eclipse-temurin-17
 }
 
 @test "$SUT_TAG which is installed" {
-	run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 	if ! (
 		[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"oracle"* ]]
 	); then
+		run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 		[ $status -eq 0 ]
 	else
-		[ $status -ne 0 ]
+		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 	fi
 }
 
@@ -148,7 +149,6 @@ base_image=eclipse-temurin-17
 }
 
 @test "$SUT_TAG gpg is installed" {
-	run docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
 	if (
 		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
@@ -156,9 +156,10 @@ base_image=eclipse-temurin-17
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
+		run docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
 		[ $status -eq 0 ]
 	else
-		[ $status -ne 0 ]
+		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
 	fi
 }
 
