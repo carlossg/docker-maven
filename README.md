@@ -27,8 +27,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-11](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11/Dockerfile)
 * [eclipse-temurin-11-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-alpine/Dockerfile)
 * [eclipse-temurin-11-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-focal/Dockerfile)
-* [eclipse-temurin-16](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-16/Dockerfile)
-* [eclipse-temurin-16-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-16-alpine/Dockerfile)
 * [eclipse-temurin-17](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17/Dockerfile)
 * [eclipse-temurin-17-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
 * [eclipse-temurin-17-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-focal/Dockerfile)
