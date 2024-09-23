@@ -1,8 +1,6 @@
-FROM sapmachine:22
+FROM amazoncorretto:23-al2023
 
-RUN apt-get update \
-  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/*
+RUN yum install -y openssh-clients
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"

@@ -1,12 +1,12 @@
-name: sapmachine-22
+name: eclipse-temurin-23-noble
 
 on:
   push:
     branches:
     - main
     paths:
-      - "sapmachine-22/**"
-      - .github/workflows/sapmachine-22.yml
+      - "eclipse-temurin-23-noble/**"
+      - .github/workflows/eclipse-temurin-23-noble.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "sapmachine-22/**"
-      - .github/workflows/sapmachine-22.yml
+      - "eclipse-temurin-23-noble/**"
+      - .github/workflows/eclipse-temurin-23-noble.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: sapmachine-22
+      directory: eclipse-temurin-23-noble
     secrets: inherit

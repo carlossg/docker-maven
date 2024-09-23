@@ -1,12 +1,12 @@
-name: eclipse-temurin-22
+name: eclipse-temurin-23
 
 on:
   push:
     branches:
     - main
     paths:
-      - "eclipse-temurin-22/**"
-      - .github/workflows/eclipse-temurin-22.yml
+      - "eclipse-temurin-23/**"
+      - .github/workflows/eclipse-temurin-23.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "eclipse-temurin-22/**"
-      - .github/workflows/eclipse-temurin-22.yml
+      - "eclipse-temurin-23/**"
+      - .github/workflows/eclipse-temurin-23.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: eclipse-temurin-22
+      directory: eclipse-temurin-23
     secrets: inherit

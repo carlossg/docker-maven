@@ -1,8 +1,6 @@
-FROM eclipse-temurin:22-jdk-jammy
+FROM container-registry.oracle.com/graalvm/native-image:23
 
-RUN apt-get update \
-  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/*
+RUN microdnf --refresh -y install findutils openssh-clients
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"

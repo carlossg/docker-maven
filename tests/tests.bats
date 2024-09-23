@@ -105,8 +105,15 @@ base_image=eclipse-temurin-17
 }
 
 @test "$SUT_TAG tar is installed" {
-	run docker run --rm $SUT_IMAGE:$SUT_TAG tar --version
-	assert_success
+	if ! (
+		[[ "$SUT_TAG" == "amazoncorretto-23" ]] ||
+			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]]
+	); then
+		run docker run --rm $SUT_IMAGE:$SUT_TAG tar --version
+		assert_success
+	else
+		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG tar --version
+	fi
 }
 
 @test "$SUT_TAG bash is installed" {
@@ -117,7 +124,9 @@ base_image=eclipse-temurin-17
 @test "$SUT_TAG which is installed" {
 	if ! (
 		[[ "$SUT_TAG" == openjdk-?? ]] ||
-			[[ "$SUT_TAG" == *"oracle"* ]]
+			[[ "$SUT_TAG" == *"oracle"* ]] ||
+			[[ "$SUT_TAG" == "amazoncorretto-23" ]] ||
+			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]]
 	); then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 		[ $status -eq 0 ]

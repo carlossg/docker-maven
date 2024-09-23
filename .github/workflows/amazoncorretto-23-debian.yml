@@ -1,0 +1,32 @@
+name: amazoncorretto-23-debian
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "amazoncorretto-23-debian/**"
+      - .github/workflows/amazoncorretto-23-debian.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "amazoncorretto-23-debian/**"
+      - .github/workflows/amazoncorretto-23-debian.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: amazoncorretto-23-debian
+    secrets: inherit

@@ -1,6 +1,8 @@
-FROM eclipse-temurin:22-jdk-alpine
+FROM ibm-semeru-runtimes:open-23-jdk-jammy
 
-RUN apk add --no-cache bash procps curl tar openssh-client
+RUN apt-get update \
+  && apt-get install -y git openssh-client --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"

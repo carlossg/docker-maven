@@ -1,12 +1,12 @@
-name: eclipse-temurin-22-jammy
+name: azulzulu-23-alpine
 
 on:
   push:
     branches:
     - main
     paths:
-      - "eclipse-temurin-22-jammy/**"
-      - .github/workflows/eclipse-temurin-22-jammy.yml
+      - "azulzulu-23-alpine/**"
+      - .github/workflows/azulzulu-23-alpine.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "eclipse-temurin-22-jammy/**"
-      - .github/workflows/eclipse-temurin-22-jammy.yml
+      - "azulzulu-23-alpine/**"
+      - .github/workflows/azulzulu-23-alpine.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: eclipse-temurin-22-jammy
+      directory: azulzulu-23-alpine
     secrets: inherit

@@ -1,4 +1,4 @@
-FROM eclipse-temurin:22-jdk
+FROM eclipse-temurin:23-jdk
 
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
