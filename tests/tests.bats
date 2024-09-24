@@ -96,6 +96,7 @@ base_image=eclipse-temurin-17
 
 @test "$SUT_TAG curl is installed" {
 	if [[ "$SUT_TAG" == amazoncorretto-*-debian ]] ||
+		[[ "$SUT_TAG" == amazoncorretto-*-alpine ]] ||
 		[[ "$SUT_TAG" == azulzulu-*-debian ]]; then
 		run -127 docker run --rm $SUT_IMAGE:$SUT_TAG curl --version
 	else

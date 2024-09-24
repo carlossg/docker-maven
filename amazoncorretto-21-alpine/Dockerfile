@@ -1,6 +1,6 @@
 FROM amazoncorretto:21-alpine
 
-RUN apk add --no-cache bash curl openssh-client
+RUN apk add --no-cache bash openssh-client
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"
