@@ -163,6 +163,7 @@ base_image=eclipse-temurin-17
 		[[ "$SUT_TAG" == amazoncorretto-? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
+			[[ "$SUT_TAG" == eclipse-temurin-* ]] ||
 			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
