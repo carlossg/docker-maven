@@ -21,7 +21,7 @@ Write-Host "Image: $dir"
 if(($dir.Contains('amazoncorretto')) -or ($dir.Contains('azulzulu'))) {
     $windowsDockerTag = 'ltsc2019'
 }
-if(($dir.Contains('eclipse-temurin')) -or ($dir.Contains('openjdk'))) {
+if($dir.Contains('eclipse-temurin')) {
     $windowsDockerTag = '1809'
 }
 
