@@ -94,10 +94,6 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 
 See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for an updated list of tags
 
-* ~~[openjdk-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-8-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-8-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-windowsservercore/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
-* ~~[openjdk-11-nanoserver](https://github.com/carlossg/docker-maven/blob/main/openjdk-11-nanoserver/Dockerfile)~~ [(deprecated)](https://github.com/docker-library/openjdk?tab=readme-ov-file#deprecated)
 * [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-windowsservercore/Dockerfile)
 * [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-windowsservercore/Dockerfile)
 * [amazoncorretto-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-windowsservercore/Dockerfile)

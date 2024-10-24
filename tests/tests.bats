@@ -124,8 +124,7 @@ base_image=eclipse-temurin-17
 
 @test "$SUT_TAG which is installed" {
 	if ! (
-		[[ "$SUT_TAG" == openjdk-?? ]] ||
-			[[ "$SUT_TAG" == *"oracle"* ]] ||
+		[[ "$SUT_TAG" == *"oracle"* ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-23" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-23-al2023" ]]
 	); then
@@ -146,7 +145,6 @@ base_image=eclipse-temurin-17
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-"* ]] ||
 			[[ "$SUT_TAG" == libericaopenjdk-*-debian ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]] ||
 			[[ "$SUT_TAG" == azulzulu-*-debian ]]
 
@@ -164,7 +162,6 @@ base_image=eclipse-temurin-17
 			[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023 ]] ||
 			[[ "$SUT_TAG" == eclipse-temurin-* ]] ||
-			[[ "$SUT_TAG" == openjdk-?? ]] ||
 			[[ "$SUT_TAG" == *"graalvm"* ]]
 	); then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG gpg --version
