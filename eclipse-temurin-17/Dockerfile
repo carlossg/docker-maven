@@ -11,7 +11,7 @@ ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git gnupg dirmngr --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
-RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+RUN set -eux; curl -fsSLO --retry 3 --retry-connrefused --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   && echo "${SHA} *apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha512sum -c - \
   && curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc \
   && export GNUPGHOME="$(mktemp -d)"; \
