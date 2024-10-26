@@ -18,8 +18,8 @@ RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zi
     Remove-Item C:/${env:zip}
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
-ARG MAVEN_VERSION=4.0.0-beta-3
-ARG SHA=49d656042813ead127613da3c85e063c41ef5a25b54ec783d90b51fbc1ad7401f0c0d4c860536d6baea180ab533c84d52c8e38b0c6ab52cc699105ead0418ab4
+ARG MAVEN_VERSION=4.0.0-beta-5
+ARG SHA=11b176efe990df237990bde31ec558fbd7d713acefbebb81dfea9086c954cf9dc6fb080ff00c18bf7dd154d1130e98adc621212fbf58936d6111c555a1380a00
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-4/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
