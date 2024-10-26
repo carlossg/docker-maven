@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jdk as builder
 ARG MAVEN_VERSION=4.0.0-beta-3
 ARG USER_HOME_DIR="/root"
 ARG SHA=9df71ce42689e1942c9f134b91f93e29be29b521d898c25015dd4edf45249ea4a20000623bbffba7bb585e223e563fa6292241dda7b9034b9822bdfcb29bb269
-ARG BASE_URL=https://downloads.apache.org/maven/maven-4/${MAVEN_VERSION}/binaries
+ARG BASE_URL=https://dlcdn.apache.org/maven/maven-4/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
