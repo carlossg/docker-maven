@@ -1,8 +1,8 @@
 FROM eclipse-temurin:17-jdk as builder
 
-ARG MAVEN_VERSION=4.0.0-beta-3
+ARG MAVEN_VERSION=4.0.0-beta-5
 ARG USER_HOME_DIR="/root"
-ARG SHA=9df71ce42689e1942c9f134b91f93e29be29b521d898c25015dd4edf45249ea4a20000623bbffba7bb585e223e563fa6292241dda7b9034b9822bdfcb29bb269
+ARG SHA=e1b1a99203f478baa978d220be73ed4ae18c88bd615a6e2ef52e825b746b90c72e6f8a52d0f806f7a111f2663e2ed3ad887124ff7dcbad5a14d3d16894340d00
 ARG BASE_URL=https://dlcdn.apache.org/maven/maven-4/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
@@ -19,6 +19,7 @@ RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}
   6A814B1F869C2BBEAB7CB7271A2A1C94BDE89688 \
   29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
   073F7A9345756F3B40CDB99E6C70A3B7599C5736 \
+  88BE34F94BDB2B5357044E2E3A387D43964143E3 \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done; \
@@ -50,7 +51,7 @@ COPY settings-docker.xml /usr/share/maven/ref/
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=4.0.0-beta-3
+ARG MAVEN_VERSION=4.0.0-beta-5
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
