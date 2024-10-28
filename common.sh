@@ -40,19 +40,22 @@ if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
 fi
 
 version-aliases() {
-	local version=$1
+	local dir=$1
 	local branch=$2
 
-	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$version/Dockerfile" | cut -d'=' -f2)"
+	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$dir/Dockerfile" | cut -d'=' -f2)"
 	mavenVersion="${dockerfileMavenVersion}"
 
 	extraSuffixes=()
-	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$version/Dockerfile" | cut -d'=' -f2)"
+	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$dir/Dockerfile" | cut -d'=' -f2)"
 	if [ -n "${extraSuffixesString}" ]; then
 		for suffix in ${extraSuffixesString//,/ }; do
 			extraSuffixes+=("${suffix}")
 		done
 	fi
+
+	# dirs with -maven-4 suffix get that removed
+	local version="${dir/-maven-4/}"
 
 	versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
