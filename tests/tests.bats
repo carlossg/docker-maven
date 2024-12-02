@@ -19,7 +19,7 @@ base_image=eclipse-temurin-17
 			base_dir="${base_dir}-maven-4"
 		fi
 		cd $BATS_TEST_DIRNAME/../$base_dir
-		base_tag=$(grep -m 1 -o 'maven:[a-z0-9\.-]*' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile)
+		base_tag=$(grep -m 1 -o '[a-z:/\.]*maven:[a-z0-9\.-]*' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile)
 		echo $base_tag
 		docker build --pull -t $base_tag .
 	fi
