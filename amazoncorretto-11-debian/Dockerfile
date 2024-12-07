@@ -7,7 +7,10 @@ FROM debian:bookworm-slim
 RUN apt-get update \
   && apt-get install -y curl gnupg openssh-client \
   && export GNUPGHOME="$(mktemp -d)" \
-  && curl -fL https://apt.corretto.aws/corretto.key | gpg --batch --import \
+  && curl -fL https://apt.corretto.aws/corretto.key -o corretto.key \
+  && echo '18bbe2461ff5acb1212f95f3e41034c503460532de21c24f5f935359b2303586 *corretto.key' | sha256sum -c - \
+  && gpg --batch --import corretto.key \
+  && rm corretto.key \
   && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \
   && unset GNUPGHOME \
   && echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" > /etc/apt/sources.list.d/corretto.list \
