@@ -4,3 +4,4 @@
 /tests/target/
 *.tmp
 .idea
+/target/

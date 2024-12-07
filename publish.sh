@@ -11,6 +11,9 @@ from_linux=eclipse-temurin-17
 
 pattern="# common for all images"
 
+tmpdir=./target
+mkdir -p "$tmpdir"
+
 # we need gnu-sed on macos
 if prefix="$(brew --prefix gnu-sed 2>&1)" && [ -d "${prefix}/libexec/gnubin" ]; then
 	PATH="${prefix}/libexec/gnubin:$PATH"
@@ -46,15 +49,15 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 	uri=$(grep "ARG uri=" "$file" | sed -e 's/ARG uri=//')
 	zip=$(grep "ARG zip=" "$file" | sed -e 's/ARG zip=//')
 	hash=$(grep "ARG hash=" "$file" | sed -e 's/ARG hash=//')
-	if ! [ -f "/tmp/$zip" ]; then
+	if ! [ -f "$tmpdir/$zip" ]; then
 		echo "Downloading: $uri/$zip"
-		curl -sSLf -o "/tmp/$zip" "$uri/$zip"
+		curl -sSLf -o "$tmpdir/$zip" "$uri/$zip"
 	fi
-	IFS=" " read -r -a new_hash <<<"$(sha256sum "/tmp/$zip")"
+	IFS=" " read -r -a new_hash <<<"$(sha256sum "$tmpdir/$zip")"
 	echo "$file $uri/$zip $hash ${new_hash[0]}"
 	sed -i -e "s/ARG hash=.*/ARG hash=${new_hash[0]}/" "$file"
 	echo "Extracting JAVA_HOME from $zip"
-	if ! java_home="$( (unzip -t "/tmp/$zip" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
+	if ! java_home="$( (unzip -t "$tmpdir/$zip" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
 		echo >&2 "Failed to extract JAVA_HOME"
 		exit 1
 	fi
