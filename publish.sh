@@ -65,6 +65,12 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 	sed -i -e "s#JAVA_HOME=C.*#JAVA_HOME=C:/ProgramData/${java_home}#" "$file"
 done
 
+# Replace corretto.key sha
+new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256)
+find . -maxdepth 2 -name Dockerfile -exec \
+	sed -i "s/echo '[0-9a-f]* \*corretto.key' | sha256sum/echo '${new_sha} \*corretto.key' | sha256sum/g" {} \+
+echo "Replaced corretto.key SHA in all files."
+
 echo "Generating stackbrew"
 ./generate-stackbrew-library.sh >"${OFFICIAL_IMAGES_DIR}/library/maven"
 
