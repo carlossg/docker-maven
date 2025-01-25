@@ -8,7 +8,7 @@ RUN apt-get update \
   && apt-get install -y curl gnupg openssh-client \
   && export GNUPGHOME="$(mktemp -d)" \
   && curl -fL https://apt.corretto.aws/corretto.key -o corretto.key \
-  && echo '18bbe2461ff5acb1212f95f3e41034c503460532de21c24f5f935359b2303586 *corretto.key' | sha256sum -c - \
+  && echo '5fdaed0a262b975776b1d5c0170d2e86b1be1e98b27ef97114b04ec9ac7f011d *corretto.key' | sha256sum -c - \
   && gpg --batch --import corretto.key \
   && rm corretto.key \
   && gpg --batch --export '6DC3636DAE534049C8B94623A122542AB04F24E3' > /usr/share/keyrings/corretto.gpg \
