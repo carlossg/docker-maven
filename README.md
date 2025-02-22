@@ -360,6 +360,7 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 
 * Search and replace all references to the previous version by the new version.
 * Update environment variable SHA in `eclipse-temurin-17/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary tar.gz archive.
+  * Do it in `eclipse-temurin-17-maven-4/Dockerfile` for Maven 4.
 * Update environment variable SHA in `*-{nanoserver,windowsservercore}/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary zip archive.
 
 ## Publishing to Docker Hub
