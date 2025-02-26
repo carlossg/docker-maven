@@ -49,15 +49,25 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 	uri=$(grep "ARG uri=" "$file" | sed -e 's/ARG uri=//')
 	zip=$(grep "ARG zip=" "$file" | sed -e 's/ARG zip=//')
 	hash=$(grep "ARG hash=" "$file" | sed -e 's/ARG hash=//')
-	if ! [ -f "$tmpdir/$zip" ]; then
-		echo "Downloading: $uri/$zip"
-		curl -sSLf -o "$tmpdir/$zip" "$uri/$zip"
+
+	remote_file_url="$uri/$zip"
+	local_file_path="$tmpdir/$zip"
+
+	# Download the file if it doesn't exist or is newer
+	echo "Downloading $remote_file_url"
+	curl -sSLf -z "$local_file_path" -o "$local_file_path.tmp" "$remote_file_url"
+	if [ -f "$local_file_path.tmp" ]; then
+		echo "Downloaded $remote_file_url"
+		mv "$local_file_path.tmp" "$local_file_path"
+	else
+		echo "File $local_file_path already exists and is not older than the remote file"
 	fi
-	IFS=" " read -r -a new_hash <<<"$(sha256sum "$tmpdir/$zip")"
+
+	IFS=" " read -r -a new_hash <<<"$(sha256sum "$local_file_path")"
 	echo "$file $uri/$zip $hash ${new_hash[0]}"
 	sed -i -e "s/ARG hash=.*/ARG hash=${new_hash[0]}/" "$file"
 	echo "Extracting JAVA_HOME from $zip"
-	if ! java_home="$( (unzip -t "$tmpdir/$zip" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
+	if ! java_home="$( (unzip -t "$local_file_path" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
 		echo >&2 "Failed to extract JAVA_HOME"
 		exit 1
 	fi
