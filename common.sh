@@ -4,7 +4,7 @@ set -eu
 
 # Default values for 'latest' tag
 latestMavenVersion='3.9.9'
-latest='24'
+latest='21'
 default_jdk=eclipse-temurin
 
 # All the JDKs and their 'latest' tags
