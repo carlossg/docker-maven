@@ -1,0 +1,32 @@
+name: eclipse-temurin-24
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "eclipse-temurin-24/**"
+      - .github/workflows/eclipse-temurin-24.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "eclipse-temurin-24/**"
+      - .github/workflows/eclipse-temurin-24.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: eclipse-temurin-24
+    secrets: inherit

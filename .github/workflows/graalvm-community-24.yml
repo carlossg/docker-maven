@@ -1,0 +1,32 @@
+name: graalvm-community-24
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "graalvm-community-24/**"
+      - .github/workflows/graalvm-community-24.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "graalvm-community-24/**"
+      - .github/workflows/graalvm-community-24.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: graalvm-community-24
+    secrets: inherit
