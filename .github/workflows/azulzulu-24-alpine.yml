@@ -1,0 +1,32 @@
+name: azulzulu-24-alpine
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "azulzulu-24-alpine/**"
+      - .github/workflows/azulzulu-24-alpine.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "azulzulu-24-alpine/**"
+      - .github/workflows/azulzulu-24-alpine.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: azulzulu-24-alpine
+    secrets: inherit

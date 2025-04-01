@@ -1,0 +1,32 @@
+name: oracle-graalvm-24-maven-4
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "oracle-graalvm-24-maven-4/**"
+      - .github/workflows/oracle-graalvm-24-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "oracle-graalvm-24-maven-4/**"
+      - .github/workflows/oracle-graalvm-24-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: oracle-graalvm-24-maven-4
+    secrets: inherit

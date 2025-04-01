@@ -1,0 +1,32 @@
+name: sapmachine-24-maven-4
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "sapmachine-24-maven-4/**"
+      - .github/workflows/sapmachine-24-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "sapmachine-24-maven-4/**"
+      - .github/workflows/sapmachine-24-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: sapmachine-24-maven-4
+    secrets: inherit
