@@ -55,12 +55,11 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 
 	# Download the file if it doesn't exist or is newer
 	echo "Downloading $remote_file_url"
-	curl -sSLf -z "$local_file_path" -o "$local_file_path.tmp" "$remote_file_url"
-	if [ -f "$local_file_path.tmp" ]; then
+	if [ ! -f "$local_file_path" ]; then
+		curl -sSLf -o "$local_file_path" "$remote_file_url"
 		echo "Downloaded $remote_file_url"
-		mv "$local_file_path.tmp" "$local_file_path"
 	else
-		echo "File $local_file_path already exists and is not older than the remote file"
+		echo "File $local_file_path already exists"
 	fi
 
 	IFS=" " read -r -a new_hash <<<"$(sha256sum "$local_file_path")"
