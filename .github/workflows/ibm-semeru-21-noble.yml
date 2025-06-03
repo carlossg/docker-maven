@@ -1,0 +1,32 @@
+name: ibm-semeru-21-noble
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "ibm-semeru-21-noble/**"
+      - .github/workflows/ibm-semeru-21-noble.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "ibm-semeru-21-noble/**"
+      - .github/workflows/ibm-semeru-21-noble.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: ibm-semeru-21-noble
+    secrets: inherit
