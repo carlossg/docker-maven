@@ -15,23 +15,23 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 
 * [eclipse-temurin-8](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8/Dockerfile)
 * [eclipse-temurin-8-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-alpine/Dockerfile)
-* [eclipse-temurin-8-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-focal/Dockerfile)
+* [eclipse-temurin-8-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-noble/Dockerfile)
 * [eclipse-temurin-11](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11/Dockerfile)
 * [eclipse-temurin-11-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-alpine/Dockerfile)
-* [eclipse-temurin-11-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-focal/Dockerfile)
+* [eclipse-temurin-11-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-noble/Dockerfile)
 * [eclipse-temurin-17](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17/Dockerfile)
 * [eclipse-temurin-17-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
-* [eclipse-temurin-17-focal](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-focal/Dockerfile)
+* [eclipse-temurin-17-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-noble/Dockerfile)
 * [eclipse-temurin-21](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21/Dockerfile)
 * [eclipse-temurin-21-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-alpine/Dockerfile)
-* [eclipse-temurin-21-jammy](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-jammy/Dockerfile)
+* [eclipse-temurin-21-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-noble/Dockerfile)
 * [eclipse-temurin-24](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-24/Dockerfile)
 * [eclipse-temurin-24-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-24-alpine/Dockerfile)
 * [eclipse-temurin-24-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-24-noble/Dockerfile)
-* [ibm-semeru-11-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-focal/Dockerfile)
-* [ibm-semeru-17-focal](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-focal/Dockerfile)
-* [ibm-semeru-21-jammy](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-jammy/Dockerfile)
-* [ibm-semeru-24-jammy](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-24-jammy/Dockerfile)
+* [ibm-semeru-11-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-noble/Dockerfile)
+* [ibm-semeru-17-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-noble/Dockerfile)
+* [ibm-semeru-21-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-noble/Dockerfile)
+* [ibm-semeru-24-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-24-noble/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
@@ -256,26 +256,26 @@ Some come from the parent images and some are installed in this image for backwa
 | azulzulu-24-debian            |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | eclipse-temurin-8             | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-8-alpine      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-8-focal       | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-8-noble       | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-11            | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-11-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-11-focal      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-11-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17            | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-17-focal      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-17-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21            | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-21-jammy      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-21-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-24            | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-24-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-24-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | graalvm-community-17          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-21          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-24          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| ibm-semeru-11-focal           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-17-focal           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-21-jammy           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-24-jammy           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-11-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-17-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-21-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-24-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibmjava-8                     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | libericaopenjdk-8-alpine      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | libericaopenjdk-8-debian      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
