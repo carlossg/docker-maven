@@ -10,21 +10,21 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 ARG zip=amazon-corretto-17-x64-windows-jdk.zip
 ARG uri=https://corretto.aws/downloads/latest
-ARG hash=3f3cb5c5f75978dbc60f806b74331ba4bf5a5afe155b64a83844139684f50531
+ARG hash=dcc796f275bd89ed5fc7a7152e2b960ed250dc1b8b4b38a4684f41b97c0b6981
 
 RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
     if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { exit 1 } ; `
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/jdk17.0.14_7
+ENV JAVA_HOME=C:/ProgramData/jdk17.0.15_6
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.9.9
 ARG SHA=8beac8d11ef208f1e2a8df0682b9448a9a363d2ad13ca74af43705549e72e74c9378823bf689287801cbbfc2f6ea9596201d19ccacfdfb682ee8a2ff4c4418ba
-ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
+ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-3/${MAVEN_VERSION}/binaries
 
-RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip -OutFile ${env:TEMP}/apache-maven.zip ; `
+RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip?action=download -OutFile ${env:TEMP}/apache-maven.zip ; `
   if((Get-FileHash -Algorithm SHA512 -Path ${env:TEMP}/apache-maven.zip).Hash.ToLower() -ne ${env:SHA}) { exit 1 } ; `
   Expand-Archive -Path ${env:TEMP}/apache-maven.zip -Destination C:/ProgramData ; `
   Move-Item C:/ProgramData/apache-maven-${env:MAVEN_VERSION} C:/ProgramData/Maven ; `
