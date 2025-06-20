@@ -19,6 +19,7 @@ RUN set -eux; curl -fsSLO --retry 3 --retry-connrefused --compressed ${BASE_URL}
   6A814B1F869C2BBEAB7CB7271A2A1C94BDE89688 \
   29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
   88BE34F94BDB2B5357044E2E3A387D43964143E3 \
+  84789D24DF77A32433CE1F079EB80E92EB2135B1 \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done; \

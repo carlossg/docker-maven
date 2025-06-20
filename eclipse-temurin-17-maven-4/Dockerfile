@@ -20,6 +20,7 @@ RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}
   29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
   073F7A9345756F3B40CDB99E6C70A3B7599C5736 \
   88BE34F94BDB2B5357044E2E3A387D43964143E3 \
+  84789D24DF77A32433CE1F079EB80E92EB2135B1 \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done; \
