@@ -17,7 +17,7 @@ RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zi
     Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
     Remove-Item C:/${env:zip}
 
-ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_442
+ENV JAVA_HOME=C:/ProgramData/jdk1.8.0_452
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=3.9.9
