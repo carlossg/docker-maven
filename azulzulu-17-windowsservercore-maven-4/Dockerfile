@@ -19,7 +19,7 @@ RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zi
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=4.0.0-rc-3
-ARG SHA=333ff30559cb72ecc4ce40308814cdafc9d85d7311305ca66cb40e560033c939be12e6b55ad1c706de67cbf106640e8fc2f4c3a6d33a3fa4cad783d25a01bac0
+ARG SHA=cbc1cd352929685d72d8b64099e92591947ecb65dfcf79db50c6d2ccdbdfd410be257240028bbc7032481b2744465b691f46d596c3b7294f38b9744732aaea63
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip?action=download -OutFile ${env:TEMP}/apache-maven.zip ; `
