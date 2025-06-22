@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jdk AS builder
 ARG MAVEN_VERSION=4.0.0-rc-2
 ARG USER_HOME_DIR="/root"
 ARG SHA=3875f0387334d1a3941f344f654be30d9687c997faa599d7144f312d0a14d3d23fe35828223f93a57bf2682f8e6e2ad601a9c3dc28a8488acee13d1ad4e53dfe
-ARG BASE_URL=https://dlcdn.apache.org/maven/maven-4/${MAVEN_VERSION}/binaries
+ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
@@ -11,15 +11,16 @@ ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git gnupg dirmngr --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
-RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+RUN set -eux; curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz?action=download \
   && echo "${SHA} *apache-maven-${MAVEN_VERSION}-bin.tar.gz" | sha512sum -c - \
-  && curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc \
+  && curl -fsSLO --compressed ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz.asc?action=download \
   && export GNUPGHOME="$(mktemp -d)"; \
   for key in \
   6A814B1F869C2BBEAB7CB7271A2A1C94BDE89688 \
   29BEA2A645F2D6CED7FB12E02B172E3E156466E8 \
   073F7A9345756F3B40CDB99E6C70A3B7599C5736 \
   88BE34F94BDB2B5357044E2E3A387D43964143E3 \
+  84789D24DF77A32433CE1F079EB80E92EB2135B1 \
   ; do \
   gpg --batch --keyserver hkps://keyserver.ubuntu.com --recv-keys "$key" ; \
   done; \
