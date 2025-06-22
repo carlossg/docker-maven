@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk AS builder
 
-ARG MAVEN_VERSION=4.0.0-rc-2
+ARG MAVEN_VERSION=4.0.0-rc-3
 ARG USER_HOME_DIR="/root"
 ARG SHA=3875f0387334d1a3941f344f654be30d9687c997faa599d7144f312d0a14d3d23fe35828223f93a57bf2682f8e6e2ad601a9c3dc28a8488acee13d1ad4e53dfe
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
@@ -52,7 +52,7 @@ COPY settings-docker.xml /usr/share/maven/ref/
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=4.0.0-rc-2
+ARG MAVEN_VERSION=4.0.0-rc-3
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
