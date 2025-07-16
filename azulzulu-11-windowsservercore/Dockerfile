@@ -1,5 +1,5 @@
 # escape=`
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2025
 
 LABEL org.opencontainers.image.title="Apache Maven"
 LABEL org.opencontainers.image.source=https://github.com/carlossg/docker-maven

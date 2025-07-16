@@ -19,7 +19,7 @@ Write-Host "Image: $dir"
 
 # TODO manually copied from Dockerfiles
 if(($dir.Contains('amazoncorretto')) -or ($dir.Contains('azulzulu'))) {
-    $windowsDockerTag = 'ltsc2019'
+    $windowsDockerTag = 'ltsc2025'
 }
 if($dir.Contains('eclipse-temurin')) {
     $windowsDockerTag = '1809'
