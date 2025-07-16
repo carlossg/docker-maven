@@ -19,7 +19,8 @@ RUN apt-get update \
   && apt-get install -y java-24-amazon-corretto-jdk \
   && rm -rf /var/lib/apt/lists/*
 
-# set JAVA_HOME manually since nothing else will set it
+# set env vars manually since nothing else will set them
+ENV LANG=C.UTF-8
 ENV JAVA_HOME="/usr/lib/jvm/java-24-amazon-corretto"
 
 # common for all images
