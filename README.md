@@ -138,7 +138,7 @@ docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Sr
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-    docker build --tag my_local_maven:3.9.10-jdk-8 .
+    docker build --tag my_local_maven:3.9.11-jdk-8 .
 
 
 # Multi-stage Builds
