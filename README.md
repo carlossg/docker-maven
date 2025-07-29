@@ -276,12 +276,12 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-25-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| eclipse-temurin-25-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | graalvm-community-17        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-21        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| graalvm-community-24        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| graalvm-community-25        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| graalvm-community-24        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| graalvm-community-25        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | ibm-semeru-11-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-17-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-21-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
@@ -298,10 +298,10 @@ Some come from the parent images and some are installed in this image for backwa
 | microsoft-openjdk-17-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-21-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-25-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| oracle-graalvm-17           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| oracle-graalvm-25           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| oracle-graalvm-17           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
+| oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
+| oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
+| oracle-graalvm-25           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
 | sapmachine-11               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-17               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-21               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
