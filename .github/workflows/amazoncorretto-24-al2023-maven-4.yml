@@ -1,12 +1,12 @@
-name: amazoncorretto-23-al2023-maven-4
+name: amazoncorretto-24-al2023-maven-4
 
 on:
   push:
     branches:
     - main
     paths:
-      - "amazoncorretto-23-al2023-maven-4/**"
-      - .github/workflows/amazoncorretto-23-al2023-maven-4.yml
+      - "amazoncorretto-24-al2023-maven-4/**"
+      - .github/workflows/amazoncorretto-24-al2023-maven-4.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "amazoncorretto-23-al2023-maven-4/**"
-      - .github/workflows/amazoncorretto-23-al2023-maven-4.yml
+      - "amazoncorretto-24-al2023-maven-4/**"
+      - .github/workflows/amazoncorretto-24-al2023-maven-4.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: amazoncorretto-23-al2023-maven-4
+      directory: amazoncorretto-24-al2023-maven-4
     secrets: inherit
