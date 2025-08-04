@@ -1,3 +1,4 @@
+# DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:24-jdk-noble
 
 RUN apt-get update \
