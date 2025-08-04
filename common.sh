@@ -21,14 +21,6 @@ declare -A jdk_latest=(
 	["oracle-graalvm"]="21"
 )
 
-# Variants of the JDKs and their 'latest' tag
-# do not tag them as it is confusing and requires a lot of maintenance
-declare -A extra_tags=(
-	# ["eclipse-temurin-17-alpine"]="eclipse-temurin-alpine"
-	# ["libericaopenjdk-11-alpine"]="libericaopenjdk-alpine"
-	# ["openjdk-18-slim"]="openjdk-slim"
-)
-
 # All the directories that have images
 all_dirs=(eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* libericaopenjdk-* microsoft-* sapmachine-* graalvm-community-* oracle-graalvm-*)
 
@@ -43,10 +35,12 @@ version-aliases() {
 	local dir=$1
 	local branch=$2
 
+	local dockerfileMavenVersion
 	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$dir/Dockerfile" | cut -d'=' -f2)"
-	mavenVersion="${dockerfileMavenVersion}"
+	local mavenVersion="${dockerfileMavenVersion}"
 
-	extraSuffixes=()
+	local extraSuffixes=()
+	local extraSuffixesString
 	extraSuffixesString="$(grep -m1 '# EXTRA_TAG_SUFFIXES=' "$dir/Dockerfile" | cut -d'=' -f2)"
 	if [ -n "${extraSuffixesString}" ]; then
 		for suffix in ${extraSuffixesString//,/ }; do
@@ -57,7 +51,7 @@ version-aliases() {
 	# dirs with -maven-4 suffix get that removed
 	local version="${dir/-maven-4/}"
 
-	versionAliases=()
+	local versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=("$mavenVersion-$version")
 		# tag 3.5, 3.5.4
@@ -72,14 +66,14 @@ version-aliases() {
 			fi
 		done
 
-		# tag eclipse-temurin-8-alpine -> 3.9.11-eclipse-temurin-alpine
-		if [ -n "${extra_tags[$version]:-}" ]; then
-			versionAliases+=("$mavenVersion-${extra_tags[$version]}")
-		fi
-
 		for extraSuffix in "${extraSuffixes[@]}"; do
 			versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
 		done
+
+		# is this a default tag? ie. 3.9-eclipse-temurin-21-noble -> 3.9-eclipse-temurin-21
+		if grep -q -m1 '# DEFAULT_FOR_VERSION' "$dir/Dockerfile"; then
+			versionAliases+=("$(echo "$mavenVersion-$version" | sed 's/-[^-]*$//')")
+		fi
 
 		mavenVersion="${mavenVersion%[.-]*}"
 	done
@@ -105,11 +99,11 @@ version-aliases() {
 				versionAliases+=("$mavenVersion-${version//-$parent_image_latest/}" "${version//-$parent_image_latest/}")
 			fi
 		done
-	fi
 
-	# extra tags for variants
-	if [ -n "${extra_tags[$version]:-}" ]; then
-		versionAliases+=("${extra_tags[$version]}")
+		# is this a default tag? ie. 3-eclipse-temurin-21-noble -> 3-eclipse-temurin-21
+		if grep -q -m1 '# DEFAULT_FOR_VERSION' "$dir/Dockerfile"; then
+			versionAliases+=("$(echo "$mavenVersion-$version" | sed 's/-[^-]*$//')")
+		fi
 	fi
 
 	printf "%s\n" "${versionAliases[@]}"

@@ -10,7 +10,7 @@ load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
-base_image=eclipse-temurin-17
+base_image=eclipse-temurin-17-noble
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ] && [ "$SUT_TAG" != "${base_image}-maven-4" ]; then
