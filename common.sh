@@ -5,13 +5,13 @@ set -eu
 # Default values for 'latest' tag
 latestMavenVersion='3.9.11'
 latest='21'
-default_jdk=eclipse-temurin
+default_jdk=eclipse-temurin-$latest-noble
 
 # All the JDKs and their 'latest' tags
 parent_images=(eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
 declare -A jdk_latest=(
 	["jdk"]="17"
-	["eclipse-temurin"]=$latest
+	["eclipse-temurin"]="$latest-noble"
 	["ibmjava"]="8"
 	["ibm-semeru"]=""
 	["amazoncorretto"]="17"
@@ -55,7 +55,7 @@ version-aliases() {
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 		versionAliases+=("$mavenVersion-$version")
 		# tag 3.5, 3.5.4
-		if [[ "$version" == "$default_jdk-$latest" ]]; then
+		if [[ "$version" == "$default_jdk" ]]; then
 			versionAliases+=("$mavenVersion")
 		fi
 		for parent_image in "${parent_images[@]}"; do
@@ -87,7 +87,7 @@ version-aliases() {
 		done
 
 		# tag 3, latest
-		if [[ "$version" == "$default_jdk-$latest" ]]; then
+		if [[ "$version" == "$default_jdk" ]]; then
 			versionAliases+=("$mavenVersion" latest)
 			[ "$branch" = 'main' ] || versionAliases+=("$branch")
 		fi
