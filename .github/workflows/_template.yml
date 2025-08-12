@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup BATS
         uses: bats-core/bats-action@42fcc8700f773c075a16a90eb11674c0318ad507
       - name: Update submodules
