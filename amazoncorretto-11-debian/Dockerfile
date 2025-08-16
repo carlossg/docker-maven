@@ -1,6 +1,6 @@
 # Update EXTRA_TAG_SUFFIXES to new release when changing to next stable debian release
-# EXTRA_TAG_SUFFIXES=bookworm
-FROM debian:bookworm-slim
+# EXTRA_TAG_SUFFIXES=trixie
+FROM debian:trixie-slim
 
 # install corretto after verifying that the key is the one we expect.
 # and keep openssh client
