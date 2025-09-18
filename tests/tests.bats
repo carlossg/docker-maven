@@ -113,6 +113,7 @@ base_image=eclipse-temurin-17-noble
 @test "$SUT_TAG tar is installed" {
 	if ! (
 		[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
+			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]
@@ -133,6 +134,7 @@ base_image=eclipse-temurin-17-noble
 	if ! (
 		[[ "$SUT_TAG" == *"oracle"* ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
+			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]

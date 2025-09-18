@@ -48,6 +48,10 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-24-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-al2023/Dockerfile)
 * [amazoncorretto-24-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-alpine/Dockerfile)
 * [amazoncorretto-24-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-debian/Dockerfile)
+* [amazoncorretto-25](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25/)
+* [amazoncorretto-25-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-al2023/Dockerfile)
+* [amazoncorretto-25-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-alpine/Dockerfile)
+* [amazoncorretto-25-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-debian/Dockerfile)
 * [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
@@ -212,77 +216,81 @@ This is the defacto image. If you are unsure about what your needs are, you prob
 The following packages are currently installed in each variant.
 Some come from the parent images and some are installed in this image for backwards compatibility.
 
-|                               | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
-|-------------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
-| amazoncorretto-8              |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-8-al2023       |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-8-alpine       |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-8-debian       |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-11             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-11-al2023      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-11-alpine      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-11-debian      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-17             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-17-al2023      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-17-alpine      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-17-debian      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-21             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-21-al2023      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-21-alpine      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-21-debian      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-24             |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-24-al2023      |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-24-alpine      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-24-debian      |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| azulzulu-8                    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-8-alpine             |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-8-debian             |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| azulzulu-11                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-11-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-11-debian            |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| azulzulu-17                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-17-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-17-debian            |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| azulzulu-21                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-21-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-21-debian            |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| azulzulu-24                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-24-alpine            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| azulzulu-24-debian            |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| eclipse-temurin-8-alpine      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-8-noble       | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-11-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-11-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-17-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-17-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-21-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-21-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-24-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-24-noble      | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| graalvm-community-17          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| graalvm-community-21          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| graalvm-community-24          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| ibm-semeru-11-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-17-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-21-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibm-semeru-24-noble           | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| ibmjava-8                     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| libericaopenjdk-8-alpine      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| libericaopenjdk-8-debian      |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| libericaopenjdk-11-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| libericaopenjdk-11-debian     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| libericaopenjdk-17-alpine     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| libericaopenjdk-17-debian     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| microsoft-openjdk-11-ubuntu   | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| microsoft-openjdk-17-ubuntu   | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| microsoft-openjdk-21-ubuntu   | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| oracle-graalvm-17             |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| oracle-graalvm-21             |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| oracle-graalvm-24             |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| sapmachine-11                 | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| sapmachine-17                 | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| sapmachine-21                 | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
-| sapmachine-24                 | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+|                             | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
+|-----------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
+| amazoncorretto-8            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-8-al2023     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-8-alpine     |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-8-debian     |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-11           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-11-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-11-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-11-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-17           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-17-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-17-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-17-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-21           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-21-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-21-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-21-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-24           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-24-al2023    |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-24-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-24-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-25           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-25-al2023    |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-25-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-25-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-8                  |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-8-alpine           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-8-debian           |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-11                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-11-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-11-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-17                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-17-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-17-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-21                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-21-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-21-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-24                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-24-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-24-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| eclipse-temurin-8-alpine    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-8-noble     | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-11-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-11-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-17-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-17-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-21-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-21-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-24-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-24-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| graalvm-community-17        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| graalvm-community-21        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| graalvm-community-24        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| ibm-semeru-11-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-17-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-21-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-24-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibmjava-8                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| libericaopenjdk-8-alpine    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| libericaopenjdk-8-debian    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| libericaopenjdk-11-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| libericaopenjdk-11-debian   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| libericaopenjdk-17-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| libericaopenjdk-17-debian   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| microsoft-openjdk-11-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| microsoft-openjdk-17-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| microsoft-openjdk-21-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| oracle-graalvm-17           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| sapmachine-11               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| sapmachine-17               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| sapmachine-21               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| sapmachine-24               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 
 
 # Image Verification
