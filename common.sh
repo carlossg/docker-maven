@@ -53,7 +53,15 @@ version-aliases() {
 
 	local versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
+
+		# ignore 4.0.0-rc and 4.0.0 versions, we want 4.0.0-rc-4
+		if [[ "$mavenVersion" == *"-rc" ]]; then
+			# stop the loop
+			break
+		fi
+
 		versionAliases+=("$mavenVersion-$version")
+
 		# tag 3.5, 3.5.4
 		if [[ "$version" == "$default_jdk" ]]; then
 			versionAliases+=("$mavenVersion")
