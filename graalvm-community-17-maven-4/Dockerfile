@@ -9,9 +9,9 @@ LABEL org.opencontainers.image.description="Apache Maven is a software project m
 
 ENV MAVEN_HOME=/usr/share/maven
 
-COPY --from=ghcr.io/carlossg/maven:4.0.0-rc-4-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
-COPY --from=ghcr.io/carlossg/maven:4.0.0-rc-4-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
-COPY --from=ghcr.io/carlossg/maven:4.0.0-rc-4-eclipse-temurin-17 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
