@@ -1,0 +1,32 @@
+name: azulzulu-25-debian
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "azulzulu-25-debian/**"
+      - .github/workflows/azulzulu-25-debian.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "azulzulu-25-debian/**"
+      - .github/workflows/azulzulu-25-debian.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: azulzulu-25-debian
+    secrets: inherit
