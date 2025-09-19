@@ -115,6 +115,7 @@ base_image=eclipse-temurin-17-noble
 		[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-25-al2023* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]
 	); then
@@ -136,6 +137,7 @@ base_image=eclipse-temurin-17-noble
 			[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
 			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
+			[[ "$SUT_TAG" == amazoncorretto-25-al2023* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]
 	); then
