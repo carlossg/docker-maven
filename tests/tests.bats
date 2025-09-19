@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-eclipse-temurin-17}
+SUT_TAG=${TAG:-eclipse-temurin-17-noble}
 SUT_TEST_IMAGE=bats-maven-test
 
 bats_require_minimum_version 1.5.0
@@ -111,14 +111,22 @@ base_image=eclipse-temurin-17-noble
 # }
 
 @test "$SUT_TAG tar is installed" {
-	if ! (
-		[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
-			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-25-al2023* ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]
-	); then
+	if {
+		[[ "$SUT_TAG" != amazoncorretto-* ]] ||
+			{
+				[[ "$SUT_TAG" == amazoncorretto-* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-??-maven-4 ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-*-al2023-maven-4 ]] &&
+					{
+						[[ "$SUT_TAG" == amazoncorretto-8* ]] ||
+							[[ "$SUT_TAG" == amazoncorretto-11* ]] ||
+							[[ "$SUT_TAG" == amazoncorretto-17* ]] ||
+							[[ "$SUT_TAG" == amazoncorretto-21* ]] ||
+							[[ "$SUT_TAG" == amazoncorretto-*-alpine ]] ||
+							[[ "$SUT_TAG" == amazoncorretto-*-debian* ]]
+					}
+			}
+	}; then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG tar --version
 		assert_success
 	else
@@ -132,15 +140,20 @@ base_image=eclipse-temurin-17-noble
 # }
 
 @test "$SUT_TAG which is installed" {
-	if ! (
+	if ! {
 		[[ "$SUT_TAG" == *"oracle"* ]] ||
-			[[ "$SUT_TAG" == "amazoncorretto-24" ]] ||
-			[[ "$SUT_TAG" == "amazoncorretto-25" ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-24-al2023* ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-25-al2023* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]]
-	); then
+			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]] ||
+			{
+				[[ "$SUT_TAG" == amazoncorretto-* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-8* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-11* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-17* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-21* ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-*-alpine ]] &&
+					[[ "$SUT_TAG" != amazoncorretto-*-debian* ]]
+			}
+	}; then
 		run docker run --rm $SUT_IMAGE:$SUT_TAG which sh
 		[ $status -eq 0 ]
 	else
