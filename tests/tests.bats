@@ -41,12 +41,12 @@ base_image=eclipse-temurin-17-noble
 	rm -f "${dockerfile}"
 }
 
-# @test "$SUT_TAG create test container" {
-# 	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
-# 	run docker run --rm $SUT_IMAGE:$SUT_TAG mvn -version
-# 	assert_success
-# 	assert_line -p "Apache Maven $version "
-# }
+@test "$SUT_TAG create test container" {
+	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
+	run docker run --rm $SUT_IMAGE:$SUT_TAG mvn -version
+	assert_success
+	assert_line -p "Apache Maven $version "
+}
 
 # @test "$SUT_TAG create test container (-u 11337:11337)" {
 # 	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"

@@ -1,6 +1,6 @@
 FROM amazoncorretto:24
 
-RUN yum install -y openssh-clients
+RUN yum install -y openssh-clients findutils
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"
