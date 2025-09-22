@@ -56,6 +56,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
 * [sapmachine-24](https://github.com/carlossg/docker-maven/blob/main/sapmachine-24/)
+* [sapmachine-25](https://github.com/carlossg/docker-maven/blob/main/sapmachine-25/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
@@ -73,9 +74,13 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-24](https://github.com/carlossg/docker-maven/blob/main/azulzulu-24/Dockerfile)
 * [azulzulu-24-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-24-alpine/Dockerfile)
 * [azulzulu-24-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-24-debian/Dockerfile)
+* [azulzulu-25](https://github.com/carlossg/docker-maven/blob/main/azulzulu-25/Dockerfile)
+* [azulzulu-25-alpine](https://github.com/carlossg/docker-maven/blob/main/azulzulu-25-alpine/Dockerfile)
+* [azulzulu-25-debian](https://github.com/carlossg/docker-maven/blob/main/azulzulu-25-debian/Dockerfile)
 * [graalvm-community-17](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-17/)
 * [graalvm-community-21](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-21/)
 * [graalvm-community-24](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-24/)
+* [graalvm-community-25](https://github.com/carlossg/docker-maven/blob/main/graalvm-community-25/)
 * [libericaopenjdk-8-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-alpine/Dockerfile)
 * [libericaopenjdk-8-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-8-debian/Dockerfile)
 * [libericaopenjdk-11-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-alpine/Dockerfile)
@@ -88,6 +93,7 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
 * [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 * [oracle-graalvm-24](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-24/)
+* [oracle-graalvm-25](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-25/)
 
 ## Windows Based Images
 
@@ -257,6 +263,9 @@ Some come from the parent images and some are installed in this image for backwa
 | azulzulu-24                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-24-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-24-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| azulzulu-25                 |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-25-alpine          |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| azulzulu-25-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | eclipse-temurin-8-alpine    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-8-noble     | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-11-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
@@ -270,6 +279,7 @@ Some come from the parent images and some are installed in this image for backwa
 | graalvm-community-17        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-21        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-24        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
+| graalvm-community-25        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | ibm-semeru-11-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-17-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-21-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
@@ -287,10 +297,12 @@ Some come from the parent images and some are installed in this image for backwa
 | oracle-graalvm-17           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| oracle-graalvm-25           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | sapmachine-11               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-17               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-21               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-24               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| sapmachine-25               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 
 
 # Image Verification
