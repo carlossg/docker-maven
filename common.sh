@@ -14,11 +14,11 @@ declare -A jdk_latest=(
 	["eclipse-temurin"]="$latest-noble"
 	["ibmjava"]="8"
 	["ibm-semeru"]=""
-	["amazoncorretto"]="17"
+	["amazoncorretto"]="25"
 	["libericaopenjdk"]="17"
-	["sapmachine"]="21"
-	["graalvm-community"]="21"
-	["oracle-graalvm"]="21"
+	["sapmachine"]="25"
+	["graalvm-community"]="25"
+	["oracle-graalvm"]="25"
 )
 
 # All the directories that have images
