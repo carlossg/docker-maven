@@ -1,9 +1,6 @@
-# DEFAULT_FOR_VERSION (remove the -noble suffix)
-FROM eclipse-temurin:24-jdk-noble
+FROM eclipse-temurin:25-jdk-alpine
 
-RUN apt-get update \
-  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"
@@ -13,13 +10,13 @@ LABEL org.opencontainers.image.description="Apache Maven is a software project m
 
 ENV MAVEN_HOME=/usr/share/maven
 
-COPY --from=maven:3.9.11-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
-COPY --from=maven:3.9.11-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
-COPY --from=maven:3.9.11-eclipse-temurin-17 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven:4.0.0-rc-4-eclipse-temurin-17 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=3.9.11
+ARG MAVEN_VERSION=4.0.0-rc-4
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 

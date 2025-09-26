@@ -1,12 +1,12 @@
-name: eclipse-temurin-24-alpine
+name: eclipse-temurin-25-alpine
 
 on:
   push:
     branches:
     - main
     paths:
-      - "eclipse-temurin-24-alpine/**"
-      - .github/workflows/eclipse-temurin-24-alpine.yml
+      - "eclipse-temurin-25-alpine/**"
+      - .github/workflows/eclipse-temurin-25-alpine.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "eclipse-temurin-24-alpine/**"
-      - .github/workflows/eclipse-temurin-24-alpine.yml
+      - "eclipse-temurin-25-alpine/**"
+      - .github/workflows/eclipse-temurin-25-alpine.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: eclipse-temurin-24-alpine
+      directory: eclipse-temurin-25-alpine
     secrets: inherit
