@@ -21,8 +21,8 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-17-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-noble/Dockerfile)
 * [eclipse-temurin-21-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-alpine/Dockerfile)
 * [eclipse-temurin-21-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-noble/Dockerfile)
-* [eclipse-temurin-24-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-24-alpine/Dockerfile)
-* [eclipse-temurin-24-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-24-noble/Dockerfile)
+* [eclipse-temurin-25-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-alpine/Dockerfile)
+* [eclipse-temurin-25-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-noble/Dockerfile)
 * [ibm-semeru-11-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-noble/Dockerfile)
 * [ibm-semeru-17-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-noble/Dockerfile)
 * [ibm-semeru-21-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-noble/Dockerfile)
@@ -274,8 +274,8 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-17-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-24-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-24-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-25-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | graalvm-community-17        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-21        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | graalvm-community-24        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
