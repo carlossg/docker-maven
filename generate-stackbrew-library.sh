@@ -55,7 +55,7 @@ generate-version() {
 		fi
 
 		# Amazon Corretto apt does not support arm32v7, ppc64le, s390x, riscv64
-		if [[ "${version}" == amazoncorretto-*-debian ]]; then
+		if [[ "${version}" == amazoncorretto-*-debian* ]]; then
 			if [[ "${arch}" != "amd64" ]] && [[ "${arch}" != "arm64v8" ]]; then
 				continue
 			fi
