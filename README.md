@@ -27,6 +27,7 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [ibm-semeru-17-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-17-noble/Dockerfile)
 * [ibm-semeru-21-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-21-noble/Dockerfile)
 * [ibm-semeru-24-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-24-noble/Dockerfile)
+* [ibm-semeru-25-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-25-noble/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
 * [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
@@ -284,6 +285,7 @@ Some come from the parent images and some are installed in this image for backwa
 | ibm-semeru-17-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-21-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibm-semeru-24-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| ibm-semeru-25-noble         | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | ibmjava-8                   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | libericaopenjdk-8-alpine    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | libericaopenjdk-8-debian    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
