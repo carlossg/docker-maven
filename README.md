@@ -92,6 +92,7 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
+* [microsoft-openjdk-25-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-25-ubuntu/Dockerfile)
 * [oracle-graalvm-17](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-17/)
 * [oracle-graalvm-21](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-21/)
 * [oracle-graalvm-24](https://github.com/carlossg/docker-maven/blob/main/oracle-graalvm-24/)
@@ -298,6 +299,7 @@ Some come from the parent images and some are installed in this image for backwa
 | microsoft-openjdk-11-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-17-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-21-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| microsoft-openjdk-25-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | oracle-graalvm-17           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |

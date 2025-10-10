@@ -1,0 +1,32 @@
+name: microsoft-openjdk-25-ubuntu-maven-4
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "microsoft-openjdk-25-ubuntu-maven-4/**"
+      - .github/workflows/microsoft-openjdk-25-ubuntu-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "microsoft-openjdk-25-ubuntu-maven-4/**"
+      - .github/workflows/microsoft-openjdk-25-ubuntu-maven-4.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: microsoft-openjdk-25-ubuntu-maven-4
+    secrets: inherit
