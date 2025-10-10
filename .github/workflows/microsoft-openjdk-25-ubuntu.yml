@@ -1,0 +1,32 @@
+name: microsoft-openjdk-25-ubuntu
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "microsoft-openjdk-25-ubuntu/**"
+      - .github/workflows/microsoft-openjdk-25-ubuntu.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+  pull_request:
+    paths:
+      - "microsoft-openjdk-25-ubuntu/**"
+      - .github/workflows/microsoft-openjdk-25-ubuntu.yml
+      - .github/workflows/_template.yml
+      - common.sh
+      - tags-for-dir.sh
+      - "tests/**"
+      - "!tests/*.ps*"
+      - "!tests/*.windows"
+
+jobs:
+  build:
+    uses: ./.github/workflows/_template.yml
+    with:
+      directory: microsoft-openjdk-25-ubuntu
+    secrets: inherit
