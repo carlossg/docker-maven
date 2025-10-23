@@ -45,10 +45,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/)
 * [amazoncorretto-21-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-alpine/Dockerfile)
 * [amazoncorretto-21-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-debian/Dockerfile)
-* [amazoncorretto-24](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24/)
-* [amazoncorretto-24-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-al2023/Dockerfile)
-* [amazoncorretto-24-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-alpine/Dockerfile)
-* [amazoncorretto-24-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-24-debian/Dockerfile)
 * [amazoncorretto-25](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25/)
 * [amazoncorretto-25-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-al2023/Dockerfile)
 * [amazoncorretto-25-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-alpine/Dockerfile)
@@ -242,10 +238,6 @@ Some come from the parent images and some are installed in this image for backwa
 | amazoncorretto-21-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-21-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-21-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-24           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-24-al2023    |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-24-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
-| amazoncorretto-24-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-25           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-25-al2023    |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-25-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
