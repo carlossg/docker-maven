@@ -13,11 +13,11 @@ ARG uri=https://corretto.aws/downloads/latest
 ARG hash=64086aa7f7f6f40900b28f513b00872f1aaa1a40fe0aa6357084c97e0cd80391
 
 RUN Invoke-WebRequest -Uri $('{0}/{1}' -f $env:uri,$env:zip) -OutFile C:/$env:zip ; `
-  if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { `
-  Write-Error "Checksum for $($env:zip) does not match expected value. Expected: $($env:hash) Actual: $((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower())" ; `
-  exit 1 } ; `
-  Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
-  Remove-Item C:/${env:zip}
+    if((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower() -ne $env:hash) { `
+    Write-Error \"Checksum for $($env:zip) does not match expected value. Expected: $($env:hash) Actual: $((Get-FileHash C:/$env:zip -Algorithm SHA256).Hash.ToLower())\" ; `
+    exit 1 } ; `
+    Expand-Archive -Path C:/$env:zip -Destination C:/ProgramData ; `
+    Remove-Item C:/${env:zip}
 
 ENV JAVA_HOME=C:/ProgramData/jdk17.0.16_8
 
