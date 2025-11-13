@@ -1,9 +1,9 @@
 # DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:17-jdk-noble AS builder
 
-ARG MAVEN_VERSION=4.0.0-rc-4
+ARG MAVEN_VERSION=4.0.0-rc-5
 ARG USER_HOME_DIR="/root"
-ARG SHA=0684d86ecee7756ee6b6c21fb29c702b3e12b4b9b7a3c16f794c4bff4ed43aab9c3d45f3f9d4e44d91f07572c9baf06bac665fd5eca0c45e9911b25108e122b0
+ARG SHA=942c19fb75ab7a5d2a11001e3d6c8c6214c81d2736ebc613243d22f7b4ab0404092d47511317d767e8f22a1c634a3762cc7e6b4b6693580ac86e73c0bed1bee2
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
@@ -53,7 +53,7 @@ COPY settings-docker.xml /usr/share/maven/ref/
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=4.0.0-rc-4
+ARG MAVEN_VERSION=4.0.0-rc-5
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
