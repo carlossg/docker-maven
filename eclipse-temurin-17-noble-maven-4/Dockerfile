@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jdk-noble AS builder
 
 ARG MAVEN_VERSION=4.0.0-rc-5
 ARG USER_HOME_DIR="/root"
-ARG SHA=0a1be79f02466533fc1a80abbef8796e4f737c46c6574ede5658b110899942a94db634477dfd3745501c80aef9aac0d4f841d38574373f7e2d24cce89d694f70
+ARG SHA=942c19fb75ab7a5d2a11001e3d6c8c6214c81d2736ebc613243d22f7b4ab0404092d47511317d767e8f22a1c634a3762cc7e6b4b6693580ac86e73c0bed1bee2
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
