@@ -23,7 +23,7 @@ ENV JAVA_HOME=C:/ProgramData/jdk17.0.17_10
 
 ARG USER_HOME_DIR="C:/Users/ContainerUser"
 ARG MAVEN_VERSION=4.0.0-rc-5
-ARG SHA=3e947180e44f1cb059b5a3bb8b0a543bb97f645bfda85a22d8226f1db6536e77ff737dca7fe808f47fad4f5e42ad0c584d91fa0ead9856692053b0c322d22152
+ARG SHA=0ef0d074761a55e7b982fd7f2cd6ea2da028289c73156ebd488c0513efbff8a64ac5bc0c11c3b8bbced930ce15238ecef344b0e065ae54f7cdca8c86cf39e736
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-4/${MAVEN_VERSION}/binaries
 
 RUN Invoke-WebRequest -Uri ${env:BASE_URL}/apache-maven-${env:MAVEN_VERSION}-bin.zip?action=download -OutFile ${env:TEMP}/apache-maven.zip ; `
