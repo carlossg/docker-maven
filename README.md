@@ -19,7 +19,6 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [eclipse-temurin-11-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-noble/Dockerfile)
 * [eclipse-temurin-17-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
 * [eclipse-temurin-17-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-noble/Dockerfile)
-* [eclipse-temurin-21](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21/Dockerfile)
 * [eclipse-temurin-21-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-alpine/Dockerfile)
 * [eclipse-temurin-21-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-noble/Dockerfile)
 * [eclipse-temurin-25-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-alpine/Dockerfile)
@@ -267,7 +266,6 @@ Some come from the parent images and some are installed in this image for backwa
 | eclipse-temurin-11-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
-| eclipse-temurin-21          | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
