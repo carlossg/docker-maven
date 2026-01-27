@@ -84,6 +84,8 @@ Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [libericaopenjdk-11-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-11-debian/Dockerfile)
 * [libericaopenjdk-17-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-alpine/Dockerfile)
 * [libericaopenjdk-17-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-17-debian/Dockerfile)
+* [libericaopenjdk-25-alpine](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-25-alpine/Dockerfile)
+* [libericaopenjdk-25-debian](https://github.com/carlossg/docker-maven/blob/main/libericaopenjdk-25-debian/Dockerfile)
 * [microsoft-openjdk-11-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-11-ubuntu/Dockerfile)
 * [microsoft-openjdk-17-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-17-ubuntu/Dockerfile)
 * [microsoft-openjdk-21-ubuntu](https://github.com/carlossg/docker-maven/blob/main/microsoft-openjdk-21-ubuntu/Dockerfile)
@@ -286,6 +288,8 @@ Some come from the parent images and some are installed in this image for backwa
 | libericaopenjdk-11-debian   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | libericaopenjdk-17-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | libericaopenjdk-17-debian   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| libericaopenjdk-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| libericaopenjdk-25-debian   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | microsoft-openjdk-11-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-17-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | microsoft-openjdk-21-ubuntu | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
