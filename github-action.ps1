@@ -37,7 +37,7 @@ $tags | ForEach-Object {
     Push-Location $dir
     $tag = ('csanchez/maven:{0}-{1}-{2}' -f $_,$dir,$windowsDockerTag)
     Write-Host "Building: $tag"
-    docker buildx build --tag $tag .
+    docker buildx build --tag $tag --load .
 
     if($env:DOCKER_PUSH -eq 'true') {
         # docker login with cause a warning which will cause this to fail unless we SilentlyContinue
