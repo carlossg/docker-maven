@@ -143,7 +143,7 @@ docker run -it --rm --name my-maven-project -v "$(Get-Location)":C:/Src -w C:/Sr
 
 This is a base image that you can extend, so it has the bare minimum packages needed. If you add custom package(s) to the `Dockerfile`, then you can build your local Docker image like this:
 
-    docker build --tag my_local_maven:3.9.13-jdk-8 .
+    docker build --tag my_local_maven:latest .
 
 
 # Multi-stage Builds
@@ -368,10 +368,20 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 
 ## Updating Maven version
 
-* Search and replace all references to the previous version by the new version.
-* Update environment variable SHA in `eclipse-temurin-17/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary tar.gz archive.
-  * Do it in `eclipse-temurin-17-maven-4/Dockerfile` for Maven 4.
-* Update environment variable SHA in `*-{nanoserver,windowsservercore}/Dockerfile` with value found in [maven download page](https://maven.apache.org/download.cgi) for the binary zip archive.
+Run `update-maven-version.sh` to automatically update all files to the latest Maven 3.x release:
+
+    ./update-maven-version.sh
+
+Or target a specific version:
+
+    ./update-maven-version.sh 3.9.14
+
+The script will:
+* Replace all version references across Dockerfiles and scripts
+* Fetch and update the SHA512 in `eclipse-temurin-17-noble/Dockerfile` (tar.gz, used by Linux images)
+* Fetch and update the SHA512 in all `*-windowsservercore/Dockerfile`s (zip, used by Windows images)
+
+A GitHub Actions workflow (`.github/workflows/update-maven-version.yml`) runs this script daily and opens a PR automatically when a new version is available.
 
 ## Publishing to Docker Hub
 
