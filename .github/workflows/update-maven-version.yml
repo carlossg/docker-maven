@@ -1,0 +1,49 @@
+name: Update Maven Version
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-maven:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run update script
+        id: update
+        run: |
+          CURRENT=$(grep "latestMavenVersion=" common.sh | cut -d"'" -f2)
+          echo "current=$CURRENT" >> $GITHUB_OUTPUT
+
+          ./update-maven-version.sh
+
+          NEW=$(grep "latestMavenVersion=" common.sh | cut -d"'" -f2)
+          echo "new=$NEW" >> $GITHUB_OUTPUT
+
+          if [ "$CURRENT" != "$NEW" ]; then
+            echo "updated=true" >> $GITHUB_OUTPUT
+          else
+            echo "updated=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.update.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: bump Maven from ${{ steps.update.outputs.current }} to ${{ steps.update.outputs.new }}"
+          branch: "bump-maven-${{ steps.update.outputs.new }}"
+          delete-branch: true
+          title: "chore: bump Maven from ${{ steps.update.outputs.current }} to ${{ steps.update.outputs.new }}"
+          body: |
+            Bumps Maven from `${{ steps.update.outputs.current }}` to `${{ steps.update.outputs.new }}`.
+
+            - [Release notes](https://github.com/apache/maven/releases/tag/maven-${{ steps.update.outputs.new }})
+            - [Maven download page](https://maven.apache.org/download.cgi)
+          labels: dependencies
