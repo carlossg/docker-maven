@@ -34,7 +34,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.update.outputs.updated == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.WORKFLOW_PAT }}
           commit-message: "chore: bump Maven from ${{ steps.update.outputs.current }} to ${{ steps.update.outputs.new }}"
