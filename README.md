@@ -49,11 +49,11 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-25-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-al2023/Dockerfile)
 * [amazoncorretto-25-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-alpine/Dockerfile)
 * [amazoncorretto-25-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-debian/Dockerfile)
-* [sapmachine-11](https://github.com/carlossg/docker-maven/blob/main/sapmachine-11/)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
 * [sapmachine-24](https://github.com/carlossg/docker-maven/blob/main/sapmachine-24/)
 * [sapmachine-25](https://github.com/carlossg/docker-maven/blob/main/sapmachine-25/)
+* [sapmachine-26](https://github.com/carlossg/docker-maven/blob/main/sapmachine-26/)
 
 Only under `csanchez/maven` and `ghcr.io/carlossg/maven`:
 * [azulzulu-8](https://github.com/carlossg/docker-maven/blob/main/azulzulu-8/Dockerfile)
@@ -298,11 +298,11 @@ Some come from the parent images and some are installed in this image for backwa
 | oracle-graalvm-21           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
 | oracle-graalvm-24           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
 | oracle-graalvm-25           |     | ✔︎    | ✔︎   | ✔︎    |       | ✔︎    |        |     | ✔︎   |
-| sapmachine-11               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-17               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-21               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-24               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | sapmachine-25               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| sapmachine-26               | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 
 
 # Image Verification
@@ -365,6 +365,7 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
 * Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
+* Run tests with `bats tests`, ie. `TAG=eclipse-temurin-17 bats tests`
 
 ## Updating Maven version
 
