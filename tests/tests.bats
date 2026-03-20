@@ -19,9 +19,14 @@ base_image=eclipse-temurin-17-noble
 			base_dir="${base_dir}-maven-4"
 		fi
 		cd $BATS_TEST_DIRNAME/../$base_dir
-		base_tag=$(grep -m 1 -o '[a-z:/\.]*maven:[a-z0-9\.-]*' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile)
-		echo $base_tag
-		docker build --pull -t $base_tag .
+		child_dockerfile=$BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile
+		base_tag=$(grep -m 1 '^FROM maven:' "$child_dockerfile" | sed -E 's/^FROM ([^[:space:]]+)( AS maven_upstream)?$/\1/')
+		if [[ "$base_tag" == *'${MAVEN_VERSION}'* ]]; then
+			maven_version=$(grep -m 1 '^ARG MAVEN_VERSION=' "$child_dockerfile" | sed 's/^ARG MAVEN_VERSION=//')
+			base_tag="${base_tag//\$\{MAVEN_VERSION\}/$maven_version}"
+		fi
+		echo "Using base image: $base_tag"
+		docker build --pull -t "$base_tag" .
 	fi
 }
 

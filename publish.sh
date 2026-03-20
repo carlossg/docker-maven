@@ -7,7 +7,8 @@ set -o pipefail
 
 OFFICIAL_IMAGES_DIR=../../docker/official-images
 
-from_linux=eclipse-temurin-17
+# Images under this prefix build Maven from source in-repo; all other Linux dirs get Dockerfile-template.
+from_linux=eclipse-temurin-17-noble
 
 pattern="# common for all images"
 
@@ -31,12 +32,23 @@ for dir in "${all_dirs[@]}"; do
 		if [[ "$dir" != "$from"* ]]; then
 			# remove everything after the 'common for all images' line
 			sed "/^${pattern}$/q" "$dir/Dockerfile" | sponge "$dir/Dockerfile"
-			# copy from the main Dockerfile template the common lines
-			if [[ "$dir" == *"maven-4"* ]]; then
-				tail +2 Dockerfile-template-maven-4 >>"$dir/Dockerfile"
-			else
-				tail +2 Dockerfile-template >>"$dir/Dockerfile"
+			# BuildKit does not expand variables in COPY --from=; use a named stage from global ARG+FROM.
+			if ! head -20 "$dir/Dockerfile" | grep -q 'AS maven_upstream'; then
+				tmpfile="$(mktemp)"
+				{
+					if [[ "$dir" == *"maven-4"* ]]; then
+						echo "ARG MAVEN_VERSION=${latestMaven4Version}"
+					else
+						echo "ARG MAVEN_VERSION=${latestMavenVersion}"
+					fi
+					echo 'FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream'
+					echo ''
+					cat "$dir/Dockerfile"
+				} >"$tmpfile"
+				mv "$tmpfile" "$dir/Dockerfile"
 			fi
+			# copy from the main Dockerfile template the common lines
+			tail +2 Dockerfile-template >>"$dir/Dockerfile"
 		fi
 	fi
 done

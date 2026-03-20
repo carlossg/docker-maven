@@ -1,3 +1,6 @@
+ARG MAVEN_VERSION=4.0.0-rc-5
+FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream
+
 FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
 
 RUN apt-get update \
@@ -12,13 +15,10 @@ LABEL org.opencontainers.image.description="Apache Maven is a software project m
 
 ENV MAVEN_HOME=/usr/share/maven
 
-COPY --from=maven:4.0.0-rc-5-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
-COPY --from=maven:4.0.0-rc-5-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
-COPY --from=maven:4.0.0-rc-5-eclipse-temurin-17 /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
+COPY --from=maven_upstream ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven_upstream /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
-
-ARG MAVEN_VERSION=4.0.0-rc-5
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 
