@@ -6,9 +6,8 @@ LABEL org.opencontainers.image.description="Apache Maven is a software project m
 
 ENV MAVEN_HOME=/usr/share/maven
 
-ARG MAVEN_VERSION=3.9.14
-COPY --from=maven:${MAVEN_VERSION}-eclipse-temurin-17 ${MAVEN_HOME} ${MAVEN_HOME}
-COPY --from=maven:${MAVEN_VERSION}-eclipse-temurin-17 /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven_upstream ${MAVEN_HOME} ${MAVEN_HOME}
+COPY --from=maven_upstream /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 ARG USER_HOME_DIR="/root"
