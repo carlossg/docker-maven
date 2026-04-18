@@ -379,7 +379,7 @@ Run `update-maven-version.sh` to automatically update all files to the latest Ma
 
 Or target a specific version:
 
-    ./update-maven-version.sh 3.9.14
+    ./update-maven-version.sh 3.9.15
 
 The script will:
 * Replace all version references across Dockerfiles and scripts

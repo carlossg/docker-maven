@@ -1,4 +1,4 @@
-ARG MAVEN_VERSION=3.9.14
+ARG MAVEN_VERSION=3.9.15
 FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream
 
 FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
