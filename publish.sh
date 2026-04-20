@@ -47,7 +47,7 @@ for dir in "${all_dirs[@]}"; do
 				mv "$tmpfile" "$dir/Dockerfile"
 			fi
 			# copy from the main Dockerfile template the common lines
-			tail +2 Dockerfile-template >>"$dir/Dockerfile"
+			tail -n +2 Dockerfile-template >>"$dir/Dockerfile"
 		fi
 	fi
 done
@@ -86,7 +86,7 @@ find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; d
 done
 
 # Replace corretto.key sha
-new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256)
+new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256sum | awk '{print $1}')
 find . -maxdepth 2 -name Dockerfile -exec \
 	sed -i "s/echo '[0-9a-f]* \*corretto.key' | sha256sum/echo '${new_sha} \*corretto.key' | sha256sum/g" {} \+
 echo "Replaced corretto.key SHA in all files."
