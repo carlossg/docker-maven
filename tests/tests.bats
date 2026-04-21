@@ -22,7 +22,7 @@ base_image=eclipse-temurin-17-noble
 		child_dockerfile=$BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile
 		base_tag=$(grep -m 1 '^FROM maven:' "$child_dockerfile" | sed -E 's/^FROM ([^[:space:]]+)( AS maven_upstream)?$/\1/')
 		if [[ "$base_tag" == *'${MAVEN_VERSION}'* ]]; then
-			maven_version=$(grep -m 1 '^ARG MAVEN_VERSION=' "$child_dockerfile" | sed 's/^ARG MAVEN_VERSION=//')
+            maven_version=$(grep -m 1 '^FROM maven:' "$child_dockerfile" | sed -E -n 's|^FROM maven:([^ ]+)-eclipse-temurin.*|\1|p')
 			base_tag="${base_tag//\$\{MAVEN_VERSION\}/$maven_version}"
 		fi
 		echo "Using base image: $base_tag"
@@ -52,14 +52,17 @@ base_image=eclipse-temurin-17-noble
 }
 
 @test "$SUT_TAG create test container" {
-	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
+    version="$(grep -m 1 '^FROM maven:' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -E -n 's|^FROM maven:([^ ]+)-eclipse-temurin.*|\1|p')"
+	if [ -z "$version" ]; then
+		version="$(grep -m 1 'ARG MAVEN_VERSION=' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | cut -d'=' -f2)"
+	fi
 	run docker run --rm $SUT_IMAGE:$SUT_TAG mvn -version
 	assert_success
 	assert_line -p "Apache Maven $version "
 }
 
 # @test "$SUT_TAG create test container (-u 11337:11337)" {
-# 	version="$(grep -m 1 'ARG MAVEN_VERSION' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -e 's/ARG MAVEN_VERSION=//')"
+# 	version="$(grep -m 1 '^FROM maven:' $BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile | sed -E 's|^FROM maven:([^ ]+)-eclipse-temurin.*|\1|')"
 # 	run docker run --rm -u 11337:11337 -e HOME=/tmp $SUT_IMAGE:$SUT_TAG mvn -version
 # 	assert_success
 # 	assert_line -p "Apache Maven $version "

@@ -37,11 +37,10 @@ for dir in "${all_dirs[@]}"; do
 				tmpfile="$(mktemp)"
 				{
 					if [[ "$dir" == *"maven-4"* ]]; then
-						echo "ARG MAVEN_VERSION=${latestMaven4Version}"
+						echo "FROM maven:${latestMaven4Version}-eclipse-temurin-17 AS maven_upstream"
 					else
-						echo "ARG MAVEN_VERSION=${latestMavenVersion}"
+						echo "FROM maven:${latestMavenVersion}-eclipse-temurin-17 AS maven_upstream"
 					fi
-					echo 'FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream'
 					echo ''
 					cat "$dir/Dockerfile"
 				} >"$tmpfile"

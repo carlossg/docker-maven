@@ -1,5 +1,4 @@
-ARG MAVEN_VERSION=4.0.0-rc-5
-FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream
+FROM maven:4.0.0-rc-5-eclipse-temurin-17 AS maven_upstream
 
 # DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:25-jdk-noble

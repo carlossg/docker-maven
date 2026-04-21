@@ -37,7 +37,11 @@ version-aliases() {
 	local branch=$2
 
 	local dockerfileMavenVersion
-	dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$dir/Dockerfile" | cut -d'=' -f2)"
+	dockerfileMavenVersion="$(grep -m1 '^FROM maven:' "$dir/Dockerfile" | sed -E -n 's|^FROM maven:([^ ]+)-eclipse-temurin.*|\1|p')"
+	# fallback for source-build images (e.g. eclipse-temurin-17-noble) that have no FROM maven: line
+	if [ -z "$dockerfileMavenVersion" ]; then
+		dockerfileMavenVersion="$(grep -m1 'ARG MAVEN_VERSION=' "$dir/Dockerfile" | cut -d'=' -f2)"
+	fi
 	local mavenVersion="${dockerfileMavenVersion}"
 
 	local extraSuffixes=()

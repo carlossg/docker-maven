@@ -1,5 +1,4 @@
-ARG MAVEN_VERSION=3.9.15
-FROM maven:${MAVEN_VERSION}-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.9.15-eclipse-temurin-17 AS maven_upstream
 
 # Update EXTRA_TAG_SUFFIXES to new release when changing to next stable debian release
 # EXTRA_TAG_SUFFIXES=trixie
