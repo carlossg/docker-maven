@@ -51,7 +51,6 @@ COPY settings-docker.xml /usr/share/maven/ref/
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 
-ARG MAVEN_VERSION=3.9.15
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
 

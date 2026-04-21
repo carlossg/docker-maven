@@ -18,6 +18,7 @@ ENV MAVEN_HOME=/usr/share/maven
 
 COPY --from=maven_upstream ${MAVEN_HOME} ${MAVEN_HOME}
 COPY --from=maven_upstream /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY --from=maven_upstream /usr/share/maven/ref/settings-docker.xml /usr/share/maven/ref/settings-docker.xml
 
 RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 ARG USER_HOME_DIR="/root"
