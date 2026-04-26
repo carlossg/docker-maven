@@ -399,6 +399,7 @@ For that we use `publish.sh` that runs `generate-stackbrew-library.sh`
 - [docker-library/official-images](https://github.com/docker-library/official-images) repository forked and cloned locally on path `../../docker/official-images`
 - [bashbrew cli](https://github.com/docker-library/bashbrew) available on path
 - [sponge cli](https://formulae.brew.sh/formula/sponge) available on path
+- [coreutils](https://formulae.brew.sh/formula/coreutils) and [gnu-sed](https://formulae.brew.sh/formula/gnu-sed) available on path (required for macOS)
 
 ### Usage
 
