@@ -32,7 +32,7 @@ RUN mkdir -p ${MAVEN_HOME} ${MAVEN_HOME}/ref \
 RUN mvn --version
 
 
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:17-jdk-noble
 
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
