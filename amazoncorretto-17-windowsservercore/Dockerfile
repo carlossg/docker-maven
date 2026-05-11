@@ -43,6 +43,8 @@ RUN setx /M PATH $('{0};{1}' -f $env:PATH,'C:\ProgramData\Maven\bin') | Out-Null
 
 USER ContainerUser
 ENV JAVA_HOME=${JAVA_HOME}
+RUN mvn org.apache.maven.plugins:maven-toolchains-plugin:3.2.0:generate-jdk-toolchains-xml \
+  && mv "$MAVEN_CONFIG/discovered-jdk-toolchains-cache.xml" "$MAVEN_CONFIG/toolchains.xml"
 
 ENTRYPOINT ["powershell.exe", "-f", "C:/ProgramData/Maven/mvn-entrypoint.ps1"]
 CMD ["mvn"]

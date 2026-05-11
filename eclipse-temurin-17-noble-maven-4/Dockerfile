@@ -56,6 +56,8 @@ RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 ARG MAVEN_VERSION=4.0.0-rc-5
 ARG USER_HOME_DIR="/root"
 ENV MAVEN_CONFIG="$USER_HOME_DIR/.m2"
+RUN mvn org.apache.maven.plugins:maven-toolchains-plugin:3.2.0:generate-jdk-toolchains-xml \
+  && mv "$MAVEN_CONFIG/discovered-jdk-toolchains-cache.xml" "$MAVEN_CONFIG/toolchains.xml"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn"]
