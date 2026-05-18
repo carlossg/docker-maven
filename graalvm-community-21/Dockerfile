@@ -1,4 +1,4 @@
-FROM maven:3.9.15-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.9.16-eclipse-temurin-17 AS maven_upstream
 
 FROM ghcr.io/graalvm/graalvm-community:21
 
