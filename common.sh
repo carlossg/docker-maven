@@ -28,8 +28,8 @@ all_dirs=(eclipse-temurin-* ibmjava-* ibm-semeru-* amazoncorretto-* azulzulu-* l
 ######################################################################################################################################
 
 # use gnu sed in darwin
-if [[ -d /usr/local/opt/gnu-sed/libexec/gnubin ]]; then
-	PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+if prefix="$(brew --prefix gnu-sed 2>&1)" && [ -d "${prefix}/libexec/gnubin" ]; then
+	PATH="${prefix}/libexec/gnubin:$PATH"
 fi
 
 version-aliases() {
