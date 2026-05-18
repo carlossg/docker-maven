@@ -12,9 +12,6 @@ from_linux=eclipse-temurin-17-noble
 
 pattern="# common for all images"
 
-tmpdir=./target
-mkdir -p "$tmpdir"
-
 # we need gnu-sed on macos
 if prefix="$(brew --prefix gnu-sed 2>&1)" && [ -d "${prefix}/libexec/gnubin" ]; then
 	PATH="${prefix}/libexec/gnubin:$PATH"
@@ -56,34 +53,7 @@ done
 ./github-action-generation.sh
 
 # Download windows jdks, update hash and JAVA_HOME
-find . -iname Dockerfile -exec grep -Hl "ARG uri=" {} \; | while read -r file; do
-	uri=$(grep "ARG uri=" "$file" | sed -e 's/ARG uri=//')
-	zip=$(grep "ARG zip=" "$file" | sed -e 's/ARG zip=//')
-	hash=$(grep "ARG hash=" "$file" | sed -e 's/ARG hash=//')
-
-	remote_file_url="$uri/$zip"
-	local_file_path="$tmpdir/$zip"
-
-	# Download the file if it doesn't exist or is newer
-	echo "Downloading $remote_file_url"
-	if [ ! -f "$local_file_path" ]; then
-		curl -sSLf -o "$local_file_path" "$remote_file_url"
-		echo "Downloaded $remote_file_url"
-	else
-		echo "File $local_file_path already exists"
-	fi
-
-	IFS=" " read -r -a new_hash <<<"$(sha256sum "$local_file_path")"
-	echo "$file $uri/$zip $hash ${new_hash[0]}"
-	sed -i -e "s/ARG hash=.*/ARG hash=${new_hash[0]}/" "$file"
-	echo "Extracting JAVA_HOME from $zip"
-	if ! java_home="$( (unzip -t "$local_file_path" || true) | grep -m 1 "testing: " | sed -e 's#.*testing: \(.*\)/.*#\1#')"; then
-		echo >&2 "Failed to extract JAVA_HOME"
-		exit 1
-	fi
-	echo "Found JAVA_HOME for $zip: $java_home"
-	sed -i -e "s#JAVA_HOME=C.*#JAVA_HOME=C:/ProgramData/${java_home}#" "$file"
-done
+./update-windows-jdks.sh
 
 # Replace corretto.key sha
 new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256sum | awk '{print $1}')

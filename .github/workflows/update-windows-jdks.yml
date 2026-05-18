@@ -1,0 +1,39 @@
+name: Update Windows JDKs
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-windows-jdks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Run update script
+        id: update
+        run: |
+          ./update-windows-jdks.sh
+          if git diff --quiet; then
+            echo "updated=false" >> $GITHUB_OUTPUT
+          else
+            echo "updated=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.update.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.WORKFLOW_PAT }}
+          commit-message: "chore: bump windows JDK versions"
+          branch: "bump-windows-jdks"
+          delete-branch: true
+          title: "chore: bump windows JDK versions"
+          body: |
+            Bumps Windows JDK versions, updating SHA256 hashes and JAVA_HOME paths.
+          labels: dependencies
