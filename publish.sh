@@ -12,10 +12,6 @@ from_linux=eclipse-temurin-17-noble
 
 pattern="# common for all images"
 
-# we need gnu-sed on macos
-if prefix="$(brew --prefix gnu-sed 2>&1)" && [ -d "${prefix}/libexec/gnubin" ]; then
-	PATH="${prefix}/libexec/gnubin:$PATH"
-fi
 
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
