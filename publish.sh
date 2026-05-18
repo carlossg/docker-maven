@@ -12,7 +12,6 @@ from_linux=eclipse-temurin-17-noble
 
 pattern="# common for all images"
 
-
 for dir in "${all_dirs[@]}"; do
 	if [[ "$dir" == *"windows"* ]] || [[ "$dir" == *"nanoserver"* ]]; then
 		from=amazoncorretto-17-windowsservercore
@@ -47,9 +46,6 @@ done
 
 # Generate GihHub action workflows
 ./github-action-generation.sh
-
-# Download windows jdks, update hash and JAVA_HOME
-./update-windows-jdks.sh
 
 # Replace corretto.key sha
 new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256sum | awk '{print $1}')
