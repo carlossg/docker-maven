@@ -1,9 +1,10 @@
 FROM maven:3.9.16-eclipse-temurin-17 AS maven_upstream
 
+# EXTRA_TAG_SUFFIXES=al2023
 FROM amazoncorretto:17
 
 RUN yum install -y tar which gzip # TODO remove
-RUN yum install -y openssh-clients
+RUN yum install -y openssh-clients findutils
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"

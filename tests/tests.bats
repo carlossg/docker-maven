@@ -141,7 +141,6 @@ base_image=eclipse-temurin-17-noble
 			{
 				[[ "$SUT_TAG" == amazoncorretto-* ]] &&
 					[[ "$SUT_TAG" != amazoncorretto-??-maven-4 ]] &&
-					[[ "$SUT_TAG" != amazoncorretto-*-al2023-maven-4 ]] &&
 					{
 						[[ "$SUT_TAG" == amazoncorretto-8* ]] ||
 							[[ "$SUT_TAG" == amazoncorretto-11* ]] ||
@@ -168,7 +167,6 @@ base_image=eclipse-temurin-17-noble
 	if ! {
 		[[ "$SUT_TAG" == *"oracle"* ]] ||
 			[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
-			[[ "$SUT_TAG" == amazoncorretto-*-al2023-maven-4 ]] ||
 			{
 				[[ "$SUT_TAG" == amazoncorretto-* ]] &&
 					[[ "$SUT_TAG" != amazoncorretto-8* ]] &&
@@ -211,7 +209,6 @@ base_image=eclipse-temurin-17-noble
 	if [[ "$SUT_TAG" == amazoncorretto-? ]] ||
 		[[ "$SUT_TAG" == amazoncorretto-?? ]] ||
 		[[ "$SUT_TAG" == amazoncorretto-??-maven-4 ]] ||
-		[[ "$SUT_TAG" == amazoncorretto-*-al2023* ]] ||
 		[[ "$SUT_TAG" == eclipse-temurin-8-* ]] ||
 		[[ "$SUT_TAG" == eclipse-temurin-11-* ]] ||
 		[[ "$SUT_TAG" == eclipse-temurin-17-* ]] ||

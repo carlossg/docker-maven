@@ -32,23 +32,18 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [ibm-semeru-25-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-25-noble/Dockerfile)
 * [ibmjava-8](https://github.com/carlossg/docker-maven/blob/main/ibmjava-8/Dockerfile)
 * [amazoncorretto-8](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8/Dockerfile)
-* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
 * [amazoncorretto-8-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-alpine/Dockerfile)
 * [amazoncorretto-8-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-debian/Dockerfile)
 * [amazoncorretto-11](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11/)
-* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
 * [amazoncorretto-11-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-alpine/Dockerfile)
 * [amazoncorretto-11-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-debian/Dockerfile)
 * [amazoncorretto-17](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17/)
-* [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
 * [amazoncorretto-17-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-alpine/Dockerfile)
 * [amazoncorretto-17-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-debian/Dockerfile)
 * [amazoncorretto-21](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21/)
-* [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/)
 * [amazoncorretto-21-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-alpine/Dockerfile)
 * [amazoncorretto-21-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-debian/Dockerfile)
 * [amazoncorretto-25](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25/)
-* [amazoncorretto-25-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-al2023/Dockerfile)
 * [amazoncorretto-25-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-alpine/Dockerfile)
 * [amazoncorretto-25-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-debian/Dockerfile)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
@@ -104,10 +99,6 @@ See Docker Hub [`csanchez/maven`](https://hub.docker.com/r/csanchez/maven) for a
 * [amazoncorretto-8-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-windowsservercore/Dockerfile)
 * [amazoncorretto-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-windowsservercore/Dockerfile)
 * [amazoncorretto-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-windowsservercore/Dockerfile)
-* [amazoncorretto-8-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-8-al2023/Dockerfile)
-* [amazoncorretto-11-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-11-al2023/Dockerfile)
-* [amazoncorretto-17-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-17-al2023/Dockerfile)
-* [amazoncorretto-21-al2023](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-21-al2023/Dockerfile)
 * [azulzulu-11-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-11-windowsservercore/Dockerfile)
 * [azulzulu-17-windowsservercore-1809](https://github.com/carlossg/docker-maven/blob/main/azulzulu-17-windowsservercore/Dockerfile)
 
@@ -227,23 +218,18 @@ Some come from the parent images and some are installed in this image for backwa
 |                             | git | curl | tar | bash | which | gzip | procps | gpg | ssh |
 |-----------------------------|-----|------|-----|------|-------|------|--------|-----|-----|
 | amazoncorretto-8            |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-8-al2023     |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-8-alpine     |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-8-debian     |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-11           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-11-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-11-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-11-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-17           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-17-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-17-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-17-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-21           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-21-al2023    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-21-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-21-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-25           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
-| amazoncorretto-25-al2023    |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-25-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-25-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | azulzulu-8                  |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
