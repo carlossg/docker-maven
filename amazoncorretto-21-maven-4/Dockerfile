@@ -1,5 +1,6 @@
 FROM maven:4.0.0-rc-5-eclipse-temurin-17 AS maven_upstream
 
+# EXTRA_TAG_SUFFIXES=al2023
 FROM amazoncorretto:21
 
 RUN yum install -y openssh-clients findutils
