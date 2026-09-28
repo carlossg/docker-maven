@@ -1,6 +1,6 @@
 FROM maven:4.0.0-rc-7-eclipse-temurin-17 AS maven_upstream
 
-FROM sapmachine:26
+FROM sapmachine:27
 
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \

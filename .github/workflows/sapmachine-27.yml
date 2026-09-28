@@ -1,12 +1,12 @@
-name: sapmachine-26-maven-4
+name: sapmachine-27
 
 on:
   push:
     branches:
     - main
     paths:
-      - "sapmachine-26-maven-4/**"
-      - .github/workflows/sapmachine-26-maven-4.yml
+      - "sapmachine-27/**"
+      - .github/workflows/sapmachine-27.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -15,8 +15,8 @@ on:
       - "!tests/*.windows"
   pull_request:
     paths:
-      - "sapmachine-26-maven-4/**"
-      - .github/workflows/sapmachine-26-maven-4.yml
+      - "sapmachine-27/**"
+      - .github/workflows/sapmachine-27.yml
       - .github/workflows/_template.yml
       - common.sh
       - tags-for-dir.sh
@@ -28,5 +28,5 @@ jobs:
   build:
     uses: ./.github/workflows/_template.yml
     with:
-      directory: sapmachine-26-maven-4
+      directory: sapmachine-27
     secrets: inherit
