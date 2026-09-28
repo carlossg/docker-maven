@@ -4,7 +4,7 @@ set -eu
 
 # Default values for 'latest' tag
 latestMavenVersion='3.9.16'
-latestMaven4Version='4.0.0-rc-5'
+latestMaven4Version='4.0.0-rc-7'
 latest='26'
 default_jdk=eclipse-temurin-$latest-noble
 
@@ -59,7 +59,7 @@ version-aliases() {
 	local versionAliases=()
 	while [ "${mavenVersion%[.-]*}" != "$mavenVersion" ]; do
 
-		# ignore 4.0.0-rc and 4.0.0 versions, we want 4.0.0-rc-5
+		# ignore 4.0.0-rc and 4.0.0 versions, we want 4.0.0-rc-7
 		if [[ "$mavenVersion" == *"-rc" ]]; then
 			# stop the loop
 			break
