@@ -1,4 +1,4 @@
-FROM maven:4.0.0-rc-5-eclipse-temurin-17 AS maven_upstream
+FROM maven:4.0.0-rc-7-eclipse-temurin-17 AS maven_upstream
 
 # Update EXTRA_TAG_SUFFIXES to new release when changing to next stable debian release
 # EXTRA_TAG_SUFFIXES=trixie
