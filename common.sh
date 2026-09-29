@@ -17,7 +17,7 @@ declare -A jdk_latest=(
 	["ibm-semeru"]=""
 	["amazoncorretto"]="25"
 	["libericaopenjdk"]="25"
-	["sapmachine"]="26"
+	["sapmachine"]="27"
 	["graalvm-community"]="25"
 	["oracle-graalvm"]="25"
 )
