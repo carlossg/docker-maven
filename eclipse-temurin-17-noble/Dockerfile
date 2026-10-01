@@ -1,9 +1,9 @@
 # DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:17-jdk-noble AS builder
 
-ARG MAVEN_VERSION=3.9.16
+ARG MAVEN_VERSION=3.10.0
 ARG USER_HOME_DIR="/root"
-ARG SHA=831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0cafb8338851f90780735568773e0a6cd07bbec107cda0b896b008b861075358b6f6
+ARG SHA=908b1501bfb420bf7c8affb855534a9c407fd6099367bfb9f2f2dcb8e9799102bffb84518cde74c679bd76870247c6528683abdd620581bffa90f95d92d175aa
 ARG BASE_URL=https://www.apache.org/dyn/closer.lua/maven/maven-3/${MAVEN_VERSION}/binaries
 
 ENV MAVEN_HOME=/usr/share/maven
