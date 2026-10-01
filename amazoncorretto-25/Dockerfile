@@ -1,4 +1,4 @@
-FROM maven:3.9.16-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.10.0-eclipse-temurin-17 AS maven_upstream
 
 # EXTRA_TAG_SUFFIXES=al2023
 FROM amazoncorretto:25-al2023
