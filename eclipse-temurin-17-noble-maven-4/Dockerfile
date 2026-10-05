@@ -1,4 +1,3 @@
-# DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:17-jdk-noble AS builder
 
 ARG MAVEN_VERSION=4.0.0-rc-7
