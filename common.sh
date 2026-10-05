@@ -5,14 +5,14 @@ set -eu
 # Default values for 'latest' tag
 latestMavenVersion='3.10.0'
 latestMaven4Version='4.0.0-rc-7'
-latest='26'
-default_jdk=eclipse-temurin-$latest-noble
+latest='27'
+default_jdk=eclipse-temurin-$latest-resolute
 
 # All the JDKs and their 'latest' tags
 parent_images=(eclipse-temurin ibmjava ibm-semeru amazoncorretto libericaopenjdk sapmachine graalvm-community oracle-graalvm)
 declare -A jdk_latest=(
 	["jdk"]="17"
-	["eclipse-temurin"]="$latest-noble"
+	["eclipse-temurin"]="$latest-resolute"
 	["ibmjava"]="8"
 	["ibm-semeru"]=""
 	["amazoncorretto"]="25"

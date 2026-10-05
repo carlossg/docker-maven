@@ -1,11 +1,8 @@
-FROM maven:3.10.0-eclipse-temurin-17 AS maven_upstream
+FROM maven:4.0.0-rc-7-eclipse-temurin-17 AS maven_upstream
 
-# DEFAULT_FOR_VERSION (remove the -noble suffix)
-FROM eclipse-temurin:26-jdk-noble
+FROM eclipse-temurin:27-jdk-alpine
 
-RUN apt-get update \
-  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache bash procps curl tar openssh-client
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"

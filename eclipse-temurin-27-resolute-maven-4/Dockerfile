@@ -1,8 +1,11 @@
 FROM maven:4.0.0-rc-7-eclipse-temurin-17 AS maven_upstream
 
-FROM eclipse-temurin:26-jdk-alpine
+# DEFAULT_FOR_VERSION (remove the -resolute suffix)
+FROM eclipse-temurin:27-jdk-resolute
 
-RUN apk add --no-cache bash procps curl tar openssh-client
+RUN apt-get update \
+  && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
 
 # common for all images
 LABEL org.opencontainers.image.title="Apache Maven"
