@@ -1,6 +1,6 @@
 FROM maven:3.10.0-eclipse-temurin-17 AS maven_upstream
 
-FROM eclipse-temurin:26-jdk-alpine
+FROM eclipse-temurin:27-jdk-alpine
 
 RUN apk add --no-cache bash procps curl tar openssh-client
 
