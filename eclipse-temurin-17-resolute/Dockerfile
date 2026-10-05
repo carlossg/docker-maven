@@ -1,5 +1,6 @@
-FROM maven:3.10.0-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.10.0-eclipse-temurin-17-noble AS maven_upstream
 
+# DEFAULT_FOR_VERSION (remove the -resolute suffix)
 FROM eclipse-temurin:17-jdk-resolute
 
 RUN apt-get update \
