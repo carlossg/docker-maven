@@ -1,6 +1,7 @@
-FROM maven:3.10.0-eclipse-temurin-17-noble AS maven_upstream
+FROM maven:3.10.0-eclipse-temurin-17 AS maven_upstream
 
-FROM eclipse-temurin:21-jdk-noble
+# DEFAULT_FOR_VERSION (remove the -resolute suffix)
+FROM eclipse-temurin:25-jdk-resolute
 
 RUN apt-get update \
   && apt-get install -y ca-certificates curl git openssh-client --no-install-recommends \

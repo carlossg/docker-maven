@@ -15,14 +15,19 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 
 * [eclipse-temurin-8-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-alpine/Dockerfile)
 * [eclipse-temurin-8-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-noble/Dockerfile)
+* [eclipse-temurin-8-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-8-resolute/Dockerfile)
 * [eclipse-temurin-11-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-alpine/Dockerfile)
 * [eclipse-temurin-11-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-noble/Dockerfile)
+* [eclipse-temurin-11-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-11-resolute/Dockerfile)
 * [eclipse-temurin-17-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-alpine/Dockerfile)
 * [eclipse-temurin-17-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-noble/Dockerfile)
+* [eclipse-temurin-17-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-17-resolute/Dockerfile)
 * [eclipse-temurin-21-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-alpine/Dockerfile)
 * [eclipse-temurin-21-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-noble/Dockerfile)
+* [eclipse-temurin-21-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-21-resolute/Dockerfile)
 * [eclipse-temurin-25-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-alpine/Dockerfile)
 * [eclipse-temurin-25-noble](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-noble/Dockerfile)
+* [eclipse-temurin-25-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-25-resolute/Dockerfile)
 * [eclipse-temurin-27-alpine](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-27-alpine/Dockerfile)
 * [eclipse-temurin-27-resolute](https://github.com/carlossg/docker-maven/blob/main/eclipse-temurin-27-resolute/Dockerfile)
 * [ibm-semeru-11-noble](https://github.com/carlossg/docker-maven/blob/main/ibm-semeru-11-noble/Dockerfile)
@@ -252,14 +257,19 @@ Some come from the parent images and some are installed in this image for backwa
 | azulzulu-25-debian          |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | eclipse-temurin-8-alpine    |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-8-noble     | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-8-resolute  | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-11-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-11-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-11-resolute | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-17-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-17-resolute | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-21-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
+| eclipse-temurin-21-resolute | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      | ✔︎   | ✔︎   |
 | eclipse-temurin-25-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-25-noble    | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
+| eclipse-temurin-25-resolute | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-27-alpine   |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | eclipse-temurin-27-resolute | ✔︎   | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | graalvm-community-17        |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        | ✔︎   | ✔︎   |
@@ -319,7 +329,7 @@ Tests are written using [bats](https://github.com/sstephenson/bats) for Linux im
 Use the env var TAG to choose what image to run tests against.
 
 ### Linux
-    TAG=eclipse-temurin-17 bats tests
+    TAG=eclipse-temurin-17-resolute bats tests
 
 ### Windows
 ```powershell
@@ -355,7 +365,7 @@ Pester comes with most modern Windows (Windows 10 and Windows Server 2019), but 
 * When adding a new JDK then it also needs to be added to the beginning of `common.sh`
 * Run `github-action-generation.sh` to generate new GitHub Actions for the new image
 * When a parent image changes the `latest` tag to a new JDK version it can be updated in `common.sh`
-* Run tests with `bats tests`, ie. `TAG=eclipse-temurin-17 bats tests`
+* Run tests with `bats tests`, ie. `TAG=eclipse-temurin-17-resolute bats tests`
 
 ## Updating Maven version
 

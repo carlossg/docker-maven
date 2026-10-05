@@ -83,7 +83,7 @@ version-aliases() {
 			versionAliases+=("${mavenVersion}-${version}-${extraSuffix}")
 		done
 
-		# is this a default tag? ie. 3.9-eclipse-temurin-21-noble -> 3.9-eclipse-temurin-21
+		# is this a default tag? ie. 3.9-eclipse-temurin-21-resolute -> 3.9-eclipse-temurin-21
 		if grep -q -m1 '# DEFAULT_FOR_VERSION' "$dir/Dockerfile"; then
 			versionAliases+=("$(echo "$mavenVersion-$version" | sed 's/-[^-]*$//')")
 		fi
@@ -113,7 +113,7 @@ version-aliases() {
 			fi
 		done
 
-		# is this a default tag? ie. 3-eclipse-temurin-21-noble -> 3-eclipse-temurin-21
+		# is this a default tag? ie. 3-eclipse-temurin-21-resolute -> 3-eclipse-temurin-21
 		if grep -q -m1 '# DEFAULT_FOR_VERSION' "$dir/Dockerfile"; then
 			versionAliases+=("$(echo "$mavenVersion-$version" | sed 's/-[^-]*$//')")
 		fi

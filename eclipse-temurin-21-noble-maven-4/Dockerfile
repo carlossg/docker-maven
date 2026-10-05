@@ -1,6 +1,5 @@
-FROM maven:4.0.0-rc-7-eclipse-temurin-17 AS maven_upstream
+FROM maven:4.0.0-rc-7-eclipse-temurin-17-noble AS maven_upstream
 
-# DEFAULT_FOR_VERSION (remove the -noble suffix)
 FROM eclipse-temurin:21-jdk-noble
 
 RUN apt-get update \

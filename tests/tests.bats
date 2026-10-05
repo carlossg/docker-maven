@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 SUT_IMAGE=maven
-SUT_TAG=${TAG:-eclipse-temurin-17-noble}
+SUT_TAG=${TAG:-eclipse-temurin-17-resolute}
 SUT_TEST_IMAGE=bats-maven-test
 
 bats_require_minimum_version 1.5.0
@@ -10,7 +10,15 @@ load 'test_helper/bats-support/load'
 load 'test_helper/bats-assert/load'
 load test_helpers
 
-base_image=eclipse-temurin-17-noble
+# image the SUT copies maven from, ie. FROM maven:3.10.0-eclipse-temurin-17-noble -> eclipse-temurin-17-noble
+base_image=$(grep -m 1 '^FROM maven:' "$BATS_TEST_DIRNAME/../$SUT_TAG/Dockerfile" | sed -E -n 's|^FROM maven:[^ ]+-(eclipse-temurin-[^ ]+).*|\1|p')
+if [ -z "$base_image" ]; then
+	# source-build image, it is its own base
+	base_image=${SUT_TAG%-maven-4}
+elif [ ! -d "$BATS_TEST_DIRNAME/../$base_image" ]; then
+	# unsuffixed tag, ie. eclipse-temurin-17 -> the eclipse-temurin-17-* dir marked as DEFAULT_FOR_VERSION
+	base_image=$(basename "$(dirname "$(grep -l -m 1 '# DEFAULT_FOR_VERSION' "$BATS_TEST_DIRNAME/../$base_image"-*/Dockerfile | grep -v maven-4 | head -1)")")
+fi
 
 @test "$SUT_TAG build base $base_image image" {
 	if [ "$SUT_TAG" != "$base_image" ] && [ "$SUT_TAG" != "${base_image}-maven-4" ]; then
