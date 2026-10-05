@@ -20,25 +20,37 @@ if(-Not (Test-CommandExists docker)) {
     Write-Error "docker is not available"
 }
 
+# Run a program, retrying it when it fails due to rate limiting by Docker Hub or Maven Central
+# (HTTP 429 Too Many Requests, or 403 Forbidden from Maven Central).
+# Retries $env:RETRY_RATE_LIMIT_ATTEMPTS times (default 5), waiting $env:RETRY_RATE_LIMIT_DELAY seconds (default 60) between attempts.
+$RateLimitPattern = '429 Too Many Requests|toomanyrequests|Status: 429|status code: 429|HTTP Status: 403|status code: 403'
 function Run-Program($Cmd, $Params) {
-    $psi = New-Object System.Diagnostics.ProcessStartInfo
-    $psi.CreateNoWindow = $true
-    $psi.UseShellExecute = $false
-    $psi.RedirectStandardOutput = $true
-    $psi.RedirectStandardError = $true
-    $psi.WorkingDirectory = (Get-Location)
-    $psi.FileName = $Cmd
-    $psi.Arguments = $Params
-    $proc = New-Object System.Diagnostics.Process
-    $proc.StartInfo = $psi
-    [void]$proc.Start()
-    $stdout = $proc.StandardOutput.ReadToEnd()
-    $stderr = $proc.StandardError.ReadToEnd()
-    $proc.WaitForExit()
-    if($proc.ExitCode -ne 0) {
-        Write-Host "`n`nstdout:`n$stdout`n`nstderr:`n$stderr`n`n"
+    $attempts = if($env:RETRY_RATE_LIMIT_ATTEMPTS) { [int]$env:RETRY_RATE_LIMIT_ATTEMPTS } else { 5 }
+    $delay = if($env:RETRY_RATE_LIMIT_DELAY) { [int]$env:RETRY_RATE_LIMIT_DELAY } else { 60 }
+    for($attempt = 1; ; $attempt++) {
+        $psi = New-Object System.Diagnostics.ProcessStartInfo
+        $psi.CreateNoWindow = $true
+        $psi.UseShellExecute = $false
+        $psi.RedirectStandardOutput = $true
+        $psi.RedirectStandardError = $true
+        $psi.WorkingDirectory = (Get-Location)
+        $psi.FileName = $Cmd
+        $psi.Arguments = $Params
+        $proc = New-Object System.Diagnostics.Process
+        $proc.StartInfo = $psi
+        [void]$proc.Start()
+        $stdout = $proc.StandardOutput.ReadToEnd()
+        $stderr = $proc.StandardError.ReadToEnd()
+        $proc.WaitForExit()
+        if($proc.ExitCode -ne 0) {
+            Write-Host "`n`nstdout:`n$stdout`n`nstderr:`n$stderr`n`n"
+        }
+        if(($proc.ExitCode -eq 0) -or ($attempt -ge $attempts) -or ("$stdout$stderr" -notmatch $RateLimitPattern)) {
+            return $proc.ExitCode, $stdout, $stderr
+        }
+        Write-Host "Rate limited, retrying in ${delay}s (attempt $attempt/$attempts)"
+        Start-Sleep -Seconds $delay
     }
-    return $proc.ExitCode, $stdout, $stderr
 }
 
 function Build-Docker() {
