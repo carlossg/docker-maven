@@ -51,6 +51,9 @@ See Docker Hub or GitHub Container Registry for an updated list of tags
 * [amazoncorretto-25](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25/)
 * [amazoncorretto-25-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-alpine/Dockerfile)
 * [amazoncorretto-25-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-25-debian/Dockerfile)
+* [amazoncorretto-27](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-27/)
+* [amazoncorretto-27-alpine](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-27-alpine/Dockerfile)
+* [amazoncorretto-27-debian](https://github.com/carlossg/docker-maven/blob/main/amazoncorretto-27-debian/Dockerfile)
 * [sapmachine-17](https://github.com/carlossg/docker-maven/blob/main/sapmachine-17/)
 * [sapmachine-21](https://github.com/carlossg/docker-maven/blob/main/sapmachine-21/)
 * [sapmachine-24](https://github.com/carlossg/docker-maven/blob/main/sapmachine-24/)
@@ -237,6 +240,9 @@ Some come from the parent images and some are installed in this image for backwa
 | amazoncorretto-25           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
 | amazoncorretto-25-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | amazoncorretto-25-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-27           |     | ✔︎    |     | ✔︎    |       | ✔︎    |        | ✔︎   | ✔︎   |
+| amazoncorretto-27-alpine    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
+| amazoncorretto-27-debian    |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
 | azulzulu-8                  |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-8-alpine           |     | ✔︎    | ✔︎   | ✔︎    | ✔︎     | ✔︎    | ✔︎      |     | ✔︎   |
 | azulzulu-8-debian           |     |      | ✔︎   | ✔︎    | ✔︎     | ✔︎    |        |     | ✔︎   |
