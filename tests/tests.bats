@@ -44,7 +44,7 @@ function build_maven_upstream {
 		arg=--pull
 	fi
 	echo "Using base image: $base_tag (from $base)"
-	docker build $arg -t "$base_tag" "$BATS_TEST_DIRNAME/../$base"
+	retry_on_rate_limit docker build $arg -t "$base_tag" "$BATS_TEST_DIRNAME/../$base"
 }
 
 base_image=$(maven_upstream_dir "$SUT_TAG")
@@ -58,7 +58,7 @@ base_image=$(maven_upstream_dir "$SUT_TAG")
 	if [ -z "$base_image" ]; then
 		arg=--pull
 	fi
-	docker build ${arg:-} -t $SUT_IMAGE:$SUT_TAG .
+	retry_on_rate_limit docker build ${arg:-} -t $SUT_IMAGE:$SUT_TAG .
 }
 
 @test "$SUT_TAG build test image" {
@@ -70,7 +70,7 @@ base_image=$(maven_upstream_dir "$SUT_TAG")
 	cd $BATS_TEST_DIRNAME
 	local dockerfile="Dockerfile_${SUT_IMAGE}_${SUT_TAG}.tmp"
 	sed -e "s/FROM TO_BE_REPLACED/FROM $SUT_IMAGE:$SUT_TAG/" Dockerfile >"${dockerfile}"
-	docker build -t $SUT_TEST_IMAGE:$SUT_TAG -f "${dockerfile}" .
+	retry_on_rate_limit docker build -t $SUT_TEST_IMAGE:$SUT_TAG -f "${dockerfile}" .
 	rm -f "${dockerfile}"
 }
 
@@ -111,7 +111,7 @@ base_image=$(maven_upstream_dir "$SUT_TAG")
 	if [ "$SUT_TAG" == "eclipse-temurin-8-alpine" ]; then
 		return
 	fi
-	run docker run --rm $SUT_TEST_IMAGE:$SUT_TAG mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -f /tmp install
+	run retry_on_rate_limit docker run --rm $SUT_TEST_IMAGE:$SUT_TAG mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -f /tmp install
 	assert_success
 }
 
@@ -119,7 +119,7 @@ base_image=$(maven_upstream_dir "$SUT_TAG")
 	if [ "$SUT_TAG" == "eclipse-temurin-8-alpine" ]; then
 		return
 	fi
-	run bash -c "docker run --rm $SUT_TEST_IMAGE:$SUT_TAG mvn -B archetype:generate -DgroupId=bats-testing -DartifactId=bats-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
+	run retry_on_rate_limit bash -c "docker run --rm $SUT_TEST_IMAGE:$SUT_TAG mvn -B archetype:generate -DgroupId=bats-testing -DartifactId=bats-test-project -DarchetypeArtifactId=maven-archetype-quickstart"
 	assert_success
 }
 
