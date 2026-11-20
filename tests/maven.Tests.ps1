@@ -47,6 +47,12 @@ Describe "$SUT_TAG create test container" {
     $exitCode | Should -Be 0
     $stdout | Should -Match "Apache Maven $version"
   }
+  It 'runs as non admin user' {
+    $version = $(Get-Content -Path "$PSScriptRoot/../$SUT_TAG/Dockerfile" | Select-String -Pattern 'ARG MAVEN_VERSION.*' | ForEach-Object { $_ -replace 'ARG MAVEN_VERSION=','' })
+    $exitCode, $stdout, $stderr = Run-Program -Cmd "docker.exe" -Params "run --rm ${SUT_IMAGE}:${SUT_TAG} echo `$env:USERNAME"
+    $exitCode | Should -Be 0
+    $stdout | Should -Match "ContainerUser"
+  }
 }
 
 Describe "$SUT_TAG settings.xml is setup" {
