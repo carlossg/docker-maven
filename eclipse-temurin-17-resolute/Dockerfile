@@ -1,4 +1,4 @@
-FROM maven:3.10.1-eclipse-temurin-17-noble AS maven_upstream
+FROM maven:3.10.2-eclipse-temurin-17-noble AS maven_upstream
 
 # DEFAULT_FOR_VERSION (remove the -resolute suffix)
 FROM eclipse-temurin:17-jdk-resolute

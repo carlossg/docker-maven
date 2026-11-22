@@ -1,4 +1,4 @@
-FROM maven:3.10.1-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.10.2-eclipse-temurin-17 AS maven_upstream
 
 FROM container-registry.oracle.com/graalvm/native-image:17
 

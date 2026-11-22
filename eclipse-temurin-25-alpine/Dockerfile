@@ -1,4 +1,4 @@
-FROM maven:3.10.1-eclipse-temurin-17 AS maven_upstream
+FROM maven:3.10.2-eclipse-temurin-17 AS maven_upstream
 
 FROM eclipse-temurin:25-jdk-alpine
 
