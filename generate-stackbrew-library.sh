@@ -28,7 +28,7 @@ generate-version() {
 	local version=$1
 	local branch=$2
 	local versionAliases=("${@:3}")
-	local commit
+	local commit arches_output
 
 	commit="$(git log -1 --format='format:%H' "$branch" -- "$version")"
 	if [ -z "$commit" ]; then
@@ -38,7 +38,12 @@ generate-version() {
 
 	from="$(grep FROM "$version/Dockerfile" | tail -n 1 | awk 'toupper($1) == "FROM" { print $2 }')"
 	arches=()
-	IFS=" " read -r -a arches <<<"$(bashbrew cat --format '{{- join " " .TagEntry.Architectures -}}' "$from")"
+	arches_output="$(bashbrew cat --format '{{- join " " .TagEntry.Architectures -}}' "$from")"
+	if [ -z "$arches_output" ]; then
+		echo >&2 "No architectures found for $from"
+		return 1
+	fi
+	IFS=" " read -r -a arches <<<"$arches_output"
 	constraints="$(bashbrew cat --format '{{ join ", " .TagEntry.Constraints -}}' "$from")"
 
 	filteredArches=()

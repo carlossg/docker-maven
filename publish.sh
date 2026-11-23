@@ -5,7 +5,7 @@ set -o pipefail
 
 . common.sh
 
-OFFICIAL_IMAGES_DIR=../../docker/official-images
+OFFICIAL_IMAGES_DIR="${OFFICIAL_IMAGES_DIR:-../../docker/official-images}"
 
 # Images under this prefix build Maven from source in-repo; all other Linux dirs get Dockerfile-template.
 from_linux=eclipse-temurin-17-noble
@@ -52,6 +52,16 @@ new_sha=$(curl -sSfL https://apt.corretto.aws/corretto.key | sha256sum | awk '{p
 find . -maxdepth 2 -name Dockerfile -exec \
 	sed -i "s/echo '[0-9a-f]* \*corretto.key' | sha256sum/echo '${new_sha} \*corretto.key' | sha256sum/g" {} \+
 echo "Replaced corretto.key SHA in all files."
+
+if [[ "${PUBLISH_REQUIRE_CLEAN_SOURCE:-0}" == 1 ]]; then
+	source_status="$(git status --porcelain --untracked-files=normal)"
+	if [[ -n "$source_status" ]]; then
+		echo "Generated source changes must be committed before updating official-images:" >&2
+		git status --short >&2
+		git diff --stat HEAD >&2
+		exit 1
+	fi
+fi
 
 echo "Generating stackbrew"
 ./generate-stackbrew-library.sh >"${OFFICIAL_IMAGES_DIR}/library/maven"
