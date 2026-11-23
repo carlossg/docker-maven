@@ -401,6 +401,7 @@ For that we use `publish.sh` that runs `generate-stackbrew-library.sh`
 - [docker-library/official-images](https://github.com/docker-library/official-images) repository forked and cloned locally on path `../../docker/official-images`
 - [bashbrew cli](https://github.com/docker-library/bashbrew) available on path
 - [sponge cli](https://formulae.brew.sh/formula/sponge) available on path
+- [jq](https://jqlang.org/) available on path
 - [coreutils](https://formulae.brew.sh/formula/coreutils) and [gnu-sed](https://formulae.brew.sh/formula/gnu-sed) available on path (required for macOS)
 
 ### Usage
@@ -409,6 +410,34 @@ For that we use `publish.sh` that runs `generate-stackbrew-library.sh`
 export BASHBREW_LIBRARY=$(pwd)/../../docker/official-images/library
 ./publish.sh
 ```
+
+The `Update official-images` workflow runs daily or manually. It currently runs
+in dry-run mode: it validates the generated metadata and uploads the proposed
+diff as the `official-images-report` artifact without pushing or opening a PR.
+To reproduce the workflow locally, use clean Maven `main` and up-to-date
+official-images `master` checkouts, with the Maven Git history available, and
+run:
+
+```sh
+./update-official-images.sh /path/to/official-images
+```
+
+The script requires the tools listed above, uses the official-images checkout's
+`library` directory for bashbrew, and prints the path to its diff report. It
+modifies that checkout's `library/maven` but does not push or create a PR. An
+unsuccessful run saves the diff and restores the original metadata. An optional
+second argument selects the report directory. For the same bashbrew
+version as CI, install `github.com/docker-library/bashbrew/cmd/bashbrew@v0.1.14`.
+
+If `publish.sh` generates changes in this repository, commit those changes first
+and rerun the workflow; the official-images metadata must refer to committed
+Dockerfiles.
+
+To enable PR creation later, set `DRY_RUN` to `false` in the workflow. The
+`WORKFLOW_PAT` secret must be a classic PAT with access to push to
+`carlossg/official-images` and create PRs against
+`docker-library/official-images`. The workflow updates the `update-maven`
+branch and its existing PR rather than creating duplicate PRs.
 # License
 
 View [license information](https://www.apache.org/licenses/) for the software contained in this image.
